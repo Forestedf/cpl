@@ -9,9 +9,6 @@ data:
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
   - icon: ':warning:'
-    path: number_theory/oldntt.hpp
-    title: number_theory/oldntt.hpp
-  - icon: ':warning:'
     path: template/debug.hpp
     title: template/debug.hpp
   _extendedVerifiedWith:
@@ -170,7 +167,6 @@ data:
   path: number_theory/mod_int.hpp
   requiredBy:
   - number_theory/number_theoretic_transform.hpp
-  - number_theory/oldntt.hpp
   - template/debug.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC

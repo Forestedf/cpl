@@ -108,9 +108,6 @@ data:
       path: number_theory/number_theoretic_transform.hpp
       title: number_theory/number_theoretic_transform.hpp
     - icon: ':warning:'
-      path: number_theory/oldntt.hpp
-      title: number_theory/oldntt.hpp
-    - icon: ':warning:'
       path: number_theory/quotient_ranges.hpp
       title: number_theory/quotient_ranges.hpp
     - icon: ':heavy_check_mark:'
