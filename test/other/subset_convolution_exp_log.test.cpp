@@ -1,5 +1,7 @@
 #define PROBLEM "https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A"
 
+#define FAST_IO
+
 #include "../../template/template.hpp"
 #include "../../convolution/subset_convolution_exp.hpp"
 #include "../../convolution/subset_convolution_log.hpp"
