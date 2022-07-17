@@ -80,11 +80,12 @@ ostream &operator<<(ostream &os, u128 x) {
 
 [[maybe_unused]] constexpr i32 INF = 1000000100;
 [[maybe_unused]] constexpr i64 INF64 = 3000000000000000100;
-
-__attribute__((constructor)) void fast_io() {
+struct SetUpIO {
+    SetUpIO() {
 #ifdef FAST_IO
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+        ios::sync_with_stdio(false);
+        cin.tie(nullptr);
 #endif
-    cout << fixed << setprecision(15);
-}
+        cout << fixed << setprecision(15);
+    }
+} set_up_io;
