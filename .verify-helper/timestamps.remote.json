@@ -16,5 +16,6 @@
 "test/library_checker/subset_convolution.test.cpp": "2022-07-17 14:27:07 +0900",
 "test/library_checker/two_sat.test.cpp": "2022-07-17 15:29:34 +0900",
 "test/library_checker/unionfind.test.cpp": "2022-07-17 14:27:07 +0900",
-"test/library_checker/zalgorithm.test.cpp": "2022-07-17 14:27:07 +0900"
+"test/library_checker/zalgorithm.test.cpp": "2022-07-17 14:27:07 +0900",
+"test/other/subset_convolution_exp_log.test.cpp": "2022-07-17 15:53:10 +0900"
 }
