@@ -66,6 +66,12 @@ jobs:
     #  with:
     #    crate: cargo-udeps
     #    use-tool-cache: true
+    
+    - name: Clone AC Library
+      run: cd ${GITHUB_WORKSPACE}/../ && git clone https://github.com/atcoder/ac-library.git
+
+    - name: Add AC Library to CPLUS_INCLUDE_PATH
+      run: echo "CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:${GITHUB_WORKSPACE}/../ac-library" >> $GITHUB_ENV
 
     - name: Run tests
       env:
