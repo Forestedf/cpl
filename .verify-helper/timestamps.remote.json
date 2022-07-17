@@ -11,5 +11,11 @@
 "test/library_checker/matrix_det.test.cpp": "2022-07-17 16:00:30 +0900",
 "test/library_checker/matrix_product.test.cpp": "2022-07-17 16:00:30 +0900",
 "test/library_checker/polynomial_taylor_shift.test.cpp": "2022-07-17 16:00:30 +0900",
-"test/library_checker/pow_of_formal_power_series.test.cpp": "2022-07-17 16:00:30 +0900"
+"test/library_checker/pow_of_formal_power_series.test.cpp": "2022-07-17 16:00:30 +0900",
+"test/library_checker/pow_of_formal_power_series_acl.test.cpp": "2022-07-17 16:00:30 +0900",
+"test/library_checker/subset_convolution.test.cpp": "2022-07-17 16:00:30 +0900",
+"test/library_checker/two_sat.test.cpp": "2022-07-17 16:00:30 +0900",
+"test/library_checker/unionfind.test.cpp": "2022-07-17 16:00:30 +0900",
+"test/library_checker/zalgorithm.test.cpp": "2022-07-17 16:00:30 +0900",
+"test/other/subset_convolution_exp_log.test.cpp": "2022-07-17 16:00:30 +0900"
 }
