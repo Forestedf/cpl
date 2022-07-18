@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: algebra/matrix.hpp
     title: algebra/matrix.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -83,17 +83,20 @@ data:
     class ModInt {\n    static_assert(mod != 0, \"`mod` must not be equal to 0.\"\
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
     \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
-    \ ModInt() : val(0) {}\n    template <typename T>\n    constexpr ModInt(T x) :\
-    \ val(static_cast<unsigned>(safe_mod(x, static_cast<T>(mod)))) {}\n\n    static\
-    \ constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n        ret.val\
-    \ = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val() const {\n\
-    \        return val;\n    }\n\n    constexpr ModInt operator+() const {\n    \
-    \    return *this;\n    }\n    constexpr ModInt operator-() const {\n        return\
-    \ ModInt<mod>(0u) - *this;\n    }\n\n    constexpr ModInt &operator+=(const ModInt\
-    \ &rhs) {\n        val += rhs.val;\n        if (val >= mod)\n            val -=\
-    \ mod;\n        return *this;\n    }\n    constexpr ModInt &operator-=(const ModInt\
-    \ &rhs) {\n        if (val < rhs.val)\n            val += mod;\n        val -=\
-    \ rhs.val;\n        return *this;\n    }\n    constexpr ModInt &operator*=(const\
+    \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) {\n        long long t = (long long)\
+    \ x % (long long) mod;\n        if (t < 0) {\n            t += mod;\n        }\n\
+    \        val = (unsigned) t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
+    \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
+    \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
+    \ const {\n        return val;\n    }\n\n    constexpr ModInt operator+() const\
+    \ {\n        return *this;\n    }\n    constexpr ModInt operator-() const {\n\
+    \        return ModInt<mod>(0u) - *this;\n    }\n\n    constexpr ModInt &operator+=(const\
+    \ ModInt &rhs) {\n        val += rhs.val;\n        if (val >= mod)\n         \
+    \   val -= mod;\n        return *this;\n    }\n    constexpr ModInt &operator-=(const\
+    \ ModInt &rhs) {\n        if (val < rhs.val)\n            val += mod;\n      \
+    \  val -= rhs.val;\n        return *this;\n    }\n    constexpr ModInt &operator*=(const\
     \ ModInt &rhs) {\n        val = (unsigned long long)val * rhs.val % mod;\n   \
     \     return *this;\n    }\n    constexpr ModInt &operator/=(const ModInt &rhs)\
     \ {\n        val = (unsigned long long)val * rhs.inv().val % mod;\n        return\
@@ -198,7 +201,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-07-17 16:00:30+09:00'
+  timestamp: '2022-07-18 20:39:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/matrix_product.test.cpp

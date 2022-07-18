@@ -95,22 +95,22 @@ data:
       title: graph/two_sat.hpp
   - name: number_theory
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: number_theory/factorial_table.hpp
       title: number_theory/factorial_table.hpp
     - icon: ':warning:'
       path: number_theory/linear_sieve.hpp
       title: number_theory/linear_sieve.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: number_theory/mod_int.hpp
       title: number_theory/mod_int.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: number_theory/number_theoretic_transform.hpp
       title: number_theory/number_theoretic_transform.hpp
     - icon: ':warning:'
       path: number_theory/quotient_ranges.hpp
       title: number_theory/quotient_ranges.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: number_theory/utils.hpp
       title: number_theory/utils.hpp
   - name: other
@@ -135,25 +135,25 @@ data:
       title: other/xorshift.hpp
   - name: polynomial
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: polynomial/fps_div_at.hpp
       title: polynomial/fps_div_at.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: polynomial/fps_exp.hpp
       title: polynomial/fps_exp.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: polynomial/fps_inv.hpp
       title: polynomial/fps_inv.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: polynomial/fps_log.hpp
       title: polynomial/fps_log.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: polynomial/fps_pow.hpp
       title: polynomial/fps_pow.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: polynomial/polynomial.hpp
       title: polynomial/polynomial.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: polynomial/taylor_shift.hpp
       title: polynomial/taylor_shift.hpp
     - icon: ':heavy_check_mark:'
@@ -175,13 +175,13 @@ data:
       title: string/z_algorithm.hpp
   - name: template
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: template/bitop.hpp
       title: template/bitop.hpp
     - icon: ':warning:'
       path: template/debug.hpp
       title: template/debug.hpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: template/template.hpp
       title: template/template.hpp
   verificationCategories:
@@ -190,25 +190,25 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/bitwise_and_convolution.test.cpp
       title: test/library_checker/bitwise_and_convolution.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/convolution_mod.test.cpp
       title: test/library_checker/convolution_mod.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/exp_of_formal_power_series.test.cpp
       title: test/library_checker/exp_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/exp_of_formal_power_series_acl.test.cpp
       title: test/library_checker/exp_of_formal_power_series_acl.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/inv_of_formal_power_series.test.cpp
       title: test/library_checker/inv_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/inv_of_formal_power_series_acl.test.cpp
       title: test/library_checker/inv_of_formal_power_series_acl.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/log_of_formal_power_series.test.cpp
       title: test/library_checker/log_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'
@@ -226,10 +226,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/point_set_range_composite.test.cpp
       title: test/library_checker/point_set_range_composite.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/polynomial_taylor_shift.test.cpp
       title: test/library_checker/polynomial_taylor_shift.test.cpp
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/library_checker/pow_of_formal_power_series.test.cpp
       title: test/library_checker/pow_of_formal_power_series.test.cpp
     - icon: ':heavy_check_mark:'

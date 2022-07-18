@@ -1,16 +1,16 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/fps_exp.hpp
     title: polynomial/fps_exp.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
   - icon: ':heavy_check_mark:'
     path: polynomial/with_acl.hpp
     title: polynomial/with_acl.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []

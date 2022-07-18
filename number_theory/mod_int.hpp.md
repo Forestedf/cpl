@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
   - icon: ':warning:'
@@ -15,19 +15,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/bitwise_and_convolution.test.cpp
     title: test/library_checker/bitwise_and_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/convolution_mod.test.cpp
     title: test/library_checker/convolution_mod.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/exp_of_formal_power_series.test.cpp
     title: test/library_checker/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/inv_of_formal_power_series.test.cpp
     title: test/library_checker/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/log_of_formal_power_series.test.cpp
     title: test/library_checker/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -39,10 +39,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/point_set_range_composite.test.cpp
     title: test/library_checker/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/pow_of_formal_power_series.test.cpp
     title: test/library_checker/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -60,9 +60,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/mod_int.hpp\"\n\n#include <cassert>\n#include\
@@ -98,17 +98,20 @@ data:
     class ModInt {\n    static_assert(mod != 0, \"`mod` must not be equal to 0.\"\
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
     \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
-    \ ModInt() : val(0) {}\n    template <typename T>\n    constexpr ModInt(T x) :\
-    \ val(static_cast<unsigned>(safe_mod(x, static_cast<T>(mod)))) {}\n\n    static\
-    \ constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n        ret.val\
-    \ = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val() const {\n\
-    \        return val;\n    }\n\n    constexpr ModInt operator+() const {\n    \
-    \    return *this;\n    }\n    constexpr ModInt operator-() const {\n        return\
-    \ ModInt<mod>(0u) - *this;\n    }\n\n    constexpr ModInt &operator+=(const ModInt\
-    \ &rhs) {\n        val += rhs.val;\n        if (val >= mod)\n            val -=\
-    \ mod;\n        return *this;\n    }\n    constexpr ModInt &operator-=(const ModInt\
-    \ &rhs) {\n        if (val < rhs.val)\n            val += mod;\n        val -=\
-    \ rhs.val;\n        return *this;\n    }\n    constexpr ModInt &operator*=(const\
+    \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) {\n        long long t = (long long)\
+    \ x % (long long) mod;\n        if (t < 0) {\n            t += mod;\n        }\n\
+    \        val = (unsigned) t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
+    \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
+    \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
+    \ const {\n        return val;\n    }\n\n    constexpr ModInt operator+() const\
+    \ {\n        return *this;\n    }\n    constexpr ModInt operator-() const {\n\
+    \        return ModInt<mod>(0u) - *this;\n    }\n\n    constexpr ModInt &operator+=(const\
+    \ ModInt &rhs) {\n        val += rhs.val;\n        if (val >= mod)\n         \
+    \   val -= mod;\n        return *this;\n    }\n    constexpr ModInt &operator-=(const\
+    \ ModInt &rhs) {\n        if (val < rhs.val)\n            val += mod;\n      \
+    \  val -= rhs.val;\n        return *this;\n    }\n    constexpr ModInt &operator*=(const\
     \ ModInt &rhs) {\n        val = (unsigned long long)val * rhs.val % mod;\n   \
     \     return *this;\n    }\n    constexpr ModInt &operator/=(const ModInt &rhs)\
     \ {\n        val = (unsigned long long)val * rhs.inv().val % mod;\n        return\
@@ -138,41 +141,44 @@ data:
     \ != 0, \"`mod` must not be equal to 0.\");\n    static_assert(\n        mod <\
     \ (1u << 31),\n        \"`mod` must be less than (1u << 31) = 2147483648.\");\n\
     \n    unsigned val;\n\npublic:\n    constexpr ModInt() : val(0) {}\n    template\
-    \ <typename T>\n    constexpr ModInt(T x) : val(static_cast<unsigned>(safe_mod(x,\
-    \ static_cast<T>(mod)))) {}\n\n    static constexpr ModInt raw(unsigned x) {\n\
-    \        ModInt<mod> ret;\n        ret.val = x;\n        return ret;\n    }\n\n\
-    \    constexpr unsigned get_val() const {\n        return val;\n    }\n\n    constexpr\
-    \ ModInt operator+() const {\n        return *this;\n    }\n    constexpr ModInt\
-    \ operator-() const {\n        return ModInt<mod>(0u) - *this;\n    }\n\n    constexpr\
-    \ ModInt &operator+=(const ModInt &rhs) {\n        val += rhs.val;\n        if\
-    \ (val >= mod)\n            val -= mod;\n        return *this;\n    }\n    constexpr\
-    \ ModInt &operator-=(const ModInt &rhs) {\n        if (val < rhs.val)\n      \
-    \      val += mod;\n        val -= rhs.val;\n        return *this;\n    }\n  \
-    \  constexpr ModInt &operator*=(const ModInt &rhs) {\n        val = (unsigned\
-    \ long long)val * rhs.val % mod;\n        return *this;\n    }\n    constexpr\
-    \ ModInt &operator/=(const ModInt &rhs) {\n        val = (unsigned long long)val\
-    \ * rhs.inv().val % mod;\n        return *this;\n    }\n\n    friend constexpr\
-    \ ModInt operator+(const ModInt &lhs, const ModInt &rhs) {\n        return ModInt<mod>(lhs)\
-    \ += rhs;\n    }\n    friend constexpr ModInt operator-(const ModInt &lhs, const\
-    \ ModInt &rhs) {\n        return ModInt<mod>(lhs) -= rhs;\n    }\n    friend constexpr\
-    \ ModInt operator*(const ModInt &lhs, const ModInt &rhs) {\n        return ModInt<mod>(lhs)\
-    \ *= rhs;\n    }\n    friend constexpr ModInt operator/(const ModInt &lhs, const\
-    \ ModInt &rhs) {\n        return ModInt<mod>(lhs) /= rhs;\n    }\n\n    constexpr\
-    \ ModInt pow(unsigned long long x) const {\n        ModInt<mod> ret = ModInt<mod>::raw(1);\n\
-    \        ModInt<mod> self = *this;\n        while (x != 0) {\n            if (x\
-    \ & 1)\n                ret *= self;\n            self *= self;\n            x\
-    \ >>= 1;\n        }\n        return ret;\n    }\n    constexpr ModInt inv() const\
-    \ {\n        static_assert(is_prime(mod), \"`mod` must be a prime number.\");\n\
-    \        assert(val != 0);\n        return this->pow(mod - 2);\n    }\n\n    friend\
-    \ std::istream &operator>>(std::istream &is, ModInt<mod> &x) {\n        is >>\
-    \ x.val;\n        x.val %= mod;\n        return is;\n    }\n\n    friend std::ostream\
-    \ &operator<<(std::ostream &os, const ModInt<mod> &x) {\n        os << x.val;\n\
-    \        return os;\n    }\n\n    friend bool operator==(const ModInt &lhs, const\
-    \ ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n    \n    friend\
-    \ bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n        return lhs.val\
-    \ != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned mod998244353 =\
-    \ 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007 = 1000000007;\n\
-    \n"
+    \ <typename T, std::enable_if_t<std::is_signed_v<T>> * = nullptr>\n    constexpr\
+    \ ModInt(T x) {\n        long long t = (long long) x % (long long) mod;\n    \
+    \    if (t < 0) {\n            t += mod;\n        }\n        val = (unsigned)\
+    \ t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
+    \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
+    \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
+    \ const {\n        return val;\n    }\n\n    constexpr ModInt operator+() const\
+    \ {\n        return *this;\n    }\n    constexpr ModInt operator-() const {\n\
+    \        return ModInt<mod>(0u) - *this;\n    }\n\n    constexpr ModInt &operator+=(const\
+    \ ModInt &rhs) {\n        val += rhs.val;\n        if (val >= mod)\n         \
+    \   val -= mod;\n        return *this;\n    }\n    constexpr ModInt &operator-=(const\
+    \ ModInt &rhs) {\n        if (val < rhs.val)\n            val += mod;\n      \
+    \  val -= rhs.val;\n        return *this;\n    }\n    constexpr ModInt &operator*=(const\
+    \ ModInt &rhs) {\n        val = (unsigned long long)val * rhs.val % mod;\n   \
+    \     return *this;\n    }\n    constexpr ModInt &operator/=(const ModInt &rhs)\
+    \ {\n        val = (unsigned long long)val * rhs.inv().val % mod;\n        return\
+    \ *this;\n    }\n\n    friend constexpr ModInt operator+(const ModInt &lhs, const\
+    \ ModInt &rhs) {\n        return ModInt<mod>(lhs) += rhs;\n    }\n    friend constexpr\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) {\n        return ModInt<mod>(lhs)\
+    \ -= rhs;\n    }\n    friend constexpr ModInt operator*(const ModInt &lhs, const\
+    \ ModInt &rhs) {\n        return ModInt<mod>(lhs) *= rhs;\n    }\n    friend constexpr\
+    \ ModInt operator/(const ModInt &lhs, const ModInt &rhs) {\n        return ModInt<mod>(lhs)\
+    \ /= rhs;\n    }\n\n    constexpr ModInt pow(unsigned long long x) const {\n \
+    \       ModInt<mod> ret = ModInt<mod>::raw(1);\n        ModInt<mod> self = *this;\n\
+    \        while (x != 0) {\n            if (x & 1)\n                ret *= self;\n\
+    \            self *= self;\n            x >>= 1;\n        }\n        return ret;\n\
+    \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
+    \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
+    \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
+    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
+    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
+    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
+    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
+    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
+    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
+    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
+    \ mod1000000007 = 1000000007;\n\n"
   dependsOn:
   - number_theory/utils.hpp
   isVerificationFile: false
@@ -180,8 +186,8 @@ data:
   requiredBy:
   - number_theory/number_theoretic_transform.hpp
   - template/debug.hpp
-  timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-18 20:39:01+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/yukicoder/1891.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
