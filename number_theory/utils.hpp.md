@@ -37,17 +37,29 @@ data:
     path: test/library_checker/matrix_product.test.cpp
     title: test/library_checker/matrix_product.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/point_set_range_composite.test.cpp
+    title: test/library_checker/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series.test.cpp
     title: test/library_checker/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/queue_operate_all_composite.test.cpp
+    title: test/library_checker/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/range_affine_range_sum.test.cpp
+    title: test/library_checker/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/subset_convolution.test.cpp
     title: test/library_checker/subset_convolution.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/yukicoder/1891.test.cpp
+    title: test/yukicoder/1891.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -119,12 +131,16 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/yukicoder/1891.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
+  - test/library_checker/queue_operate_all_composite.test.cpp
   - test/library_checker/matrix_product.test.cpp
+  - test/library_checker/point_set_range_composite.test.cpp
   - test/library_checker/log_of_formal_power_series.test.cpp
   - test/library_checker/matrix_det.test.cpp
   - test/library_checker/subset_convolution.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp
+  - test/library_checker/range_affine_range_sum.test.cpp
   - test/library_checker/exp_of_formal_power_series.test.cpp
   - test/library_checker/convolution_mod.test.cpp
   - test/library_checker/pow_of_formal_power_series.test.cpp

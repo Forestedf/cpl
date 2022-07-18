@@ -28,34 +28,34 @@ data:
       title: convolution/subset_convolution_log.hpp
   - name: data_structure
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
     - icon: ':warning:'
       path: data_structure/integer_convex_hull_trick.hpp
       title: data_structure/integer_convex_hull_trick.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/lazy_segment_tree.hpp
       title: data_structure/lazy_segment_tree.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/operations.hpp
       title: data_structure/operations.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segment_tree.hpp
       title: data_structure/segment_tree.hpp
     - icon: ':warning:'
       path: data_structure/segment_tree_beats.hpp
       title: data_structure/segment_tree_beats.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/segment_tree_xor_range.hpp
       title: data_structure/segment_tree_xor_range.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/sliding_window_aggregation.hpp
       title: data_structure/sliding_window_aggregation.hpp
     - icon: ':warning:'
       path: data_structure/slope_trick.hpp
       title: data_structure/slope_trick.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/sparse_table.hpp
       title: data_structure/sparse_table.hpp
     - icon: ':warning:'
@@ -221,6 +221,12 @@ data:
       path: test/library_checker/matrix_product.test.cpp
       title: test/library_checker/matrix_product.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/point_add_range_sum.test.cpp
+      title: test/library_checker/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/point_set_range_composite.test.cpp
+      title: test/library_checker/point_set_range_composite.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/polynomial_taylor_shift.test.cpp
       title: test/library_checker/polynomial_taylor_shift.test.cpp
     - icon: ':heavy_check_mark:'
@@ -229,6 +235,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/pow_of_formal_power_series_acl.test.cpp
       title: test/library_checker/pow_of_formal_power_series_acl.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/queue_operate_all_composite.test.cpp
+      title: test/library_checker/queue_operate_all_composite.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/range_affine_range_sum.test.cpp
+      title: test/library_checker/range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/staticrmq.test.cpp
+      title: test/library_checker/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/subset_convolution.test.cpp
       title: test/library_checker/subset_convolution.test.cpp
@@ -246,5 +261,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/other/subset_convolution_exp_log.test.cpp
       title: test/other/subset_convolution_exp_log.test.cpp
+  - name: test/yukicoder
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/yukicoder/1891.test.cpp
+      title: test/yukicoder/1891.test.cpp
 layout: toppage
 ---
