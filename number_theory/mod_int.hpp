@@ -17,8 +17,16 @@ class ModInt {
 
 public:
     constexpr ModInt() : val(0) {}
-    template <typename T>
-    constexpr ModInt(T x) : val(static_cast<unsigned>(safe_mod(x, static_cast<T>(mod)))) {}
+    template <typename T, std::enable_if_t<std::is_signed_v<T>> * = nullptr>
+    constexpr ModInt(T x) {
+        long long t = (long long) x % (long long) mod;
+        if (t < 0) {
+            t += mod;
+        }
+        val = (unsigned) t; 
+    }
+    template <typename T, std::enable_if_t<std::is_unsigned_v<T>> * = nullptr>
+    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}
 
     static constexpr ModInt raw(unsigned x) {
         ModInt<mod> ret;
