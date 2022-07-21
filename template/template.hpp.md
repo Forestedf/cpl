@@ -61,6 +61,9 @@ data:
     path: test/library_checker/range_affine_range_sum.test.cpp
     title: test/library_checker/range_affine_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/range_kth_smallest.test.cpp
+    title: test/library_checker/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/scc.test.cpp
     title: test/library_checker/scc.test.cpp
   - icon: ':heavy_check_mark:'
@@ -173,6 +176,7 @@ data:
   - test/library_checker/pow_of_formal_power_series_acl.test.cpp
   - test/library_checker/zalgorithm.test.cpp
   - test/library_checker/convolution_mod.test.cpp
+  - test/library_checker/range_kth_smallest.test.cpp
   - test/library_checker/log_of_formal_power_series_acl.test.cpp
   - test/library_checker/unionfind.test.cpp
   - test/library_checker/queue_operate_all_composite.test.cpp

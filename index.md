@@ -29,6 +29,9 @@ data:
   - name: data_structure
     pages:
     - icon: ':heavy_check_mark:'
+      path: data_structure/bit_vector.hpp
+      title: data_structure/bit_vector.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
     - icon: ':warning:'
@@ -64,6 +67,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/union_find.hpp
       title: data_structure/union_find.hpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/wavelet_matrix.hpp
+      title: data_structure/wavelet_matrix.hpp
   - name: graph
     pages:
     - icon: ':warning:'
@@ -118,7 +124,7 @@ data:
     - icon: ':warning:'
       path: other/convolution_many_times.hpp
       title: other/convolution_many_times.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: other/coordinate_compression.hpp
       title: other/coordinate_compression.hpp
     - icon: ':warning:'
@@ -244,6 +250,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/range_affine_range_sum.test.cpp
       title: test/library_checker/range_affine_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/range_kth_smallest.test.cpp
+      title: test/library_checker/range_kth_smallest.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/scc.test.cpp
       title: test/library_checker/scc.test.cpp
