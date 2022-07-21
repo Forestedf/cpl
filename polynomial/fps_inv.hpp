@@ -13,7 +13,7 @@ Polynomial<T, Mul> fps_inv(const Polynomial<T, Mul> &f, int sz = -1) {
     std::vector<T> g({T(1) / coeff[0]});
     while ((int) g.size() < sz) {
         std::vector<T> fg;
-        if (2 * g.size() <= (int) coeff.size()) {
+        if (2 * g.size() <= coeff.size()) {
             fg = std::vector<T>(coeff.begin(), coeff.begin() + 2 * g.size());
         } else {
             fg = coeff;
@@ -23,18 +23,18 @@ Polynomial<T, Mul> fps_inv(const Polynomial<T, Mul> &f, int sz = -1) {
         std::vector<T> dft_g = g;
         dft_g.resize(2 * g.size(), T(0));
         Mul::dft(dft_g);
-        for (int i = 0; i < (int) 2 * g.size(); ++i) {
+        for (int i = 0; i < 2 * (int) g.size(); ++i) {
             fg[i] *= dft_g[i];
         }
         Mul::idft(fg);
         std::fill(fg.begin(), fg.begin() + g.size(), T(0));
         Mul::dft(fg);
-        for (int i = 0; i < (int) 2 * g.size(); ++i) {
+        for (int i = 0; i < 2 * (int) g.size(); ++i) {
             fg[i] *= dft_g[i];
         }
         Mul::idft(fg);
         g.resize(2 * g.size());
-        for (int i = (int) g.size() / 2; i < g.size(); ++i) {
+        for (int i = (int) g.size() / 2; i < (int) g.size(); ++i) {
             g[i] = -fg[i];
         }
     }

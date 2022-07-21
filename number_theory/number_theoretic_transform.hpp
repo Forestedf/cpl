@@ -96,11 +96,9 @@ public:
         if (a.empty() || b.empty())
             return std::vector<ModInt<mod>>();
         int siz = 1;
-        int ex = 0;
         int s = (int) (a.size() + b.size());
         while (siz < s) {
             siz <<= 1;
-            ++ex;
         }
         a.resize(siz, ModInt<mod>());
         b.resize(siz, ModInt<mod>());
