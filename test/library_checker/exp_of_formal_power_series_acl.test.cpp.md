@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/with_acl.hpp
     title: polynomial/with_acl.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -98,11 +98,11 @@ data:
     \ && coeff[0] == T(0));\n    if (sz == -1) {\n        sz = (int) coeff.size();\n\
     \    }\n    assert(sz >= 0);\n    std::vector<T> f({T(1)});\n    std::vector<T>\
     \ g({T(1)});\n    std::vector<T> dft_f_({T(1), T(1)});\n    \n    while (f.size()\
-    \ < sz) {\n        int n = f.size();\n        \n        // F_{2n}(g_0)\n     \
-    \   std::vector<T> dft_g_2 = g;\n        dft_g_2.resize(2 * n, T(0));\n      \
-    \  Mul::dft(dft_g_2);\n        \n        // \\delta\n        std::vector<T> delta(n,\
-    \ T(0));\n        for (int i = 0; i < n; ++i) {\n            delta[i] = dft_f_[i]\
-    \ * dft_g_2[i];\n        }\n        Mul::idft(delta);\n        delta.resize(2\
+    \ < sz) {\n        int n = (int) f.size();\n        \n        // F_{2n}(g_0)\n\
+    \        std::vector<T> dft_g_2 = g;\n        dft_g_2.resize(2 * n, T(0));\n \
+    \       Mul::dft(dft_g_2);\n        \n        // \\delta\n        std::vector<T>\
+    \ delta(n, T(0));\n        for (int i = 0; i < n; ++i) {\n            delta[i]\
+    \ = dft_f_[i] * dft_g_2[i];\n        }\n        Mul::idft(delta);\n        delta.resize(2\
     \ * n);\n        for (int i = 0; i < n; ++i) {\n            std::swap(delta[i],\
     \ delta[n + i]);\n        }\n        delta[n] -= T(1);\n        \n        // F_n(D(f_0))\n\
     \        std::vector<T> dft_d_f(n, T(0));\n        for (int i = 0; i < n - 1;\
@@ -128,23 +128,24 @@ data:
     \        }\n        Mul::idft(eps_f);\n        std::fill(eps_f.begin(), eps_f.begin()\
     \ + n - 1, T(0));\n        \n        // update f\n        f.resize(2 * n, T(0));\n\
     \        for (int i = 0; i < 2 * n; ++i) {\n            f[i] -= eps_f[i];\n  \
-    \      }\n        \n        if (f.size() >= sz) {\n            break;\n      \
-    \  }\n        \n        // update F_{2n}(f)\n        dft_f_ = f;\n        dft_f_.resize(4\
-    \ * n);\n        Mul::dft(dft_f_);\n        \n        // update g\n        std::vector<T>\
-    \ fg(dft_f_.begin(), dft_f_.begin() + 2 * n);\n        for (int i = 0; i < 2 *\
-    \ n; ++i) {\n            fg[i] *= dft_g_2[i];\n        }\n        Mul::idft(fg);\n\
-    \        std::fill(fg.begin(), fg.begin() + n, T(0));\n        Mul::dft(fg);\n\
-    \        for (int i = 0; i < 2 * n; ++i) {\n            fg[i] *= dft_g_2[i];\n\
-    \        }\n        Mul::idft(fg);\n        g.resize(2 * n);\n        for (int\
-    \ i = n; i < 2 * n; ++i) {\n            g[i] = -fg[i];\n        }\n    }\n   \
-    \ \n    f.resize(sz);\n    return Polynomial<T, Mul>(f);\n}\n#line 8 \"test/library_checker/exp_of_formal_power_series_acl.test.cpp\"\
-    \n\nusing Mint = atcoder::modint998244353;\n\nistream &operator>>(istream &is,\
-    \ Mint &x) {\n    i32 val;\n    is >> val;\n    x = Mint(val);\n    return is;\n\
-    }\nostream &operator<<(ostream &os, Mint x) {\n    os << x.val();\n    return\
-    \ os;\n}\n\nint main() {\n    using FPS = Polynomial<Mint, ACLNTT<998244353>>;\n\
-    \    \n    i32 n;\n    cin >> n;\n    FPS f(n);\n    REP(i, n) {\n        cin\
-    \ >> f[i];\n    }\n    FPS g = fps_exp(f);\n    REP(i, n) {\n        cout << g[i]\
-    \ << \" \\n\"[i + 1 == n];\n    }\n}\n"
+    \      }\n        \n        if ((int) f.size() >= sz) {\n            break;\n\
+    \        }\n        \n        // update F_{2n}(f)\n        dft_f_ = f;\n     \
+    \   dft_f_.resize(4 * n);\n        Mul::dft(dft_f_);\n        \n        // update\
+    \ g\n        std::vector<T> fg(dft_f_.begin(), dft_f_.begin() + 2 * n);\n    \
+    \    for (int i = 0; i < 2 * n; ++i) {\n            fg[i] *= dft_g_2[i];\n   \
+    \     }\n        Mul::idft(fg);\n        std::fill(fg.begin(), fg.begin() + n,\
+    \ T(0));\n        Mul::dft(fg);\n        for (int i = 0; i < 2 * n; ++i) {\n \
+    \           fg[i] *= dft_g_2[i];\n        }\n        Mul::idft(fg);\n        g.resize(2\
+    \ * n);\n        for (int i = n; i < 2 * n; ++i) {\n            g[i] = -fg[i];\n\
+    \        }\n    }\n    \n    f.resize(sz);\n    return Polynomial<T, Mul>(f);\n\
+    }\n#line 8 \"test/library_checker/exp_of_formal_power_series_acl.test.cpp\"\n\n\
+    using Mint = atcoder::modint998244353;\n\nistream &operator>>(istream &is, Mint\
+    \ &x) {\n    i32 val;\n    is >> val;\n    x = Mint(val);\n    return is;\n}\n\
+    ostream &operator<<(ostream &os, Mint x) {\n    os << x.val();\n    return os;\n\
+    }\n\nint main() {\n    using FPS = Polynomial<Mint, ACLNTT<998244353>>;\n    \n\
+    \    i32 n;\n    cin >> n;\n    FPS f(n);\n    REP(i, n) {\n        cin >> f[i];\n\
+    \    }\n    FPS g = fps_exp(f);\n    REP(i, n) {\n        cout << g[i] << \" \\\
+    n\"[i + 1 == n];\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/exp_of_formal_power_series\"\
     \n\n#define FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../polynomial/with_acl.hpp\"\
     \n#include \"../../polynomial/fps_exp.hpp\"\n\nusing Mint = atcoder::modint998244353;\n\
@@ -162,7 +163,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/exp_of_formal_power_series_acl.test.cpp
   requiredBy: []
-  timestamp: '2022-07-17 16:00:30+09:00'
+  timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/exp_of_formal_power_series_acl.test.cpp

@@ -77,34 +77,34 @@ data:
     \ && coeff[0] != T(0));\n    if (sz == -1) {\n        sz = (int) coeff.size();\n\
     \    }\n    assert(sz >= 0);\n    std::vector<T> g({T(1) / coeff[0]});\n    while\
     \ ((int) g.size() < sz) {\n        std::vector<T> fg;\n        if (2 * g.size()\
-    \ <= (int) coeff.size()) {\n            fg = std::vector<T>(coeff.begin(), coeff.begin()\
+    \ <= coeff.size()) {\n            fg = std::vector<T>(coeff.begin(), coeff.begin()\
     \ + 2 * g.size());\n        } else {\n            fg = coeff;\n            fg.resize(2\
     \ * g.size());\n        }\n        Mul::dft(fg);\n        std::vector<T> dft_g\
     \ = g;\n        dft_g.resize(2 * g.size(), T(0));\n        Mul::dft(dft_g);\n\
-    \        for (int i = 0; i < (int) 2 * g.size(); ++i) {\n            fg[i] *=\
+    \        for (int i = 0; i < 2 * (int) g.size(); ++i) {\n            fg[i] *=\
     \ dft_g[i];\n        }\n        Mul::idft(fg);\n        std::fill(fg.begin(),\
     \ fg.begin() + g.size(), T(0));\n        Mul::dft(fg);\n        for (int i = 0;\
-    \ i < (int) 2 * g.size(); ++i) {\n            fg[i] *= dft_g[i];\n        }\n\
+    \ i < 2 * (int) g.size(); ++i) {\n            fg[i] *= dft_g[i];\n        }\n\
     \        Mul::idft(fg);\n        g.resize(2 * g.size());\n        for (int i =\
-    \ (int) g.size() / 2; i < g.size(); ++i) {\n            g[i] = -fg[i];\n     \
-    \   }\n    }\n    g.resize(sz);\n    return Polynomial<T, Mul>(g);\n}\n"
+    \ (int) g.size() / 2; i < (int) g.size(); ++i) {\n            g[i] = -fg[i];\n\
+    \        }\n    }\n    g.resize(sz);\n    return Polynomial<T, Mul>(g);\n}\n"
   code: "#pragma once\n\n#include \"polynomial.hpp\"\n\ntemplate <typename T, typename\
     \ Mul>\nPolynomial<T, Mul> fps_inv(const Polynomial<T, Mul> &f, int sz = -1) {\n\
     \    const std::vector<T> &coeff = f.vec();\n    assert(!coeff.empty() && coeff[0]\
     \ != T(0));\n    if (sz == -1) {\n        sz = (int) coeff.size();\n    }\n  \
     \  assert(sz >= 0);\n    std::vector<T> g({T(1) / coeff[0]});\n    while ((int)\
-    \ g.size() < sz) {\n        std::vector<T> fg;\n        if (2 * g.size() <= (int)\
-    \ coeff.size()) {\n            fg = std::vector<T>(coeff.begin(), coeff.begin()\
-    \ + 2 * g.size());\n        } else {\n            fg = coeff;\n            fg.resize(2\
-    \ * g.size());\n        }\n        Mul::dft(fg);\n        std::vector<T> dft_g\
-    \ = g;\n        dft_g.resize(2 * g.size(), T(0));\n        Mul::dft(dft_g);\n\
-    \        for (int i = 0; i < (int) 2 * g.size(); ++i) {\n            fg[i] *=\
-    \ dft_g[i];\n        }\n        Mul::idft(fg);\n        std::fill(fg.begin(),\
-    \ fg.begin() + g.size(), T(0));\n        Mul::dft(fg);\n        for (int i = 0;\
-    \ i < (int) 2 * g.size(); ++i) {\n            fg[i] *= dft_g[i];\n        }\n\
-    \        Mul::idft(fg);\n        g.resize(2 * g.size());\n        for (int i =\
-    \ (int) g.size() / 2; i < g.size(); ++i) {\n            g[i] = -fg[i];\n     \
-    \   }\n    }\n    g.resize(sz);\n    return Polynomial<T, Mul>(g);\n}"
+    \ g.size() < sz) {\n        std::vector<T> fg;\n        if (2 * g.size() <= coeff.size())\
+    \ {\n            fg = std::vector<T>(coeff.begin(), coeff.begin() + 2 * g.size());\n\
+    \        } else {\n            fg = coeff;\n            fg.resize(2 * g.size());\n\
+    \        }\n        Mul::dft(fg);\n        std::vector<T> dft_g = g;\n       \
+    \ dft_g.resize(2 * g.size(), T(0));\n        Mul::dft(dft_g);\n        for (int\
+    \ i = 0; i < 2 * (int) g.size(); ++i) {\n            fg[i] *= dft_g[i];\n    \
+    \    }\n        Mul::idft(fg);\n        std::fill(fg.begin(), fg.begin() + g.size(),\
+    \ T(0));\n        Mul::dft(fg);\n        for (int i = 0; i < 2 * (int) g.size();\
+    \ ++i) {\n            fg[i] *= dft_g[i];\n        }\n        Mul::idft(fg);\n\
+    \        g.resize(2 * g.size());\n        for (int i = (int) g.size() / 2; i <\
+    \ (int) g.size(); ++i) {\n            g[i] = -fg[i];\n        }\n    }\n    g.resize(sz);\n\
+    \    return Polynomial<T, Mul>(g);\n}"
   dependsOn:
   - polynomial/polynomial.hpp
   isVerificationFile: false
@@ -112,7 +112,7 @@ data:
   requiredBy:
   - polynomial/fps_pow.hpp
   - polynomial/fps_log.hpp
-  timestamp: '2022-07-17 14:27:07+09:00'
+  timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/pow_of_formal_power_series.test.cpp

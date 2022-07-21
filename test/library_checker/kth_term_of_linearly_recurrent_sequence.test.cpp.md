@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
   - icon: ':heavy_check_mark:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   - icon: ':heavy_check_mark:'
@@ -19,7 +19,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -226,18 +226,18 @@ data:
     \ root[i];\n        }\n    }\n\n    std::vector<ModInt<mod>> multiply(\n     \
     \   std::vector<ModInt<mod>> a,\n        std::vector<ModInt<mod>> b) const {\n\
     \        if (a.empty() || b.empty())\n            return std::vector<ModInt<mod>>();\n\
-    \        int siz = 1;\n        int ex = 0;\n        int s = (int) (a.size() +\
-    \ b.size());\n        while (siz < s) {\n            siz <<= 1;\n            ++ex;\n\
-    \        }\n        a.resize(siz, ModInt<mod>());\n        b.resize(siz, ModInt<mod>());\n\
-    \        dft(a);\n        dft(b);\n        for (int i = 0; i < siz; ++i) {\n \
-    \           a[i] *= b[i];\n        }\n        idft(a);\n        a.resize(s - 1);\n\
-    \        return a;\n    }\n};\n\ntemplate <unsigned mod>\nclass NTTMul {\n   \
-    \ static constexpr NumberTheoreticTransform<mod> ntt = NumberTheoreticTransform<mod>();\n\
-    \npublic:\n    static void dft(std::vector<ModInt<mod>> &a) {\n        ntt.dft(a);\n\
-    \    }\n\n    static void idft(std::vector<ModInt<mod>> &a) {\n        ntt.idft(a);\n\
-    \    }\n\n    static std::vector<ModInt<mod>> mul(\n        std::vector<ModInt<mod>>\
-    \ lhs,\n        std::vector<ModInt<mod>> rhs) {\n        return ntt.multiply(std::move(lhs),\
-    \ std::move(rhs));\n    }\n};\n\n#line 8 \"test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
+    \        int siz = 1;\n        int s = (int) (a.size() + b.size());\n        while\
+    \ (siz < s) {\n            siz <<= 1;\n        }\n        a.resize(siz, ModInt<mod>());\n\
+    \        b.resize(siz, ModInt<mod>());\n        dft(a);\n        dft(b);\n   \
+    \     for (int i = 0; i < siz; ++i) {\n            a[i] *= b[i];\n        }\n\
+    \        idft(a);\n        a.resize(s - 1);\n        return a;\n    }\n};\n\n\
+    template <unsigned mod>\nclass NTTMul {\n    static constexpr NumberTheoreticTransform<mod>\
+    \ ntt = NumberTheoreticTransform<mod>();\n\npublic:\n    static void dft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.dft(a);\n    }\n\n    static void idft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.idft(a);\n    }\n\n    static std::vector<ModInt<mod>> mul(\n\
+    \        std::vector<ModInt<mod>> lhs,\n        std::vector<ModInt<mod>> rhs)\
+    \ {\n        return ntt.multiply(std::move(lhs), std::move(rhs));\n    }\n};\n\
+    \n#line 8 \"test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp\"\
     \n\nusing Mint = ModInt<mod998244353>;\nusing FPS = Polynomial<Mint, NTTMul<mod998244353>>;\n\
     \nint main() {\n    i32 d;\n    i64 k;\n    cin >> d >> k;\n    Vec<Mint> a(d);\n\
     \    REP(i, d) {\n        cin >> a[i];\n    }\n    Vec<Mint> c(d + 1);\n    REP(i,\
@@ -266,7 +266,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 10:43:16+09:00'
+  timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp

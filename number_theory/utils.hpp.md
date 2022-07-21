@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
   - icon: ':heavy_check_mark:'
@@ -54,15 +54,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/subset_convolution.test.cpp
     title: test/library_checker/subset_convolution.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/vertex_set_path_composite.test.cpp
+    title: test/library_checker/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/utils.hpp\"\n\nconstexpr bool is_prime(unsigned\
@@ -129,11 +132,12 @@ data:
   - number_theory/mod_int.hpp
   - template/debug.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/matrix_product.test.cpp
   - test/library_checker/pow_of_formal_power_series.test.cpp
+  - test/library_checker/vertex_set_path_composite.test.cpp
   - test/library_checker/subset_convolution.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp
   - test/library_checker/polynomial_taylor_shift.test.cpp

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   - icon: ':heavy_check_mark:'
@@ -155,18 +155,18 @@ data:
     \ root[i];\n        }\n    }\n\n    std::vector<ModInt<mod>> multiply(\n     \
     \   std::vector<ModInt<mod>> a,\n        std::vector<ModInt<mod>> b) const {\n\
     \        if (a.empty() || b.empty())\n            return std::vector<ModInt<mod>>();\n\
-    \        int siz = 1;\n        int ex = 0;\n        int s = (int) (a.size() +\
-    \ b.size());\n        while (siz < s) {\n            siz <<= 1;\n            ++ex;\n\
-    \        }\n        a.resize(siz, ModInt<mod>());\n        b.resize(siz, ModInt<mod>());\n\
-    \        dft(a);\n        dft(b);\n        for (int i = 0; i < siz; ++i) {\n \
-    \           a[i] *= b[i];\n        }\n        idft(a);\n        a.resize(s - 1);\n\
-    \        return a;\n    }\n};\n\ntemplate <unsigned mod>\nclass NTTMul {\n   \
-    \ static constexpr NumberTheoreticTransform<mod> ntt = NumberTheoreticTransform<mod>();\n\
-    \npublic:\n    static void dft(std::vector<ModInt<mod>> &a) {\n        ntt.dft(a);\n\
-    \    }\n\n    static void idft(std::vector<ModInt<mod>> &a) {\n        ntt.idft(a);\n\
-    \    }\n\n    static std::vector<ModInt<mod>> mul(\n        std::vector<ModInt<mod>>\
-    \ lhs,\n        std::vector<ModInt<mod>> rhs) {\n        return ntt.multiply(std::move(lhs),\
-    \ std::move(rhs));\n    }\n};\n\n"
+    \        int siz = 1;\n        int s = (int) (a.size() + b.size());\n        while\
+    \ (siz < s) {\n            siz <<= 1;\n        }\n        a.resize(siz, ModInt<mod>());\n\
+    \        b.resize(siz, ModInt<mod>());\n        dft(a);\n        dft(b);\n   \
+    \     for (int i = 0; i < siz; ++i) {\n            a[i] *= b[i];\n        }\n\
+    \        idft(a);\n        a.resize(s - 1);\n        return a;\n    }\n};\n\n\
+    template <unsigned mod>\nclass NTTMul {\n    static constexpr NumberTheoreticTransform<mod>\
+    \ ntt = NumberTheoreticTransform<mod>();\n\npublic:\n    static void dft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.dft(a);\n    }\n\n    static void idft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.idft(a);\n    }\n\n    static std::vector<ModInt<mod>> mul(\n\
+    \        std::vector<ModInt<mod>> lhs,\n        std::vector<ModInt<mod>> rhs)\
+    \ {\n        return ntt.multiply(std::move(lhs), std::move(rhs));\n    }\n};\n\
+    \n"
   code: "#pragma once\n\n#include <array>\n#include <vector>\n\n#include \"mod_int.hpp\"\
     \n#include \"../template/bitop.hpp\"\n\ntemplate <unsigned mod>\nclass NumberTheoreticTransform\
     \ {\n    static constexpr int calc_ex() {\n        unsigned m = mod - 1;\n   \
@@ -206,18 +206,18 @@ data:
     \ root[i];\n        }\n    }\n\n    std::vector<ModInt<mod>> multiply(\n     \
     \   std::vector<ModInt<mod>> a,\n        std::vector<ModInt<mod>> b) const {\n\
     \        if (a.empty() || b.empty())\n            return std::vector<ModInt<mod>>();\n\
-    \        int siz = 1;\n        int ex = 0;\n        int s = (int) (a.size() +\
-    \ b.size());\n        while (siz < s) {\n            siz <<= 1;\n            ++ex;\n\
-    \        }\n        a.resize(siz, ModInt<mod>());\n        b.resize(siz, ModInt<mod>());\n\
-    \        dft(a);\n        dft(b);\n        for (int i = 0; i < siz; ++i) {\n \
-    \           a[i] *= b[i];\n        }\n        idft(a);\n        a.resize(s - 1);\n\
-    \        return a;\n    }\n};\n\ntemplate <unsigned mod>\nclass NTTMul {\n   \
-    \ static constexpr NumberTheoreticTransform<mod> ntt = NumberTheoreticTransform<mod>();\n\
-    \npublic:\n    static void dft(std::vector<ModInt<mod>> &a) {\n        ntt.dft(a);\n\
-    \    }\n\n    static void idft(std::vector<ModInt<mod>> &a) {\n        ntt.idft(a);\n\
-    \    }\n\n    static std::vector<ModInt<mod>> mul(\n        std::vector<ModInt<mod>>\
-    \ lhs,\n        std::vector<ModInt<mod>> rhs) {\n        return ntt.multiply(std::move(lhs),\
-    \ std::move(rhs));\n    }\n};\n\n"
+    \        int siz = 1;\n        int s = (int) (a.size() + b.size());\n        while\
+    \ (siz < s) {\n            siz <<= 1;\n        }\n        a.resize(siz, ModInt<mod>());\n\
+    \        b.resize(siz, ModInt<mod>());\n        dft(a);\n        dft(b);\n   \
+    \     for (int i = 0; i < siz; ++i) {\n            a[i] *= b[i];\n        }\n\
+    \        idft(a);\n        a.resize(s - 1);\n        return a;\n    }\n};\n\n\
+    template <unsigned mod>\nclass NTTMul {\n    static constexpr NumberTheoreticTransform<mod>\
+    \ ntt = NumberTheoreticTransform<mod>();\n\npublic:\n    static void dft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.dft(a);\n    }\n\n    static void idft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.idft(a);\n    }\n\n    static std::vector<ModInt<mod>> mul(\n\
+    \        std::vector<ModInt<mod>> lhs,\n        std::vector<ModInt<mod>> rhs)\
+    \ {\n        return ntt.multiply(std::move(lhs), std::move(rhs));\n    }\n};\n\
+    \n"
   dependsOn:
   - number_theory/mod_int.hpp
   - number_theory/utils.hpp
@@ -225,7 +225,7 @@ data:
   isVerificationFile: false
   path: number_theory/number_theoretic_transform.hpp
   requiredBy: []
-  timestamp: '2022-07-21 10:43:16+09:00'
+  timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp

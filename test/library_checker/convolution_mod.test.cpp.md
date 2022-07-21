@@ -1,19 +1,19 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
   - icon: ':heavy_check_mark:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   - icon: ':heavy_check_mark:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -170,24 +170,23 @@ data:
     \ root[i];\n        }\n    }\n\n    std::vector<ModInt<mod>> multiply(\n     \
     \   std::vector<ModInt<mod>> a,\n        std::vector<ModInt<mod>> b) const {\n\
     \        if (a.empty() || b.empty())\n            return std::vector<ModInt<mod>>();\n\
-    \        int siz = 1;\n        int ex = 0;\n        int s = (int) (a.size() +\
-    \ b.size());\n        while (siz < s) {\n            siz <<= 1;\n            ++ex;\n\
-    \        }\n        a.resize(siz, ModInt<mod>());\n        b.resize(siz, ModInt<mod>());\n\
-    \        dft(a);\n        dft(b);\n        for (int i = 0; i < siz; ++i) {\n \
-    \           a[i] *= b[i];\n        }\n        idft(a);\n        a.resize(s - 1);\n\
-    \        return a;\n    }\n};\n\ntemplate <unsigned mod>\nclass NTTMul {\n   \
-    \ static constexpr NumberTheoreticTransform<mod> ntt = NumberTheoreticTransform<mod>();\n\
-    \npublic:\n    static void dft(std::vector<ModInt<mod>> &a) {\n        ntt.dft(a);\n\
-    \    }\n\n    static void idft(std::vector<ModInt<mod>> &a) {\n        ntt.idft(a);\n\
-    \    }\n\n    static std::vector<ModInt<mod>> mul(\n        std::vector<ModInt<mod>>\
-    \ lhs,\n        std::vector<ModInt<mod>> rhs) {\n        return ntt.multiply(std::move(lhs),\
-    \ std::move(rhs));\n    }\n};\n\n#line 7 \"test/library_checker/convolution_mod.test.cpp\"\
-    \n\nint main() {\n    using Mint = ModInt<mod998244353>;\n    \n    constexpr\
-    \ NumberTheoreticTransform<mod998244353> ntt;\n    \n    i32 n, m;\n    cin >>\
-    \ n >> m;\n    Vec<Mint> a(n), b(m);\n    REP(i, n) {\n        cin >> a[i];\n\
-    \    }\n    REP(i, m) {\n        cin >> b[i];\n    }\n    Vec<Mint> c = ntt.multiply(a,\
-    \ b);\n    REP(i, c.size()) {\n        cout << c[i] << \" \\n\"[i + 1 == (int)\
-    \ c.size()];\n    }\n}\n"
+    \        int siz = 1;\n        int s = (int) (a.size() + b.size());\n        while\
+    \ (siz < s) {\n            siz <<= 1;\n        }\n        a.resize(siz, ModInt<mod>());\n\
+    \        b.resize(siz, ModInt<mod>());\n        dft(a);\n        dft(b);\n   \
+    \     for (int i = 0; i < siz; ++i) {\n            a[i] *= b[i];\n        }\n\
+    \        idft(a);\n        a.resize(s - 1);\n        return a;\n    }\n};\n\n\
+    template <unsigned mod>\nclass NTTMul {\n    static constexpr NumberTheoreticTransform<mod>\
+    \ ntt = NumberTheoreticTransform<mod>();\n\npublic:\n    static void dft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.dft(a);\n    }\n\n    static void idft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.idft(a);\n    }\n\n    static std::vector<ModInt<mod>> mul(\n\
+    \        std::vector<ModInt<mod>> lhs,\n        std::vector<ModInt<mod>> rhs)\
+    \ {\n        return ntt.multiply(std::move(lhs), std::move(rhs));\n    }\n};\n\
+    \n#line 7 \"test/library_checker/convolution_mod.test.cpp\"\n\nint main() {\n\
+    \    using Mint = ModInt<mod998244353>;\n    \n    constexpr NumberTheoreticTransform<mod998244353>\
+    \ ntt;\n    \n    i32 n, m;\n    cin >> n >> m;\n    Vec<Mint> a(n), b(m);\n \
+    \   REP(i, n) {\n        cin >> a[i];\n    }\n    REP(i, m) {\n        cin >>\
+    \ b[i];\n    }\n    Vec<Mint> c = ntt.multiply(a, b);\n    REP(i, c.size()) {\n\
+    \        cout << c[i] << \" \\n\"[i + 1 == (int) c.size()];\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/convolution_mod\"\n\n#define\
     \ FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../number_theory/number_theoretic_transform.hpp\"\
     \n\nint main() {\n    using Mint = ModInt<mod998244353>;\n    \n    constexpr\
@@ -205,7 +204,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution_mod.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 10:43:16+09:00'
+  timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution_mod.test.cpp

@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
   - icon: ':heavy_check_mark:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   - icon: ':heavy_check_mark:'
@@ -19,7 +19,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -176,75 +176,74 @@ data:
     \ root[i];\n        }\n    }\n\n    std::vector<ModInt<mod>> multiply(\n     \
     \   std::vector<ModInt<mod>> a,\n        std::vector<ModInt<mod>> b) const {\n\
     \        if (a.empty() || b.empty())\n            return std::vector<ModInt<mod>>();\n\
-    \        int siz = 1;\n        int ex = 0;\n        int s = (int) (a.size() +\
-    \ b.size());\n        while (siz < s) {\n            siz <<= 1;\n            ++ex;\n\
-    \        }\n        a.resize(siz, ModInt<mod>());\n        b.resize(siz, ModInt<mod>());\n\
-    \        dft(a);\n        dft(b);\n        for (int i = 0; i < siz; ++i) {\n \
-    \           a[i] *= b[i];\n        }\n        idft(a);\n        a.resize(s - 1);\n\
-    \        return a;\n    }\n};\n\ntemplate <unsigned mod>\nclass NTTMul {\n   \
-    \ static constexpr NumberTheoreticTransform<mod> ntt = NumberTheoreticTransform<mod>();\n\
-    \npublic:\n    static void dft(std::vector<ModInt<mod>> &a) {\n        ntt.dft(a);\n\
-    \    }\n\n    static void idft(std::vector<ModInt<mod>> &a) {\n        ntt.idft(a);\n\
-    \    }\n\n    static std::vector<ModInt<mod>> mul(\n        std::vector<ModInt<mod>>\
-    \ lhs,\n        std::vector<ModInt<mod>> rhs) {\n        return ntt.multiply(std::move(lhs),\
-    \ std::move(rhs));\n    }\n};\n\n#line 2 \"polynomial/fps_inv.hpp\"\n\n#line 2\
-    \ \"polynomial/polynomial.hpp\"\n\n#line 7 \"polynomial/polynomial.hpp\"\n\ntemplate\
-    \ <typename T, typename Mul>\nclass Polynomial {\n    std::vector<T> coeff;\n\
-    \    \npublic:\n    using This = Polynomial<T, Mul>;\n    \n    Polynomial() :\
-    \ coeff() {}\n    Polynomial(int n) : coeff(n, T(0)) {}\n    Polynomial(std::vector<T>\
-    \ c) : coeff(std::move(c)) {}\n    \n    const std::vector<T> &vec() const {\n\
-    \        return coeff;\n    }\n    \n    int size() const {\n        return (int)\
-    \ coeff.size();\n    }\n    \n    const T &operator[](int idx) const {\n     \
-    \   return coeff[idx];\n    }\n    T &operator[](int idx) {\n        return coeff[idx];\n\
-    \    }\n    \n    T at(int idx) const {\n        if (idx < size()) {\n       \
-    \     return coeff[idx];\n        } else {\n            return T(0);\n       \
-    \ }\n    }\n    \n    void pre_(int n) {\n        assert(n >= 0);\n        coeff.resize(n,\
-    \ T(0));\n    }\n    This pre(int n) const {\n        This tmp(*this);\n     \
-    \   tmp.pre_(n);\n        return tmp;\n    }\n    \n    T operator()(const T &x)\
-    \ const {\n        T p(1), sum(0);\n        for (const T &ele : coeff) {\n   \
-    \         sum += p * ele;\n            p *= x;\n        }\n        return sum;\n\
-    \    }\n    \n    This &operator+=(const This &rhs) {\n        if (coeff.size()\
-    \ < rhs.coeff.size()) {\n            coeff.resize(rhs.coeff.size(), T(0));\n \
-    \       }\n        for (int i = 0; i < (int) rhs.coeff.size(); ++i) {\n      \
-    \      coeff[i] += rhs.coeff[i];\n        }\n        return *this;\n    }\n  \
-    \  friend This operator+(This lhs, const This &rhs) {\n        lhs += rhs;\n \
-    \       return lhs;\n    }\n    This &operator-=(const This &rhs) {\n        if\
-    \ (coeff.size() < rhs.coeff.size()) {\n            coeff.resize(rhs.coeff.size(),\
-    \ T(0));\n        }\n        for (int i = 0; i < (int) rhs.coeff.size(); ++i)\
-    \ {\n            coeff[i] -= rhs.coeff[i];\n        }\n        return *this;\n\
-    \    }\n    friend This operator-(This lhs, const This &rhs) {\n        lhs -=\
-    \ rhs;\n        return lhs;\n    }\n    \n    This &operator*=(This rhs) {\n \
-    \       coeff = Mul::mul(std::move(coeff), std::move(rhs.coeff));\n        return\
-    \ *this;\n    }\n    friend This operator*(This lhs, This rhs) {\n        return\
-    \ This(Mul::mul(std::move(lhs.coeff), std::move(rhs.coeff)));\n    }\n    \n \
-    \   This diff() const {\n        if (coeff.empty()) {\n            return This();\n\
-    \        }\n        std::vector<T> c(coeff.size() - 1);\n        for (int i =\
-    \ 0; i < (int) c.size(); ++i) {\n            c[i] = T(i + 1) * coeff[i + 1];\n\
-    \        }\n        return This(c);\n    }\n    This integ() const {\n       \
-    \ std::vector<T> c(coeff.size() + 1, T(0));\n        for (int i = 0; i < (int)\
-    \ coeff.size(); ++i) {\n            c[i + 1] = coeff[i] / T(i + 1);\n        }\n\
-    \        return This(c);\n    }\n};\n#line 4 \"polynomial/fps_inv.hpp\"\n\ntemplate\
-    \ <typename T, typename Mul>\nPolynomial<T, Mul> fps_inv(const Polynomial<T, Mul>\
-    \ &f, int sz = -1) {\n    const std::vector<T> &coeff = f.vec();\n    assert(!coeff.empty()\
+    \        int siz = 1;\n        int s = (int) (a.size() + b.size());\n        while\
+    \ (siz < s) {\n            siz <<= 1;\n        }\n        a.resize(siz, ModInt<mod>());\n\
+    \        b.resize(siz, ModInt<mod>());\n        dft(a);\n        dft(b);\n   \
+    \     for (int i = 0; i < siz; ++i) {\n            a[i] *= b[i];\n        }\n\
+    \        idft(a);\n        a.resize(s - 1);\n        return a;\n    }\n};\n\n\
+    template <unsigned mod>\nclass NTTMul {\n    static constexpr NumberTheoreticTransform<mod>\
+    \ ntt = NumberTheoreticTransform<mod>();\n\npublic:\n    static void dft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.dft(a);\n    }\n\n    static void idft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.idft(a);\n    }\n\n    static std::vector<ModInt<mod>> mul(\n\
+    \        std::vector<ModInt<mod>> lhs,\n        std::vector<ModInt<mod>> rhs)\
+    \ {\n        return ntt.multiply(std::move(lhs), std::move(rhs));\n    }\n};\n\
+    \n#line 2 \"polynomial/fps_inv.hpp\"\n\n#line 2 \"polynomial/polynomial.hpp\"\n\
+    \n#line 7 \"polynomial/polynomial.hpp\"\n\ntemplate <typename T, typename Mul>\n\
+    class Polynomial {\n    std::vector<T> coeff;\n    \npublic:\n    using This =\
+    \ Polynomial<T, Mul>;\n    \n    Polynomial() : coeff() {}\n    Polynomial(int\
+    \ n) : coeff(n, T(0)) {}\n    Polynomial(std::vector<T> c) : coeff(std::move(c))\
+    \ {}\n    \n    const std::vector<T> &vec() const {\n        return coeff;\n \
+    \   }\n    \n    int size() const {\n        return (int) coeff.size();\n    }\n\
+    \    \n    const T &operator[](int idx) const {\n        return coeff[idx];\n\
+    \    }\n    T &operator[](int idx) {\n        return coeff[idx];\n    }\n    \n\
+    \    T at(int idx) const {\n        if (idx < size()) {\n            return coeff[idx];\n\
+    \        } else {\n            return T(0);\n        }\n    }\n    \n    void\
+    \ pre_(int n) {\n        assert(n >= 0);\n        coeff.resize(n, T(0));\n   \
+    \ }\n    This pre(int n) const {\n        This tmp(*this);\n        tmp.pre_(n);\n\
+    \        return tmp;\n    }\n    \n    T operator()(const T &x) const {\n    \
+    \    T p(1), sum(0);\n        for (const T &ele : coeff) {\n            sum +=\
+    \ p * ele;\n            p *= x;\n        }\n        return sum;\n    }\n    \n\
+    \    This &operator+=(const This &rhs) {\n        if (coeff.size() < rhs.coeff.size())\
+    \ {\n            coeff.resize(rhs.coeff.size(), T(0));\n        }\n        for\
+    \ (int i = 0; i < (int) rhs.coeff.size(); ++i) {\n            coeff[i] += rhs.coeff[i];\n\
+    \        }\n        return *this;\n    }\n    friend This operator+(This lhs,\
+    \ const This &rhs) {\n        lhs += rhs;\n        return lhs;\n    }\n    This\
+    \ &operator-=(const This &rhs) {\n        if (coeff.size() < rhs.coeff.size())\
+    \ {\n            coeff.resize(rhs.coeff.size(), T(0));\n        }\n        for\
+    \ (int i = 0; i < (int) rhs.coeff.size(); ++i) {\n            coeff[i] -= rhs.coeff[i];\n\
+    \        }\n        return *this;\n    }\n    friend This operator-(This lhs,\
+    \ const This &rhs) {\n        lhs -= rhs;\n        return lhs;\n    }\n    \n\
+    \    This &operator*=(This rhs) {\n        coeff = Mul::mul(std::move(coeff),\
+    \ std::move(rhs.coeff));\n        return *this;\n    }\n    friend This operator*(This\
+    \ lhs, This rhs) {\n        return This(Mul::mul(std::move(lhs.coeff), std::move(rhs.coeff)));\n\
+    \    }\n    \n    This diff() const {\n        if (coeff.empty()) {\n        \
+    \    return This();\n        }\n        std::vector<T> c(coeff.size() - 1);\n\
+    \        for (int i = 0; i < (int) c.size(); ++i) {\n            c[i] = T(i +\
+    \ 1) * coeff[i + 1];\n        }\n        return This(c);\n    }\n    This integ()\
+    \ const {\n        std::vector<T> c(coeff.size() + 1, T(0));\n        for (int\
+    \ i = 0; i < (int) coeff.size(); ++i) {\n            c[i + 1] = coeff[i] / T(i\
+    \ + 1);\n        }\n        return This(c);\n    }\n};\n#line 4 \"polynomial/fps_inv.hpp\"\
+    \n\ntemplate <typename T, typename Mul>\nPolynomial<T, Mul> fps_inv(const Polynomial<T,\
+    \ Mul> &f, int sz = -1) {\n    const std::vector<T> &coeff = f.vec();\n    assert(!coeff.empty()\
     \ && coeff[0] != T(0));\n    if (sz == -1) {\n        sz = (int) coeff.size();\n\
     \    }\n    assert(sz >= 0);\n    std::vector<T> g({T(1) / coeff[0]});\n    while\
     \ ((int) g.size() < sz) {\n        std::vector<T> fg;\n        if (2 * g.size()\
-    \ <= (int) coeff.size()) {\n            fg = std::vector<T>(coeff.begin(), coeff.begin()\
+    \ <= coeff.size()) {\n            fg = std::vector<T>(coeff.begin(), coeff.begin()\
     \ + 2 * g.size());\n        } else {\n            fg = coeff;\n            fg.resize(2\
     \ * g.size());\n        }\n        Mul::dft(fg);\n        std::vector<T> dft_g\
     \ = g;\n        dft_g.resize(2 * g.size(), T(0));\n        Mul::dft(dft_g);\n\
-    \        for (int i = 0; i < (int) 2 * g.size(); ++i) {\n            fg[i] *=\
+    \        for (int i = 0; i < 2 * (int) g.size(); ++i) {\n            fg[i] *=\
     \ dft_g[i];\n        }\n        Mul::idft(fg);\n        std::fill(fg.begin(),\
     \ fg.begin() + g.size(), T(0));\n        Mul::dft(fg);\n        for (int i = 0;\
-    \ i < (int) 2 * g.size(); ++i) {\n            fg[i] *= dft_g[i];\n        }\n\
+    \ i < 2 * (int) g.size(); ++i) {\n            fg[i] *= dft_g[i];\n        }\n\
     \        Mul::idft(fg);\n        g.resize(2 * g.size());\n        for (int i =\
-    \ (int) g.size() / 2; i < g.size(); ++i) {\n            g[i] = -fg[i];\n     \
-    \   }\n    }\n    g.resize(sz);\n    return Polynomial<T, Mul>(g);\n}\n#line 8\
-    \ \"test/library_checker/inv_of_formal_power_series.test.cpp\"\n\nint main() {\n\
-    \    using Mint = ModInt<mod998244353>;\n    using FPS = Polynomial<Mint, NTTMul<mod998244353>>;\n\
-    \    \n    i32 n;\n    cin >> n;\n    FPS f(n);\n    REP(i, n) {\n        cin\
-    \ >> f[i];\n    }\n    FPS g = fps_inv(f);\n    REP(i, n) {\n        cout << g[i]\
-    \ << \" \\n\"[i + 1 == n];\n    }\n}\n"
+    \ (int) g.size() / 2; i < (int) g.size(); ++i) {\n            g[i] = -fg[i];\n\
+    \        }\n    }\n    g.resize(sz);\n    return Polynomial<T, Mul>(g);\n}\n#line\
+    \ 8 \"test/library_checker/inv_of_formal_power_series.test.cpp\"\n\nint main()\
+    \ {\n    using Mint = ModInt<mod998244353>;\n    using FPS = Polynomial<Mint,\
+    \ NTTMul<mod998244353>>;\n    \n    i32 n;\n    cin >> n;\n    FPS f(n);\n   \
+    \ REP(i, n) {\n        cin >> f[i];\n    }\n    FPS g = fps_inv(f);\n    REP(i,\
+    \ n) {\n        cout << g[i] << \" \\n\"[i + 1 == n];\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/inv_of_formal_power_series\"\
     \n\n#define FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../number_theory/number_theoretic_transform.hpp\"\
     \n#include \"../../polynomial/fps_inv.hpp\"\n\nint main() {\n    using Mint =\
@@ -263,7 +262,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/inv_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 10:43:16+09:00'
+  timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/inv_of_formal_power_series.test.cpp

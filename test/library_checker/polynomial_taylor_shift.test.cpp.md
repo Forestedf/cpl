@@ -4,13 +4,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: number_theory/factorial_table.hpp
     title: number_theory/factorial_table.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
   - icon: ':heavy_check_mark:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   - icon: ':heavy_check_mark:'
@@ -19,7 +19,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -176,33 +176,33 @@ data:
     \ root[i];\n        }\n    }\n\n    std::vector<ModInt<mod>> multiply(\n     \
     \   std::vector<ModInt<mod>> a,\n        std::vector<ModInt<mod>> b) const {\n\
     \        if (a.empty() || b.empty())\n            return std::vector<ModInt<mod>>();\n\
-    \        int siz = 1;\n        int ex = 0;\n        int s = (int) (a.size() +\
-    \ b.size());\n        while (siz < s) {\n            siz <<= 1;\n            ++ex;\n\
-    \        }\n        a.resize(siz, ModInt<mod>());\n        b.resize(siz, ModInt<mod>());\n\
-    \        dft(a);\n        dft(b);\n        for (int i = 0; i < siz; ++i) {\n \
-    \           a[i] *= b[i];\n        }\n        idft(a);\n        a.resize(s - 1);\n\
-    \        return a;\n    }\n};\n\ntemplate <unsigned mod>\nclass NTTMul {\n   \
-    \ static constexpr NumberTheoreticTransform<mod> ntt = NumberTheoreticTransform<mod>();\n\
-    \npublic:\n    static void dft(std::vector<ModInt<mod>> &a) {\n        ntt.dft(a);\n\
-    \    }\n\n    static void idft(std::vector<ModInt<mod>> &a) {\n        ntt.idft(a);\n\
-    \    }\n\n    static std::vector<ModInt<mod>> mul(\n        std::vector<ModInt<mod>>\
-    \ lhs,\n        std::vector<ModInt<mod>> rhs) {\n        return ntt.multiply(std::move(lhs),\
-    \ std::move(rhs));\n    }\n};\n\n#line 2 \"number_theory/factorial_table.hpp\"\
-    \n\n#line 5 \"number_theory/factorial_table.hpp\"\n\ntemplate <typename T>\nclass\
-    \ FactorialTable {\n    std::vector<T> fac;\n    std::vector<T> ifac;\n    \n\
-    public:\n    FactorialTable() : fac(1, T(1)), ifac(1, T(1)) {}\n    \n    FactorialTable(int\
-    \ n) : fac(n + 1), ifac(n + 1) {\n        assert(n >= 0);\n        fac[0] = T(1);\n\
-    \        for (int i = 1; i <= n; ++i) {\n            fac[i] = fac[i - 1] * T(i);\n\
-    \        }\n        ifac[n] = T(1) / T(fac[n]);\n        for (int i = n; i > 0;\
+    \        int siz = 1;\n        int s = (int) (a.size() + b.size());\n        while\
+    \ (siz < s) {\n            siz <<= 1;\n        }\n        a.resize(siz, ModInt<mod>());\n\
+    \        b.resize(siz, ModInt<mod>());\n        dft(a);\n        dft(b);\n   \
+    \     for (int i = 0; i < siz; ++i) {\n            a[i] *= b[i];\n        }\n\
+    \        idft(a);\n        a.resize(s - 1);\n        return a;\n    }\n};\n\n\
+    template <unsigned mod>\nclass NTTMul {\n    static constexpr NumberTheoreticTransform<mod>\
+    \ ntt = NumberTheoreticTransform<mod>();\n\npublic:\n    static void dft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.dft(a);\n    }\n\n    static void idft(std::vector<ModInt<mod>>\
+    \ &a) {\n        ntt.idft(a);\n    }\n\n    static std::vector<ModInt<mod>> mul(\n\
+    \        std::vector<ModInt<mod>> lhs,\n        std::vector<ModInt<mod>> rhs)\
+    \ {\n        return ntt.multiply(std::move(lhs), std::move(rhs));\n    }\n};\n\
+    \n#line 2 \"number_theory/factorial_table.hpp\"\n\n#line 5 \"number_theory/factorial_table.hpp\"\
+    \n\ntemplate <typename T>\nclass FactorialTable {\n    std::vector<T> fac;\n \
+    \   std::vector<T> ifac;\n    \npublic:\n    FactorialTable() : fac(1, T(1)),\
+    \ ifac(1, T(1)) {}\n    \n    FactorialTable(int n) : fac(n + 1), ifac(n + 1)\
+    \ {\n        assert(n >= 0);\n        fac[0] = T(1);\n        for (int i = 1;\
+    \ i <= n; ++i) {\n            fac[i] = fac[i - 1] * T(i);\n        }\n       \
+    \ ifac[n] = T(1) / T(fac[n]);\n        for (int i = n; i > 0; --i) {\n       \
+    \     ifac[i - 1] = ifac[i] * T(i);\n        }\n    }\n    \n    void resize(int\
+    \ n) {\n        int old = n_max();\n        if (n <= old) {\n            return;\n\
+    \        }\n        fac.resize(n + 1);\n        for (int i = old + 1; i <= n;\
+    \ ++i) {\n            fac[i] = fac[i - 1] * T(i);\n        }\n        ifac.resize(n\
+    \ + 1);\n        ifac[n] = T(1) / T(fac[n]);\n        for (int i = n; i > old;\
     \ --i) {\n            ifac[i - 1] = ifac[i] * T(i);\n        }\n    }\n    \n\
-    \    void resize(int n) {\n        int old = n_max();\n        if (n <= old) {\n\
-    \            return;\n        }\n        fac.resize(n + 1);\n        for (int\
-    \ i = old + 1; i <= n; ++i) {\n            fac[i] = fac[i - 1] * T(i);\n     \
-    \   }\n        ifac.resize(n + 1);\n        ifac[n] = T(1) / T(fac[n]);\n    \
-    \    for (int i = n; i > old; --i) {\n            ifac[i - 1] = ifac[i] * T(i);\n\
-    \        }\n    }\n    \n    inline int n_max() const {\n        return static_cast<int>(fac.size()\
-    \ - 1);\n    }\n    \n    inline T fact(int n) const {\n        assert(n >= 0\
-    \ && n <= n_max());\n        return fac[n];\n    }\n    \n    inline T inv_fact(int\
+    \    inline int n_max() const {\n        return static_cast<int>(fac.size() -\
+    \ 1);\n    }\n    \n    inline T fact(int n) const {\n        assert(n >= 0 &&\
+    \ n <= n_max());\n        return fac[n];\n    }\n    \n    inline T inv_fact(int\
     \ n) const {\n        assert(n >= 0 && n <= n_max());\n        return ifac[n];\n\
     \    }\n    \n    inline T choose(int n, int k) const {\n        assert(k <= n_max()\
     \ && n <= n_max());\n        if (k > n || k < 0) {\n            return T(0);\n\
@@ -245,7 +245,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/polynomial_taylor_shift.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 10:43:16+09:00'
+  timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/polynomial_taylor_shift.test.cpp

@@ -5,10 +5,25 @@ data:
   - icon: ':warning:'
     path: graph/dijkstra.hpp
     title: graph/dijkstra.hpp
-  _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/lca.test.cpp
+    title: test/library_checker/lca.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/scc.test.cpp
+    title: test/library_checker/scc.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/vertex_add_path_sum.test.cpp
+    title: test/library_checker/vertex_add_path_sum.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/vertex_add_subtree_sum.test.cpp
+    title: test/library_checker/vertex_add_subtree_sum.test.cpp
+  - icon: ':x:'
+    path: test/library_checker/vertex_set_path_composite.test.cpp
+    title: test/library_checker/vertex_set_path_composite.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/graph.hpp\"\n\n#include <utility>\n#include <vector>\n\
@@ -67,8 +82,13 @@ data:
   requiredBy:
   - graph/dijkstra.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_SOME_WA
+  verifiedWith:
+  - test/library_checker/vertex_add_subtree_sum.test.cpp
+  - test/library_checker/vertex_add_path_sum.test.cpp
+  - test/library_checker/vertex_set_path_composite.test.cpp
+  - test/library_checker/scc.test.cpp
+  - test/library_checker/lca.test.cpp
 documentation_of: graph/graph.hpp
 layout: document
 redirect_from:
