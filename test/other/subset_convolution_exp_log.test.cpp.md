@@ -10,16 +10,16 @@ data:
   - icon: ':heavy_check_mark:'
     path: convolution/subset_convolution_log.hpp
     title: convolution/subset_convolution_log.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   - icon: ':heavy_check_mark:'
     path: other/xorshift.hpp
     title: other/xorshift.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []

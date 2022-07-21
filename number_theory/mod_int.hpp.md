@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   _extendedRequiredBy:
@@ -54,7 +54,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/subset_convolution.test.cpp
     title: test/library_checker/subset_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -63,9 +63,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/mod_int.hpp\"\n\n#include <cassert>\n#include\
@@ -188,7 +188,7 @@ data:
   - number_theory/number_theoretic_transform.hpp
   - template/debug.hpp
   timestamp: '2022-07-21 10:43:16+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/matrix_product.test.cpp

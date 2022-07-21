@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/fenwick_tree.hpp
     title: data_structure/fenwick_tree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph.hpp
     title: graph/graph.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/heavy_light_decomposition.hpp
     title: graph/heavy_light_decomposition.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_subtree_sum
@@ -210,7 +210,7 @@ data:
   path: test/library_checker/vertex_add_subtree_sum.test.cpp
   requiredBy: []
   timestamp: '2022-07-21 12:43:18+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/vertex_add_subtree_sum.test.cpp
 layout: document

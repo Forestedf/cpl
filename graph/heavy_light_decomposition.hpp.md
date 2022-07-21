@@ -9,15 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_add_path_sum.test.cpp
     title: test/library_checker/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_add_subtree_sum.test.cpp
     title: test/library_checker/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/heavy_light_decomposition.hpp\"\n\n#include <algorithm>\n\
@@ -152,7 +152,7 @@ data:
   path: graph/heavy_light_decomposition.hpp
   requiredBy: []
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/vertex_add_subtree_sum.test.cpp
   - test/library_checker/vertex_add_path_sum.test.cpp
