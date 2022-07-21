@@ -75,8 +75,8 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/point_set_range_composite.test.cpp
   - test/library_checker/point_add_range_sum.test.cpp
+  - test/library_checker/point_set_range_composite.test.cpp
 documentation_of: data_structure/operations.hpp
 layout: document
 redirect_from:

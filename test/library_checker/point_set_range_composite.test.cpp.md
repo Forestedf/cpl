@@ -7,13 +7,13 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/segment_tree.hpp
     title: data_structure/segment_tree.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -87,9 +87,8 @@ data:
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
     \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
     \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
-    \ * = nullptr>\n    constexpr ModInt(T x) {\n        long long t = (long long)\
-    \ x % (long long) mod;\n        if (t < 0) {\n            t += mod;\n        }\n\
-    \        val = (unsigned) t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
+    \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
     \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
     \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
@@ -219,7 +218,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 20:39:01+09:00'
+  timestamp: '2022-07-21 10:43:16+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/point_set_range_composite.test.cpp

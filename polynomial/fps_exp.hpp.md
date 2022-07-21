@@ -1,29 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_pow.hpp
     title: polynomial/fps_pow.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/exp_of_formal_power_series.test.cpp
     title: test/library_checker/exp_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/exp_of_formal_power_series_acl.test.cpp
     title: test/library_checker/exp_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series.test.cpp
     title: test/library_checker/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series_acl.test.cpp
     title: test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"polynomial/fps_exp.hpp\"\n\n#line 2 \"polynomial/polynomial.hpp\"\
@@ -161,12 +161,12 @@ data:
   requiredBy:
   - polynomial/fps_pow.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
   - test/library_checker/pow_of_formal_power_series.test.cpp
+  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
   - test/library_checker/exp_of_formal_power_series_acl.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
 documentation_of: polynomial/fps_exp.hpp
 layout: document
 redirect_from:

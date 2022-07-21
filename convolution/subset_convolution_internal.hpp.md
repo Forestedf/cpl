@@ -53,14 +53,14 @@ data:
   isVerificationFile: false
   path: convolution/subset_convolution_internal.hpp
   requiredBy:
-  - convolution/subset_convolution.hpp
-  - convolution/subset_convolution_exp.hpp
   - convolution/subset_convolution_log.hpp
+  - convolution/subset_convolution_exp.hpp
+  - convolution/subset_convolution.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/other/subset_convolution_exp_log.test.cpp
   - test/library_checker/subset_convolution.test.cpp
+  - test/other/subset_convolution_exp_log.test.cpp
 documentation_of: convolution/subset_convolution_internal.hpp
 layout: document
 redirect_from:

@@ -44,8 +44,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/inv_of_formal_power_series_acl.test.cpp
-  - test/library_checker/log_of_formal_power_series_acl.test.cpp
   - test/library_checker/pow_of_formal_power_series_acl.test.cpp
+  - test/library_checker/log_of_formal_power_series_acl.test.cpp
   - test/library_checker/exp_of_formal_power_series_acl.test.cpp
 documentation_of: polynomial/with_acl.hpp
 layout: document

@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   _extendedRequiredBy: []
@@ -51,9 +51,8 @@ data:
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
     \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
     \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
-    \ * = nullptr>\n    constexpr ModInt(T x) {\n        long long t = (long long)\
-    \ x % (long long) mod;\n        if (t < 0) {\n            t += mod;\n        }\n\
-    \        val = (unsigned) t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
+    \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
     \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
     \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
@@ -189,7 +188,7 @@ data:
   isVerificationFile: false
   path: template/debug.hpp
   requiredBy: []
-  timestamp: '2022-07-18 20:39:01+09:00'
+  timestamp: '2022-07-21 10:43:16+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: template/debug.hpp

@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"polynomial/fps_div_at.hpp\"\n\n#line 2 \"polynomial/polynomial.hpp\"\
@@ -87,7 +87,7 @@ data:
   path: polynomial/fps_div_at.hpp
   requiredBy: []
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
 documentation_of: polynomial/fps_div_at.hpp

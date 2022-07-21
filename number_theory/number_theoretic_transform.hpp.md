@@ -1,41 +1,41 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: template/bitop.hpp
     title: template/bitop.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution_mod.test.cpp
     title: test/library_checker/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/exp_of_formal_power_series.test.cpp
     title: test/library_checker/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/inv_of_formal_power_series.test.cpp
     title: test/library_checker/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/log_of_formal_power_series.test.cpp
     title: test/library_checker/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series.test.cpp
     title: test/library_checker/pow_of_formal_power_series.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/number_theoretic_transform.hpp\"\n\n#include\
@@ -73,9 +73,8 @@ data:
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
     \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
     \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
-    \ * = nullptr>\n    constexpr ModInt(T x) {\n        long long t = (long long)\
-    \ x % (long long) mod;\n        if (t < 0) {\n            t += mod;\n        }\n\
-    \        val = (unsigned) t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
+    \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
     \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
     \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
@@ -226,16 +225,16 @@ data:
   isVerificationFile: false
   path: number_theory/number_theoretic_transform.hpp
   requiredBy: []
-  timestamp: '2022-07-18 20:39:01+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  timestamp: '2022-07-21 10:43:16+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/log_of_formal_power_series.test.cpp
-  - test/library_checker/inv_of_formal_power_series.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/convolution_mod.test.cpp
-  - test/library_checker/pow_of_formal_power_series.test.cpp
-  - test/library_checker/polynomial_taylor_shift.test.cpp
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/pow_of_formal_power_series.test.cpp
+  - test/library_checker/inv_of_formal_power_series.test.cpp
+  - test/library_checker/polynomial_taylor_shift.test.cpp
+  - test/library_checker/convolution_mod.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
+  - test/library_checker/log_of_formal_power_series.test.cpp
 documentation_of: number_theory/number_theoretic_transform.hpp
 layout: document
 redirect_from:

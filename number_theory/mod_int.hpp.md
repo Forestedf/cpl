@@ -1,11 +1,11 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   _extendedRequiredBy:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
   - icon: ':warning:'
@@ -15,19 +15,19 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/bitwise_and_convolution.test.cpp
     title: test/library_checker/bitwise_and_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution_mod.test.cpp
     title: test/library_checker/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/exp_of_formal_power_series.test.cpp
     title: test/library_checker/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/inv_of_formal_power_series.test.cpp
     title: test/library_checker/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/log_of_formal_power_series.test.cpp
     title: test/library_checker/log_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -39,10 +39,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/point_set_range_composite.test.cpp
     title: test/library_checker/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series.test.cpp
     title: test/library_checker/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
@@ -60,9 +60,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/mod_int.hpp\"\n\n#include <cassert>\n#include\
@@ -99,9 +99,8 @@ data:
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
     \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
     \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
-    \ * = nullptr>\n    constexpr ModInt(T x) {\n        long long t = (long long)\
-    \ x % (long long) mod;\n        if (t < 0) {\n            t += mod;\n        }\n\
-    \        val = (unsigned) t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
+    \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
     \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
     \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
@@ -142,9 +141,8 @@ data:
     \ (1u << 31),\n        \"`mod` must be less than (1u << 31) = 2147483648.\");\n\
     \n    unsigned val;\n\npublic:\n    constexpr ModInt() : val(0) {}\n    template\
     \ <typename T, std::enable_if_t<std::is_signed_v<T>> * = nullptr>\n    constexpr\
-    \ ModInt(T x) {\n        long long t = (long long) x % (long long) mod;\n    \
-    \    if (t < 0) {\n            t += mod;\n        }\n        val = (unsigned)\
-    \ t; \n    }\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ ModInt(T x) : val((unsigned) ((long long) x % (long long) mod + (x < 0 ? mod\
+    \ : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
     \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
     \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
@@ -186,25 +184,25 @@ data:
   requiredBy:
   - number_theory/number_theoretic_transform.hpp
   - template/debug.hpp
-  timestamp: '2022-07-18 20:39:01+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-07-21 10:43:16+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/yukicoder/1891.test.cpp
-  - test/other/subset_convolution_exp_log.test.cpp
-  - test/library_checker/queue_operate_all_composite.test.cpp
+  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/matrix_product.test.cpp
-  - test/library_checker/point_set_range_composite.test.cpp
-  - test/library_checker/log_of_formal_power_series.test.cpp
-  - test/library_checker/matrix_det.test.cpp
+  - test/library_checker/pow_of_formal_power_series.test.cpp
   - test/library_checker/subset_convolution.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp
-  - test/library_checker/range_affine_range_sum.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/convolution_mod.test.cpp
-  - test/library_checker/pow_of_formal_power_series.test.cpp
   - test/library_checker/polynomial_taylor_shift.test.cpp
-  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/matrix_det.test.cpp
+  - test/library_checker/convolution_mod.test.cpp
+  - test/library_checker/queue_operate_all_composite.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
   - test/library_checker/bitwise_and_convolution.test.cpp
+  - test/library_checker/log_of_formal_power_series.test.cpp
+  - test/library_checker/range_affine_range_sum.test.cpp
+  - test/library_checker/point_set_range_composite.test.cpp
+  - test/yukicoder/1891.test.cpp
+  - test/other/subset_convolution_exp_log.test.cpp
 documentation_of: number_theory/mod_int.hpp
 layout: document
 redirect_from:
