@@ -10,10 +10,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -124,8 +124,8 @@ data:
     \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
     \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
     \ mod1000000007 = 1000000007;\n\n#line 2 \"template/bitop.hpp\"\n\ntemplate <typename\
-    \ T>\nbool ith_bit(T n, T i) {\n    return (n & ((T) 1 << i)) != 0;\n}\n\nint\
-    \ popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
+    \ T, typename U>\nbool ith_bit(T n, U i) {\n    return (n & ((T) 1 << i)) != 0;\n\
+    }\n\nint popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
     \ x) {\n    return __builtin_popcount(x);\n}\nlong long popcount(long long x)\
     \ {\n    return __builtin_popcountll(x);\n}\nunsigned long long popcount(unsigned\
     \ long long x) {\n    return __builtin_popcountll(x);\n}\n\n// x must not be 0\n\
@@ -213,7 +213,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/convolution_mod.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 15:42:15+09:00'
+  timestamp: '2022-07-22 12:46:12+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/convolution_mod.test.cpp

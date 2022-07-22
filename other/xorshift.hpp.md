@@ -6,9 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/other/wavelet_matrix.test.cpp
+    title: test/other/wavelet_matrix.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"other/xorshift.hpp\"\n\nclass XorShift64 {\n    unsigned\
@@ -31,8 +34,9 @@ data:
   path: other/xorshift.hpp
   requiredBy: []
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/other/wavelet_matrix.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
 documentation_of: other/xorshift.hpp
 layout: document

@@ -10,7 +10,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/with_acl.hpp
     title: polynomial/with_acl.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -97,8 +97,8 @@ data:
     \ Mul> &h, int sz = -1) {\n    const std::vector<T> &coeff = h.vec();\n    assert(!coeff.empty()\
     \ && coeff[0] == T(0));\n    if (sz == -1) {\n        sz = (int) coeff.size();\n\
     \    }\n    assert(sz >= 0);\n    std::vector<T> f({T(1)});\n    std::vector<T>\
-    \ g({T(1)});\n    std::vector<T> dft_f_({T(1), T(1)});\n    \n    while (f.size()\
-    \ < sz) {\n        int n = (int) f.size();\n        \n        // F_{2n}(g_0)\n\
+    \ g({T(1)});\n    std::vector<T> dft_f_({T(1), T(1)});\n    \n    while ((int)\
+    \ f.size() < sz) {\n        int n = (int) f.size();\n        \n        // F_{2n}(g_0)\n\
     \        std::vector<T> dft_g_2 = g;\n        dft_g_2.resize(2 * n, T(0));\n \
     \       Mul::dft(dft_g_2);\n        \n        // \\delta\n        std::vector<T>\
     \ delta(n, T(0));\n        for (int i = 0; i < n; ++i) {\n            delta[i]\
@@ -163,7 +163,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/exp_of_formal_power_series_acl.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 11:01:31+09:00'
+  timestamp: '2022-07-22 12:48:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/exp_of_formal_power_series_acl.test.cpp

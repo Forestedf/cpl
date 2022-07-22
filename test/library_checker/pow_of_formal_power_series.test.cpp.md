@@ -25,10 +25,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -139,8 +139,8 @@ data:
     \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
     \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
     \ mod1000000007 = 1000000007;\n\n#line 2 \"template/bitop.hpp\"\n\ntemplate <typename\
-    \ T>\nbool ith_bit(T n, T i) {\n    return (n & ((T) 1 << i)) != 0;\n}\n\nint\
-    \ popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
+    \ T, typename U>\nbool ith_bit(T n, U i) {\n    return (n & ((T) 1 << i)) != 0;\n\
+    }\n\nint popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
     \ x) {\n    return __builtin_popcount(x);\n}\nlong long popcount(long long x)\
     \ {\n    return __builtin_popcountll(x);\n}\nunsigned long long popcount(unsigned\
     \ long long x) {\n    return __builtin_popcountll(x);\n}\n\n// x must not be 0\n\
@@ -269,11 +269,11 @@ data:
     \ std::vector<T> &coeff = h.vec();\n    assert(!coeff.empty() && coeff[0] == T(0));\n\
     \    if (sz == -1) {\n        sz = (int) coeff.size();\n    }\n    assert(sz >=\
     \ 0);\n    std::vector<T> f({T(1)});\n    std::vector<T> g({T(1)});\n    std::vector<T>\
-    \ dft_f_({T(1), T(1)});\n    \n    while (f.size() < sz) {\n        int n = (int)\
-    \ f.size();\n        \n        // F_{2n}(g_0)\n        std::vector<T> dft_g_2\
-    \ = g;\n        dft_g_2.resize(2 * n, T(0));\n        Mul::dft(dft_g_2);\n   \
-    \     \n        // \\delta\n        std::vector<T> delta(n, T(0));\n        for\
-    \ (int i = 0; i < n; ++i) {\n            delta[i] = dft_f_[i] * dft_g_2[i];\n\
+    \ dft_f_({T(1), T(1)});\n    \n    while ((int) f.size() < sz) {\n        int\
+    \ n = (int) f.size();\n        \n        // F_{2n}(g_0)\n        std::vector<T>\
+    \ dft_g_2 = g;\n        dft_g_2.resize(2 * n, T(0));\n        Mul::dft(dft_g_2);\n\
+    \        \n        // \\delta\n        std::vector<T> delta(n, T(0));\n      \
+    \  for (int i = 0; i < n; ++i) {\n            delta[i] = dft_f_[i] * dft_g_2[i];\n\
     \        }\n        Mul::idft(delta);\n        delta.resize(2 * n);\n        for\
     \ (int i = 0; i < n; ++i) {\n            std::swap(delta[i], delta[n + i]);\n\
     \        }\n        delta[n] -= T(1);\n        \n        // F_n(D(f_0))\n    \
@@ -355,7 +355,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/pow_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 15:42:15+09:00'
+  timestamp: '2022-07-22 12:48:33+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/pow_of_formal_power_series.test.cpp

@@ -1,28 +1,31 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/wavelet_matrix.hpp
     title: data_structure/wavelet_matrix.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/range_kth_smallest.test.cpp
     title: test/library_checker/range_kth_smallest.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/other/wavelet_matrix.test.cpp
+    title: test/other/wavelet_matrix.test.cpp
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/bit_vector.hpp\"\n\n#include <vector>\n\n\
-    #line 2 \"template/bitop.hpp\"\n\ntemplate <typename T>\nbool ith_bit(T n, T i)\
-    \ {\n    return (n & ((T) 1 << i)) != 0;\n}\n\nint popcount(int x) {\n    return\
-    \ __builtin_popcount(x);\n}\nunsigned popcount(unsigned x) {\n    return __builtin_popcount(x);\n\
-    }\nlong long popcount(long long x) {\n    return __builtin_popcountll(x);\n}\n\
-    unsigned long long popcount(unsigned long long x) {\n    return __builtin_popcountll(x);\n\
+    #line 2 \"template/bitop.hpp\"\n\ntemplate <typename T, typename U>\nbool ith_bit(T\
+    \ n, U i) {\n    return (n & ((T) 1 << i)) != 0;\n}\n\nint popcount(int x) {\n\
+    \    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned x) {\n    return\
+    \ __builtin_popcount(x);\n}\nlong long popcount(long long x) {\n    return __builtin_popcountll(x);\n\
+    }\nunsigned long long popcount(unsigned long long x) {\n    return __builtin_popcountll(x);\n\
     }\n\n// x must not be 0\nint clz(int x) {\n    return __builtin_clz(x);\n}\nunsigned\
     \ clz(unsigned x) {\n    return __builtin_clz(x);\n}\nlong long clz(long long\
     \ x) {\n    return __builtin_clzll(x);\n}\nunsigned long long clz(unsigned long\
@@ -68,10 +71,11 @@ data:
   path: data_structure/bit_vector.hpp
   requiredBy:
   - data_structure/wavelet_matrix.hpp
-  timestamp: '2022-07-21 15:42:15+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-22 12:46:12+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/range_kth_smallest.test.cpp
+  - test/other/wavelet_matrix.test.cpp
 documentation_of: data_structure/bit_vector.hpp
 layout: document
 redirect_from:

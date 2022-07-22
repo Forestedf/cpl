@@ -91,11 +91,11 @@ data:
     \ std::vector<T> &coeff = h.vec();\n    assert(!coeff.empty() && coeff[0] == T(0));\n\
     \    if (sz == -1) {\n        sz = (int) coeff.size();\n    }\n    assert(sz >=\
     \ 0);\n    std::vector<T> f({T(1)});\n    std::vector<T> g({T(1)});\n    std::vector<T>\
-    \ dft_f_({T(1), T(1)});\n    \n    while (f.size() < sz) {\n        int n = (int)\
-    \ f.size();\n        \n        // F_{2n}(g_0)\n        std::vector<T> dft_g_2\
-    \ = g;\n        dft_g_2.resize(2 * n, T(0));\n        Mul::dft(dft_g_2);\n   \
-    \     \n        // \\delta\n        std::vector<T> delta(n, T(0));\n        for\
-    \ (int i = 0; i < n; ++i) {\n            delta[i] = dft_f_[i] * dft_g_2[i];\n\
+    \ dft_f_({T(1), T(1)});\n    \n    while ((int) f.size() < sz) {\n        int\
+    \ n = (int) f.size();\n        \n        // F_{2n}(g_0)\n        std::vector<T>\
+    \ dft_g_2 = g;\n        dft_g_2.resize(2 * n, T(0));\n        Mul::dft(dft_g_2);\n\
+    \        \n        // \\delta\n        std::vector<T> delta(n, T(0));\n      \
+    \  for (int i = 0; i < n; ++i) {\n            delta[i] = dft_f_[i] * dft_g_2[i];\n\
     \        }\n        Mul::idft(delta);\n        delta.resize(2 * n);\n        for\
     \ (int i = 0; i < n; ++i) {\n            std::swap(delta[i], delta[n + i]);\n\
     \        }\n        delta[n] -= T(1);\n        \n        // F_n(D(f_0))\n    \
@@ -178,7 +178,7 @@ data:
   isVerificationFile: false
   path: polynomial/fps_pow.hpp
   requiredBy: []
-  timestamp: '2022-07-21 11:01:31+09:00'
+  timestamp: '2022-07-22 12:48:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/pow_of_formal_power_series.test.cpp
