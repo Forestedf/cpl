@@ -15,6 +15,9 @@ class WaveletMatrix {
 public:
     WaveletMatrix(std::vector<T> a) : n((int) a.size()), ht(0), vecs() {
         assert(n > 0);
+        for (T ele : a) {
+            assert(ele >= 0);
+        }
         
         T mx = *std::max_element(a.begin(), a.end());
         ht = (int) floor_log2(mx) + 1;
@@ -23,7 +26,7 @@ public:
         for (T d = ht; d-- > 0;) {
             BitVector vec(n);
             for (int i = 0; i < n; ++i) {
-                if (a[i] & ((T) 1 << d)) {
+                if (ith_bit(a[i], d)) {
                     vec.rev(i);
                 }
             }
@@ -76,5 +79,78 @@ public:
             }
         }
         return ret;
+    }
+    T kth_largest(int l, int r, int k) const {
+        return kth_smallest(l, r, r - l - k - 1);
+    }
+    
+    // count i s.t. i \in [l, r) and a[i] = v 
+    int rank(int l, int r, T v) const {
+        assert(0 <= l && l < r && r <= n);
+        if (floor_log2(v) >= ht) {
+            return 0;
+        }
+        for (int i = 0; i < ht; ++i) {
+            i32 l0 = vecs[i].rank0(l);
+            i32 r0 = vecs[i].rank0(r);
+            if (ith_bit(v, ht - 1 - i)) {
+                l += vecs[i].all_zeros() - l0;
+                r += vecs[i].all_zeros() - r0;
+            } else {
+                l = l0;
+                r = r0;
+            }
+        }
+        return r - l;
+    }
+    
+    // count i s.t. i \in [l, r) and a[i] < upper
+    int range_freq(int l, int r, T upper) const {
+        assert(0 <= l && l < r && r <= n);
+        if (floor_log2(upper) >= ht) {
+            return r - l;
+        }
+        int cnt = 0;
+        for (int i = 0; i < ht; ++i) {
+            i32 l0 = vecs[i].rank0(l);
+            i32 r0 = vecs[i].rank0(r);
+            if (ith_bit(upper, ht - 1 - i)) {
+                cnt += r0 - l0;
+                l += vecs[i].all_zeros() - l0;
+                r += vecs[i].all_zeros() - r0;
+            } else {
+                l = l0;
+                r = r0;
+            }
+        }
+        return cnt;
+    }
+    // count i s.t. i \in [l, r) and a[i] \in [lower, upper)
+    int range_freq(int l, int r, T lower, T upper) const {
+        if (lower >= upper) {
+            return 0;
+        } else {
+            return range_freq(l, r, upper) - range_freq(l, r, lower);
+        }
+    }
+    
+    // max v s.t. v \in a[l, r) and v < upper
+    int prev(int l, int r, T upper) const {
+        int freq = range_freq(l, r, upper);
+        if (freq == 0) {
+            return T(-1);
+        } else {
+            return kth_smallest(l, r, freq - 1);
+        }
+    }
+    
+    // min v s.t. v \in a[l, r) and v \geq lower
+    int next(int l, int r, T lower) const {
+        int freq = range_freq(l, r, lower);
+        if (freq == r - l) {
+            return T(-1);
+        } else {
+            return kth_smallest(l, r, freq);
+        }
     }
 };

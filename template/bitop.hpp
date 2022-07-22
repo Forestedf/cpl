@@ -1,7 +1,7 @@
 #pragma once
 
-template <typename T>
-bool ith_bit(T n, T i) {
+template <typename T, typename U>
+bool ith_bit(T n, U i) {
     return (n & ((T) 1 << i)) != 0;
 }
 
