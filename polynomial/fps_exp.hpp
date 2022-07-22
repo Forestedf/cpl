@@ -14,7 +14,7 @@ Polynomial<T, Mul> fps_exp(const Polynomial<T, Mul> &h, int sz = -1) {
     std::vector<T> g({T(1)});
     std::vector<T> dft_f_({T(1), T(1)});
     
-    while (f.size() < sz) {
+    while ((int) f.size() < sz) {
         int n = (int) f.size();
         
         // F_{2n}(g_0)
