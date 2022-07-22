@@ -87,7 +87,7 @@ public:
     // count i s.t. i \in [l, r) and a[i] = v 
     int rank(int l, int r, T v) const {
         assert(0 <= l && l <= r && r <= n);
-        if (floor_log2(v) >= ht) {
+        if (v != 0 && floor_log2(v) >= ht) {
             return 0;
         }
         for (int i = 0; i < ht; ++i) {
@@ -107,7 +107,7 @@ public:
     // count i s.t. i \in [l, r) and a[i] < upper
     int range_freq(int l, int r, T upper) const {
         assert(0 <= l && l < r && r <= n);
-        if (floor_log2(upper) >= ht) {
+        if (upper != 0 && floor_log2(upper) >= ht) {
             return r - l;
         }
         int cnt = 0;
