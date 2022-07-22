@@ -36,6 +36,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/range_kth_smallest.test.cpp
     title: test/library_checker/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test/library_checker/static_range_frequency.test.cpp
+    title: test/library_checker/static_range_frequency.test.cpp
   - icon: ':x:'
     path: test/other/wavelet_matrix.test.cpp
     title: test/other/wavelet_matrix.test.cpp
@@ -89,6 +92,7 @@ data:
   timestamp: '2022-07-22 12:46:12+09:00'
   verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - test/library_checker/static_range_frequency.test.cpp
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/pow_of_formal_power_series.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp

@@ -257,6 +257,9 @@ data:
       path: test/library_checker/scc.test.cpp
       title: test/library_checker/scc.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/static_range_frequency.test.cpp
+      title: test/library_checker/static_range_frequency.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/staticrmq.test.cpp
       title: test/library_checker/staticrmq.test.cpp
     - icon: ':heavy_check_mark:'

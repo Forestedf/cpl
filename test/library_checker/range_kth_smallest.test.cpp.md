@@ -135,8 +135,8 @@ data:
     \ r0 - l0;\n            }\n        }\n        return ret;\n    }\n    T kth_largest(int\
     \ l, int r, int k) const {\n        return kth_smallest(l, r, r - l - k - 1);\n\
     \    }\n    \n    // count i s.t. i \\in [l, r) and a[i] = v \n    int rank(int\
-    \ l, int r, T v) const {\n        assert(0 <= l && l < r && r <= n);\n       \
-    \ if (floor_log2(v) >= ht) {\n            return 0;\n        }\n        for (int\
+    \ l, int r, T v) const {\n        assert(0 <= l && l <= r && r <= n);\n      \
+    \  if (floor_log2(v) >= ht) {\n            return 0;\n        }\n        for (int\
     \ i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n            i32\
     \ r0 = vecs[i].rank0(r);\n            if (ith_bit(v, ht - 1 - i)) {\n        \
     \        l += vecs[i].all_zeros() - l0;\n                r += vecs[i].all_zeros()\
@@ -184,7 +184,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/range_kth_smallest.test.cpp
   requiredBy: []
-  timestamp: '2022-07-22 12:46:12+09:00'
+  timestamp: '2022-07-22 13:30:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/range_kth_smallest.test.cpp

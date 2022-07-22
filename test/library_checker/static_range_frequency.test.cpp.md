@@ -8,9 +8,6 @@ data:
     path: data_structure/wavelet_matrix.hpp
     title: data_structure/wavelet_matrix.hpp
   - icon: ':question:'
-    path: other/xorshift.hpp
-    title: other/xorshift.hpp
-  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
   - icon: ':question:'
@@ -18,17 +15,17 @@ data:
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A
+    PROBLEM: https://judge.yosupo.jp/problem/static_range_frequency
     links:
-    - https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A
-  bundledCode: "#line 1 \"test/other/wavelet_matrix.test.cpp\"\n#define PROBLEM \"\
-    https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A\"\n\n#define\
-    \ FAST_IO\n\n#line 1 \"template/template.hpp\"\n#include <algorithm>\n#include\
+    - https://judge.yosupo.jp/problem/static_range_frequency
+  bundledCode: "#line 1 \"test/library_checker/static_range_frequency.test.cpp\"\n\
+    #define PROBLEM \"https://judge.yosupo.jp/problem/static_range_frequency\"\n\n\
+    #define FAST_IO\n\n#line 1 \"template/template.hpp\"\n#include <algorithm>\n#include\
     \ <array>\n#include <bitset>\n#include <cassert>\n#include <cmath>\n#include <iomanip>\n\
     #include <iostream>\n#include <list>\n#include <map>\n#include <numeric>\n#include\
     \ <queue>\n#include <random>\n#include <set>\n#include <stack>\n#include <string>\n\
@@ -53,15 +50,8 @@ data:
     [[maybe_unused]] constexpr i64 INF64 = 3000000000000000100;\nstruct SetUpIO {\n\
     \    SetUpIO() {\n#ifdef FAST_IO\n        ios::sync_with_stdio(false);\n     \
     \   cin.tie(nullptr);\n#endif\n        cout << fixed << setprecision(15);\n  \
-    \  }\n} set_up_io;\n#line 2 \"other/xorshift.hpp\"\n\nclass XorShift64 {\n   \
-    \ unsigned long long x;\n    \npublic:\n    XorShift64(unsigned long long seed)\
-    \ : x((seed + 14213124131ull) ^ 103920984124ull) {}\n    \n    unsigned long long\
-    \ operator()() {\n        x = x ^ (x << 13);\n        x = x ^ (x >> 7);\n    \
-    \    x = x ^ (x << 17);\n        return x;\n    }\n    \n    template <typename\
-    \ T>\n    T uniform(T mn, T mx) {\n        return mn + (T) ((*this)() % (mx -\
-    \ mn + 1));\n    }\n    \n    double as_f64() {\n        return (double) (*this)()\
-    \ / ~0ull;\n    }\n};\n#line 2 \"data_structure/wavelet_matrix.hpp\"\n\n#line\
-    \ 6 \"data_structure/wavelet_matrix.hpp\"\n\n#line 2 \"data_structure/bit_vector.hpp\"\
+    \  }\n} set_up_io;\n#line 2 \"data_structure/wavelet_matrix.hpp\"\n\n#line 6 \"\
+    data_structure/wavelet_matrix.hpp\"\n\n#line 2 \"data_structure/bit_vector.hpp\"\
     \n\n#line 4 \"data_structure/bit_vector.hpp\"\n\n#line 2 \"template/bitop.hpp\"\
     \n\ntemplate <typename T, typename U>\nbool ith_bit(T n, U i) {\n    return (n\
     \ & ((T) 1 << i)) != 0;\n}\n\nint popcount(int x) {\n    return __builtin_popcount(x);\n\
@@ -148,94 +138,34 @@ data:
     in a[l, r) and v \\geq lower\n    int next(int l, int r, T lower) const {\n  \
     \      int freq = range_freq(l, r, lower);\n        if (freq == r - l) {\n   \
     \         return T(-1);\n        } else {\n            return kth_smallest(l,\
-    \ r, freq);\n        }\n    }\n};\n#line 8 \"test/other/wavelet_matrix.test.cpp\"\
-    \n\nconstexpr i32 ITER = 100;\nconstexpr i32 LEN = 100;\nconstexpr i32 SIGMA =\
-    \ 100;\n\nvoid test(const Vec<i32> &a, XorShift64 &rd) {\n    WaveletMatrix<i32>\
-    \ wm(a);\n    \n    i32 n = (i32) a.size();\n    \n    // access\n    REP(i, n)\
-    \ {\n        assert(wm.access(i) == a[i]);\n    }\n    \n    // kth_smallest\n\
-    \    REP(_iter, ITER) {\n        i32 l = rd.uniform(0, n - 1);\n        i32 r\
-    \ = rd.uniform(l + 1, n);\n        i32 k = rd.uniform(0, r - l - 1);\n       \
-    \ \n        Vec<i32> b(a.begin() + l, a.begin() + r);\n        sort(ALL(b));\n\
-    \        assert(wm.kth_smallest(l, r, k) == b[k]);\n    }\n    \n    // rank\n\
-    \    REP(_iter, ITER) {\n        i32 l = rd.uniform(0, n - 1);\n        i32 r\
-    \ = rd.uniform(l + 1, n);\n        i32 v = rd.uniform(0, SIGMA + 10);\n      \
-    \  \n        assert(wm.rank(l, r, v) == count(a.begin() + l, a.begin() + r, v));\n\
-    \    }\n    \n    // range_freq\n    REP(_iter, ITER) {\n        i32 l = rd.uniform(0,\
-    \ n - 1);\n        i32 r = rd.uniform(l + 1, n);\n        i32 lower = rd.uniform(0,\
-    \ SIGMA);\n        i32 upper = rd.uniform(lower + 1, SIGMA + 10);\n        \n\
-    \        i32 cnt = 0;\n        REP(i, l, r) {\n            if (lower <= a[i] &&\
-    \ a[i] < upper) {\n                ++cnt;\n            }\n        }\n        assert(wm.range_freq(l,\
-    \ r, lower, upper) == cnt);\n    }\n    \n    // prev\n    REP(_iter, ITER) {\n\
-    \        i32 l = rd.uniform(0, n - 1);\n        i32 r = rd.uniform(l + 1, n);\n\
-    \        i32 upper = rd.uniform(0, SIGMA + 10);\n        \n        i32 mx = -1;\n\
-    \        REP(i, l, r) {\n            if (a[i] < upper) {\n                chmax(mx,\
-    \ a[i]);\n            }\n        }\n        assert(wm.prev(l, r, upper) == mx);\n\
-    \    }\n    \n    // next\n    REP(_iter, ITER) {\n        i32 l = rd.uniform(0,\
-    \ n - 1);\n        i32 r = rd.uniform(l + 1, n);\n        i32 lower = rd.uniform(0,\
-    \ SIGMA + 10);\n        \n        i32 mn = INF;\n        REP(i, l, r) {\n    \
-    \        if (a[i] >= lower) {\n                chmin(mn, a[i]);\n            }\n\
-    \        }\n        if (mn == INF) {\n            assert(wm.next(l, r, lower)\
-    \ == -1);\n        } else {\n            assert(wm.next(l, r, lower) == mn);\n\
-    \        }\n    }\n    \n    assert(wm.rank(0, n, 128) == 0);\n    assert(wm.range_freq(0,\
-    \ n, 128) == n);\n    assert(wm.prev(0, n, 128) == *max_element(ALL(a)));    \n\
-    }\n\nVec<i32> gen_random(XorShift64 &rd) {\n    Vec<i32> a(LEN);\n    for (i32\
-    \ &ele : a) {\n        ele = rd.uniform(0, SIGMA - 1);\n    }\n    return a;\n\
-    }\n\nint main() {\n    XorShift64 rd(138013123124ull);\n    \n    REP(_, 10) {\n\
-    \        test(gen_random(rd), rd);\n    }\n    \n    cout << \"Hello World\\n\"\
-    ;\n}\n"
-  code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A\"\
-    \n\n#define FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../other/xorshift.hpp\"\
-    \n#include \"../../data_structure/wavelet_matrix.hpp\"\n\nconstexpr i32 ITER =\
-    \ 100;\nconstexpr i32 LEN = 100;\nconstexpr i32 SIGMA = 100;\n\nvoid test(const\
-    \ Vec<i32> &a, XorShift64 &rd) {\n    WaveletMatrix<i32> wm(a);\n    \n    i32\
-    \ n = (i32) a.size();\n    \n    // access\n    REP(i, n) {\n        assert(wm.access(i)\
-    \ == a[i]);\n    }\n    \n    // kth_smallest\n    REP(_iter, ITER) {\n      \
-    \  i32 l = rd.uniform(0, n - 1);\n        i32 r = rd.uniform(l + 1, n);\n    \
-    \    i32 k = rd.uniform(0, r - l - 1);\n        \n        Vec<i32> b(a.begin()\
-    \ + l, a.begin() + r);\n        sort(ALL(b));\n        assert(wm.kth_smallest(l,\
-    \ r, k) == b[k]);\n    }\n    \n    // rank\n    REP(_iter, ITER) {\n        i32\
-    \ l = rd.uniform(0, n - 1);\n        i32 r = rd.uniform(l + 1, n);\n        i32\
-    \ v = rd.uniform(0, SIGMA + 10);\n        \n        assert(wm.rank(l, r, v) ==\
-    \ count(a.begin() + l, a.begin() + r, v));\n    }\n    \n    // range_freq\n \
-    \   REP(_iter, ITER) {\n        i32 l = rd.uniform(0, n - 1);\n        i32 r =\
-    \ rd.uniform(l + 1, n);\n        i32 lower = rd.uniform(0, SIGMA);\n        i32\
-    \ upper = rd.uniform(lower + 1, SIGMA + 10);\n        \n        i32 cnt = 0;\n\
-    \        REP(i, l, r) {\n            if (lower <= a[i] && a[i] < upper) {\n  \
-    \              ++cnt;\n            }\n        }\n        assert(wm.range_freq(l,\
-    \ r, lower, upper) == cnt);\n    }\n    \n    // prev\n    REP(_iter, ITER) {\n\
-    \        i32 l = rd.uniform(0, n - 1);\n        i32 r = rd.uniform(l + 1, n);\n\
-    \        i32 upper = rd.uniform(0, SIGMA + 10);\n        \n        i32 mx = -1;\n\
-    \        REP(i, l, r) {\n            if (a[i] < upper) {\n                chmax(mx,\
-    \ a[i]);\n            }\n        }\n        assert(wm.prev(l, r, upper) == mx);\n\
-    \    }\n    \n    // next\n    REP(_iter, ITER) {\n        i32 l = rd.uniform(0,\
-    \ n - 1);\n        i32 r = rd.uniform(l + 1, n);\n        i32 lower = rd.uniform(0,\
-    \ SIGMA + 10);\n        \n        i32 mn = INF;\n        REP(i, l, r) {\n    \
-    \        if (a[i] >= lower) {\n                chmin(mn, a[i]);\n            }\n\
-    \        }\n        if (mn == INF) {\n            assert(wm.next(l, r, lower)\
-    \ == -1);\n        } else {\n            assert(wm.next(l, r, lower) == mn);\n\
-    \        }\n    }\n    \n    assert(wm.rank(0, n, 128) == 0);\n    assert(wm.range_freq(0,\
-    \ n, 128) == n);\n    assert(wm.prev(0, n, 128) == *max_element(ALL(a)));    \n\
-    }\n\nVec<i32> gen_random(XorShift64 &rd) {\n    Vec<i32> a(LEN);\n    for (i32\
-    \ &ele : a) {\n        ele = rd.uniform(0, SIGMA - 1);\n    }\n    return a;\n\
-    }\n\nint main() {\n    XorShift64 rd(138013123124ull);\n    \n    REP(_, 10) {\n\
-    \        test(gen_random(rd), rd);\n    }\n    \n    cout << \"Hello World\\n\"\
-    ;\n}"
+    \ r, freq);\n        }\n    }\n};\n#line 7 \"test/library_checker/static_range_frequency.test.cpp\"\
+    \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    if (n == 0) {\n     \
+    \   REP(_q, q) {\n            cout << 0 << '\\n';\n        }\n        exit(0);\n\
+    \    }\n    Vec<i32> a(n);\n    REP(i, n) {\n        cin >> a[i];\n    }\n   \
+    \ WaveletMatrix<i32> wm(a);\n    REP(qi, q) {\n        i32 l, r, v;\n        cin\
+    \ >> l >> r >> v;\n        cout << wm.rank(l, r, v) << '\\n';\n    }\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/static_range_frequency\"\
+    \n\n#define FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../data_structure/wavelet_matrix.hpp\"\
+    \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    if (n == 0) {\n     \
+    \   REP(_q, q) {\n            cout << 0 << '\\n';\n        }\n        exit(0);\n\
+    \    }\n    Vec<i32> a(n);\n    REP(i, n) {\n        cin >> a[i];\n    }\n   \
+    \ WaveletMatrix<i32> wm(a);\n    REP(qi, q) {\n        i32 l, r, v;\n        cin\
+    \ >> l >> r >> v;\n        cout << wm.rank(l, r, v) << '\\n';\n    }\n}"
   dependsOn:
   - template/template.hpp
-  - other/xorshift.hpp
   - data_structure/wavelet_matrix.hpp
   - data_structure/bit_vector.hpp
   - template/bitop.hpp
   isVerificationFile: true
-  path: test/other/wavelet_matrix.test.cpp
+  path: test/library_checker/static_range_frequency.test.cpp
   requiredBy: []
   timestamp: '2022-07-22 13:30:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
-documentation_of: test/other/wavelet_matrix.test.cpp
+documentation_of: test/library_checker/static_range_frequency.test.cpp
 layout: document
 redirect_from:
-- /verify/test/other/wavelet_matrix.test.cpp
-- /verify/test/other/wavelet_matrix.test.cpp.html
-title: test/other/wavelet_matrix.test.cpp
+- /verify/test/library_checker/static_range_frequency.test.cpp
+- /verify/test/library_checker/static_range_frequency.test.cpp.html
+title: test/library_checker/static_range_frequency.test.cpp
 ---

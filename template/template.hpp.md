@@ -67,6 +67,9 @@ data:
     path: test/library_checker/scc.test.cpp
     title: test/library_checker/scc.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/static_range_frequency.test.cpp
+    title: test/library_checker/static_range_frequency.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/staticrmq.test.cpp
     title: test/library_checker/staticrmq.test.cpp
   - icon: ':heavy_check_mark:'
@@ -164,6 +167,7 @@ data:
   verifiedWith:
   - test/library_checker/staticrmq.test.cpp
   - test/library_checker/vertex_add_subtree_sum.test.cpp
+  - test/library_checker/static_range_frequency.test.cpp
   - test/library_checker/vertex_add_path_sum.test.cpp
   - test/library_checker/point_add_range_sum.test.cpp
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
