@@ -86,7 +86,7 @@ public:
     
     // count i s.t. i \in [l, r) and a[i] = v 
     int rank(int l, int r, T v) const {
-        assert(0 <= l && l < r && r <= n);
+        assert(0 <= l && l <= r && r <= n);
         if (floor_log2(v) >= ht) {
             return 0;
         }
