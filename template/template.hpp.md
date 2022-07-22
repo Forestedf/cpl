@@ -96,15 +96,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/other/wavelet_matrix.test.cpp
     title: test/other/wavelet_matrix.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.hpp\"\n#include <algorithm>\n#include\
@@ -163,7 +163,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-07-17 16:00:30+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/staticrmq.test.cpp
   - test/library_checker/vertex_add_subtree_sum.test.cpp

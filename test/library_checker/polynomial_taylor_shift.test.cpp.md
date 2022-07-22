@@ -16,10 +16,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/taylor_shift.hpp
     title: polynomial/taylor_shift.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []

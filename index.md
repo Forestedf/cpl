@@ -28,7 +28,7 @@ data:
       title: convolution/subset_convolution_log.hpp
   - name: data_structure
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/bit_vector.hpp
       title: data_structure/bit_vector.hpp
     - icon: ':heavy_check_mark:'
@@ -67,7 +67,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/union_find.hpp
       title: data_structure/union_find.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/wavelet_matrix.hpp
       title: data_structure/wavelet_matrix.hpp
   - name: graph
@@ -136,7 +136,7 @@ data:
     - icon: ':warning:'
       path: other/timer.hpp
       title: other/timer.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: other/xorshift.hpp
       title: other/xorshift.hpp
   - name: polynomial
@@ -181,13 +181,13 @@ data:
       title: string/z_algorithm.hpp
   - name: template
     pages:
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/bitop.hpp
       title: template/bitop.hpp
     - icon: ':warning:'
       path: template/debug.hpp
       title: template/debug.hpp
-    - icon: ':question:'
+    - icon: ':heavy_check_mark:'
       path: template/template.hpp
       title: template/template.hpp
   verificationCategories:
@@ -288,7 +288,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/other/subset_convolution_exp_log.test.cpp
       title: test/other/subset_convolution_exp_log.test.cpp
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/other/wavelet_matrix.test.cpp
       title: test/other/wavelet_matrix.test.cpp
   - name: test/yukicoder

@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/bit_vector.hpp
     title: data_structure/bit_vector.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/wavelet_matrix.hpp
     title: data_structure/wavelet_matrix.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: other/xorshift.hpp
     title: other/xorshift.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A
@@ -123,18 +123,18 @@ data:
     \ l, int r, int k) const {\n        return kth_smallest(l, r, r - l - k - 1);\n\
     \    }\n    \n    // count i s.t. i \\in [l, r) and a[i] = v \n    int rank(int\
     \ l, int r, T v) const {\n        assert(0 <= l && l <= r && r <= n);\n      \
-    \  if (floor_log2(v) >= ht) {\n            return 0;\n        }\n        for (int\
-    \ i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n            i32\
-    \ r0 = vecs[i].rank0(r);\n            if (ith_bit(v, ht - 1 - i)) {\n        \
-    \        l += vecs[i].all_zeros() - l0;\n                r += vecs[i].all_zeros()\
+    \  if (v != 0 && floor_log2(v) >= ht) {\n            return 0;\n        }\n  \
+    \      for (int i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n\
+    \            i32 r0 = vecs[i].rank0(r);\n            if (ith_bit(v, ht - 1 - i))\
+    \ {\n                l += vecs[i].all_zeros() - l0;\n                r += vecs[i].all_zeros()\
     \ - r0;\n            } else {\n                l = l0;\n                r = r0;\n\
     \            }\n        }\n        return r - l;\n    }\n    \n    // count i\
     \ s.t. i \\in [l, r) and a[i] < upper\n    int range_freq(int l, int r, T upper)\
-    \ const {\n        assert(0 <= l && l < r && r <= n);\n        if (floor_log2(upper)\
-    \ >= ht) {\n            return r - l;\n        }\n        int cnt = 0;\n     \
-    \   for (int i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n \
-    \           i32 r0 = vecs[i].rank0(r);\n            if (ith_bit(upper, ht - 1\
-    \ - i)) {\n                cnt += r0 - l0;\n                l += vecs[i].all_zeros()\
+    \ const {\n        assert(0 <= l && l < r && r <= n);\n        if (upper != 0\
+    \ && floor_log2(upper) >= ht) {\n            return r - l;\n        }\n      \
+    \  int cnt = 0;\n        for (int i = 0; i < ht; ++i) {\n            i32 l0 =\
+    \ vecs[i].rank0(l);\n            i32 r0 = vecs[i].rank0(r);\n            if (ith_bit(upper,\
+    \ ht - 1 - i)) {\n                cnt += r0 - l0;\n                l += vecs[i].all_zeros()\
     \ - l0;\n                r += vecs[i].all_zeros() - r0;\n            } else {\n\
     \                l = l0;\n                r = r0;\n            }\n        }\n\
     \        return cnt;\n    }\n    // count i s.t. i \\in [l, r) and a[i] \\in [lower,\
@@ -229,8 +229,8 @@ data:
   isVerificationFile: true
   path: test/other/wavelet_matrix.test.cpp
   requiredBy: []
-  timestamp: '2022-07-22 13:30:05+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2022-07-22 13:43:41+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/other/wavelet_matrix.test.cpp
 layout: document
