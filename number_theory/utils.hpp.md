@@ -58,6 +58,9 @@ data:
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/other/sparse_segment_tree.test.cpp
+    title: test/other/sparse_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
   - icon: ':heavy_check_mark:'
@@ -150,6 +153,7 @@ data:
   - test/library_checker/range_affine_range_sum.test.cpp
   - test/library_checker/point_set_range_composite.test.cpp
   - test/yukicoder/1891.test.cpp
+  - test/other/sparse_segment_tree.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
 documentation_of: number_theory/utils.hpp
 layout: document

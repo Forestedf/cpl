@@ -59,6 +59,9 @@ data:
       path: data_structure/slope_trick.hpp
       title: data_structure/slope_trick.hpp
     - icon: ':heavy_check_mark:'
+      path: data_structure/sparse_segment_tree.hpp
+      title: data_structure/sparse_segment_tree.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/sparse_table.hpp
       title: data_structure/sparse_table.hpp
     - icon: ':warning:'
@@ -285,6 +288,9 @@ data:
       title: test/library_checker/zalgorithm.test.cpp
   - name: test/other
     pages:
+    - icon: ':heavy_check_mark:'
+      path: test/other/sparse_segment_tree.test.cpp
+      title: test/other/sparse_segment_tree.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/other/subset_convolution_exp_log.test.cpp
       title: test/other/subset_convolution_exp_log.test.cpp

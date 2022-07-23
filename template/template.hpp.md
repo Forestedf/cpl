@@ -94,6 +94,9 @@ data:
     path: test/library_checker/zalgorithm.test.cpp
     title: test/library_checker/zalgorithm.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/other/sparse_segment_tree.test.cpp
+    title: test/other/sparse_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
   - icon: ':heavy_check_mark:'
@@ -196,6 +199,7 @@ data:
   - test/library_checker/point_set_range_composite.test.cpp
   - test/library_checker/lca.test.cpp
   - test/yukicoder/1891.test.cpp
+  - test/other/sparse_segment_tree.test.cpp
   - test/other/wavelet_matrix.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
 documentation_of: template/template.hpp
