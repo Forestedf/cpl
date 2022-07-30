@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: convolution/subset_convolution_exp.hpp
     title: convolution/subset_convolution_exp.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: convolution/subset_convolution_internal.hpp
     title: convolution/subset_convolution_internal.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: convolution/subset_convolution_log.hpp
     title: convolution/subset_convolution_log.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: other/xorshift.hpp
     title: other/xorshift.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A
@@ -236,7 +236,7 @@ data:
   path: test/other/subset_convolution_exp_log.test.cpp
   requiredBy: []
   timestamp: '2022-07-30 11:55:56+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/other/subset_convolution_exp_log.test.cpp
 layout: document

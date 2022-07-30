@@ -2,7 +2,7 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
   - icon: ':heavy_check_mark:'
@@ -51,24 +51,24 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/range_affine_range_sum.test.cpp
     title: test/library_checker/range_affine_range_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/subset_convolution.test.cpp
     title: test/library_checker/subset_convolution.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/other/sparse_segment_tree.test.cpp
     title: test/other/sparse_segment_tree.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/utils.hpp\"\n\nconstexpr bool is_prime(unsigned\
@@ -134,7 +134,7 @@ data:
   - number_theory/mod_int.hpp
   - template/debug.hpp
   timestamp: '2022-07-30 11:55:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/matrix_product.test.cpp

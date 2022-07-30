@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/graph.hpp
     title: graph/graph.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: graph/heavy_light_decomposition.hpp
     title: graph/heavy_light_decomposition.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -120,7 +120,7 @@ data:
     \        assert(v >= 0 && v < (int) dep.size());        \n        return dep[u]\
     \ + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    std::vector<std::pair<int, int>>\
     \ path(int u, int v, bool edge) const {\n        assert(u >= 0 && u < (int) dep.size());\n\
-    \        assert(v >= 0 && v < (int) dep.size());   \n        std::vector<std::pair<int,\
+    \        assert(v >= 0 && v < (int) dep.size());\n        std::vector<std::pair<int,\
     \ int>> fromu, fromv;\n        bool rev = false;\n        while (true) {\n   \
     \         if (u == v && edge) {\n                break;\n            }\n     \
     \       if (in[u] > in[v]) {\n                std::swap(u, v);\n             \
@@ -152,7 +152,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/lca.test.cpp
   requiredBy: []
-  timestamp: '2022-07-30 11:55:56+09:00'
+  timestamp: '2022-07-30 12:34:01+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/lca.test.cpp

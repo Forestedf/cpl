@@ -6,18 +6,18 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/lca.test.cpp
     title: test/library_checker/lca.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_add_path_sum.test.cpp
     title: test/library_checker/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_add_subtree_sum.test.cpp
     title: test/library_checker/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/heavy_light_decomposition.hpp\"\n\n#include <algorithm>\n\
@@ -70,7 +70,7 @@ data:
     \ dep.size());        \n        return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n\
     \    }\n\n    std::vector<std::pair<int, int>> path(int u, int v, bool edge) const\
     \ {\n        assert(u >= 0 && u < (int) dep.size());\n        assert(v >= 0 &&\
-    \ v < (int) dep.size());   \n        std::vector<std::pair<int, int>> fromu, fromv;\n\
+    \ v < (int) dep.size());\n        std::vector<std::pair<int, int>> fromu, fromv;\n\
     \        bool rev = false;\n        while (true) {\n            if (u == v &&\
     \ edge) {\n                break;\n            }\n            if (in[u] > in[v])\
     \ {\n                std::swap(u, v);\n                std::swap(fromu, fromv);\n\
@@ -131,7 +131,7 @@ data:
     \ < (int) dep.size());\n        assert(v >= 0 && v < (int) dep.size());      \
     \  \n        return dep[u] + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    std::vector<std::pair<int,\
     \ int>> path(int u, int v, bool edge) const {\n        assert(u >= 0 && u < (int)\
-    \ dep.size());\n        assert(v >= 0 && v < (int) dep.size());   \n        std::vector<std::pair<int,\
+    \ dep.size());\n        assert(v >= 0 && v < (int) dep.size());\n        std::vector<std::pair<int,\
     \ int>> fromu, fromv;\n        bool rev = false;\n        while (true) {\n   \
     \         if (u == v && edge) {\n                break;\n            }\n     \
     \       if (in[u] > in[v]) {\n                std::swap(u, v);\n             \
@@ -148,8 +148,8 @@ data:
   isVerificationFile: false
   path: graph/heavy_light_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-07-30 11:55:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  timestamp: '2022-07-30 12:34:01+09:00'
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/vertex_add_subtree_sum.test.cpp
   - test/library_checker/vertex_add_path_sum.test.cpp
