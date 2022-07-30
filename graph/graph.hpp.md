@@ -7,6 +7,9 @@ data:
     title: graph/dijkstra.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/jump_on_tree.test.cpp
+    title: test/library_checker/jump_on_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/lca.test.cpp
     title: test/library_checker/lca.test.cpp
   - icon: ':heavy_check_mark:'
@@ -88,6 +91,7 @@ data:
   - test/library_checker/vertex_add_path_sum.test.cpp
   - test/library_checker/vertex_set_path_composite.test.cpp
   - test/library_checker/scc.test.cpp
+  - test/library_checker/jump_on_tree.test.cpp
   - test/library_checker/lca.test.cpp
 documentation_of: graph/graph.hpp
 layout: document

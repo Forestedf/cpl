@@ -215,6 +215,9 @@ data:
       path: test/library_checker/inv_of_formal_power_series_acl.test.cpp
       title: test/library_checker/inv_of_formal_power_series_acl.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test/library_checker/jump_on_tree.test.cpp
+      title: test/library_checker/jump_on_tree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
       title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
     - icon: ':heavy_check_mark:'

@@ -22,6 +22,9 @@ data:
     path: test/library_checker/inv_of_formal_power_series_acl.test.cpp
     title: test/library_checker/inv_of_formal_power_series_acl.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/jump_on_tree.test.cpp
+    title: test/library_checker/jump_on_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   - icon: ':heavy_check_mark:'
@@ -193,6 +196,7 @@ data:
   - test/library_checker/two_sat.test.cpp
   - test/library_checker/exp_of_formal_power_series_acl.test.cpp
   - test/library_checker/exp_of_formal_power_series.test.cpp
+  - test/library_checker/jump_on_tree.test.cpp
   - test/library_checker/bitwise_and_convolution.test.cpp
   - test/library_checker/log_of_formal_power_series.test.cpp
   - test/library_checker/range_affine_range_sum.test.cpp
