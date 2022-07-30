@@ -1,10 +1,10 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/bit_vector.hpp
     title: data_structure/bit_vector.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
   _extendedRequiredBy: []
@@ -12,15 +12,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/range_kth_smallest.test.cpp
     title: test/library_checker/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/static_range_frequency.test.cpp
     title: test/library_checker/static_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/wavelet_matrix.test.cpp
     title: test/other/wavelet_matrix.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/wavelet_matrix.hpp\"\n\n#include <algorithm>\n\
@@ -59,48 +59,48 @@ data:
     \ {\n    int n;\n    int ht;\n    std::vector<BitVector> vecs;\n    \npublic:\n\
     \    WaveletMatrix(std::vector<T> a) : n((int) a.size()), ht(0), vecs() {\n  \
     \      assert(n > 0);\n        for (T ele : a) {\n            assert(ele >= 0);\n\
-    \        }\n        \n        T mx = *std::max_element(a.begin(), a.end());\n\
-    \        ht = (int) floor_log2(mx) + 1;\n        vecs.reserve(ht);\n        \n\
-    \        for (T d = ht; d-- > 0;) {\n            BitVector vec(n);\n         \
-    \   for (int i = 0; i < n; ++i) {\n                if (ith_bit(a[i], d)) {\n \
-    \                   vec.rev(i);\n                }\n            }\n          \
-    \  vec.build();\n            std::vector<T> nxt(n);\n            auto it0 = nxt.begin();\n\
-    \            auto it1 = nxt.begin() + vec.all_zeros();\n            for (int i\
-    \ = 0; i < n; ++i) {\n                if (vec[i]) {\n                    *(it1++)\
-    \ = a[i];\n                } else {\n                    *(it0++) = a[i];\n  \
-    \              }\n            }\n            std::swap(nxt, a);\n            vecs.emplace_back(std::move(vec));\n\
-    \        }\n    }\n    \n    T access(int idx) const {\n        assert(0 <= idx\
-    \ && idx < n);\n        T ret(0);\n        for (int i = 0; i < ht; ++i) {\n  \
-    \          ret <<= 1;\n            if (vecs[i][idx]) {\n                ret ^=\
-    \ 1;\n                idx = vecs[i].all_zeros() + vecs[i].rank1(idx);\n      \
-    \      } else {\n                idx = vecs[i].rank0(idx);\n            }\n  \
-    \      }\n        return ret;\n    }\n    \n    T kth_smallest(int l, int r, int\
-    \ k) const {\n        assert(0 <= l && l < r && r <= n && 0 <= k && k < r - l);\n\
-    \        T ret = 0;\n        for (int i = 0; i < ht; ++i) {\n            int l0\
-    \ = vecs[i].rank0(l);\n            int r0 = vecs[i].rank0(r);\n            ret\
-    \ <<= 1;\n            if (k < r0 - l0) {\n                l = l0;\n          \
-    \      r = r0;\n            } else {\n                ret ^= T(1);\n         \
-    \       l += vecs[i].all_zeros() - l0;\n                r += vecs[i].all_zeros()\
-    \ - r0;\n                k -= r0 - l0;\n            }\n        }\n        return\
-    \ ret;\n    }\n    T kth_largest(int l, int r, int k) const {\n        return\
-    \ kth_smallest(l, r, r - l - k - 1);\n    }\n    \n    // count i s.t. i \\in\
-    \ [l, r) and a[i] = v \n    int rank(int l, int r, T v) const {\n        assert(0\
-    \ <= l && l <= r && r <= n);\n        if (v != 0 && floor_log2(v) >= ht) {\n \
-    \           return 0;\n        }\n        for (int i = 0; i < ht; ++i) {\n   \
-    \         i32 l0 = vecs[i].rank0(l);\n            i32 r0 = vecs[i].rank0(r);\n\
-    \            if (ith_bit(v, ht - 1 - i)) {\n                l += vecs[i].all_zeros()\
+    \        }\n        \n        T mx = std::max(T(1), *std::max_element(a.begin(),\
+    \ a.end()));\n        ht = (int) floor_log2(mx) + 1;\n        vecs.reserve(ht);\n\
+    \        \n        for (T d = ht; d-- > 0;) {\n            BitVector vec(n);\n\
+    \            for (int i = 0; i < n; ++i) {\n                if (ith_bit(a[i],\
+    \ d)) {\n                    vec.rev(i);\n                }\n            }\n \
+    \           vec.build();\n            std::vector<T> nxt(n);\n            auto\
+    \ it0 = nxt.begin();\n            auto it1 = nxt.begin() + vec.all_zeros();\n\
+    \            for (int i = 0; i < n; ++i) {\n                if (vec[i]) {\n  \
+    \                  *(it1++) = a[i];\n                } else {\n              \
+    \      *(it0++) = a[i];\n                }\n            }\n            std::swap(nxt,\
+    \ a);\n            vecs.emplace_back(std::move(vec));\n        }\n    }\n    \n\
+    \    T access(int idx) const {\n        assert(0 <= idx && idx < n);\n       \
+    \ T ret(0);\n        for (int i = 0; i < ht; ++i) {\n            ret <<= 1;\n\
+    \            if (vecs[i][idx]) {\n                ret ^= 1;\n                idx\
+    \ = vecs[i].all_zeros() + vecs[i].rank1(idx);\n            } else {\n        \
+    \        idx = vecs[i].rank0(idx);\n            }\n        }\n        return ret;\n\
+    \    }\n    \n    T kth_smallest(int l, int r, int k) const {\n        assert(0\
+    \ <= l && l < r && r <= n && 0 <= k && k < r - l);\n        T ret = 0;\n     \
+    \   for (int i = 0; i < ht; ++i) {\n            int l0 = vecs[i].rank0(l);\n \
+    \           int r0 = vecs[i].rank0(r);\n            ret <<= 1;\n            if\
+    \ (k < r0 - l0) {\n                l = l0;\n                r = r0;\n        \
+    \    } else {\n                ret ^= T(1);\n                l += vecs[i].all_zeros()\
+    \ - l0;\n                r += vecs[i].all_zeros() - r0;\n                k -=\
+    \ r0 - l0;\n            }\n        }\n        return ret;\n    }\n    T kth_largest(int\
+    \ l, int r, int k) const {\n        return kth_smallest(l, r, r - l - k - 1);\n\
+    \    }\n    \n    // count i s.t. i \\in [l, r) and a[i] = v \n    int rank(int\
+    \ l, int r, T v) const {\n        assert(0 <= l && l <= r && r <= n);\n      \
+    \  if (v != 0 && floor_log2(v) >= ht) {\n            return 0;\n        }\n  \
+    \      for (int i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n\
+    \            i32 r0 = vecs[i].rank0(r);\n            if (ith_bit(v, ht - 1 - i))\
+    \ {\n                l += vecs[i].all_zeros() - l0;\n                r += vecs[i].all_zeros()\
+    \ - r0;\n            } else {\n                l = l0;\n                r = r0;\n\
+    \            }\n        }\n        return r - l;\n    }\n    \n    // count i\
+    \ s.t. i \\in [l, r) and a[i] < upper\n    int range_freq(int l, int r, T upper)\
+    \ const {\n        assert(0 <= l && l < r && r <= n);\n        if (upper != 0\
+    \ && floor_log2(upper) >= ht) {\n            return r - l;\n        }\n      \
+    \  int cnt = 0;\n        for (int i = 0; i < ht; ++i) {\n            i32 l0 =\
+    \ vecs[i].rank0(l);\n            i32 r0 = vecs[i].rank0(r);\n            if (ith_bit(upper,\
+    \ ht - 1 - i)) {\n                cnt += r0 - l0;\n                l += vecs[i].all_zeros()\
     \ - l0;\n                r += vecs[i].all_zeros() - r0;\n            } else {\n\
     \                l = l0;\n                r = r0;\n            }\n        }\n\
-    \        return r - l;\n    }\n    \n    // count i s.t. i \\in [l, r) and a[i]\
-    \ < upper\n    int range_freq(int l, int r, T upper) const {\n        assert(0\
-    \ <= l && l < r && r <= n);\n        if (upper != 0 && floor_log2(upper) >= ht)\
-    \ {\n            return r - l;\n        }\n        int cnt = 0;\n        for (int\
-    \ i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n            i32\
-    \ r0 = vecs[i].rank0(r);\n            if (ith_bit(upper, ht - 1 - i)) {\n    \
-    \            cnt += r0 - l0;\n                l += vecs[i].all_zeros() - l0;\n\
-    \                r += vecs[i].all_zeros() - r0;\n            } else {\n      \
-    \          l = l0;\n                r = r0;\n            }\n        }\n      \
-    \  return cnt;\n    }\n    // count i s.t. i \\in [l, r) and a[i] \\in [lower,\
+    \        return cnt;\n    }\n    // count i s.t. i \\in [l, r) and a[i] \\in [lower,\
     \ upper)\n    int range_freq(int l, int r, T lower, T upper) const {\n       \
     \ if (lower >= upper) {\n            return 0;\n        } else {\n           \
     \ return range_freq(l, r, upper) - range_freq(l, r, lower);\n        }\n    }\n\
@@ -117,48 +117,48 @@ data:
     \    int n;\n    int ht;\n    std::vector<BitVector> vecs;\n    \npublic:\n  \
     \  WaveletMatrix(std::vector<T> a) : n((int) a.size()), ht(0), vecs() {\n    \
     \    assert(n > 0);\n        for (T ele : a) {\n            assert(ele >= 0);\n\
-    \        }\n        \n        T mx = *std::max_element(a.begin(), a.end());\n\
-    \        ht = (int) floor_log2(mx) + 1;\n        vecs.reserve(ht);\n        \n\
-    \        for (T d = ht; d-- > 0;) {\n            BitVector vec(n);\n         \
-    \   for (int i = 0; i < n; ++i) {\n                if (ith_bit(a[i], d)) {\n \
-    \                   vec.rev(i);\n                }\n            }\n          \
-    \  vec.build();\n            std::vector<T> nxt(n);\n            auto it0 = nxt.begin();\n\
-    \            auto it1 = nxt.begin() + vec.all_zeros();\n            for (int i\
-    \ = 0; i < n; ++i) {\n                if (vec[i]) {\n                    *(it1++)\
-    \ = a[i];\n                } else {\n                    *(it0++) = a[i];\n  \
-    \              }\n            }\n            std::swap(nxt, a);\n            vecs.emplace_back(std::move(vec));\n\
-    \        }\n    }\n    \n    T access(int idx) const {\n        assert(0 <= idx\
-    \ && idx < n);\n        T ret(0);\n        for (int i = 0; i < ht; ++i) {\n  \
-    \          ret <<= 1;\n            if (vecs[i][idx]) {\n                ret ^=\
-    \ 1;\n                idx = vecs[i].all_zeros() + vecs[i].rank1(idx);\n      \
-    \      } else {\n                idx = vecs[i].rank0(idx);\n            }\n  \
-    \      }\n        return ret;\n    }\n    \n    T kth_smallest(int l, int r, int\
-    \ k) const {\n        assert(0 <= l && l < r && r <= n && 0 <= k && k < r - l);\n\
-    \        T ret = 0;\n        for (int i = 0; i < ht; ++i) {\n            int l0\
-    \ = vecs[i].rank0(l);\n            int r0 = vecs[i].rank0(r);\n            ret\
-    \ <<= 1;\n            if (k < r0 - l0) {\n                l = l0;\n          \
-    \      r = r0;\n            } else {\n                ret ^= T(1);\n         \
-    \       l += vecs[i].all_zeros() - l0;\n                r += vecs[i].all_zeros()\
-    \ - r0;\n                k -= r0 - l0;\n            }\n        }\n        return\
-    \ ret;\n    }\n    T kth_largest(int l, int r, int k) const {\n        return\
-    \ kth_smallest(l, r, r - l - k - 1);\n    }\n    \n    // count i s.t. i \\in\
-    \ [l, r) and a[i] = v \n    int rank(int l, int r, T v) const {\n        assert(0\
-    \ <= l && l <= r && r <= n);\n        if (v != 0 && floor_log2(v) >= ht) {\n \
-    \           return 0;\n        }\n        for (int i = 0; i < ht; ++i) {\n   \
-    \         i32 l0 = vecs[i].rank0(l);\n            i32 r0 = vecs[i].rank0(r);\n\
-    \            if (ith_bit(v, ht - 1 - i)) {\n                l += vecs[i].all_zeros()\
+    \        }\n        \n        T mx = std::max(T(1), *std::max_element(a.begin(),\
+    \ a.end()));\n        ht = (int) floor_log2(mx) + 1;\n        vecs.reserve(ht);\n\
+    \        \n        for (T d = ht; d-- > 0;) {\n            BitVector vec(n);\n\
+    \            for (int i = 0; i < n; ++i) {\n                if (ith_bit(a[i],\
+    \ d)) {\n                    vec.rev(i);\n                }\n            }\n \
+    \           vec.build();\n            std::vector<T> nxt(n);\n            auto\
+    \ it0 = nxt.begin();\n            auto it1 = nxt.begin() + vec.all_zeros();\n\
+    \            for (int i = 0; i < n; ++i) {\n                if (vec[i]) {\n  \
+    \                  *(it1++) = a[i];\n                } else {\n              \
+    \      *(it0++) = a[i];\n                }\n            }\n            std::swap(nxt,\
+    \ a);\n            vecs.emplace_back(std::move(vec));\n        }\n    }\n    \n\
+    \    T access(int idx) const {\n        assert(0 <= idx && idx < n);\n       \
+    \ T ret(0);\n        for (int i = 0; i < ht; ++i) {\n            ret <<= 1;\n\
+    \            if (vecs[i][idx]) {\n                ret ^= 1;\n                idx\
+    \ = vecs[i].all_zeros() + vecs[i].rank1(idx);\n            } else {\n        \
+    \        idx = vecs[i].rank0(idx);\n            }\n        }\n        return ret;\n\
+    \    }\n    \n    T kth_smallest(int l, int r, int k) const {\n        assert(0\
+    \ <= l && l < r && r <= n && 0 <= k && k < r - l);\n        T ret = 0;\n     \
+    \   for (int i = 0; i < ht; ++i) {\n            int l0 = vecs[i].rank0(l);\n \
+    \           int r0 = vecs[i].rank0(r);\n            ret <<= 1;\n            if\
+    \ (k < r0 - l0) {\n                l = l0;\n                r = r0;\n        \
+    \    } else {\n                ret ^= T(1);\n                l += vecs[i].all_zeros()\
+    \ - l0;\n                r += vecs[i].all_zeros() - r0;\n                k -=\
+    \ r0 - l0;\n            }\n        }\n        return ret;\n    }\n    T kth_largest(int\
+    \ l, int r, int k) const {\n        return kth_smallest(l, r, r - l - k - 1);\n\
+    \    }\n    \n    // count i s.t. i \\in [l, r) and a[i] = v \n    int rank(int\
+    \ l, int r, T v) const {\n        assert(0 <= l && l <= r && r <= n);\n      \
+    \  if (v != 0 && floor_log2(v) >= ht) {\n            return 0;\n        }\n  \
+    \      for (int i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n\
+    \            i32 r0 = vecs[i].rank0(r);\n            if (ith_bit(v, ht - 1 - i))\
+    \ {\n                l += vecs[i].all_zeros() - l0;\n                r += vecs[i].all_zeros()\
+    \ - r0;\n            } else {\n                l = l0;\n                r = r0;\n\
+    \            }\n        }\n        return r - l;\n    }\n    \n    // count i\
+    \ s.t. i \\in [l, r) and a[i] < upper\n    int range_freq(int l, int r, T upper)\
+    \ const {\n        assert(0 <= l && l < r && r <= n);\n        if (upper != 0\
+    \ && floor_log2(upper) >= ht) {\n            return r - l;\n        }\n      \
+    \  int cnt = 0;\n        for (int i = 0; i < ht; ++i) {\n            i32 l0 =\
+    \ vecs[i].rank0(l);\n            i32 r0 = vecs[i].rank0(r);\n            if (ith_bit(upper,\
+    \ ht - 1 - i)) {\n                cnt += r0 - l0;\n                l += vecs[i].all_zeros()\
     \ - l0;\n                r += vecs[i].all_zeros() - r0;\n            } else {\n\
     \                l = l0;\n                r = r0;\n            }\n        }\n\
-    \        return r - l;\n    }\n    \n    // count i s.t. i \\in [l, r) and a[i]\
-    \ < upper\n    int range_freq(int l, int r, T upper) const {\n        assert(0\
-    \ <= l && l < r && r <= n);\n        if (upper != 0 && floor_log2(upper) >= ht)\
-    \ {\n            return r - l;\n        }\n        int cnt = 0;\n        for (int\
-    \ i = 0; i < ht; ++i) {\n            i32 l0 = vecs[i].rank0(l);\n            i32\
-    \ r0 = vecs[i].rank0(r);\n            if (ith_bit(upper, ht - 1 - i)) {\n    \
-    \            cnt += r0 - l0;\n                l += vecs[i].all_zeros() - l0;\n\
-    \                r += vecs[i].all_zeros() - r0;\n            } else {\n      \
-    \          l = l0;\n                r = r0;\n            }\n        }\n      \
-    \  return cnt;\n    }\n    // count i s.t. i \\in [l, r) and a[i] \\in [lower,\
+    \        return cnt;\n    }\n    // count i s.t. i \\in [l, r) and a[i] \\in [lower,\
     \ upper)\n    int range_freq(int l, int r, T lower, T upper) const {\n       \
     \ if (lower >= upper) {\n            return 0;\n        } else {\n           \
     \ return range_freq(l, r, upper) - range_freq(l, r, lower);\n        }\n    }\n\
@@ -176,8 +176,8 @@ data:
   isVerificationFile: false
   path: data_structure/wavelet_matrix.hpp
   requiredBy: []
-  timestamp: '2022-07-22 13:43:41+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/static_range_frequency.test.cpp
   - test/library_checker/range_kth_smallest.test.cpp

@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph.hpp
     title: graph/graph.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/strongly_connected_components.hpp
     title: graph/strongly_connected_components.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/scc
@@ -87,15 +87,14 @@ data:
     \                  comp_id[u] = comp_num;\n                    if (u == v) {\n\
     \                        break;\n                    }\n                }\n  \
     \              ++comp_num;\n            }\n        };\n        \n        for (int\
-    \ v = 0; v < static_cast<int>(g.size()); ++v) {\n            if (ord[v] == -1)\
-    \ {\n                dfs(dfs, v);\n            }\n        }\n        \n      \
-    \  for (int v = 0; v < static_cast<int>(g.size()); ++v) {\n            comp_id[v]\
-    \ = comp_num - 1 - comp_id[v];\n        }\n    }\n    \n    int comps() const\
-    \ {\n        return comp_num;\n    }\n\n    int operator[](int v) const {\n  \
-    \      assert(v >= 0 && v < static_cast<int>(comp_id.size()));\n        return\
-    \ comp_id[v];\n    }\n\n    std::vector<std::vector<int>> groups() const {\n \
-    \       std::vector<std::vector<int>> ret(comp_num);\n        for (int v = 0;\
-    \ v < static_cast<int>(comp_id.size()); ++v) {\n            ret[comp_id[v]].push_back(v);\n\
+    \ v = 0; v < (int) g.size(); ++v) {\n            if (ord[v] == -1) {\n       \
+    \         dfs(dfs, v);\n            }\n        }\n        \n        for (int v\
+    \ = 0; v < (int) g.size(); ++v) {\n            comp_id[v] = comp_num - 1 - comp_id[v];\n\
+    \        }\n    }\n    \n    int comps() const {\n        return comp_num;\n \
+    \   }\n\n    int operator[](int v) const {\n        assert(v >= 0 && v < (int)\
+    \ comp_id.size());\n        return comp_id[v];\n    }\n\n    std::vector<std::vector<int>>\
+    \ groups() const {\n        std::vector<std::vector<int>> ret(comp_num);\n   \
+    \     for (int v = 0; v < (int) comp_id.size(); ++v) {\n            ret[comp_id[v]].push_back(v);\n\
     \        }\n        return ret;\n    }\n};\n\n#line 8 \"test/library_checker/scc.test.cpp\"\
     \n\nint main() {\n    i32 n, m;\n    cin >> n >> m;\n    Graph<i32> g(n);\n  \
     \  REP(e, m) {\n        i32 u, v;\n        cin >> u >> v;\n        g.add_directed_edge(u,\
@@ -121,8 +120,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 12:43:18+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/scc.test.cpp
 layout: document

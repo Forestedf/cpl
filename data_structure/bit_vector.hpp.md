@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/wavelet_matrix.hpp
     title: data_structure/wavelet_matrix.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/range_kth_smallest.test.cpp
     title: test/library_checker/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/static_range_frequency.test.cpp
     title: test/library_checker/static_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/wavelet_matrix.test.cpp
     title: test/other/wavelet_matrix.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/bit_vector.hpp\"\n\n#include <vector>\n\n\
@@ -75,7 +75,7 @@ data:
   requiredBy:
   - data_structure/wavelet_matrix.hpp
   timestamp: '2022-07-22 12:46:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/static_range_frequency.test.cpp
   - test/library_checker/range_kth_smallest.test.cpp

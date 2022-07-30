@@ -63,51 +63,51 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/range_kth_smallest.test.cpp
     title: test/library_checker/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/scc.test.cpp
     title: test/library_checker/scc.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/static_range_frequency.test.cpp
     title: test/library_checker/static_range_frequency.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/staticrmq.test.cpp
     title: test/library_checker/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/subset_convolution.test.cpp
     title: test/library_checker/subset_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/two_sat.test.cpp
     title: test/library_checker/two_sat.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/unionfind.test.cpp
     title: test/library_checker/unionfind.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/vertex_add_path_sum.test.cpp
     title: test/library_checker/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/vertex_add_subtree_sum.test.cpp
     title: test/library_checker/vertex_add_subtree_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/zalgorithm.test.cpp
     title: test/library_checker/zalgorithm.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/sparse_segment_tree.test.cpp
     title: test/other/sparse_segment_tree.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/wavelet_matrix.test.cpp
     title: test/other/wavelet_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.hpp\"\n#include <algorithm>\n#include\
@@ -166,7 +166,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-07-17 16:00:30+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/staticrmq.test.cpp
   - test/library_checker/vertex_add_subtree_sum.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
   _extendedRequiredBy: []
@@ -9,12 +9,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/point_set_range_composite.test.cpp
     title: test/library_checker/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/segment_tree.hpp\"\n\n#include <cassert>\n\
@@ -49,7 +49,7 @@ data:
     \ l;\n    }\n\npublic:\n    SegmentTree(int n) :\n        old_length(n),\n   \
     \     length(ceil2(old_length)),\n        node(length << 1, Monoid::id()) {\n\
     \        assert(n >= 0);\n    }\n\n    SegmentTree(const std::vector<Value> &v)\
-    \ :\n        old_length(static_cast<int>(v.size())),\n        length(ceil2(old_length)),\n\
+    \ :\n        old_length((int) v.size()),\n        length(ceil2(old_length)),\n\
     \        node(length << 1, Monoid::id()) {\n        for (int i = 0; i < old_length;\
     \ ++i) {\n            node[i + length] = v[i];\n        }\n        for (int i\
     \ = length - 1; i > 0; --i) {\n            node[i] = Monoid::op(node[i << 1],\
@@ -80,7 +80,7 @@ data:
     \   }\n        return l;\n    }\n\npublic:\n    SegmentTree(int n) :\n       \
     \ old_length(n),\n        length(ceil2(old_length)),\n        node(length << 1,\
     \ Monoid::id()) {\n        assert(n >= 0);\n    }\n\n    SegmentTree(const std::vector<Value>\
-    \ &v) :\n        old_length(static_cast<int>(v.size())),\n        length(ceil2(old_length)),\n\
+    \ &v) :\n        old_length((int) v.size()),\n        length(ceil2(old_length)),\n\
     \        node(length << 1, Monoid::id()) {\n        for (int i = 0; i < old_length;\
     \ ++i) {\n            node[i + length] = v[i];\n        }\n        for (int i\
     \ = length - 1; i > 0; --i) {\n            node[i] = Monoid::op(node[i << 1],\
@@ -108,8 +108,8 @@ data:
   isVerificationFile: false
   path: data_structure/segment_tree.hpp
   requiredBy: []
-  timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/vertex_set_path_composite.test.cpp
   - test/library_checker/point_set_range_composite.test.cpp

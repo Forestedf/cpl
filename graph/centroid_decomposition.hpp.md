@@ -27,12 +27,11 @@ data:
     \ {\n            if (used[u]) {\n                continue;\n            }\n  \
     \          to[cent].push_back(decomposite(u));\n        }\n        return cent;\n\
     \    }\n    \npublic:\n    CentroidDecomposition(const G &_g) :\n    g(_g),\n\
-    \    to(static_cast<int>(g.size())),\n    used(static_cast<int>(g.size()), false),\n\
-    \    size(static_cast<int>(g.size()), 0) {\n        first = decomposite(0);\n\
-    \    }\n    \n    int first_centroid() const {\n        return first;\n    }\n\
-    \    \n    const std::vector<int> &next_centroids(int v) const {\n        assert(v\
-    \ >= 0 && v < static_cast<int>(g.size()));\n        return to[v];\n    }\n};\n\
-    \n"
+    \    to((int) g.size()),\n    used((int) g.size(), false),\n    size((int) g.size(),\
+    \ 0) {\n        first = decomposite(0);\n    }\n    \n    int first_centroid()\
+    \ const {\n        return first;\n    }\n    \n    const std::vector<int> &next_centroids(int\
+    \ v) const {\n        assert(v >= 0 && v < (int) g.size());\n        return to[v];\n\
+    \    }\n};\n\n"
   code: "#pragma once\n\n#include <vector>\n#include <queue>\n\ntemplate <typename\
     \ G>\nclass CentroidDecomposition {\n    const G &g;\n    \n    std::vector<std::vector<int>>\
     \ to;\n    std::vector<bool> used;\n    std::vector<int> size;\n    int first;\n\
@@ -51,17 +50,16 @@ data:
     \     for (int u : g[cent]) {\n            if (used[u]) {\n                continue;\n\
     \            }\n            to[cent].push_back(decomposite(u));\n        }\n \
     \       return cent;\n    }\n    \npublic:\n    CentroidDecomposition(const G\
-    \ &_g) :\n    g(_g),\n    to(static_cast<int>(g.size())),\n    used(static_cast<int>(g.size()),\
-    \ false),\n    size(static_cast<int>(g.size()), 0) {\n        first = decomposite(0);\n\
-    \    }\n    \n    int first_centroid() const {\n        return first;\n    }\n\
-    \    \n    const std::vector<int> &next_centroids(int v) const {\n        assert(v\
-    \ >= 0 && v < static_cast<int>(g.size()));\n        return to[v];\n    }\n};\n\
-    \n"
+    \ &_g) :\n    g(_g),\n    to((int) g.size()),\n    used((int) g.size(), false),\n\
+    \    size((int) g.size(), 0) {\n        first = decomposite(0);\n    }\n    \n\
+    \    int first_centroid() const {\n        return first;\n    }\n    \n    const\
+    \ std::vector<int> &next_centroids(int v) const {\n        assert(v >= 0 && v\
+    \ < (int) g.size());\n        return to[v];\n    }\n};\n\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/centroid_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-07-17 14:27:07+09:00'
+  timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/centroid_decomposition.hpp

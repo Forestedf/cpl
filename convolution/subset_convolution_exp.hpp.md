@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: convolution/subset_convolution_internal.hpp
     title: convolution/subset_convolution_internal.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"convolution/subset_convolution_exp.hpp\"\n\n#line 2 \"convolution/subset_convolution_internal.hpp\"\
@@ -91,7 +91,7 @@ data:
   path: convolution/subset_convolution_exp.hpp
   requiredBy: []
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/other/subset_convolution_exp_log.test.cpp
 documentation_of: convolution/subset_convolution_exp.hpp

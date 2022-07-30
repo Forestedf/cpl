@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
   - icon: ':heavy_check_mark:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
   - icon: ':heavy_check_mark:'
@@ -19,10 +19,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -70,10 +70,10 @@ data:
     \ * i <= n; ++i) {\n        if (n % i == 0) {\n            return false;\n   \
     \     }\n    }\n    return true;\n}\n\nconstexpr unsigned mod_pow(unsigned x,\
     \ unsigned y, unsigned mod) {\n    unsigned ret = 1, self = x;\n    while (y !=\
-    \ 0) {\n        if (y & 1) {\n            ret = static_cast<unsigned>(static_cast<unsigned\
-    \ long long>(ret) * self % mod);\n        }\n        self = static_cast<unsigned>(static_cast<unsigned\
-    \ long long>(self) * self % mod);\n        y /= 2;\n    }\n    return ret;\n}\n\
-    \ntemplate <unsigned mod>\nconstexpr unsigned primitive_root() {\n    static_assert(is_prime(mod),\
+    \ 0) {\n        if (y & 1) {\n            ret = (unsigned) ((unsigned long long)\
+    \ ret * self % mod);\n        }\n        self = (unsigned) ((unsigned long long)\
+    \ self * self % mod);\n        y /= 2;\n    }\n    return ret;\n}\n\ntemplate\
+    \ <unsigned mod>\nconstexpr unsigned primitive_root() {\n    static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n    if (mod == 2) {\n        return 1;\n\
     \    }\n\n    unsigned primes[32] = {};\n    int it = 0;\n    {\n        unsigned\
     \ m = mod - 1;\n        for (unsigned i = 2; i * i <= m; ++i) {\n            if\
@@ -281,7 +281,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-07-22 12:46:12+09:00'
+  timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/log_of_formal_power_series.test.cpp

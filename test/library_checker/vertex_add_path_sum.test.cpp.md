@@ -1,26 +1,26 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/fenwick_tree.hpp
     title: data_structure/fenwick_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph.hpp
     title: graph/graph.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/heavy_light_decomposition.hpp
     title: graph/heavy_light_decomposition.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
@@ -98,37 +98,36 @@ data:
     \ G>\n    HeavyLightDecomposition(G &g, int root = 0) :\n        siz(g.size(),\
     \ 1),\n        par(g.size(), root),\n        hea(g.size(), root),\n        in(g.size(),\
     \ 0),\n        out(g.size(), 0),\n        dep(g.size(), 0),\n        rev(g.size(),\
-    \ 0) {\n        assert(root >= 0 && root < static_cast<int>(g.size()));\n    \
-    \    dfs1(g, root);\n        int time = 0;\n        dfs2(g, root, time);\n   \
-    \ }\n\n    int subtree_size(int v) const {\n        assert(v >= 0 && v < static_cast<int>(siz.size()));\n\
-    \        return siz[v];\n    }\n\n    int parent(int v) const {\n        assert(v\
-    \ >= 0 && v < static_cast<int>(par.size()));\n        return par[v];\n    }\n\n\
-    \    int in_time(int v) const {\n        assert(v >= 0 && v < static_cast<int>(in.size()));\n\
-    \        return in[v];\n    }\n\n    int out_time(int v) const {\n        assert(v\
-    \ >= 0 && v < static_cast<int>(out.size()));\n        return out[v];\n    }\n\n\
-    \    int depth(int v) const {\n        assert(v >= 0 && v < static_cast<int>(dep.size()));\n\
-    \        return dep[v];\n    }\n\n    int time_to_vertex(int t) const {\n    \
-    \    assert(t >= 0 && t < static_cast<int>(rev.size()));\n        return rev[t];\n\
-    \    }\n    \n    int la(int v, int k) const {\n        assert(v >= 0 && v < static_cast<int>(dep.size()));\n\
-    \        assert(k >= 0);\n        while (true) {\n            int u = hea[v];\n\
-    \            if (in[u] + k <= in[v]) {\n                return rev[in[v] - k];\n\
-    \            }\n            k -= in[v] - in[u] + 1;\n            v = par[u];\n\
-    \        }\n        return 0;\n    }\n    \n    int forward(int v, int dst) const\
-    \ {\n        assert(v >= 0 && v < static_cast<int>(dep.size()));\n        assert(dst\
-    \ >= 0 && dst < static_cast<int>(dep.size()));\n        assert(v != dst);\n  \
-    \      int l = lca(v, dst);\n        if (l == v) {\n            return la(dst,\
-    \ dist(v, dst) - 1);\n        } else {\n            return par[v];\n        }\n\
-    \    }\n\n    int lca(int u, int v) const {\n        assert(u >= 0 && u < static_cast<int>(dep.size()));\n\
-    \        assert(v >= 0 && v < static_cast<int>(dep.size()));\n        while (u\
-    \ != v) {\n            if (in[u] > in[v]) {\n                std::swap(u, v);\n\
-    \            }\n            if (hea[u] == hea[v]) {\n                v = u;\n\
-    \            } else {\n                v = par[hea[v]];\n            }\n     \
-    \   }\n        return u;\n    }\n\n    int dist(int u, int v) const {\n      \
-    \  assert(u >= 0 && u < static_cast<int>(dep.size()));\n        assert(v >= 0\
-    \ && v < static_cast<int>(dep.size()));\n        return dep[u] + dep[v] - 2 *\
-    \ dep[lca(u, v)];\n    }\n\n    std::vector<std::pair<int, int>> path(int u, int\
-    \ v, bool edge) const {\n        assert(u >= 0 && u < static_cast<int>(dep.size()));\n\
-    \        assert(v >= 0 && v < static_cast<int>(dep.size()));\n        std::vector<std::pair<int,\
+    \ 0) {\n        assert(root >= 0 && root < (int) g.size());\n        dfs1(g, root);\n\
+    \        int time = 0;\n        dfs2(g, root, time);\n    }\n\n    int subtree_size(int\
+    \ v) const {\n        assert(v >= 0 && v < (int) siz.size());\n        return\
+    \ siz[v];\n    }\n\n    int parent(int v) const {\n        assert(v >= 0 && v\
+    \ < (int) par.size());\n        return par[v];\n    }\n\n    int in_time(int v)\
+    \ const {\n        assert(v >= 0 && v < (int) in.size());\n        return in[v];\n\
+    \    }\n\n    int out_time(int v) const {\n        assert(v >= 0 && v < (int)\
+    \ out.size());\n        return out[v];\n    }\n\n    int depth(int v) const {\n\
+    \        assert(v >= 0 && v < (int) dep.size());\n        return dep[v];\n   \
+    \ }\n\n    int time_to_vertex(int t) const {\n        assert(t >= 0 && t < (int)\
+    \ rev.size());\n        return rev[t];\n    }\n    \n    int la(int v, int k)\
+    \ const {\n        assert(v >= 0 && v < (int) dep.size());\n        assert(k >=\
+    \ 0);\n        while (true) {\n            int u = hea[v];\n            if (in[u]\
+    \ + k <= in[v]) {\n                return rev[in[v] - k];\n            }\n   \
+    \         k -= in[v] - in[u] + 1;\n            v = par[u];\n        }\n      \
+    \  return 0;\n    }\n    \n    int forward(int v, int dst) const {\n        assert(v\
+    \ >= 0 && v < (int) dep.size());\n        assert(dst >= 0 && dst < (int) dep.size());\n\
+    \        assert(v != dst);\n        int l = lca(v, dst);\n        if (l == v)\
+    \ {\n            return la(dst, dist(v, dst) - 1);\n        } else {\n       \
+    \     return par[v];\n        }\n    }\n\n    int lca(int u, int v) const {\n\
+    \        assert(u >= 0 && u < (int) dep.size());\n        assert(v >= 0 && v <\
+    \ (int) dep.size());\n        while (u != v) {\n            if (in[u] > in[v])\
+    \ {\n                std::swap(u, v);\n            }\n            if (hea[u] ==\
+    \ hea[v]) {\n                v = u;\n            } else {\n                v =\
+    \ par[hea[v]];\n            }\n        }\n        return u;\n    }\n\n    int\
+    \ dist(int u, int v) const {\n        assert(u >= 0 && u < (int) dep.size());\n\
+    \        assert(v >= 0 && v < (int) dep.size());        \n        return dep[u]\
+    \ + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    std::vector<std::pair<int, int>>\
+    \ path(int u, int v, bool edge) const {\n        assert(u >= 0 && u < (int) dep.size());\n\
+    \        assert(v >= 0 && v < (int) dep.size());   \n        std::vector<std::pair<int,\
     \ int>> fromu, fromv;\n        bool rev = false;\n        while (true) {\n   \
     \         if (u == v && edge) {\n                break;\n            }\n     \
     \       if (in[u] > in[v]) {\n                std::swap(u, v);\n             \
@@ -168,14 +167,14 @@ data:
     \n\ntemplate <typename CommutativeGroup>\nclass FenwickTree {\npublic:\n    using\
     \ Value = typename CommutativeGroup::Value;\n\nprivate:\n    std::vector<Value>\
     \ data;\n\npublic:\n    FenwickTree(int n) : data(n, CommutativeGroup::id()) {}\n\
-    \n    void add(int idx, const Value &x) {\n        assert(idx >= 0 && idx < static_cast<int>(data.size()));\n\
-    \        for (; idx < static_cast<int>(data.size()); idx |= idx + 1) {\n     \
-    \       data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\n\
-    \    Value sum(int r) const {\n        assert(r >= 0 && r <= static_cast<int>(data.size()));\n\
+    \n    void add(int idx, const Value &x) {\n        assert(idx >= 0 && idx < (int)\
+    \ data.size());\n        for (; idx < (int) data.size(); idx |= idx + 1) {\n \
+    \           data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\
+    \n    Value sum(int r) const {\n        assert(r >= 0 && r <= (int) data.size());\n\
     \        Value ret = CommutativeGroup::id();\n        for (; r > 0; r &= r - 1)\
     \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
     \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
-    \ >= 0 && l <= r && r <= static_cast<int>(data.size()));\n        return CommutativeGroup::op(sum(r),\
+    \ >= 0 && l <= r && r <= (int) data.size());\n        return CommutativeGroup::op(sum(r),\
     \ CommutativeGroup::inv(sum(l)));\n    }\n};\n#line 9 \"test/library_checker/vertex_add_path_sum.test.cpp\"\
     \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    Vec<i64> a(n);\n    REP(i,\
     \ n) {\n        cin >> a[i];\n    }\n    Graph<i32> g(n);\n    REP(e, n - 1) {\n\
@@ -213,8 +212,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/vertex_add_path_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 12:43:18+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/vertex_add_path_sum.test.cpp
 layout: document

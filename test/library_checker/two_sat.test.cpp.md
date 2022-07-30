@@ -1,20 +1,20 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/strongly_connected_components.hpp
     title: graph/strongly_connected_components.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: graph/two_sat.hpp
     title: graph/two_sat.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/two_sat
@@ -63,15 +63,14 @@ data:
     \                  comp_id[u] = comp_num;\n                    if (u == v) {\n\
     \                        break;\n                    }\n                }\n  \
     \              ++comp_num;\n            }\n        };\n        \n        for (int\
-    \ v = 0; v < static_cast<int>(g.size()); ++v) {\n            if (ord[v] == -1)\
-    \ {\n                dfs(dfs, v);\n            }\n        }\n        \n      \
-    \  for (int v = 0; v < static_cast<int>(g.size()); ++v) {\n            comp_id[v]\
-    \ = comp_num - 1 - comp_id[v];\n        }\n    }\n    \n    int comps() const\
-    \ {\n        return comp_num;\n    }\n\n    int operator[](int v) const {\n  \
-    \      assert(v >= 0 && v < static_cast<int>(comp_id.size()));\n        return\
-    \ comp_id[v];\n    }\n\n    std::vector<std::vector<int>> groups() const {\n \
-    \       std::vector<std::vector<int>> ret(comp_num);\n        for (int v = 0;\
-    \ v < static_cast<int>(comp_id.size()); ++v) {\n            ret[comp_id[v]].push_back(v);\n\
+    \ v = 0; v < (int) g.size(); ++v) {\n            if (ord[v] == -1) {\n       \
+    \         dfs(dfs, v);\n            }\n        }\n        \n        for (int v\
+    \ = 0; v < (int) g.size(); ++v) {\n            comp_id[v] = comp_num - 1 - comp_id[v];\n\
+    \        }\n    }\n    \n    int comps() const {\n        return comp_num;\n \
+    \   }\n\n    int operator[](int v) const {\n        assert(v >= 0 && v < (int)\
+    \ comp_id.size());\n        return comp_id[v];\n    }\n\n    std::vector<std::vector<int>>\
+    \ groups() const {\n        std::vector<std::vector<int>> ret(comp_num);\n   \
+    \     for (int v = 0; v < (int) comp_id.size(); ++v) {\n            ret[comp_id[v]].push_back(v);\n\
     \        }\n        return ret;\n    }\n};\n\n#line 4 \"graph/two_sat.hpp\"\n\n\
     #include <optional>\n\nclass TwoSat {\npublic:\n    struct Variable {\n    private:\n\
     \        int idx;\n            \n        Variable(int i) : idx(i) {}\n       \
@@ -83,21 +82,20 @@ data:
     \    Variable var(graph.size());\n        graph.resize(graph.size() + 2, std::vector<int>());\n\
     \        return var;\n    }\n    \n    std::vector<TwoSat::Variable> add_variables(int\
     \ num) {\n        std::vector<TwoSat::Variable> vars;\n        vars.reserve(num);\n\
-    \        for (int i = 0; i < num; ++i) {\n            vars.emplace_back(Variable(static_cast<int>(graph.size())\
-    \ + 2 * i));\n        }\n        graph.resize(static_cast<int>(graph.size()) +\
-    \ 2 * num, std::vector<int>());\n        return vars;\n    }\n    \n    // x or\
-    \ y\n    void add_clause(Variable x, Variable y) {\n        graph[(!x).idx].push_back(y.idx);\n\
+    \        for (int i = 0; i < num; ++i) {\n            vars.emplace_back(Variable((int)\
+    \ graph.size() + 2 * i));\n        }\n        graph.resize((int) graph.size()\
+    \ + 2 * num, std::vector<int>());\n        return vars;\n    }\n    \n    // x\
+    \ or y\n    void add_clause(Variable x, Variable y) {\n        graph[(!x).idx].push_back(y.idx);\n\
     \        graph[(!y).idx].push_back(x.idx);\n    }\n    \n    // x implies y\n\
     \    void implies(Variable x, Variable y) {\n        add_clause(!x, y);\n    }\n\
     \    \n    void at_most_one(const std::vector<Variable> &vars) {\n        if (vars.size()\
     \ <= 1) {\n            return;\n        }\n        std::vector<Variable> sum =\
-    \ add_variables(static_cast<int>(vars.size()) - 1);\n        for (int i = 0; i\
-    \ < static_cast<int>(sum.size()); ++i) {\n            implies(vars[i], sum[i]);\n\
-    \            implies(sum[i], !vars[i + 1]);\n        }\n        for (int i = 0;\
-    \ i < static_cast<int>(sum.size()) - 1; ++i) {\n            implies(sum[i], sum[i\
-    \ + 1]);\n        }\n    }\n    \n    std::optional<std::vector<bool>> solve()\
-    \ {\n        StronglyConnectedComponents scc(graph);\n        std::vector<bool>\
-    \ ans(graph.size() / 2, false);\n        for (int i = 0; i < static_cast<int>(graph.size())\
+    \ add_variables((int) vars.size() - 1);\n        for (int i = 0; i < (int) sum.size();\
+    \ ++i) {\n            implies(vars[i], sum[i]);\n            implies(sum[i], !vars[i\
+    \ + 1]);\n        }\n        for (int i = 0; i < (int) sum.size() - 1; ++i) {\n\
+    \            implies(sum[i], sum[i + 1]);\n        }\n    }\n    \n    std::optional<std::vector<bool>>\
+    \ solve() {\n        StronglyConnectedComponents scc(graph);\n        std::vector<bool>\
+    \ ans(graph.size() / 2, false);\n        for (int i = 0; i < (int) graph.size()\
     \ / 2; ++i) {\n            if (scc[2 * i] == scc[2 * i + 1]) {\n             \
     \   return std::nullopt;\n            }\n            if (scc[2 * i] > scc[2 *\
     \ i + 1]) {\n                ans[i] = true;\n            }\n        }\n      \
@@ -131,8 +129,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/two_sat.test.cpp
   requiredBy: []
-  timestamp: '2022-07-17 16:00:30+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/two_sat.test.cpp
 layout: document

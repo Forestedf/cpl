@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/staticrmq.test.cpp
     title: test/library_checker/staticrmq.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/sparse_table.hpp\"\n\n#include <algorithm>\n\
@@ -18,16 +18,16 @@ data:
     \ 31 - __builtin_clz(n);\n    }\n    \n    T min2(const T &x, const T &y) const\
     \ {\n        if (f(x, y)) {\n            return x;\n        } else {\n       \
     \     return y;\n        }\n    }\n\npublic:\n    SparseTable(std::vector<T> arr,\
-    \ F _f = F()) : s(static_cast<int>(arr.size())), f(std::move(_f)) {\n        if\
-    \ (s == 0) {\n            return;\n        }\n        int m = log2(s);\n     \
-    \   table.resize(m + 1);\n        table[0] = std::move(arr);\n        for (int\
-    \ i = 1; i <= m; ++i) {\n            int w = 1 << i;\n            table[i].resize(s\
-    \ - w + 1);\n            for (int j = 0; j < static_cast<int>(table[i].size());\
-    \ ++j) {\n                table[i][j] = min2(table[i - 1][j], table[i - 1][j +\
-    \ (w >> 1)]);\n            }\n        }\n    }\n\n    int size() const {\n   \
-    \     return s;\n    }\n\n    // not empty\n    T min(int l, int r) const {\n\
-    \        assert(l >= 0 && l < r && r <= s);\n        int m = log2(r - l);\n  \
-    \      return min2(table[m][l], table[m][r - (1 << m)]);\n    }\n};\n\n"
+    \ const F &f = F()) : s((int) arr.size()), f(f) {\n        if (s == 0) {\n   \
+    \         return;\n        }\n        int m = log2(s);\n        table.resize(m\
+    \ + 1);\n        table[0] = std::move(arr);\n        for (int i = 1; i <= m; ++i)\
+    \ {\n            int w = 1 << i;\n            table[i].resize(s - w + 1);\n  \
+    \          for (int j = 0; j < (int) table[i].size(); ++j) {\n               \
+    \ table[i][j] = min2(table[i - 1][j], table[i - 1][j + (w >> 1)]);\n         \
+    \   }\n        }\n    }\n\n    int size() const {\n        return s;\n    }\n\n\
+    \    // not empty\n    T min(int l, int r) const {\n        assert(l >= 0 && l\
+    \ < r && r <= s);\n        int m = log2(r - l);\n        return min2(table[m][l],\
+    \ table[m][r - (1 << m)]);\n    }\n};\n\n"
   code: "#pragma once\n\n#include <algorithm>\n#include <cassert>\n#include <utility>\n\
     #include <vector>\n#include <functional>\n\ntemplate <typename T, typename F =\
     \ std::less<T>>\nclass SparseTable {\n    std::vector<std::vector<T>> table;\n\
@@ -35,22 +35,22 @@ data:
     \ - __builtin_clz(n);\n    }\n    \n    T min2(const T &x, const T &y) const {\n\
     \        if (f(x, y)) {\n            return x;\n        } else {\n           \
     \ return y;\n        }\n    }\n\npublic:\n    SparseTable(std::vector<T> arr,\
-    \ F _f = F()) : s(static_cast<int>(arr.size())), f(std::move(_f)) {\n        if\
-    \ (s == 0) {\n            return;\n        }\n        int m = log2(s);\n     \
-    \   table.resize(m + 1);\n        table[0] = std::move(arr);\n        for (int\
-    \ i = 1; i <= m; ++i) {\n            int w = 1 << i;\n            table[i].resize(s\
-    \ - w + 1);\n            for (int j = 0; j < static_cast<int>(table[i].size());\
-    \ ++j) {\n                table[i][j] = min2(table[i - 1][j], table[i - 1][j +\
-    \ (w >> 1)]);\n            }\n        }\n    }\n\n    int size() const {\n   \
-    \     return s;\n    }\n\n    // not empty\n    T min(int l, int r) const {\n\
-    \        assert(l >= 0 && l < r && r <= s);\n        int m = log2(r - l);\n  \
-    \      return min2(table[m][l], table[m][r - (1 << m)]);\n    }\n};\n\n"
+    \ const F &f = F()) : s((int) arr.size()), f(f) {\n        if (s == 0) {\n   \
+    \         return;\n        }\n        int m = log2(s);\n        table.resize(m\
+    \ + 1);\n        table[0] = std::move(arr);\n        for (int i = 1; i <= m; ++i)\
+    \ {\n            int w = 1 << i;\n            table[i].resize(s - w + 1);\n  \
+    \          for (int j = 0; j < (int) table[i].size(); ++j) {\n               \
+    \ table[i][j] = min2(table[i - 1][j], table[i - 1][j + (w >> 1)]);\n         \
+    \   }\n        }\n    }\n\n    int size() const {\n        return s;\n    }\n\n\
+    \    // not empty\n    T min(int l, int r) const {\n        assert(l >= 0 && l\
+    \ < r && r <= s);\n        int m = log2(r - l);\n        return min2(table[m][l],\
+    \ table[m][r - (1 << m)]);\n    }\n};\n\n"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/sparse_table.hpp
   requiredBy: []
-  timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/library_checker/staticrmq.test.cpp
 documentation_of: data_structure/sparse_table.hpp

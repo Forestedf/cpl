@@ -1,23 +1,23 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/bit_vector.hpp
     title: data_structure/bit_vector.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/wavelet_matrix.hpp
     title: data_structure/wavelet_matrix.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/static_range_frequency
@@ -86,8 +86,8 @@ data:
     \ <typename T>\nclass WaveletMatrix {\n    int n;\n    int ht;\n    std::vector<BitVector>\
     \ vecs;\n    \npublic:\n    WaveletMatrix(std::vector<T> a) : n((int) a.size()),\
     \ ht(0), vecs() {\n        assert(n > 0);\n        for (T ele : a) {\n       \
-    \     assert(ele >= 0);\n        }\n        \n        T mx = *std::max_element(a.begin(),\
-    \ a.end());\n        ht = (int) floor_log2(mx) + 1;\n        vecs.reserve(ht);\n\
+    \     assert(ele >= 0);\n        }\n        \n        T mx = std::max(T(1), *std::max_element(a.begin(),\
+    \ a.end()));\n        ht = (int) floor_log2(mx) + 1;\n        vecs.reserve(ht);\n\
     \        \n        for (T d = ht; d-- > 0;) {\n            BitVector vec(n);\n\
     \            for (int i = 0; i < n; ++i) {\n                if (ith_bit(a[i],\
     \ d)) {\n                    vec.rev(i);\n                }\n            }\n \
@@ -159,8 +159,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/static_range_frequency.test.cpp
   requiredBy: []
-  timestamp: '2022-07-22 13:43:41+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/static_range_frequency.test.cpp
 layout: document

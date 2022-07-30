@@ -24,15 +24,15 @@ data:
     \ ++i) {\n            fac[i] = fac[i - 1] * T(i);\n        }\n        ifac.resize(n\
     \ + 1);\n        ifac[n] = T(1) / T(fac[n]);\n        for (int i = n; i > old;\
     \ --i) {\n            ifac[i - 1] = ifac[i] * T(i);\n        }\n    }\n    \n\
-    \    inline int n_max() const {\n        return static_cast<int>(fac.size() -\
-    \ 1);\n    }\n    \n    inline T fact(int n) const {\n        assert(n >= 0 &&\
-    \ n <= n_max());\n        return fac[n];\n    }\n    \n    inline T inv_fact(int\
-    \ n) const {\n        assert(n >= 0 && n <= n_max());\n        return ifac[n];\n\
-    \    }\n    \n    inline T choose(int n, int k) const {\n        assert(k <= n_max()\
-    \ && n <= n_max());\n        if (k > n || k < 0) {\n            return T(0);\n\
-    \        }\n        return fac[n] * ifac[k] * ifac[n - k];\n    }\n    \n    inline\
-    \ T multi_choose(int n, int k) const {\n        assert(n >= 1 && k >= 0 && k +\
-    \ n - 1 <= n_max());\n        return choose(k + n - 1, k);\n    }\n    \n    inline\
+    \    inline int n_max() const {\n        return (int) fac.size() - 1;\n    }\n\
+    \    \n    inline T fact(int n) const {\n        assert(n >= 0 && n <= n_max());\n\
+    \        return fac[n];\n    }\n    \n    inline T inv_fact(int n) const {\n \
+    \       assert(n >= 0 && n <= n_max());\n        return ifac[n];\n    }\n    \n\
+    \    inline T choose(int n, int k) const {\n        assert(k <= n_max() && n <=\
+    \ n_max());\n        if (k > n || k < 0) {\n            return T(0);\n       \
+    \ }\n        return fac[n] * ifac[k] * ifac[n - k];\n    }\n    \n    inline T\
+    \ multi_choose(int n, int k) const {\n        assert(n >= 1 && k >= 0 && k + n\
+    \ - 1 <= n_max());\n        return choose(k + n - 1, k);\n    }\n    \n    inline\
     \ T n_terms_sum_k(int n, int k) const {\n        assert(n >= 0);\n        if (k\
     \ < 0) {\n            return T(0);\n        }\n        if (n == 0) {\n       \
     \     return k == 0 ? T(1) : T(0);\n        }\n        return choose(n + k - 1,\
@@ -50,24 +50,23 @@ data:
     \ - 1] * T(i);\n        }\n        ifac.resize(n + 1);\n        ifac[n] = T(1)\
     \ / T(fac[n]);\n        for (int i = n; i > old; --i) {\n            ifac[i -\
     \ 1] = ifac[i] * T(i);\n        }\n    }\n    \n    inline int n_max() const {\n\
-    \        return static_cast<int>(fac.size() - 1);\n    }\n    \n    inline T fact(int\
-    \ n) const {\n        assert(n >= 0 && n <= n_max());\n        return fac[n];\n\
-    \    }\n    \n    inline T inv_fact(int n) const {\n        assert(n >= 0 && n\
-    \ <= n_max());\n        return ifac[n];\n    }\n    \n    inline T choose(int\
-    \ n, int k) const {\n        assert(k <= n_max() && n <= n_max());\n        if\
-    \ (k > n || k < 0) {\n            return T(0);\n        }\n        return fac[n]\
-    \ * ifac[k] * ifac[n - k];\n    }\n    \n    inline T multi_choose(int n, int\
-    \ k) const {\n        assert(n >= 1 && k >= 0 && k + n - 1 <= n_max());\n    \
-    \    return choose(k + n - 1, k);\n    }\n    \n    inline T n_terms_sum_k(int\
-    \ n, int k) const {\n        assert(n >= 0);\n        if (k < 0) {\n         \
-    \   return T(0);\n        }\n        if (n == 0) {\n            return k == 0\
-    \ ? T(1) : T(0);\n        }\n        return choose(n + k - 1, n - 1);\n    }\n\
-    };\n"
+    \        return (int) fac.size() - 1;\n    }\n    \n    inline T fact(int n) const\
+    \ {\n        assert(n >= 0 && n <= n_max());\n        return fac[n];\n    }\n\
+    \    \n    inline T inv_fact(int n) const {\n        assert(n >= 0 && n <= n_max());\n\
+    \        return ifac[n];\n    }\n    \n    inline T choose(int n, int k) const\
+    \ {\n        assert(k <= n_max() && n <= n_max());\n        if (k > n || k < 0)\
+    \ {\n            return T(0);\n        }\n        return fac[n] * ifac[k] * ifac[n\
+    \ - k];\n    }\n    \n    inline T multi_choose(int n, int k) const {\n      \
+    \  assert(n >= 1 && k >= 0 && k + n - 1 <= n_max());\n        return choose(k\
+    \ + n - 1, k);\n    }\n    \n    inline T n_terms_sum_k(int n, int k) const {\n\
+    \        assert(n >= 0);\n        if (k < 0) {\n            return T(0);\n   \
+    \     }\n        if (n == 0) {\n            return k == 0 ? T(1) : T(0);\n   \
+    \     }\n        return choose(n + k - 1, n - 1);\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: number_theory/factorial_table.hpp
   requiredBy: []
-  timestamp: '2022-07-17 14:27:07+09:00'
+  timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/polynomial_taylor_shift.test.cpp

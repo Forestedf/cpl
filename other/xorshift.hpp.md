@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/other/wavelet_matrix.test.cpp
     title: test/other/wavelet_matrix.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     links: []
   bundledCode: "#line 2 \"other/xorshift.hpp\"\n\nclass XorShift64 {\n    unsigned\
@@ -34,7 +34,7 @@ data:
   path: other/xorshift.hpp
   requiredBy: []
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_ALL_WA
   verifiedWith:
   - test/other/wavelet_matrix.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp

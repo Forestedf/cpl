@@ -1,13 +1,13 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/fenwick_tree.hpp
     title: data_structure/fenwick_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
@@ -75,14 +75,14 @@ data:
     \n\ntemplate <typename CommutativeGroup>\nclass FenwickTree {\npublic:\n    using\
     \ Value = typename CommutativeGroup::Value;\n\nprivate:\n    std::vector<Value>\
     \ data;\n\npublic:\n    FenwickTree(int n) : data(n, CommutativeGroup::id()) {}\n\
-    \n    void add(int idx, const Value &x) {\n        assert(idx >= 0 && idx < static_cast<int>(data.size()));\n\
-    \        for (; idx < static_cast<int>(data.size()); idx |= idx + 1) {\n     \
-    \       data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\n\
-    \    Value sum(int r) const {\n        assert(r >= 0 && r <= static_cast<int>(data.size()));\n\
+    \n    void add(int idx, const Value &x) {\n        assert(idx >= 0 && idx < (int)\
+    \ data.size());\n        for (; idx < (int) data.size(); idx |= idx + 1) {\n \
+    \           data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\
+    \n    Value sum(int r) const {\n        assert(r >= 0 && r <= (int) data.size());\n\
     \        Value ret = CommutativeGroup::id();\n        for (; r > 0; r &= r - 1)\
     \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
     \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
-    \ >= 0 && l <= r && r <= static_cast<int>(data.size()));\n        return CommutativeGroup::op(sum(r),\
+    \ >= 0 && l <= r && r <= (int) data.size());\n        return CommutativeGroup::op(sum(r),\
     \ CommutativeGroup::inv(sum(l)));\n    }\n};\n#line 7 \"test/library_checker/point_add_range_sum.test.cpp\"\
     \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    FenwickTree<Add<i64>>\
     \ ft(n);\n    REP(i, n) {\n        i64 a;\n        cin >> a;\n        ft.add(i,\
@@ -107,7 +107,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 18:57:14+09:00'
+  timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/point_add_range_sum.test.cpp

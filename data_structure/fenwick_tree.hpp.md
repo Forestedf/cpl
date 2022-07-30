@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
   _extendedRequiredBy: []
@@ -9,15 +9,15 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/point_add_range_sum.test.cpp
     title: test/library_checker/point_add_range_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/vertex_add_path_sum.test.cpp
     title: test/library_checker/vertex_add_path_sum.test.cpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: test/library_checker/vertex_add_subtree_sum.test.cpp
     title: test/library_checker/vertex_add_subtree_sum.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/fenwick_tree.hpp\"\n\n#include <cassert>\n\
@@ -48,35 +48,35 @@ data:
     class FenwickTree {\npublic:\n    using Value = typename CommutativeGroup::Value;\n\
     \nprivate:\n    std::vector<Value> data;\n\npublic:\n    FenwickTree(int n) :\
     \ data(n, CommutativeGroup::id()) {}\n\n    void add(int idx, const Value &x)\
-    \ {\n        assert(idx >= 0 && idx < static_cast<int>(data.size()));\n      \
-    \  for (; idx < static_cast<int>(data.size()); idx |= idx + 1) {\n           \
-    \ data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\n    Value\
-    \ sum(int r) const {\n        assert(r >= 0 && r <= static_cast<int>(data.size()));\n\
-    \        Value ret = CommutativeGroup::id();\n        for (; r > 0; r &= r - 1)\
-    \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
-    \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
-    \ >= 0 && l <= r && r <= static_cast<int>(data.size()));\n        return CommutativeGroup::op(sum(r),\
-    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n"
+    \ {\n        assert(idx >= 0 && idx < (int) data.size());\n        for (; idx\
+    \ < (int) data.size(); idx |= idx + 1) {\n            data[idx] = CommutativeGroup::op(data[idx],\
+    \ x);\n        }\n    }\n\n    Value sum(int r) const {\n        assert(r >= 0\
+    \ && r <= (int) data.size());\n        Value ret = CommutativeGroup::id();\n \
+    \       for (; r > 0; r &= r - 1) {\n            ret = CommutativeGroup::op(ret,\
+    \ data[r - 1]);\n        }\n        return ret;\n    }\n\n    Value sum(int l,\
+    \ int r) const {\n        assert(l >= 0 && l <= r && r <= (int) data.size());\n\
+    \        return CommutativeGroup::op(sum(r), CommutativeGroup::inv(sum(l)));\n\
+    \    }\n};\n"
   code: "#pragma once\n\n#include <cassert>\n#include <vector>\n\n#include \"operations.hpp\"\
     \n\ntemplate <typename CommutativeGroup>\nclass FenwickTree {\npublic:\n    using\
     \ Value = typename CommutativeGroup::Value;\n\nprivate:\n    std::vector<Value>\
     \ data;\n\npublic:\n    FenwickTree(int n) : data(n, CommutativeGroup::id()) {}\n\
-    \n    void add(int idx, const Value &x) {\n        assert(idx >= 0 && idx < static_cast<int>(data.size()));\n\
-    \        for (; idx < static_cast<int>(data.size()); idx |= idx + 1) {\n     \
-    \       data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\n\
-    \    Value sum(int r) const {\n        assert(r >= 0 && r <= static_cast<int>(data.size()));\n\
+    \n    void add(int idx, const Value &x) {\n        assert(idx >= 0 && idx < (int)\
+    \ data.size());\n        for (; idx < (int) data.size(); idx |= idx + 1) {\n \
+    \           data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\
+    \n    Value sum(int r) const {\n        assert(r >= 0 && r <= (int) data.size());\n\
     \        Value ret = CommutativeGroup::id();\n        for (; r > 0; r &= r - 1)\
     \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
     \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
-    \ >= 0 && l <= r && r <= static_cast<int>(data.size()));\n        return CommutativeGroup::op(sum(r),\
+    \ >= 0 && l <= r && r <= (int) data.size());\n        return CommutativeGroup::op(sum(r),\
     \ CommutativeGroup::inv(sum(l)));\n    }\n};\n"
   dependsOn:
   - data_structure/operations.hpp
   isVerificationFile: false
   path: data_structure/fenwick_tree.hpp
   requiredBy: []
-  timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/library_checker/vertex_add_subtree_sum.test.cpp
   - test/library_checker/vertex_add_path_sum.test.cpp

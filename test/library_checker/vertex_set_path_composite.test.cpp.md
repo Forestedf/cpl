@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/segment_tree.hpp
     title: data_structure/segment_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/graph.hpp
     title: graph/graph.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/heavy_light_decomposition.hpp
     title: graph/heavy_light_decomposition.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/utils.hpp
     title: number_theory/utils.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_set_path_composite
@@ -66,33 +66,32 @@ data:
     \            return false;\n        }\n    }\n    return true;\n}\n\nconstexpr\
     \ unsigned mod_pow(unsigned x, unsigned y, unsigned mod) {\n    unsigned ret =\
     \ 1, self = x;\n    while (y != 0) {\n        if (y & 1) {\n            ret =\
-    \ static_cast<unsigned>(static_cast<unsigned long long>(ret) * self % mod);\n\
-    \        }\n        self = static_cast<unsigned>(static_cast<unsigned long long>(self)\
-    \ * self % mod);\n        y /= 2;\n    }\n    return ret;\n}\n\ntemplate <unsigned\
-    \ mod>\nconstexpr unsigned primitive_root() {\n    static_assert(is_prime(mod),\
-    \ \"`mod` must be a prime number.\");\n    if (mod == 2) {\n        return 1;\n\
-    \    }\n\n    unsigned primes[32] = {};\n    int it = 0;\n    {\n        unsigned\
-    \ m = mod - 1;\n        for (unsigned i = 2; i * i <= m; ++i) {\n            if\
-    \ (m % i == 0) {\n                primes[it++] = i;\n                while (m\
-    \ % i == 0) {\n                    m /= i;\n                }\n            }\n\
-    \        }\n        if (m != 1) {\n            primes[it++] = m;\n        }\n\
-    \    }\n    for (unsigned i = 2; i < mod; ++i) {\n        bool ok = true;\n  \
-    \      for (int j = 0; j < it; ++j) {\n            if (mod_pow(i, (mod - 1) /\
-    \ primes[j], mod) == 1) {\n                ok = false;\n                break;\n\
-    \            }\n        }\n        if (ok)\n            return i;\n    }\n   \
-    \ return 0;\n}\n\n// y >= 1\ntemplate <typename T>\nconstexpr T safe_mod(T x,\
-    \ T y) {\n    x %= y;\n    if (x < 0) {\n        x += y;\n    }\n    return x;\n\
-    }\n\n// y != 0\ntemplate <typename T>\nconstexpr T floor_div(T x, T y) {\n   \
-    \ if (y < 0) {\n        x *= -1;\n        y *= -1;\n    }\n    if (x >= 0) {\n\
-    \        return x / y;\n    } else {\n        return -((-x + y - 1) / y);\n  \
-    \  }\n}\n\n// y != 0\ntemplate <typename T>\nconstexpr T ceil_div(T x, T y) {\n\
-    \    if (y < 0) {\n        x *= -1;\n        y *= -1;\n    }\n    if (x >= 0)\
-    \ {\n        return (x + y - 1) / y;\n    } else {\n        return -(-x / y);\n\
-    \    }\n}\n#line 8 \"number_theory/mod_int.hpp\"\n\ntemplate <unsigned mod>\n\
-    class ModInt {\n    static_assert(mod != 0, \"`mod` must not be equal to 0.\"\
-    );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
-    \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
-    \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    \ (unsigned) ((unsigned long long) ret * self % mod);\n        }\n        self\
+    \ = (unsigned) ((unsigned long long) self * self % mod);\n        y /= 2;\n  \
+    \  }\n    return ret;\n}\n\ntemplate <unsigned mod>\nconstexpr unsigned primitive_root()\
+    \ {\n    static_assert(is_prime(mod), \"`mod` must be a prime number.\");\n  \
+    \  if (mod == 2) {\n        return 1;\n    }\n\n    unsigned primes[32] = {};\n\
+    \    int it = 0;\n    {\n        unsigned m = mod - 1;\n        for (unsigned\
+    \ i = 2; i * i <= m; ++i) {\n            if (m % i == 0) {\n                primes[it++]\
+    \ = i;\n                while (m % i == 0) {\n                    m /= i;\n  \
+    \              }\n            }\n        }\n        if (m != 1) {\n          \
+    \  primes[it++] = m;\n        }\n    }\n    for (unsigned i = 2; i < mod; ++i)\
+    \ {\n        bool ok = true;\n        for (int j = 0; j < it; ++j) {\n       \
+    \     if (mod_pow(i, (mod - 1) / primes[j], mod) == 1) {\n                ok =\
+    \ false;\n                break;\n            }\n        }\n        if (ok)\n\
+    \            return i;\n    }\n    return 0;\n}\n\n// y >= 1\ntemplate <typename\
+    \ T>\nconstexpr T safe_mod(T x, T y) {\n    x %= y;\n    if (x < 0) {\n      \
+    \  x += y;\n    }\n    return x;\n}\n\n// y != 0\ntemplate <typename T>\nconstexpr\
+    \ T floor_div(T x, T y) {\n    if (y < 0) {\n        x *= -1;\n        y *= -1;\n\
+    \    }\n    if (x >= 0) {\n        return x / y;\n    } else {\n        return\
+    \ -((-x + y - 1) / y);\n    }\n}\n\n// y != 0\ntemplate <typename T>\nconstexpr\
+    \ T ceil_div(T x, T y) {\n    if (y < 0) {\n        x *= -1;\n        y *= -1;\n\
+    \    }\n    if (x >= 0) {\n        return (x + y - 1) / y;\n    } else {\n   \
+    \     return -(-x / y);\n    }\n}\n#line 8 \"number_theory/mod_int.hpp\"\n\ntemplate\
+    \ <unsigned mod>\nclass ModInt {\n    static_assert(mod != 0, \"`mod` must not\
+    \ be equal to 0.\");\n    static_assert(\n        mod < (1u << 31),\n        \"\
+    `mod` must be less than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\n\
+    public:\n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
     \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
@@ -173,37 +172,36 @@ data:
     \ G>\n    HeavyLightDecomposition(G &g, int root = 0) :\n        siz(g.size(),\
     \ 1),\n        par(g.size(), root),\n        hea(g.size(), root),\n        in(g.size(),\
     \ 0),\n        out(g.size(), 0),\n        dep(g.size(), 0),\n        rev(g.size(),\
-    \ 0) {\n        assert(root >= 0 && root < static_cast<int>(g.size()));\n    \
-    \    dfs1(g, root);\n        int time = 0;\n        dfs2(g, root, time);\n   \
-    \ }\n\n    int subtree_size(int v) const {\n        assert(v >= 0 && v < static_cast<int>(siz.size()));\n\
-    \        return siz[v];\n    }\n\n    int parent(int v) const {\n        assert(v\
-    \ >= 0 && v < static_cast<int>(par.size()));\n        return par[v];\n    }\n\n\
-    \    int in_time(int v) const {\n        assert(v >= 0 && v < static_cast<int>(in.size()));\n\
-    \        return in[v];\n    }\n\n    int out_time(int v) const {\n        assert(v\
-    \ >= 0 && v < static_cast<int>(out.size()));\n        return out[v];\n    }\n\n\
-    \    int depth(int v) const {\n        assert(v >= 0 && v < static_cast<int>(dep.size()));\n\
-    \        return dep[v];\n    }\n\n    int time_to_vertex(int t) const {\n    \
-    \    assert(t >= 0 && t < static_cast<int>(rev.size()));\n        return rev[t];\n\
-    \    }\n    \n    int la(int v, int k) const {\n        assert(v >= 0 && v < static_cast<int>(dep.size()));\n\
-    \        assert(k >= 0);\n        while (true) {\n            int u = hea[v];\n\
-    \            if (in[u] + k <= in[v]) {\n                return rev[in[v] - k];\n\
-    \            }\n            k -= in[v] - in[u] + 1;\n            v = par[u];\n\
-    \        }\n        return 0;\n    }\n    \n    int forward(int v, int dst) const\
-    \ {\n        assert(v >= 0 && v < static_cast<int>(dep.size()));\n        assert(dst\
-    \ >= 0 && dst < static_cast<int>(dep.size()));\n        assert(v != dst);\n  \
-    \      int l = lca(v, dst);\n        if (l == v) {\n            return la(dst,\
-    \ dist(v, dst) - 1);\n        } else {\n            return par[v];\n        }\n\
-    \    }\n\n    int lca(int u, int v) const {\n        assert(u >= 0 && u < static_cast<int>(dep.size()));\n\
-    \        assert(v >= 0 && v < static_cast<int>(dep.size()));\n        while (u\
-    \ != v) {\n            if (in[u] > in[v]) {\n                std::swap(u, v);\n\
-    \            }\n            if (hea[u] == hea[v]) {\n                v = u;\n\
-    \            } else {\n                v = par[hea[v]];\n            }\n     \
-    \   }\n        return u;\n    }\n\n    int dist(int u, int v) const {\n      \
-    \  assert(u >= 0 && u < static_cast<int>(dep.size()));\n        assert(v >= 0\
-    \ && v < static_cast<int>(dep.size()));\n        return dep[u] + dep[v] - 2 *\
-    \ dep[lca(u, v)];\n    }\n\n    std::vector<std::pair<int, int>> path(int u, int\
-    \ v, bool edge) const {\n        assert(u >= 0 && u < static_cast<int>(dep.size()));\n\
-    \        assert(v >= 0 && v < static_cast<int>(dep.size()));\n        std::vector<std::pair<int,\
+    \ 0) {\n        assert(root >= 0 && root < (int) g.size());\n        dfs1(g, root);\n\
+    \        int time = 0;\n        dfs2(g, root, time);\n    }\n\n    int subtree_size(int\
+    \ v) const {\n        assert(v >= 0 && v < (int) siz.size());\n        return\
+    \ siz[v];\n    }\n\n    int parent(int v) const {\n        assert(v >= 0 && v\
+    \ < (int) par.size());\n        return par[v];\n    }\n\n    int in_time(int v)\
+    \ const {\n        assert(v >= 0 && v < (int) in.size());\n        return in[v];\n\
+    \    }\n\n    int out_time(int v) const {\n        assert(v >= 0 && v < (int)\
+    \ out.size());\n        return out[v];\n    }\n\n    int depth(int v) const {\n\
+    \        assert(v >= 0 && v < (int) dep.size());\n        return dep[v];\n   \
+    \ }\n\n    int time_to_vertex(int t) const {\n        assert(t >= 0 && t < (int)\
+    \ rev.size());\n        return rev[t];\n    }\n    \n    int la(int v, int k)\
+    \ const {\n        assert(v >= 0 && v < (int) dep.size());\n        assert(k >=\
+    \ 0);\n        while (true) {\n            int u = hea[v];\n            if (in[u]\
+    \ + k <= in[v]) {\n                return rev[in[v] - k];\n            }\n   \
+    \         k -= in[v] - in[u] + 1;\n            v = par[u];\n        }\n      \
+    \  return 0;\n    }\n    \n    int forward(int v, int dst) const {\n        assert(v\
+    \ >= 0 && v < (int) dep.size());\n        assert(dst >= 0 && dst < (int) dep.size());\n\
+    \        assert(v != dst);\n        int l = lca(v, dst);\n        if (l == v)\
+    \ {\n            return la(dst, dist(v, dst) - 1);\n        } else {\n       \
+    \     return par[v];\n        }\n    }\n\n    int lca(int u, int v) const {\n\
+    \        assert(u >= 0 && u < (int) dep.size());\n        assert(v >= 0 && v <\
+    \ (int) dep.size());\n        while (u != v) {\n            if (in[u] > in[v])\
+    \ {\n                std::swap(u, v);\n            }\n            if (hea[u] ==\
+    \ hea[v]) {\n                v = u;\n            } else {\n                v =\
+    \ par[hea[v]];\n            }\n        }\n        return u;\n    }\n\n    int\
+    \ dist(int u, int v) const {\n        assert(u >= 0 && u < (int) dep.size());\n\
+    \        assert(v >= 0 && v < (int) dep.size());        \n        return dep[u]\
+    \ + dep[v] - 2 * dep[lca(u, v)];\n    }\n\n    std::vector<std::pair<int, int>>\
+    \ path(int u, int v, bool edge) const {\n        assert(u >= 0 && u < (int) dep.size());\n\
+    \        assert(v >= 0 && v < (int) dep.size());   \n        std::vector<std::pair<int,\
     \ int>> fromu, fromv;\n        bool rev = false;\n        while (true) {\n   \
     \         if (u == v && edge) {\n                break;\n            }\n     \
     \       if (in[u] > in[v]) {\n                std::swap(u, v);\n             \
@@ -247,7 +245,7 @@ data:
     \ l;\n    }\n\npublic:\n    SegmentTree(int n) :\n        old_length(n),\n   \
     \     length(ceil2(old_length)),\n        node(length << 1, Monoid::id()) {\n\
     \        assert(n >= 0);\n    }\n\n    SegmentTree(const std::vector<Value> &v)\
-    \ :\n        old_length(static_cast<int>(v.size())),\n        length(ceil2(old_length)),\n\
+    \ :\n        old_length((int) v.size()),\n        length(ceil2(old_length)),\n\
     \        node(length << 1, Monoid::id()) {\n        for (int i = 0; i < old_length;\
     \ ++i) {\n            node[i + length] = v[i];\n        }\n        for (int i\
     \ = length - 1; i > 0; --i) {\n            node[i] = Monoid::op(node[i << 1],\
@@ -329,8 +327,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-07-21 12:43:18+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/vertex_set_path_composite.test.cpp
 layout: document

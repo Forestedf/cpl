@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: data_structure/sparse_table.hpp
     title: data_structure/sparse_table.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/staticrmq
@@ -50,20 +50,20 @@ data:
     \ 31 - __builtin_clz(n);\n    }\n    \n    T min2(const T &x, const T &y) const\
     \ {\n        if (f(x, y)) {\n            return x;\n        } else {\n       \
     \     return y;\n        }\n    }\n\npublic:\n    SparseTable(std::vector<T> arr,\
-    \ F _f = F()) : s(static_cast<int>(arr.size())), f(std::move(_f)) {\n        if\
-    \ (s == 0) {\n            return;\n        }\n        int m = log2(s);\n     \
-    \   table.resize(m + 1);\n        table[0] = std::move(arr);\n        for (int\
-    \ i = 1; i <= m; ++i) {\n            int w = 1 << i;\n            table[i].resize(s\
-    \ - w + 1);\n            for (int j = 0; j < static_cast<int>(table[i].size());\
-    \ ++j) {\n                table[i][j] = min2(table[i - 1][j], table[i - 1][j +\
-    \ (w >> 1)]);\n            }\n        }\n    }\n\n    int size() const {\n   \
-    \     return s;\n    }\n\n    // not empty\n    T min(int l, int r) const {\n\
-    \        assert(l >= 0 && l < r && r <= s);\n        int m = log2(r - l);\n  \
-    \      return min2(table[m][l], table[m][r - (1 << m)]);\n    }\n};\n\n#line 7\
-    \ \"test/library_checker/staticrmq.test.cpp\"\n\nint main() {\n    i32 n, q;\n\
-    \    cin >> n >> q;\n    Vec<i32> a(n);\n    REP(i, n) {\n        cin >> a[i];\n\
-    \    }\n    SparseTable<i32> sp(a);\n    REP(qi, q) {\n        i32 l, r;\n   \
-    \     cin >> l >> r;\n        cout << sp.min(l, r) << '\\n';\n    }\n}\n"
+    \ const F &f = F()) : s((int) arr.size()), f(f) {\n        if (s == 0) {\n   \
+    \         return;\n        }\n        int m = log2(s);\n        table.resize(m\
+    \ + 1);\n        table[0] = std::move(arr);\n        for (int i = 1; i <= m; ++i)\
+    \ {\n            int w = 1 << i;\n            table[i].resize(s - w + 1);\n  \
+    \          for (int j = 0; j < (int) table[i].size(); ++j) {\n               \
+    \ table[i][j] = min2(table[i - 1][j], table[i - 1][j + (w >> 1)]);\n         \
+    \   }\n        }\n    }\n\n    int size() const {\n        return s;\n    }\n\n\
+    \    // not empty\n    T min(int l, int r) const {\n        assert(l >= 0 && l\
+    \ < r && r <= s);\n        int m = log2(r - l);\n        return min2(table[m][l],\
+    \ table[m][r - (1 << m)]);\n    }\n};\n\n#line 7 \"test/library_checker/staticrmq.test.cpp\"\
+    \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    Vec<i32> a(n);\n    REP(i,\
+    \ n) {\n        cin >> a[i];\n    }\n    SparseTable<i32> sp(a);\n    REP(qi,\
+    \ q) {\n        i32 l, r;\n        cin >> l >> r;\n        cout << sp.min(l, r)\
+    \ << '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/staticrmq\"\n\n#define\
     \ FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../data_structure/sparse_table.hpp\"\
     \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    Vec<i32> a(n);\n    REP(i,\
@@ -76,8 +76,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/staticrmq.test.cpp
   requiredBy: []
-  timestamp: '2022-07-18 18:57:14+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/staticrmq.test.cpp
 layout: document

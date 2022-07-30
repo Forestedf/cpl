@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':x:'
     path: string/z_algorithm.hpp
     title: string/z_algorithm.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':x:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/zalgorithm
@@ -46,13 +46,13 @@ data:
     \     cout << fixed << setprecision(15);\n    }\n} set_up_io;\n#line 2 \"string/z_algorithm.hpp\"\
     \n\n#line 4 \"string/z_algorithm.hpp\"\n\ntemplate <typename Cont>\nstd::vector<int>\
     \ z_algorithm(const Cont &s) {\n    if (s.empty()) {\n        return std::vector<int>(0);\n\
-    \    }\n    std::vector<int> z(s.size());\n    z[0] = static_cast<int>(s.size());\n\
-    \    int i = 1, j = 0;\n    while (i < static_cast<int>(s.size())) {\n       \
-    \ while (i + j < static_cast<int>(s.size()) && s[i + j] == s[j]) {\n         \
-    \   ++j;\n        }\n        z[i] = j;\n        if (j == 0) {\n            ++i;\n\
-    \            continue;\n        }\n        int k = 1;\n        while (k < j &&\
-    \ k + z[k] < j) {\n            z[i + k] = z[k];\n            ++k;\n        }\n\
-    \        i += k;\n        j -= k;\n    }\n    return z;\n}\n\n#line 7 \"test/library_checker/zalgorithm.test.cpp\"\
+    \    }\n    std::vector<int> z(s.size());\n    z[0] = (int) s.size();\n    int\
+    \ i = 1, j = 0;\n    while (i < (int) s.size()) {\n        while (i + j < (int)\
+    \ s.size() && s[i + j] == s[j]) {\n            ++j;\n        }\n        z[i] =\
+    \ j;\n        if (j == 0) {\n            ++i;\n            continue;\n       \
+    \ }\n        int k = 1;\n        while (k < j && k + z[k] < j) {\n           \
+    \ z[i + k] = z[k];\n            ++k;\n        }\n        i += k;\n        j -=\
+    \ k;\n    }\n    return z;\n}\n\n#line 7 \"test/library_checker/zalgorithm.test.cpp\"\
     \n\nint main() {\n    string s;\n    cin >> s;\n    Vec<i32> z = z_algorithm(s);\n\
     \    REP(i, s.size()) {\n        cout << z[i] << \" \\n\"[i + 1 == s.size()];\n\
     \    }\n}\n"
@@ -67,8 +67,8 @@ data:
   isVerificationFile: true
   path: test/library_checker/zalgorithm.test.cpp
   requiredBy: []
-  timestamp: '2022-07-17 16:00:30+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '2022-07-30 11:55:56+09:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/library_checker/zalgorithm.test.cpp
 layout: document

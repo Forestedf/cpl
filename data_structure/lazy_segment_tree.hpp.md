@@ -27,9 +27,9 @@ data:
     \ 1 | 1]);\n    }\n\npublic:\n    LazySegmentTree(int n) :\n        old_length(n),\n\
     \        lg(lg2(n)),\n        length(1 << lg),\n        values(length << 1, MonoidFunc::id()),\n\
     \        funcs(length << 1, MonoidFunc::func_id()) {\n        assert(n >= 0);\
-    \    \n    }\n\n    LazySegmentTree(const std::vector<Value> &v) :\n        old_length(static_cast<int>(v.size())),\n\
-    \        lg(lg2(old_length)),\n        length(1 << lg),\n        values(length\
-    \ << 1, MonoidFunc::id()),\n        funcs(length << 1, MonoidFunc::func_id())\
+    \    \n    }\n\n    LazySegmentTree(const std::vector<Value> &v) :\n        old_length((int)\
+    \ v.size()),\n        lg(lg2(old_length)),\n        length(1 << lg),\n       \
+    \ values(length << 1, MonoidFunc::id()),\n        funcs(length << 1, MonoidFunc::func_id())\
     \ {\n        for (int i = 0; i < old_length; ++i) {\n            values[i + length]\
     \ = v[i];\n        }\n        for (int i = length - 1; i > 0; --i) {\n       \
     \     recalc_values(i);\n        }\n    }\n\n    template <typename F>\n    LazySegmentTree(int\
@@ -79,12 +79,12 @@ data:
     \ :\n        old_length(n),\n        lg(lg2(n)),\n        length(1 << lg),\n \
     \       values(length << 1, MonoidFunc::id()),\n        funcs(length << 1, MonoidFunc::func_id())\
     \ {\n        assert(n >= 0);    \n    }\n\n    LazySegmentTree(const std::vector<Value>\
-    \ &v) :\n        old_length(static_cast<int>(v.size())),\n        lg(lg2(old_length)),\n\
-    \        length(1 << lg),\n        values(length << 1, MonoidFunc::id()),\n  \
-    \      funcs(length << 1, MonoidFunc::func_id()) {\n        for (int i = 0; i\
-    \ < old_length; ++i) {\n            values[i + length] = v[i];\n        }\n  \
-    \      for (int i = length - 1; i > 0; --i) {\n            recalc_values(i);\n\
-    \        }\n    }\n\n    template <typename F>\n    LazySegmentTree(int n, const\
+    \ &v) :\n        old_length((int) v.size()),\n        lg(lg2(old_length)),\n \
+    \       length(1 << lg),\n        values(length << 1, MonoidFunc::id()),\n   \
+    \     funcs(length << 1, MonoidFunc::func_id()) {\n        for (int i = 0; i <\
+    \ old_length; ++i) {\n            values[i + length] = v[i];\n        }\n    \
+    \    for (int i = length - 1; i > 0; --i) {\n            recalc_values(i);\n \
+    \       }\n    }\n\n    template <typename F>\n    LazySegmentTree(int n, const\
     \ F &f) :\n        old_length(n),\n        lg(lg2(n)),\n        length(1 << lg),\n\
     \        values(length << 1, MonoidFunc::id()),\n        funcs(length << 1, MonoidFunc::func_id())\
     \ {\n        for (int i = 0; i < old_length; ++i) {\n            values[i + length]\
@@ -119,7 +119,7 @@ data:
   isVerificationFile: false
   path: data_structure/lazy_segment_tree.hpp
   requiredBy: []
-  timestamp: '2022-07-17 14:27:07+09:00'
+  timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/range_affine_range_sum.test.cpp
