@@ -17,14 +17,14 @@ public:
     FenwickTree(int n) : data(n, CommutativeGroup::id()) {}
 
     void add(int idx, const Value &x) {
-        assert(idx >= 0 && idx < static_cast<int>(data.size()));
-        for (; idx < static_cast<int>(data.size()); idx |= idx + 1) {
+        assert(idx >= 0 && idx < (int) data.size());
+        for (; idx < (int) data.size(); idx |= idx + 1) {
             data[idx] = CommutativeGroup::op(data[idx], x);
         }
     }
 
     Value sum(int r) const {
-        assert(r >= 0 && r <= static_cast<int>(data.size()));
+        assert(r >= 0 && r <= (int) data.size());
         Value ret = CommutativeGroup::id();
         for (; r > 0; r &= r - 1) {
             ret = CommutativeGroup::op(ret, data[r - 1]);
@@ -33,7 +33,7 @@ public:
     }
 
     Value sum(int l, int r) const {
-        assert(l >= 0 && l <= r && r <= static_cast<int>(data.size()));
+        assert(l >= 0 && l <= r && r <= (int) data.size());
         return CommutativeGroup::op(sum(r), CommutativeGroup::inv(sum(l)));
     }
 };

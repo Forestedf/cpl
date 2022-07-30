@@ -18,15 +18,15 @@ private:
     
 public:
     SegmentTreeXorRange(const std::vector<Value> &a) :
-        depth(floor_log2(static_cast<int>(a.size()))),
-        node(2 * static_cast<int>(a.size())) {
+        depth(floor_log2((int) a.size())),
+        node(2 * (int) a.size()) {
         assert(!a.empty());
-        assert(static_cast<int>(a.size()) == (1 << depth));
-        for (int i = 0; i < static_cast<int>(a.size()); ++i) {
+        assert((int) a.size() == (1 << depth));
+        for (int i = 0; i < (int) a.size(); ++i) {
             node[a.size() + i] = {a[i]};
         }
-        for (int i = static_cast<int>(a.size()) - 1; i > 0; --i) {
-            int k = static_cast<int>(node[2 * i].size());
+        for (int i = (int) a.size() - 1; i > 0; --i) {
+            int k = (int) node[2 * i].size();
             node[i].resize(2 * k);
             for (int j = 0; j < k; ++j) {
                 node[i][j] = Monoid::op(node[2 * i][j], node[2 * i + 1][j]);

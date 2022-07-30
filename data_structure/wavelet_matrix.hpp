@@ -19,7 +19,7 @@ public:
             assert(ele >= 0);
         }
         
-        T mx = *std::max_element(a.begin(), a.end());
+        T mx = std::max(T(1), *std::max_element(a.begin(), a.end()));
         ht = (int) floor_log2(mx) + 1;
         vecs.reserve(ht);
         

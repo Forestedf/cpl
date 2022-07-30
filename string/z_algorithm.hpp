@@ -8,10 +8,10 @@ std::vector<int> z_algorithm(const Cont &s) {
         return std::vector<int>(0);
     }
     std::vector<int> z(s.size());
-    z[0] = static_cast<int>(s.size());
+    z[0] = (int) s.size();
     int i = 1, j = 0;
-    while (i < static_cast<int>(s.size())) {
-        while (i + j < static_cast<int>(s.size()) && s[i + j] == s[j]) {
+    while (i < (int) s.size()) {
+        while (i + j < (int) s.size() && s[i + j] == s[j]) {
             ++j;
         }
         z[i] = j;

@@ -5,16 +5,16 @@
 #include <vector>
 
 class Trie {
-    std::vector<std::array<std::size_t, 26>> trie;
-    std::vector<std::size_t> cnt;
+    std::vector<std::array<int, 26>> trie;
+    std::vector<int> cnt;
 
 public:
-    static constexpr std::size_t none = (std::size_t)-1;
+    static constexpr int none = -1;
 
 private:
-    std::size_t make_node() {
-        std::size_t s = trie.size();
-        trie.emplace_back(std::array<std::size_t, 26>());
+    int make_node() {
+        int s = trie.size();
+        trie.emplace_back(std::array<int, 26>());
         std::fill(trie[s].begin(), trie[s].end(), none);
         cnt.push_back(0);
         return s;
@@ -25,16 +25,16 @@ public:
         make_node();
     }
 
-    std::size_t size() const {
-        return trie.size();
+    int size() const {
+        return (int) trie.size();
     }
 
-    const std::array<std::size_t, 26> &operator[](std::size_t i) const {
+    const std::array<int, 26> &operator[](int i) const {
         return trie[i];
     }
 
-    std::size_t insert(const std::string &s) {
-        std::size_t cur = 0;
+    int insert(const std::string &s) {
+        int cur = 0;
         for (char c : s) {
             if (trie[cur][c - 'a'] == none) {
                 trie[cur][c - 'a'] = make_node();
@@ -43,20 +43,29 @@ public:
         }
         return cnt[cur]++;
     }
-
-    std::size_t count(const std::string &s) const {
-        std::size_t cur = 0;
+    
+    int find(const std::string &s) const {
+        int cur = 0;
         for (char c : s) {
-            std::size_t nxt = trie[cur][c - 'a'];
+            int nxt = trie[cur][c - 'a'];
             if (nxt == none) {
-                return 0;
+                return none;
             }
             cur = nxt;
         }
-        return cnt[cur];
+        return cur;
     }
 
-    std::size_t cnt_node(std::size_t i) const {
+    int count(const std::string &s) const {
+        int node = find(s);
+        if (node == none) {
+            return 0;
+        } else {
+            return cnt[node];
+        }
+    }
+
+    int cnt_node(int i) const {
         return cnt[i];
     }
 };

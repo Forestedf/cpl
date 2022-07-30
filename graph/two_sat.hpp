@@ -40,9 +40,9 @@ public:
         std::vector<TwoSat::Variable> vars;
         vars.reserve(num);
         for (int i = 0; i < num; ++i) {
-            vars.emplace_back(Variable(static_cast<int>(graph.size()) + 2 * i));
+            vars.emplace_back(Variable((int) graph.size() + 2 * i));
         }
-        graph.resize(static_cast<int>(graph.size()) + 2 * num, std::vector<int>());
+        graph.resize((int) graph.size() + 2 * num, std::vector<int>());
         return vars;
     }
     
@@ -61,12 +61,12 @@ public:
         if (vars.size() <= 1) {
             return;
         }
-        std::vector<Variable> sum = add_variables(static_cast<int>(vars.size()) - 1);
-        for (int i = 0; i < static_cast<int>(sum.size()); ++i) {
+        std::vector<Variable> sum = add_variables((int) vars.size() - 1);
+        for (int i = 0; i < (int) sum.size(); ++i) {
             implies(vars[i], sum[i]);
             implies(sum[i], !vars[i + 1]);
         }
-        for (int i = 0; i < static_cast<int>(sum.size()) - 1; ++i) {
+        for (int i = 0; i < (int) sum.size() - 1; ++i) {
             implies(sum[i], sum[i + 1]);
         }
     }
@@ -74,7 +74,7 @@ public:
     std::optional<std::vector<bool>> solve() {
         StronglyConnectedComponents scc(graph);
         std::vector<bool> ans(graph.size() / 2, false);
-        for (int i = 0; i < static_cast<int>(graph.size()) / 2; ++i) {
+        for (int i = 0; i < (int) graph.size() / 2; ++i) {
             if (scc[2 * i] == scc[2 * i + 1]) {
                 return std::nullopt;
             }

@@ -10,9 +10,9 @@ class ConnectedComponents {
 public:
     template <typename G>
     ConnectedComponents(const G &graph) :
-        number(static_cast<int>(graph.size()), -1), comp(0) {
+        number((int) graph.size(), -1), comp(0) {
         std::queue<int> que;
-        for (int i = 0; i < static_cast<int>(graph.size()); ++i) {
+        for (int i = 0; i < (int) graph.size(); ++i) {
             if (number[i] != -1) {
                 continue;
             }
@@ -33,13 +33,13 @@ public:
     }
 
     int operator[](int v) const {
-        assert(v >= 0 && v < static_cast<int>(number.size()));
+        assert(v >= 0 && v < (int) number.size());
         return number[v];
     }
 
     std::vector<std::vector<int>> groups() const {
         std::vector<std::vector<int>> ret(comp);
-        for (int i = 0; i < static_cast<int>(number.size()); ++i)
+        for (int i = 0; i < (int) number.size(); ++i)
             ret[number[i]].push_back(i);
         return ret;
     }

@@ -25,7 +25,7 @@ class SparseTable {
     }
 
 public:
-    SparseTable(std::vector<T> arr, F _f = F()) : s(static_cast<int>(arr.size())), f(std::move(_f)) {
+    SparseTable(std::vector<T> arr, const F &f = F()) : s((int) arr.size()), f(f) {
         if (s == 0) {
             return;
         }
@@ -35,7 +35,7 @@ public:
         for (int i = 1; i <= m; ++i) {
             int w = 1 << i;
             table[i].resize(s - w + 1);
-            for (int j = 0; j < static_cast<int>(table[i].size()); ++j) {
+            for (int j = 0; j < (int) table[i].size(); ++j) {
                 table[i][j] = min2(table[i - 1][j], table[i - 1][j + (w >> 1)]);
             }
         }

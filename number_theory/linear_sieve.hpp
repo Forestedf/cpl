@@ -24,7 +24,7 @@ public:
     }
     
     int min_prime_factor(int n) const {
-        assert(n >= 2 && n < static_cast<int>(mpf.size()));
+        assert(n >= 2 && n < (int) mpf.size());
         return mpf[n];
     }
     
@@ -33,7 +33,7 @@ public:
     }
     
     bool is_prime(int n) const {
-        assert(n < static_cast<int>(mpf.size()));
+        assert(n < (int) mpf.size());
         return n >= 2 && mpf[n] == n;
     }
     

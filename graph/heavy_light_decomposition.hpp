@@ -62,44 +62,44 @@ public:
         out(g.size(), 0),
         dep(g.size(), 0),
         rev(g.size(), 0) {
-        assert(root >= 0 && root < static_cast<int>(g.size()));
+        assert(root >= 0 && root < (int) g.size());
         dfs1(g, root);
         int time = 0;
         dfs2(g, root, time);
     }
 
     int subtree_size(int v) const {
-        assert(v >= 0 && v < static_cast<int>(siz.size()));
+        assert(v >= 0 && v < (int) siz.size());
         return siz[v];
     }
 
     int parent(int v) const {
-        assert(v >= 0 && v < static_cast<int>(par.size()));
+        assert(v >= 0 && v < (int) par.size());
         return par[v];
     }
 
     int in_time(int v) const {
-        assert(v >= 0 && v < static_cast<int>(in.size()));
+        assert(v >= 0 && v < (int) in.size());
         return in[v];
     }
 
     int out_time(int v) const {
-        assert(v >= 0 && v < static_cast<int>(out.size()));
+        assert(v >= 0 && v < (int) out.size());
         return out[v];
     }
 
     int depth(int v) const {
-        assert(v >= 0 && v < static_cast<int>(dep.size()));
+        assert(v >= 0 && v < (int) dep.size());
         return dep[v];
     }
 
     int time_to_vertex(int t) const {
-        assert(t >= 0 && t < static_cast<int>(rev.size()));
+        assert(t >= 0 && t < (int) rev.size());
         return rev[t];
     }
     
     int la(int v, int k) const {
-        assert(v >= 0 && v < static_cast<int>(dep.size()));
+        assert(v >= 0 && v < (int) dep.size());
         assert(k >= 0);
         while (true) {
             int u = hea[v];
@@ -113,8 +113,8 @@ public:
     }
     
     int forward(int v, int dst) const {
-        assert(v >= 0 && v < static_cast<int>(dep.size()));
-        assert(dst >= 0 && dst < static_cast<int>(dep.size()));
+        assert(v >= 0 && v < (int) dep.size());
+        assert(dst >= 0 && dst < (int) dep.size());
         assert(v != dst);
         int l = lca(v, dst);
         if (l == v) {
@@ -125,8 +125,8 @@ public:
     }
 
     int lca(int u, int v) const {
-        assert(u >= 0 && u < static_cast<int>(dep.size()));
-        assert(v >= 0 && v < static_cast<int>(dep.size()));
+        assert(u >= 0 && u < (int) dep.size());
+        assert(v >= 0 && v < (int) dep.size());
         while (u != v) {
             if (in[u] > in[v]) {
                 std::swap(u, v);
@@ -141,14 +141,14 @@ public:
     }
 
     int dist(int u, int v) const {
-        assert(u >= 0 && u < static_cast<int>(dep.size()));
-        assert(v >= 0 && v < static_cast<int>(dep.size()));
+        assert(u >= 0 && u < (int) dep.size());
+        assert(v >= 0 && v < (int) dep.size());        
         return dep[u] + dep[v] - 2 * dep[lca(u, v)];
     }
 
     std::vector<std::pair<int, int>> path(int u, int v, bool edge) const {
-        assert(u >= 0 && u < static_cast<int>(dep.size()));
-        assert(v >= 0 && v < static_cast<int>(dep.size()));
+        assert(u >= 0 && u < (int) dep.size());
+        assert(v >= 0 && v < (int) dep.size());   
         std::vector<std::pair<int, int>> fromu, fromv;
         bool rev = false;
         while (true) {

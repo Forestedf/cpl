@@ -40,13 +40,13 @@ public:
             }
         };
         
-        for (int v = 0; v < static_cast<int>(g.size()); ++v) {
+        for (int v = 0; v < (int) g.size(); ++v) {
             if (ord[v] == -1) {
                 dfs(dfs, v);
             }
         }
         
-        for (int v = 0; v < static_cast<int>(g.size()); ++v) {
+        for (int v = 0; v < (int) g.size(); ++v) {
             comp_id[v] = comp_num - 1 - comp_id[v];
         }
     }
@@ -56,13 +56,13 @@ public:
     }
 
     int operator[](int v) const {
-        assert(v >= 0 && v < static_cast<int>(comp_id.size()));
+        assert(v >= 0 && v < (int) comp_id.size());
         return comp_id[v];
     }
 
     std::vector<std::vector<int>> groups() const {
         std::vector<std::vector<int>> ret(comp_num);
-        for (int v = 0; v < static_cast<int>(comp_id.size()); ++v) {
+        for (int v = 0; v < (int) comp_id.size(); ++v) {
             ret[comp_id[v]].push_back(v);
         }
         return ret;

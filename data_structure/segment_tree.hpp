@@ -33,7 +33,7 @@ public:
     }
 
     SegmentTree(const std::vector<Value> &v) :
-        old_length(static_cast<int>(v.size())),
+        old_length((int) v.size()),
         length(ceil2(old_length)),
         node(length << 1, Monoid::id()) {
         for (int i = 0; i < old_length; ++i) {

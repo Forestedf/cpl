@@ -62,9 +62,9 @@ class CentroidDecomposition {
 public:
     CentroidDecomposition(const G &_g) :
     g(_g),
-    to(static_cast<int>(g.size())),
-    used(static_cast<int>(g.size()), false),
-    size(static_cast<int>(g.size()), 0) {
+    to((int) g.size()),
+    used((int) g.size(), false),
+    size((int) g.size(), 0) {
         first = decomposite(0);
     }
     
@@ -73,7 +73,7 @@ public:
     }
     
     const std::vector<int> &next_centroids(int v) const {
-        assert(v >= 0 && v < static_cast<int>(g.size()));
+        assert(v >= 0 && v < (int) g.size());
         return to[v];
     }
 };

@@ -53,7 +53,7 @@ public:
     }
 
     LazySegmentTree(const std::vector<Value> &v) :
-        old_length(static_cast<int>(v.size())),
+        old_length((int) v.size()),
         lg(lg2(old_length)),
         length(1 << lg),
         values(length << 1, MonoidFunc::id()),

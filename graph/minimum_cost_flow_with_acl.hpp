@@ -13,7 +13,7 @@ public:
     MinCostFlow(int n) : graph(n + 2), supply(n, 0), ans(0) {}
     
     void add_supply(int v, Cap s) {
-        assert(v < static_cast<int>(supply.size()));
+        assert(v < (int) supply.size());
         supply[v] += s;
     }
     
@@ -40,7 +40,7 @@ public:
     }
     
     std::optional<Cost> solve() {
-        int super_s = static_cast<int>(supply.size());
+        int super_s = (int) supply.size();
         int super_t = super_s + 1;
         Cap neg_sum = 0;
         Cap pos_sum = 0;

@@ -40,7 +40,7 @@ public:
     }
     
     inline int n_max() const {
-        return static_cast<int>(fac.size() - 1);
+        return (int) fac.size() - 1;
     }
     
     inline T fact(int n) const {

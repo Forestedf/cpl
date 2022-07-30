@@ -16,9 +16,9 @@ constexpr unsigned mod_pow(unsigned x, unsigned y, unsigned mod) {
     unsigned ret = 1, self = x;
     while (y != 0) {
         if (y & 1) {
-            ret = static_cast<unsigned>(static_cast<unsigned long long>(ret) * self % mod);
+            ret = (unsigned) ((unsigned long long) ret * self % mod);
         }
-        self = static_cast<unsigned>(static_cast<unsigned long long>(self) * self % mod);
+        self = (unsigned) ((unsigned long long) self * self % mod);
         y /= 2;
     }
     return ret;
