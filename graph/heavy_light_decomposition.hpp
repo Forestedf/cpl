@@ -101,6 +101,9 @@ public:
     int la(int v, int k) const {
         assert(v >= 0 && v < (int) dep.size());
         assert(k >= 0);
+        if (k > dep[v]) {
+            return -1;
+        }
         while (true) {
             int u = hea[v];
             if (in[u] + k <= in[v]) {
@@ -142,7 +145,7 @@ public:
 
     int dist(int u, int v) const {
         assert(u >= 0 && u < (int) dep.size());
-        assert(v >= 0 && v < (int) dep.size());        
+        assert(v >= 0 && v < (int) dep.size());
         return dep[u] + dep[v] - 2 * dep[lca(u, v)];
     }
 
@@ -178,6 +181,22 @@ public:
             fromu.emplace_back(y, x);
         }
         return fromu;
+    }
+    
+    int jump(int u, int v, int k) const {
+        assert(u >= 0 && u < (int) dep.size());
+        assert(v >= 0 && v < (int) dep.size());
+        assert(k >= 0);
+        int l = lca(u, v);
+        int dis = dep[u] + dep[v] - 2 * dep[l];
+        if (k > dis) {
+            return -1;
+        }
+        if (k <= dep[u] - dep[l]) {
+            return la(u, k);
+        } else {
+            return la(v, dis - k);
+        }
     }
 };
 
