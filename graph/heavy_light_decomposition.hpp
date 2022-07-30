@@ -148,7 +148,7 @@ public:
 
     std::vector<std::pair<int, int>> path(int u, int v, bool edge) const {
         assert(u >= 0 && u < (int) dep.size());
-        assert(v >= 0 && v < (int) dep.size());   
+        assert(v >= 0 && v < (int) dep.size());
         std::vector<std::pair<int, int>> fromu, fromv;
         bool rev = false;
         while (true) {
