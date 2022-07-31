@@ -16,6 +16,9 @@ struct EnumerateSubset {
             return cur;
             //return st ^ cur;
         }
+        friend bool operator!=(const EnumerateSubset::Iterator &lhs, const EnumerateSubset::Iterator &rhs) {
+            return lhs.cur != rhs.cur;
+        }
     };
     
     unsigned st;
