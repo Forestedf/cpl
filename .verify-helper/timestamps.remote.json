@@ -20,6 +20,7 @@
 "test/library_checker/queue_operate_all_composite.test.cpp": "2022-07-30 11:55:56 +0900",
 "test/library_checker/range_affine_range_sum.test.cpp": "2022-07-30 11:55:56 +0900",
 "test/library_checker/range_kth_smallest.test.cpp": "2022-07-30 11:55:56 +0900",
+"test/library_checker/rectangle_sum.test.cpp": "2022-07-31 17:23:59 +0900",
 "test/library_checker/scc.test.cpp": "2022-07-30 11:55:56 +0900",
 "test/library_checker/static_range_frequency.test.cpp": "2022-07-30 11:55:56 +0900",
 "test/library_checker/staticrmq.test.cpp": "2022-07-30 11:55:56 +0900",
