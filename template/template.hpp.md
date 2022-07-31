@@ -67,6 +67,9 @@ data:
     path: test/library_checker/range_kth_smallest.test.cpp
     title: test/library_checker/range_kth_smallest.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/rectangle_sum.test.cpp
+    title: test/library_checker/rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/scc.test.cpp
     title: test/library_checker/scc.test.cpp
   - icon: ':heavy_check_mark:'
@@ -181,6 +184,7 @@ data:
   - test/library_checker/pow_of_formal_power_series.test.cpp
   - test/library_checker/vertex_set_path_composite.test.cpp
   - test/library_checker/scc.test.cpp
+  - test/library_checker/rectangle_sum.test.cpp
   - test/library_checker/subset_convolution.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp
   - test/library_checker/inv_of_formal_power_series_acl.test.cpp

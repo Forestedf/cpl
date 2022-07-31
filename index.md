@@ -44,6 +44,9 @@ data:
       path: data_structure/operations.hpp
       title: data_structure/operations.hpp
     - icon: ':heavy_check_mark:'
+      path: data_structure/range_tree.hpp
+      title: data_structure/range_tree.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/segment_tree.hpp
       title: data_structure/segment_tree.hpp
     - icon: ':warning:'
@@ -259,6 +262,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/range_kth_smallest.test.cpp
       title: test/library_checker/range_kth_smallest.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/rectangle_sum.test.cpp
+      title: test/library_checker/rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/scc.test.cpp
       title: test/library_checker/scc.test.cpp
