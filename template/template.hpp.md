@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: test/aoj/dsl_2_g.test.cpp
+    title: test/aoj/dsl_2_g.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/bitwise_and_convolution.test.cpp
     title: test/library_checker/bitwise_and_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -174,6 +177,7 @@ data:
   timestamp: '2022-07-17 16:00:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/dsl_2_g.test.cpp
   - test/library_checker/staticrmq.test.cpp
   - test/library_checker/vertex_add_subtree_sum.test.cpp
   - test/library_checker/static_range_frequency.test.cpp

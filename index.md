@@ -44,6 +44,9 @@ data:
       path: data_structure/operations.hpp
       title: data_structure/operations.hpp
     - icon: ':heavy_check_mark:'
+      path: data_structure/range_add_range_sum.hpp
+      title: data_structure/range_add_range_sum.hpp
+    - icon: ':heavy_check_mark:'
       path: data_structure/range_tree.hpp
       title: data_structure/range_tree.hpp
     - icon: ':heavy_check_mark:'
@@ -197,6 +200,11 @@ data:
       path: template/template.hpp
       title: template/template.hpp
   verificationCategories:
+  - name: test/aoj
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/aoj/dsl_2_g.test.cpp
+      title: test/aoj/dsl_2_g.test.cpp
   - name: test/library_checker
     pages:
     - icon: ':heavy_check_mark:'

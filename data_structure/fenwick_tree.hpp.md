@@ -4,8 +4,14 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/range_add_range_sum.hpp
+    title: data_structure/range_add_range_sum.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/aoj/dsl_2_g.test.cpp
+    title: test/aoj/dsl_2_g.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/point_add_range_sum.test.cpp
     title: test/library_checker/point_add_range_sum.test.cpp
@@ -74,10 +80,12 @@ data:
   - data_structure/operations.hpp
   isVerificationFile: false
   path: data_structure/fenwick_tree.hpp
-  requiredBy: []
+  requiredBy:
+  - data_structure/range_add_range_sum.hpp
   timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/aoj/dsl_2_g.test.cpp
   - test/library_checker/vertex_add_subtree_sum.test.cpp
   - test/library_checker/vertex_add_path_sum.test.cpp
   - test/library_checker/point_add_range_sum.test.cpp
