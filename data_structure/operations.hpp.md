@@ -19,6 +19,9 @@ data:
     path: test/library_checker/point_add_range_sum.test.cpp
     title: test/library_checker/point_add_range_sum.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test/library_checker/point_add_rectangle_sum.test.cpp
+    title: test/library_checker/point_add_rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/point_set_range_composite.test.cpp
     title: test/library_checker/point_set_range_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -99,6 +102,7 @@ data:
   - test/library_checker/vertex_add_path_sum.test.cpp
   - test/library_checker/point_add_range_sum.test.cpp
   - test/library_checker/vertex_set_path_composite.test.cpp
+  - test/library_checker/point_add_rectangle_sum.test.cpp
   - test/library_checker/rectangle_sum.test.cpp
   - test/library_checker/point_set_range_composite.test.cpp
 documentation_of: data_structure/operations.hpp

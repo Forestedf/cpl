@@ -34,6 +34,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.hpp
       title: data_structure/fenwick_tree.hpp
+    - icon: ':heavy_check_mark:'
+      path: data_structure/general_range_tree.hpp
+      title: data_structure/general_range_tree.hpp
     - icon: ':warning:'
       path: data_structure/integer_convex_hull_trick.hpp
       title: data_structure/integer_convex_hull_trick.hpp
@@ -249,6 +252,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/library_checker/point_add_range_sum.test.cpp
       title: test/library_checker/point_add_range_sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test/library_checker/point_add_rectangle_sum.test.cpp
+      title: test/library_checker/point_add_rectangle_sum.test.cpp
     - icon: ':heavy_check_mark:'
       path: test/library_checker/point_set_range_composite.test.cpp
       title: test/library_checker/point_set_range_composite.test.cpp
