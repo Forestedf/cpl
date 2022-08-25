@@ -37,3 +37,6 @@ public:
         return CommutativeGroup::op(sum(r), CommutativeGroup::inv(sum(l)));
     }
 };
+
+template <typename T>
+using FenwickTreeAdd = FenwickTree<Add<T>>;
