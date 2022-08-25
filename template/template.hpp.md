@@ -180,44 +180,44 @@ data:
   timestamp: '2022-07-17 16:00:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/dsl_2_g.test.cpp
-  - test/library_checker/staticrmq.test.cpp
-  - test/library_checker/vertex_add_subtree_sum.test.cpp
-  - test/library_checker/static_range_frequency.test.cpp
-  - test/library_checker/vertex_add_path_sum.test.cpp
-  - test/library_checker/point_add_range_sum.test.cpp
-  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/library_checker/matrix_product.test.cpp
-  - test/library_checker/pow_of_formal_power_series.test.cpp
-  - test/library_checker/vertex_set_path_composite.test.cpp
-  - test/library_checker/point_add_rectangle_sum.test.cpp
-  - test/library_checker/scc.test.cpp
-  - test/library_checker/rectangle_sum.test.cpp
-  - test/library_checker/subset_convolution.test.cpp
-  - test/library_checker/inv_of_formal_power_series.test.cpp
-  - test/library_checker/inv_of_formal_power_series_acl.test.cpp
-  - test/library_checker/polynomial_taylor_shift.test.cpp
-  - test/library_checker/matrix_det.test.cpp
-  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  - test/library_checker/zalgorithm.test.cpp
-  - test/library_checker/convolution_mod.test.cpp
-  - test/library_checker/range_kth_smallest.test.cpp
-  - test/library_checker/log_of_formal_power_series_acl.test.cpp
-  - test/library_checker/unionfind.test.cpp
-  - test/library_checker/queue_operate_all_composite.test.cpp
-  - test/library_checker/two_sat.test.cpp
-  - test/library_checker/exp_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/jump_on_tree.test.cpp
-  - test/library_checker/bitwise_and_convolution.test.cpp
-  - test/library_checker/log_of_formal_power_series.test.cpp
-  - test/library_checker/range_affine_range_sum.test.cpp
-  - test/library_checker/point_set_range_composite.test.cpp
-  - test/library_checker/lca.test.cpp
   - test/yukicoder/1891.test.cpp
-  - test/other/sparse_segment_tree.test.cpp
+  - test/library_checker/range_kth_smallest.test.cpp
+  - test/library_checker/bitwise_and_convolution.test.cpp
+  - test/library_checker/rectangle_sum.test.cpp
+  - test/library_checker/matrix_product.test.cpp
+  - test/library_checker/inv_of_formal_power_series_acl.test.cpp
+  - test/library_checker/range_affine_range_sum.test.cpp
+  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/unionfind.test.cpp
+  - test/library_checker/point_add_rectangle_sum.test.cpp
+  - test/library_checker/queue_operate_all_composite.test.cpp
+  - test/library_checker/static_range_frequency.test.cpp
+  - test/library_checker/polynomial_taylor_shift.test.cpp
+  - test/library_checker/log_of_formal_power_series.test.cpp
+  - test/library_checker/point_add_range_sum.test.cpp
+  - test/library_checker/log_of_formal_power_series_acl.test.cpp
+  - test/library_checker/two_sat.test.cpp
+  - test/library_checker/convolution_mod.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
+  - test/library_checker/subset_convolution.test.cpp
+  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
+  - test/library_checker/exp_of_formal_power_series_acl.test.cpp
+  - test/library_checker/pow_of_formal_power_series.test.cpp
+  - test/library_checker/inv_of_formal_power_series.test.cpp
+  - test/library_checker/point_set_range_composite.test.cpp
+  - test/library_checker/staticrmq.test.cpp
+  - test/library_checker/vertex_set_path_composite.test.cpp
+  - test/library_checker/zalgorithm.test.cpp
+  - test/library_checker/vertex_add_subtree_sum.test.cpp
+  - test/library_checker/jump_on_tree.test.cpp
+  - test/library_checker/scc.test.cpp
+  - test/library_checker/vertex_add_path_sum.test.cpp
+  - test/library_checker/lca.test.cpp
+  - test/library_checker/matrix_det.test.cpp
+  - test/aoj/dsl_2_g.test.cpp
   - test/other/wavelet_matrix.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
+  - test/other/sparse_segment_tree.test.cpp
 documentation_of: template/template.hpp
 layout: document
 redirect_from:

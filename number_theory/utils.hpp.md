@@ -130,30 +130,30 @@ data:
   isVerificationFile: false
   path: number_theory/utils.hpp
   requiredBy:
-  - number_theory/number_theoretic_transform.hpp
   - number_theory/mod_int.hpp
+  - number_theory/number_theoretic_transform.hpp
   - template/debug.hpp
   timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/library_checker/matrix_product.test.cpp
-  - test/library_checker/pow_of_formal_power_series.test.cpp
-  - test/library_checker/vertex_set_path_composite.test.cpp
-  - test/library_checker/subset_convolution.test.cpp
-  - test/library_checker/inv_of_formal_power_series.test.cpp
-  - test/library_checker/polynomial_taylor_shift.test.cpp
-  - test/library_checker/matrix_det.test.cpp
-  - test/library_checker/convolution_mod.test.cpp
-  - test/library_checker/queue_operate_all_composite.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/bitwise_and_convolution.test.cpp
-  - test/library_checker/log_of_formal_power_series.test.cpp
-  - test/library_checker/range_affine_range_sum.test.cpp
-  - test/library_checker/point_set_range_composite.test.cpp
   - test/yukicoder/1891.test.cpp
-  - test/other/sparse_segment_tree.test.cpp
+  - test/library_checker/bitwise_and_convolution.test.cpp
+  - test/library_checker/matrix_product.test.cpp
+  - test/library_checker/range_affine_range_sum.test.cpp
+  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/queue_operate_all_composite.test.cpp
+  - test/library_checker/polynomial_taylor_shift.test.cpp
+  - test/library_checker/log_of_formal_power_series.test.cpp
+  - test/library_checker/convolution_mod.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
+  - test/library_checker/subset_convolution.test.cpp
+  - test/library_checker/pow_of_formal_power_series.test.cpp
+  - test/library_checker/inv_of_formal_power_series.test.cpp
+  - test/library_checker/point_set_range_composite.test.cpp
+  - test/library_checker/vertex_set_path_composite.test.cpp
+  - test/library_checker/matrix_det.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
+  - test/other/sparse_segment_tree.test.cpp
 documentation_of: number_theory/utils.hpp
 layout: document
 redirect_from:

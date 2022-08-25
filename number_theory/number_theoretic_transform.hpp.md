@@ -238,12 +238,12 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/library_checker/pow_of_formal_power_series.test.cpp
-  - test/library_checker/inv_of_formal_power_series.test.cpp
   - test/library_checker/polynomial_taylor_shift.test.cpp
+  - test/library_checker/log_of_formal_power_series.test.cpp
   - test/library_checker/convolution_mod.test.cpp
   - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/log_of_formal_power_series.test.cpp
+  - test/library_checker/pow_of_formal_power_series.test.cpp
+  - test/library_checker/inv_of_formal_power_series.test.cpp
 documentation_of: number_theory/number_theoretic_transform.hpp
 layout: document
 redirect_from:

@@ -83,7 +83,8 @@ data:
     \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
     \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
     \ >= 0 && l <= r && r <= (int) data.size());\n        return CommutativeGroup::op(sum(r),\
-    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n#line 7 \"test/library_checker/point_add_range_sum.test.cpp\"\
+    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n\ntemplate <typename T>\nusing FenwickTreeAdd\
+    \ = FenwickTree<Add<T>>;\n#line 7 \"test/library_checker/point_add_range_sum.test.cpp\"\
     \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    FenwickTree<Add<i64>>\
     \ ft(n);\n    REP(i, n) {\n        i64 a;\n        cin >> a;\n        ft.add(i,\
     \ a);\n    }\n    REP(qi, q) {\n        i32 type;\n        cin >> type;\n    \
@@ -107,7 +108,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/point_add_range_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-07-30 11:55:56+09:00'
+  timestamp: '2022-08-25 19:28:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/point_add_range_sum.test.cpp

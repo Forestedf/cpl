@@ -91,20 +91,20 @@ data:
   isVerificationFile: false
   path: data_structure/operations.hpp
   requiredBy:
-  - data_structure/segment_tree.hpp
   - data_structure/fenwick_tree.hpp
+  - data_structure/segment_tree.hpp
   - data_structure/range_add_range_sum.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/dsl_2_g.test.cpp
+  - test/library_checker/rectangle_sum.test.cpp
+  - test/library_checker/point_add_rectangle_sum.test.cpp
+  - test/library_checker/point_add_range_sum.test.cpp
+  - test/library_checker/point_set_range_composite.test.cpp
+  - test/library_checker/vertex_set_path_composite.test.cpp
   - test/library_checker/vertex_add_subtree_sum.test.cpp
   - test/library_checker/vertex_add_path_sum.test.cpp
-  - test/library_checker/point_add_range_sum.test.cpp
-  - test/library_checker/vertex_set_path_composite.test.cpp
-  - test/library_checker/point_add_rectangle_sum.test.cpp
-  - test/library_checker/rectangle_sum.test.cpp
-  - test/library_checker/point_set_range_composite.test.cpp
+  - test/aoj/dsl_2_g.test.cpp
 documentation_of: data_structure/operations.hpp
 layout: document
 redirect_from:

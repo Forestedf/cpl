@@ -127,23 +127,23 @@ data:
   isVerificationFile: false
   path: polynomial/polynomial.hpp
   requiredBy:
-  - polynomial/fps_pow.hpp
   - polynomial/fps_log.hpp
   - polynomial/fps_inv.hpp
-  - polynomial/fps_div_at.hpp
   - polynomial/fps_exp.hpp
+  - polynomial/fps_pow.hpp
+  - polynomial/fps_div_at.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test/library_checker/inv_of_formal_power_series_acl.test.cpp
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/log_of_formal_power_series.test.cpp
+  - test/library_checker/log_of_formal_power_series_acl.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
+  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
+  - test/library_checker/exp_of_formal_power_series_acl.test.cpp
   - test/library_checker/pow_of_formal_power_series.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp
-  - test/library_checker/inv_of_formal_power_series_acl.test.cpp
-  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  - test/library_checker/log_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/log_of_formal_power_series.test.cpp
 documentation_of: polynomial/polynomial.hpp
 layout: document
 redirect_from:

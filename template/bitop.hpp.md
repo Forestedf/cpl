@@ -87,20 +87,20 @@ data:
   path: template/bitop.hpp
   requiredBy:
   - number_theory/number_theoretic_transform.hpp
-  - data_structure/bit_vector.hpp
   - data_structure/wavelet_matrix.hpp
+  - data_structure/bit_vector.hpp
   timestamp: '2022-07-22 12:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/static_range_frequency.test.cpp
+  - test/library_checker/range_kth_smallest.test.cpp
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - test/library_checker/static_range_frequency.test.cpp
+  - test/library_checker/polynomial_taylor_shift.test.cpp
+  - test/library_checker/log_of_formal_power_series.test.cpp
+  - test/library_checker/convolution_mod.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
   - test/library_checker/pow_of_formal_power_series.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp
-  - test/library_checker/polynomial_taylor_shift.test.cpp
-  - test/library_checker/convolution_mod.test.cpp
-  - test/library_checker/range_kth_smallest.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/log_of_formal_power_series.test.cpp
   - test/other/wavelet_matrix.test.cpp
 documentation_of: template/bitop.hpp
 layout: document

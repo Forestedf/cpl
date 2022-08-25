@@ -77,8 +77,8 @@ data:
   timestamp: '2022-07-22 12:46:12+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/static_range_frequency.test.cpp
   - test/library_checker/range_kth_smallest.test.cpp
+  - test/library_checker/static_range_frequency.test.cpp
   - test/other/wavelet_matrix.test.cpp
 documentation_of: data_structure/bit_vector.hpp
 layout: document

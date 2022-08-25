@@ -53,8 +53,9 @@ data:
     \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
     \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
     \ >= 0 && l <= r && r <= (int) data.size());\n        return CommutativeGroup::op(sum(r),\
-    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n#line 4 \"data_structure/range_add_range_sum.hpp\"\
-    \n\ntemplate <typename T>\nclass RangeAddRangeSum {\n    int n;\n    FenwickTree<Add<T>>\
+    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n\ntemplate <typename T>\nusing FenwickTreeAdd\
+    \ = FenwickTree<Add<T>>;\n#line 4 \"data_structure/range_add_range_sum.hpp\"\n\
+    \ntemplate <typename T>\nclass RangeAddRangeSum {\n    int n;\n    FenwickTree<Add<T>>\
     \ ft0;\n    FenwickTree<Add<T>> ft1;\n    \npublic:\n    RangeAddRangeSum(int\
     \ n) : n(n), ft0(n + 1), ft1(n + 1) {}\n    \n    void add(int l, int r, const\
     \ T &v) {\n        assert(0 <= l && l <= r && r <= n);\n        ft0.add(l, v);\n\
@@ -77,7 +78,7 @@ data:
   isVerificationFile: false
   path: data_structure/range_add_range_sum.hpp
   requiredBy: []
-  timestamp: '2022-08-02 19:40:53+09:00'
+  timestamp: '2022-08-25 19:28:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/dsl_2_g.test.cpp

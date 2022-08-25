@@ -86,21 +86,22 @@ data:
     \ data[r - 1]);\n        }\n        return ret;\n    }\n\n    Value sum(int l,\
     \ int r) const {\n        assert(l >= 0 && l <= r && r <= (int) data.size());\n\
     \        return CommutativeGroup::op(sum(r), CommutativeGroup::inv(sum(l)));\n\
-    \    }\n};\n#line 4 \"data_structure/range_add_range_sum.hpp\"\n\ntemplate <typename\
-    \ T>\nclass RangeAddRangeSum {\n    int n;\n    FenwickTree<Add<T>> ft0;\n   \
-    \ FenwickTree<Add<T>> ft1;\n    \npublic:\n    RangeAddRangeSum(int n) : n(n),\
-    \ ft0(n + 1), ft1(n + 1) {}\n    \n    void add(int l, int r, const T &v) {\n\
-    \        assert(0 <= l && l <= r && r <= n);\n        ft0.add(l, v);\n       \
-    \ ft0.add(r, -v);\n        ft1.add(l, -T(l) * v);\n        ft1.add(r, T(r) * v);\n\
-    \    }\n    \n    T sum(int l, int r) const {\n        assert(0 <= l && l <= r\
-    \ && r <= n);\n        return T(r) * ft0.sum(r) + ft1.sum(r) - T(l) * ft0.sum(l)\
-    \ - ft1.sum(l);\n    }\n};\n#line 7 \"test/aoj/dsl_2_g.test.cpp\"\n\nint main()\
-    \ {\n    i32 n, q;\n    cin >> n >> q;\n    RangeAddRangeSum<i64> rr(n);\n   \
-    \ REP(i, q) {\n        i32 type;\n        cin >> type;\n        if (type == 0)\
-    \ {\n            i32 s, t;\n            i64 x;\n            cin >> s >> t >> x;\n\
-    \            --s;\n            rr.add(s, t, x);\n        } else {\n          \
-    \  i32 s, t;\n            cin >> s >> t;\n            --s;\n            cout <<\
-    \ rr.sum(s, t) << '\\n';\n        }\n    }\n}\n"
+    \    }\n};\n\ntemplate <typename T>\nusing FenwickTreeAdd = FenwickTree<Add<T>>;\n\
+    #line 4 \"data_structure/range_add_range_sum.hpp\"\n\ntemplate <typename T>\n\
+    class RangeAddRangeSum {\n    int n;\n    FenwickTree<Add<T>> ft0;\n    FenwickTree<Add<T>>\
+    \ ft1;\n    \npublic:\n    RangeAddRangeSum(int n) : n(n), ft0(n + 1), ft1(n +\
+    \ 1) {}\n    \n    void add(int l, int r, const T &v) {\n        assert(0 <= l\
+    \ && l <= r && r <= n);\n        ft0.add(l, v);\n        ft0.add(r, -v);\n   \
+    \     ft1.add(l, -T(l) * v);\n        ft1.add(r, T(r) * v);\n    }\n    \n   \
+    \ T sum(int l, int r) const {\n        assert(0 <= l && l <= r && r <= n);\n \
+    \       return T(r) * ft0.sum(r) + ft1.sum(r) - T(l) * ft0.sum(l) - ft1.sum(l);\n\
+    \    }\n};\n#line 7 \"test/aoj/dsl_2_g.test.cpp\"\n\nint main() {\n    i32 n,\
+    \ q;\n    cin >> n >> q;\n    RangeAddRangeSum<i64> rr(n);\n    REP(i, q) {\n\
+    \        i32 type;\n        cin >> type;\n        if (type == 0) {\n         \
+    \   i32 s, t;\n            i64 x;\n            cin >> s >> t >> x;\n         \
+    \   --s;\n            rr.add(s, t, x);\n        } else {\n            i32 s, t;\n\
+    \            cin >> s >> t;\n            --s;\n            cout << rr.sum(s, t)\
+    \ << '\\n';\n        }\n    }\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/library/3/DSL/2/DSL_2_G\"\
     \n\n#define FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../data_structure/range_add_range_sum.hpp\"\
     \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    RangeAddRangeSum<i64>\
@@ -117,7 +118,7 @@ data:
   isVerificationFile: true
   path: test/aoj/dsl_2_g.test.cpp
   requiredBy: []
-  timestamp: '2022-08-02 19:40:53+09:00'
+  timestamp: '2022-08-25 19:28:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/aoj/dsl_2_g.test.cpp

@@ -165,10 +165,10 @@ data:
   timestamp: '2022-07-22 12:48:33+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/pow_of_formal_power_series.test.cpp
+  - test/library_checker/exp_of_formal_power_series.test.cpp
   - test/library_checker/pow_of_formal_power_series_acl.test.cpp
   - test/library_checker/exp_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
+  - test/library_checker/pow_of_formal_power_series.test.cpp
 documentation_of: polynomial/fps_exp.hpp
 layout: document
 redirect_from:

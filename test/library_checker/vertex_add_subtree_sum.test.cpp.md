@@ -181,7 +181,8 @@ data:
     \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
     \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
     \ >= 0 && l <= r && r <= (int) data.size());\n        return CommutativeGroup::op(sum(r),\
-    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n#line 9 \"test/library_checker/vertex_add_subtree_sum.test.cpp\"\
+    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n\ntemplate <typename T>\nusing FenwickTreeAdd\
+    \ = FenwickTree<Add<T>>;\n#line 9 \"test/library_checker/vertex_add_subtree_sum.test.cpp\"\
     \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    Vec<i64> a(n);\n    REP(i,\
     \ n) {\n        cin >> a[i];\n    }\n    Graph<i32> g(n);\n    REP(i, 1, n) {\n\
     \        i32 p;\n        cin >> p;\n        g.add_undirected_edge(p, i);\n   \
@@ -214,7 +215,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-07-30 13:32:16+09:00'
+  timestamp: '2022-08-25 19:28:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/vertex_add_subtree_sum.test.cpp

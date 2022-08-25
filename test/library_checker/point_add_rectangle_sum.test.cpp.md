@@ -134,19 +134,20 @@ data:
     \ data[r - 1]);\n        }\n        return ret;\n    }\n\n    Value sum(int l,\
     \ int r) const {\n        assert(l >= 0 && l <= r && r <= (int) data.size());\n\
     \        return CommutativeGroup::op(sum(r), CommutativeGroup::inv(sum(l)));\n\
-    \    }\n};\n#line 6 \"test/library_checker/point_add_rectangle_sum.test.cpp\"\n\
-    \nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    Vec<i32> x(n), y(n), w(n);\n\
-    \    REP(i, n) {\n        cin >> x[i] >> y[i] >> w[i];\n    }\n    Vec<tuple<i32,\
-    \ i32, i32, i32, i32>> queries(q);\n    for (auto &[type, a, b, c, d] : queries)\
-    \ {\n        cin >> type;\n        if (type == 0) {\n            cin >> a >> b\
-    \ >> c;\n            d = 0;\n        } else {\n            cin >> a >> b >> c\
-    \ >> d;\n        }\n    }\n    i32 pct = n;\n    for (const auto &[type, _a, _b,\
-    \ _c, _d] : queries) {\n        if (type == 0) {\n            ++pct;\n       \
-    \ }\n    }\n    Vec<pair<i32, i32>> pts;\n    pts.reserve(pct);\n    REP(i, n)\
-    \ {\n        pts.emplace_back(x[i], y[i]);\n    }\n    for (const auto &[type,\
-    \ a, b, c, d] : queries) {\n        if (type == 0) {\n            pts.emplace_back(a,\
-    \ b);\n        }\n    }\n    GRangeTree rt(pts);\n    Vec<Vec<i32>> upd_pct(pct\
-    \ - n);\n    REP(i, rt.size()) {\n        if (rt[i] >= n) {\n            upd_pct[rt[i]\
+    \    }\n};\n\ntemplate <typename T>\nusing FenwickTreeAdd = FenwickTree<Add<T>>;\n\
+    #line 6 \"test/library_checker/point_add_rectangle_sum.test.cpp\"\n\nint main()\
+    \ {\n    i32 n, q;\n    cin >> n >> q;\n    Vec<i32> x(n), y(n), w(n);\n    REP(i,\
+    \ n) {\n        cin >> x[i] >> y[i] >> w[i];\n    }\n    Vec<tuple<i32, i32, i32,\
+    \ i32, i32>> queries(q);\n    for (auto &[type, a, b, c, d] : queries) {\n   \
+    \     cin >> type;\n        if (type == 0) {\n            cin >> a >> b >> c;\n\
+    \            d = 0;\n        } else {\n            cin >> a >> b >> c >> d;\n\
+    \        }\n    }\n    i32 pct = n;\n    for (const auto &[type, _a, _b, _c, _d]\
+    \ : queries) {\n        if (type == 0) {\n            ++pct;\n        }\n    }\n\
+    \    Vec<pair<i32, i32>> pts;\n    pts.reserve(pct);\n    REP(i, n) {\n      \
+    \  pts.emplace_back(x[i], y[i]);\n    }\n    for (const auto &[type, a, b, c,\
+    \ d] : queries) {\n        if (type == 0) {\n            pts.emplace_back(a, b);\n\
+    \        }\n    }\n    GRangeTree rt(pts);\n    Vec<Vec<i32>> upd_pct(pct - n);\n\
+    \    REP(i, rt.size()) {\n        if (rt[i] >= n) {\n            upd_pct[rt[i]\
     \ - n].push_back(i);\n        }\n    }\n    FenwickTree<Add<i64>> ft(rt.size());\n\
     \    REP(i, rt.size()) {\n        if (rt[i] < n) {\n            ft.add(i, w[rt[i]]);\n\
     \        }\n    }\n    i32 it = 0;\n    for (const auto &[type, a, b, c, d] :\
@@ -186,7 +187,7 @@ data:
   isVerificationFile: true
   path: test/library_checker/point_add_rectangle_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-08-08 10:23:16+09:00'
+  timestamp: '2022-08-25 19:28:35+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/library_checker/point_add_rectangle_sum.test.cpp
