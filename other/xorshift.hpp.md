@@ -4,6 +4,12 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: convolution/test/subset_convolution_exp_log.test.cpp
+    title: convolution/test/subset_convolution_exp_log.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/wavelet_matrix.test.cpp
+    title: data_structure/test/wavelet_matrix.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
   - icon: ':heavy_check_mark:'
@@ -38,6 +44,8 @@ data:
   verifiedWith:
   - test/other/wavelet_matrix.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
+  - data_structure/test/wavelet_matrix.test.cpp
+  - convolution/test/subset_convolution_exp_log.test.cpp
 documentation_of: other/xorshift.hpp
 layout: document
 redirect_from:

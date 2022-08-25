@@ -10,10 +10,10 @@ data:
   - icon: ':heavy_check_mark:'
     path: other/coordinate_compression.hpp
     title: other/coordinate_compression.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []

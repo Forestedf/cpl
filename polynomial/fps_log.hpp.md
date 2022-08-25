@@ -1,17 +1,29 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/fps_inv.hpp
     title: polynomial/fps_inv.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/fps_pow.hpp
     title: polynomial/fps_pow.hpp
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: polynomial/test/log_of_formal_power_series.test.cpp
+    title: polynomial/test/log_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/log_of_formal_power_series_acl.test.cpp
+    title: polynomial/test/log_of_formal_power_series_acl.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/pow_of_formal_power_series.test.cpp
+    title: polynomial/test/pow_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/pow_of_formal_power_series_acl.test.cpp
+    title: polynomial/test/pow_of_formal_power_series_acl.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/log_of_formal_power_series.test.cpp
     title: test/library_checker/log_of_formal_power_series.test.cpp
@@ -24,9 +36,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series_acl.test.cpp
     title: test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"polynomial/fps_log.hpp\"\n\n#line 2 \"polynomial/fps_inv.hpp\"\
@@ -103,8 +115,12 @@ data:
   requiredBy:
   - polynomial/fps_pow.hpp
   timestamp: '2022-07-21 11:01:31+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - polynomial/test/log_of_formal_power_series.test.cpp
+  - polynomial/test/log_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series.test.cpp
   - test/library_checker/log_of_formal_power_series.test.cpp
   - test/library_checker/log_of_formal_power_series_acl.test.cpp
   - test/library_checker/pow_of_formal_power_series_acl.test.cpp

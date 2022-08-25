@@ -2,19 +2,25 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: graph/two_sat.hpp
     title: graph/two_sat.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: graph/test/scc.test.cpp
+    title: graph/test/scc.test.cpp
+  - icon: ':x:'
+    path: graph/test/two_sat.test.cpp
+    title: graph/test/two_sat.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/scc.test.cpp
     title: test/library_checker/scc.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/two_sat.test.cpp
     title: test/library_checker/two_sat.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"graph/strongly_connected_components.hpp\"\n\n#include <vector>\n\
@@ -72,8 +78,10 @@ data:
   requiredBy:
   - graph/two_sat.hpp
   timestamp: '2022-07-30 11:55:56+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - graph/test/two_sat.test.cpp
+  - graph/test/scc.test.cpp
   - test/library_checker/two_sat.test.cpp
   - test/library_checker/scc.test.cpp
 documentation_of: graph/strongly_connected_components.hpp

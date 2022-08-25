@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: data_structure/test/1891.test.cpp
+    title: data_structure/test/1891.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
   _isVerificationFailed: false
@@ -74,6 +77,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/yukicoder/1891.test.cpp
+  - data_structure/test/1891.test.cpp
 documentation_of: data_structure/segment_tree_xor_range.hpp
 layout: document
 redirect_from:

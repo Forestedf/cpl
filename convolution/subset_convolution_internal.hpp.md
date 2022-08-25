@@ -13,6 +13,12 @@ data:
     title: convolution/subset_convolution_log.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: convolution/test/subset_convolution.test.cpp
+    title: convolution/test/subset_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: convolution/test/subset_convolution_exp_log.test.cpp
+    title: convolution/test/subset_convolution_exp_log.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/subset_convolution.test.cpp
     title: test/library_checker/subset_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -61,6 +67,8 @@ data:
   verifiedWith:
   - test/library_checker/subset_convolution.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
+  - convolution/test/subset_convolution.test.cpp
+  - convolution/test/subset_convolution_exp_log.test.cpp
 documentation_of: convolution/subset_convolution_internal.hpp
 layout: document
 redirect_from:

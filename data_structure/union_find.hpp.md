@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: data_structure/test/unionfind.test.cpp
+    title: data_structure/test/unionfind.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/unionfind.test.cpp
     title: test/library_checker/unionfind.test.cpp
   _isVerificationFailed: false
@@ -48,6 +51,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/unionfind.test.cpp
+  - data_structure/test/unionfind.test.cpp
 documentation_of: data_structure/union_find.hpp
 layout: document
 redirect_from:

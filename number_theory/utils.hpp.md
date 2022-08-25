@@ -2,16 +2,70 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/mod_int.hpp
     title: number_theory/mod_int.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
   - icon: ':warning:'
     path: template/debug.hpp
     title: template/debug.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: algebra/test/matrix_det.test.cpp
+    title: algebra/test/matrix_det.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: algebra/test/matrix_product.test.cpp
+    title: algebra/test/matrix_product.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: convolution/test/bitwise_and_convolution.test.cpp
+    title: convolution/test/bitwise_and_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: convolution/test/subset_convolution.test.cpp
+    title: convolution/test/subset_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: convolution/test/subset_convolution_exp_log.test.cpp
+    title: convolution/test/subset_convolution_exp_log.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/1891.test.cpp
+    title: data_structure/test/1891.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/point_set_range_composite.test.cpp
+    title: data_structure/test/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/queue_operate_all_composite.test.cpp
+    title: data_structure/test/queue_operate_all_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/range_affine_range_sum.test.cpp
+    title: data_structure/test/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/sparse_segment_tree.test.cpp
+    title: data_structure/test/sparse_segment_tree.test.cpp
+  - icon: ':x:'
+    path: graph/test/vertex_set_path_composite.test.cpp
+    title: graph/test/vertex_set_path_composite.test.cpp
+  - icon: ':x:'
+    path: number_theory/test/convolution_mod.test.cpp
+    title: number_theory/test/convolution_mod.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/exp_of_formal_power_series.test.cpp
+    title: polynomial/test/exp_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/inv_of_formal_power_series.test.cpp
+    title: polynomial/test/inv_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/log_of_formal_power_series.test.cpp
+    title: polynomial/test/log_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/polynomial_taylor_shift.test.cpp
+    title: polynomial/test/polynomial_taylor_shift.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/pow_of_formal_power_series.test.cpp
+    title: polynomial/test/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/bitwise_and_convolution.test.cpp
     title: test/library_checker/bitwise_and_convolution.test.cpp
@@ -66,9 +120,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/utils.hpp\"\n\nconstexpr bool is_prime(unsigned\
@@ -134,8 +188,18 @@ data:
   - number_theory/number_theoretic_transform.hpp
   - template/debug.hpp
   timestamp: '2022-07-30 11:55:56+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - number_theory/test/convolution_mod.test.cpp
+  - algebra/test/matrix_product.test.cpp
+  - algebra/test/matrix_det.test.cpp
+  - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - polynomial/test/polynomial_taylor_shift.test.cpp
+  - polynomial/test/log_of_formal_power_series.test.cpp
+  - polynomial/test/exp_of_formal_power_series.test.cpp
+  - polynomial/test/pow_of_formal_power_series.test.cpp
+  - polynomial/test/inv_of_formal_power_series.test.cpp
+  - graph/test/vertex_set_path_composite.test.cpp
   - test/yukicoder/1891.test.cpp
   - test/library_checker/bitwise_and_convolution.test.cpp
   - test/library_checker/matrix_product.test.cpp
@@ -154,6 +218,14 @@ data:
   - test/library_checker/matrix_det.test.cpp
   - test/other/subset_convolution_exp_log.test.cpp
   - test/other/sparse_segment_tree.test.cpp
+  - data_structure/test/range_affine_range_sum.test.cpp
+  - data_structure/test/queue_operate_all_composite.test.cpp
+  - data_structure/test/1891.test.cpp
+  - data_structure/test/point_set_range_composite.test.cpp
+  - data_structure/test/sparse_segment_tree.test.cpp
+  - convolution/test/bitwise_and_convolution.test.cpp
+  - convolution/test/subset_convolution.test.cpp
+  - convolution/test/subset_convolution_exp_log.test.cpp
 documentation_of: number_theory/utils.hpp
 layout: document
 redirect_from:

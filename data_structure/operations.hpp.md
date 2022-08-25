@@ -2,16 +2,40 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/fenwick_tree.hpp
     title: data_structure/fenwick_tree.hpp
   - icon: ':heavy_check_mark:'
     path: data_structure/range_add_range_sum.hpp
     title: data_structure/range_add_range_sum.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/segment_tree.hpp
     title: data_structure/segment_tree.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/dsl_2_g.test.cpp
+    title: data_structure/test/dsl_2_g.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/point_add_range_sum.test.cpp
+    title: data_structure/test/point_add_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/point_add_rectangle_sum.test.cpp
+    title: data_structure/test/point_add_rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/point_set_range_composite.test.cpp
+    title: data_structure/test/point_set_range_composite.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/rectangle_sum.test.cpp
+    title: data_structure/test/rectangle_sum.test.cpp
+  - icon: ':x:'
+    path: graph/test/vertex_add_path_sum.test.cpp
+    title: graph/test/vertex_add_path_sum.test.cpp
+  - icon: ':x:'
+    path: graph/test/vertex_add_subtree_sum.test.cpp
+    title: graph/test/vertex_add_subtree_sum.test.cpp
+  - icon: ':x:'
+    path: graph/test/vertex_set_path_composite.test.cpp
+    title: graph/test/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/dsl_2_g.test.cpp
     title: test/aoj/dsl_2_g.test.cpp
@@ -36,9 +60,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/operations.hpp\"\n\n#include <limits>\n#include\
@@ -95,8 +119,11 @@ data:
   - data_structure/segment_tree.hpp
   - data_structure/range_add_range_sum.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - graph/test/vertex_set_path_composite.test.cpp
+  - graph/test/vertex_add_subtree_sum.test.cpp
+  - graph/test/vertex_add_path_sum.test.cpp
   - test/library_checker/rectangle_sum.test.cpp
   - test/library_checker/point_add_rectangle_sum.test.cpp
   - test/library_checker/point_add_range_sum.test.cpp
@@ -105,6 +132,11 @@ data:
   - test/library_checker/vertex_add_subtree_sum.test.cpp
   - test/library_checker/vertex_add_path_sum.test.cpp
   - test/aoj/dsl_2_g.test.cpp
+  - data_structure/test/rectangle_sum.test.cpp
+  - data_structure/test/point_add_rectangle_sum.test.cpp
+  - data_structure/test/point_add_range_sum.test.cpp
+  - data_structure/test/dsl_2_g.test.cpp
+  - data_structure/test/point_set_range_composite.test.cpp
 documentation_of: data_structure/operations.hpp
 layout: document
 redirect_from:

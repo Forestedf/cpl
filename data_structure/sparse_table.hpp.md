@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: data_structure/test/staticrmq.test.cpp
+    title: data_structure/test/staticrmq.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/staticrmq.test.cpp
     title: test/library_checker/staticrmq.test.cpp
   _isVerificationFailed: false
@@ -53,6 +56,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/staticrmq.test.cpp
+  - data_structure/test/staticrmq.test.cpp
 documentation_of: data_structure/sparse_table.hpp
 layout: document
 redirect_from:

@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: data_structure/test/point_add_rectangle_sum.test.cpp
+    title: data_structure/test/point_add_rectangle_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/point_add_rectangle_sum.test.cpp
     title: test/library_checker/point_add_rectangle_sum.test.cpp
   _isVerificationFailed: false
@@ -116,6 +119,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/point_add_rectangle_sum.test.cpp
+  - data_structure/test/point_add_rectangle_sum.test.cpp
 documentation_of: data_structure/general_range_tree.hpp
 layout: document
 redirect_from:

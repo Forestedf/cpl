@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: data_structure/test/range_affine_range_sum.test.cpp
+    title: data_structure/test/range_affine_range_sum.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/range_affine_range_sum.test.cpp
     title: test/library_checker/range_affine_range_sum.test.cpp
   _isVerificationFailed: false
@@ -123,6 +126,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/range_affine_range_sum.test.cpp
+  - data_structure/test/range_affine_range_sum.test.cpp
 documentation_of: data_structure/lazy_segment_tree.hpp
 layout: document
 redirect_from:

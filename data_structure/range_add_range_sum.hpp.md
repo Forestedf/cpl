@@ -1,14 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/fenwick_tree.hpp
     title: data_structure/fenwick_tree.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/dsl_2_g.test.cpp
+    title: data_structure/test/dsl_2_g.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/aoj/dsl_2_g.test.cpp
     title: test/aoj/dsl_2_g.test.cpp
@@ -82,6 +85,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/aoj/dsl_2_g.test.cpp
+  - data_structure/test/dsl_2_g.test.cpp
 documentation_of: data_structure/range_add_range_sum.hpp
 layout: document
 redirect_from:

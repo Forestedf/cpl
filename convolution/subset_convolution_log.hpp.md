@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: convolution/test/subset_convolution_exp_log.test.cpp
+    title: convolution/test/subset_convolution_exp_log.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/other/subset_convolution_exp_log.test.cpp
     title: test/other/subset_convolution_exp_log.test.cpp
   _isVerificationFailed: false
@@ -74,6 +77,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/other/subset_convolution_exp_log.test.cpp
+  - convolution/test/subset_convolution_exp_log.test.cpp
 documentation_of: convolution/subset_convolution_log.hpp
 layout: document
 redirect_from:

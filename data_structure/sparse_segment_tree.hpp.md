@@ -4,6 +4,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: data_structure/test/sparse_segment_tree.test.cpp
+    title: data_structure/test/sparse_segment_tree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/other/sparse_segment_tree.test.cpp
     title: test/other/sparse_segment_tree.test.cpp
   _isVerificationFailed: false
@@ -84,6 +87,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/other/sparse_segment_tree.test.cpp
+  - data_structure/test/sparse_segment_tree.test.cpp
 documentation_of: data_structure/sparse_segment_tree.hpp
 layout: document
 redirect_from:

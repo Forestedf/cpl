@@ -7,6 +7,9 @@ data:
   _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: convolution/test/subset_convolution.test.cpp
+    title: convolution/test/subset_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test/library_checker/subset_convolution.test.cpp
     title: test/library_checker/subset_convolution.test.cpp
   _isVerificationFailed: false
@@ -78,6 +81,7 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/library_checker/subset_convolution.test.cpp
+  - convolution/test/subset_convolution.test.cpp
 documentation_of: convolution/subset_convolution.hpp
 layout: document
 redirect_from:

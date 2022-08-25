@@ -4,11 +4,20 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/bit_vector.hpp
     title: data_structure/bit_vector.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: template/bitop.hpp
     title: template/bitop.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/range_kth_smallest.test.cpp
+    title: data_structure/test/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/static_range_frequency.test.cpp
+    title: data_structure/test/static_range_frequency.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/wavelet_matrix.test.cpp
+    title: data_structure/test/wavelet_matrix.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/range_kth_smallest.test.cpp
     title: test/library_checker/range_kth_smallest.test.cpp
@@ -182,6 +191,9 @@ data:
   - test/library_checker/range_kth_smallest.test.cpp
   - test/library_checker/static_range_frequency.test.cpp
   - test/other/wavelet_matrix.test.cpp
+  - data_structure/test/range_kth_smallest.test.cpp
+  - data_structure/test/wavelet_matrix.test.cpp
+  - data_structure/test/static_range_frequency.test.cpp
 documentation_of: data_structure/wavelet_matrix.hpp
 layout: document
 redirect_from:

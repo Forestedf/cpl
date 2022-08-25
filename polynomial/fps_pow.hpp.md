@@ -1,29 +1,35 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/fps_exp.hpp
     title: polynomial/fps_exp.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/fps_inv.hpp
     title: polynomial/fps_inv.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/fps_log.hpp
     title: polynomial/fps_log.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith:
+  - icon: ':x:'
+    path: polynomial/test/pow_of_formal_power_series.test.cpp
+    title: polynomial/test/pow_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/pow_of_formal_power_series_acl.test.cpp
+    title: polynomial/test/pow_of_formal_power_series_acl.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series.test.cpp
     title: test/library_checker/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series_acl.test.cpp
     title: test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"polynomial/fps_pow.hpp\"\n\n#line 2 \"polynomial/fps_log.hpp\"\
@@ -179,8 +185,10 @@ data:
   path: polynomial/fps_pow.hpp
   requiredBy: []
   timestamp: '2022-07-22 12:48:33+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series.test.cpp
   - test/library_checker/pow_of_formal_power_series_acl.test.cpp
   - test/library_checker/pow_of_formal_power_series.test.cpp
 documentation_of: polynomial/fps_pow.hpp

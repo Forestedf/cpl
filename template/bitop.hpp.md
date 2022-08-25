@@ -8,10 +8,40 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/wavelet_matrix.hpp
     title: data_structure/wavelet_matrix.hpp
-  - icon: ':heavy_check_mark:'
+  - icon: ':question:'
     path: number_theory/number_theoretic_transform.hpp
     title: number_theory/number_theoretic_transform.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/range_kth_smallest.test.cpp
+    title: data_structure/test/range_kth_smallest.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/static_range_frequency.test.cpp
+    title: data_structure/test/static_range_frequency.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: data_structure/test/wavelet_matrix.test.cpp
+    title: data_structure/test/wavelet_matrix.test.cpp
+  - icon: ':x:'
+    path: number_theory/test/convolution_mod.test.cpp
+    title: number_theory/test/convolution_mod.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/exp_of_formal_power_series.test.cpp
+    title: polynomial/test/exp_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/inv_of_formal_power_series.test.cpp
+    title: polynomial/test/inv_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
+    title: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/log_of_formal_power_series.test.cpp
+    title: polynomial/test/log_of_formal_power_series.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/polynomial_taylor_shift.test.cpp
+    title: polynomial/test/polynomial_taylor_shift.test.cpp
+  - icon: ':x:'
+    path: polynomial/test/pow_of_formal_power_series.test.cpp
+    title: polynomial/test/pow_of_formal_power_series.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/convolution_mod.test.cpp
     title: test/library_checker/convolution_mod.test.cpp
@@ -42,9 +72,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/other/wavelet_matrix.test.cpp
     title: test/other/wavelet_matrix.test.cpp
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: hpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     links: []
   bundledCode: "#line 2 \"template/bitop.hpp\"\n\ntemplate <typename T, typename U>\n\
@@ -90,8 +120,15 @@ data:
   - data_structure/wavelet_matrix.hpp
   - data_structure/bit_vector.hpp
   timestamp: '2022-07-22 12:46:12+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
+  - number_theory/test/convolution_mod.test.cpp
+  - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - polynomial/test/polynomial_taylor_shift.test.cpp
+  - polynomial/test/log_of_formal_power_series.test.cpp
+  - polynomial/test/exp_of_formal_power_series.test.cpp
+  - polynomial/test/pow_of_formal_power_series.test.cpp
+  - polynomial/test/inv_of_formal_power_series.test.cpp
   - test/library_checker/range_kth_smallest.test.cpp
   - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   - test/library_checker/static_range_frequency.test.cpp
@@ -102,6 +139,9 @@ data:
   - test/library_checker/pow_of_formal_power_series.test.cpp
   - test/library_checker/inv_of_formal_power_series.test.cpp
   - test/other/wavelet_matrix.test.cpp
+  - data_structure/test/range_kth_smallest.test.cpp
+  - data_structure/test/wavelet_matrix.test.cpp
+  - data_structure/test/static_range_frequency.test.cpp
 documentation_of: template/bitop.hpp
 layout: document
 redirect_from:
