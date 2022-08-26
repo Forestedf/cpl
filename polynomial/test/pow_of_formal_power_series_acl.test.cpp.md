@@ -1,32 +1,32 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_exp.hpp
     title: polynomial/fps_exp.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_inv.hpp
     title: polynomial/fps_inv.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_log.hpp
     title: polynomial/fps_log.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_pow.hpp
     title: polynomial/fps_pow.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/polynomial.hpp
     title: polynomial/polynomial.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/with_acl.hpp
     title: polynomial/with_acl.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: template/template.hpp
     title: template/template.hpp
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/pow_of_formal_power_series
@@ -219,7 +219,7 @@ data:
   path: polynomial/test/pow_of_formal_power_series_acl.test.cpp
   requiredBy: []
   timestamp: '2022-08-25 20:03:29+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: polynomial/test/pow_of_formal_power_series_acl.test.cpp
 layout: document

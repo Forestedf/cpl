@@ -2,47 +2,47 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_div_at.hpp
     title: polynomial/fps_div_at.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_exp.hpp
     title: polynomial/fps_exp.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_inv.hpp
     title: polynomial/fps_inv.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_log.hpp
     title: polynomial/fps_log.hpp
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/fps_pow.hpp
     title: polynomial/fps_pow.hpp
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/exp_of_formal_power_series.test.cpp
     title: polynomial/test/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/exp_of_formal_power_series_acl.test.cpp
     title: polynomial/test/exp_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/inv_of_formal_power_series.test.cpp
     title: polynomial/test/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/inv_of_formal_power_series_acl.test.cpp
     title: polynomial/test/inv_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/log_of_formal_power_series.test.cpp
     title: polynomial/test/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/log_of_formal_power_series_acl.test.cpp
     title: polynomial/test/log_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/pow_of_formal_power_series.test.cpp
     title: polynomial/test/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/pow_of_formal_power_series_acl.test.cpp
     title: polynomial/test/pow_of_formal_power_series_acl.test.cpp
   - icon: ':heavy_check_mark:'
@@ -72,9 +72,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/pow_of_formal_power_series_acl.test.cpp
     title: test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"polynomial/polynomial.hpp\"\n\n#include <vector>\n#include\
@@ -160,7 +160,7 @@ data:
   - polynomial/fps_pow.hpp
   - polynomial/fps_div_at.hpp
   timestamp: '2022-07-17 14:27:07+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - polynomial/test/inv_of_formal_power_series_acl.test.cpp
   - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp

@@ -1,7 +1,7 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/operations.hpp
     title: data_structure/operations.hpp
   _extendedRequiredBy: []
@@ -9,7 +9,7 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/test/point_set_range_composite.test.cpp
     title: data_structure/test/point_set_range_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/test/vertex_set_path_composite.test.cpp
     title: graph/test/vertex_set_path_composite.test.cpp
   - icon: ':heavy_check_mark:'
@@ -18,9 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/library_checker/vertex_set_path_composite.test.cpp
     title: test/library_checker/vertex_set_path_composite.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"data_structure/segment_tree.hpp\"\n\n#include <cassert>\n\
@@ -115,7 +115,7 @@ data:
   path: data_structure/segment_tree.hpp
   requiredBy: []
   timestamp: '2022-07-30 11:55:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - graph/test/vertex_set_path_composite.test.cpp
   - test/library_checker/point_set_range_composite.test.cpp

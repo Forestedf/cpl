@@ -69,52 +69,52 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/test/scc.test.cpp
     title: graph/test/scc.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/test/two_sat.test.cpp
     title: graph/test/two_sat.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/test/vertex_add_path_sum.test.cpp
     title: graph/test/vertex_add_path_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/test/vertex_add_subtree_sum.test.cpp
     title: graph/test/vertex_add_subtree_sum.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/test/vertex_set_path_composite.test.cpp
     title: graph/test/vertex_set_path_composite.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: number_theory/test/convolution_mod.test.cpp
     title: number_theory/test/convolution_mod.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/exp_of_formal_power_series.test.cpp
     title: polynomial/test/exp_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/exp_of_formal_power_series_acl.test.cpp
     title: polynomial/test/exp_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/inv_of_formal_power_series.test.cpp
     title: polynomial/test/inv_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/inv_of_formal_power_series_acl.test.cpp
     title: polynomial/test/inv_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/log_of_formal_power_series.test.cpp
     title: polynomial/test/log_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/log_of_formal_power_series_acl.test.cpp
     title: polynomial/test/log_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/polynomial_taylor_shift.test.cpp
     title: polynomial/test/polynomial_taylor_shift.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/pow_of_formal_power_series.test.cpp
     title: polynomial/test/pow_of_formal_power_series.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/pow_of_formal_power_series_acl.test.cpp
     title: polynomial/test/pow_of_formal_power_series_acl.test.cpp
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: string/test/zalgorithm.test.cpp
     title: string/test/zalgorithm.test.cpp
   - icon: ':heavy_check_mark:'
@@ -231,9 +231,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/yukicoder/1891.test.cpp
     title: test/yukicoder/1891.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"template/template.hpp\"\n#include <algorithm>\n#include\
@@ -292,7 +292,7 @@ data:
   path: template/template.hpp
   requiredBy: []
   timestamp: '2022-07-17 16:00:30+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - number_theory/test/convolution_mod.test.cpp
   - algebra/test/matrix_product.test.cpp

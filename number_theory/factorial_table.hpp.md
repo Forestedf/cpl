@@ -3,15 +3,15 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: polynomial/test/polynomial_taylor_shift.test.cpp
     title: polynomial/test/polynomial_taylor_shift.test.cpp
   - icon: ':heavy_check_mark:'
     path: test/library_checker/polynomial_taylor_shift.test.cpp
     title: test/library_checker/polynomial_taylor_shift.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':question:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 2 \"number_theory/factorial_table.hpp\"\n\n#include <vector>\n\
@@ -70,7 +70,7 @@ data:
   path: number_theory/factorial_table.hpp
   requiredBy: []
   timestamp: '2022-07-30 11:55:56+09:00'
-  verificationStatus: LIBRARY_SOME_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - polynomial/test/polynomial_taylor_shift.test.cpp
   - test/library_checker/polynomial_taylor_shift.test.cpp
