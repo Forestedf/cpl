@@ -109,6 +109,9 @@ data:
       path: graph/strongly_connected_components.hpp
       title: graph/strongly_connected_components.hpp
     - icon: ':heavy_check_mark:'
+      path: graph/two_edge_connected_components.hpp
+      title: graph/two_edge_connected_components.hpp
+    - icon: ':heavy_check_mark:'
       path: graph/two_sat.hpp
       title: graph/two_sat.hpp
   - name: number_theory
@@ -277,6 +280,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/test/scc.test.cpp
       title: graph/test/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: graph/test/two_edge_connected_components.test.cpp
+      title: graph/test/two_edge_connected_components.test.cpp
     - icon: ':heavy_check_mark:'
       path: graph/test/two_sat.test.cpp
       title: graph/test/two_sat.test.cpp

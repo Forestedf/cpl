@@ -16,6 +16,9 @@ data:
     path: graph/test/scc.test.cpp
     title: graph/test/scc.test.cpp
   - icon: ':heavy_check_mark:'
+    path: graph/test/two_edge_connected_components.test.cpp
+    title: graph/test/two_edge_connected_components.test.cpp
+  - icon: ':heavy_check_mark:'
     path: graph/test/vertex_add_path_sum.test.cpp
     title: graph/test/vertex_add_path_sum.test.cpp
   - icon: ':heavy_check_mark:'
@@ -87,6 +90,7 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - graph/test/two_edge_connected_components.test.cpp
   - graph/test/vertex_set_path_composite.test.cpp
   - graph/test/vertex_add_subtree_sum.test.cpp
   - graph/test/jump_on_tree.test.cpp

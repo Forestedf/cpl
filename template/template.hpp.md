@@ -70,6 +70,9 @@ data:
     path: graph/test/scc.test.cpp
     title: graph/test/scc.test.cpp
   - icon: ':heavy_check_mark:'
+    path: graph/test/two_edge_connected_components.test.cpp
+    title: graph/test/two_edge_connected_components.test.cpp
+  - icon: ':heavy_check_mark:'
     path: graph/test/two_sat.test.cpp
     title: graph/test/two_sat.test.cpp
   - icon: ':heavy_check_mark:'
@@ -193,6 +196,7 @@ data:
   - polynomial/test/exp_of_formal_power_series_acl.test.cpp
   - polynomial/test/pow_of_formal_power_series.test.cpp
   - polynomial/test/inv_of_formal_power_series.test.cpp
+  - graph/test/two_edge_connected_components.test.cpp
   - graph/test/two_sat.test.cpp
   - graph/test/vertex_set_path_composite.test.cpp
   - graph/test/vertex_add_subtree_sum.test.cpp
