@@ -1,6 +1,6 @@
 ---
 title: 一般の領域木
-documentation_of: //data_structure/general_range_tree.md
+documentation_of: //data_structure/general_range_tree.hpp
 ---
 
 2 次元平面上の点を与えると、長方形領域に対するクエリをうまく処理するための前処理を良い感じに行ってくれる。
