@@ -198,5 +198,9 @@ public:
             return la(v, dis - k);
         }
     }
+    
+    int meet(int u, int v, int w) const {
+        return lca(u, v) ^ lca(v, w) ^ lca(w, u);
+    }
 };
 
