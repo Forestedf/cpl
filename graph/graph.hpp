@@ -62,7 +62,7 @@ struct UnweightedEdge {
         return to;
     }
 
-    using Weight = std::size_t;
+    using Weight = int;
     Weight weight() const {
         return 1;
     }
