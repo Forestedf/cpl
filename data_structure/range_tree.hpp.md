@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/test/rectangle_sum.test.cpp
     title: data_structure/test/rectangle_sum.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/rectangle_sum.test.cpp
-    title: test/library_checker/rectangle_sum.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -91,7 +88,6 @@ data:
   timestamp: '2022-07-31 17:23:59+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/rectangle_sum.test.cpp
   - data_structure/test/rectangle_sum.test.cpp
 documentation_of: data_structure/range_tree.hpp
 layout: document

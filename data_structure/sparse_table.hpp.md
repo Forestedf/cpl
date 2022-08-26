@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/test/staticrmq.test.cpp
     title: data_structure/test/staticrmq.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/staticrmq.test.cpp
-    title: test/library_checker/staticrmq.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -55,7 +52,6 @@ data:
   timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/staticrmq.test.cpp
   - data_structure/test/staticrmq.test.cpp
 documentation_of: data_structure/sparse_table.hpp
 layout: document

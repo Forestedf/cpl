@@ -9,9 +9,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
     title: polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-    title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -93,7 +90,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
 documentation_of: polynomial/fps_div_at.hpp
 layout: document
 redirect_from:

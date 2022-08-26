@@ -12,9 +12,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/test/dsl_2_g.test.cpp
     title: data_structure/test/dsl_2_g.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/aoj/dsl_2_g.test.cpp
-    title: test/aoj/dsl_2_g.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -84,7 +81,6 @@ data:
   timestamp: '2022-08-25 19:28:35+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/aoj/dsl_2_g.test.cpp
   - data_structure/test/dsl_2_g.test.cpp
 documentation_of: data_structure/range_add_range_sum.hpp
 layout: document

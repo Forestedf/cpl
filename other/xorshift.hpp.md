@@ -9,12 +9,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/test/wavelet_matrix.test.cpp
     title: data_structure/test/wavelet_matrix.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/other/subset_convolution_exp_log.test.cpp
-    title: test/other/subset_convolution_exp_log.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/other/wavelet_matrix.test.cpp
-    title: test/other/wavelet_matrix.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -42,8 +36,6 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/other/wavelet_matrix.test.cpp
-  - test/other/subset_convolution_exp_log.test.cpp
   - data_structure/test/wavelet_matrix.test.cpp
   - convolution/test/subset_convolution_exp_log.test.cpp
 documentation_of: other/xorshift.hpp

@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: convolution/test/bitwise_and_convolution.test.cpp
     title: convolution/test/bitwise_and_convolution.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/bitwise_and_convolution.test.cpp
-    title: test/library_checker/bitwise_and_convolution.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -44,7 +41,6 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/bitwise_and_convolution.test.cpp
   - convolution/test/bitwise_and_convolution.test.cpp
 documentation_of: convolution/and_convolution.hpp
 layout: document

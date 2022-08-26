@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: string/test/zalgorithm.test.cpp
     title: string/test/zalgorithm.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/zalgorithm.test.cpp
-    title: test/library_checker/zalgorithm.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -39,7 +36,6 @@ data:
   timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/zalgorithm.test.cpp
   - string/test/zalgorithm.test.cpp
 documentation_of: string/z_algorithm.hpp
 layout: document

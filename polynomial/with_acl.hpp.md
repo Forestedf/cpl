@@ -15,18 +15,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/test/pow_of_formal_power_series_acl.test.cpp
     title: polynomial/test/pow_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/exp_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/exp_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/inv_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/inv_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/log_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/log_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/pow_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/pow_of_formal_power_series_acl.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -59,10 +47,6 @@ data:
   - polynomial/test/log_of_formal_power_series_acl.test.cpp
   - polynomial/test/pow_of_formal_power_series_acl.test.cpp
   - polynomial/test/exp_of_formal_power_series_acl.test.cpp
-  - test/library_checker/inv_of_formal_power_series_acl.test.cpp
-  - test/library_checker/log_of_formal_power_series_acl.test.cpp
-  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series_acl.test.cpp
 documentation_of: polynomial/with_acl.hpp
 layout: document
 redirect_from:

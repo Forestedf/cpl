@@ -9,9 +9,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/test/two_sat.test.cpp
     title: graph/test/two_sat.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/two_sat.test.cpp
-    title: test/library_checker/two_sat.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -108,7 +105,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - graph/test/two_sat.test.cpp
-  - test/library_checker/two_sat.test.cpp
 documentation_of: graph/two_sat.hpp
 layout: document
 redirect_from:

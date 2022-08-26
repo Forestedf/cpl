@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/test/range_kth_smallest.test.cpp
     title: data_structure/test/range_kth_smallest.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/range_kth_smallest.test.cpp
-    title: test/library_checker/range_kth_smallest.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -63,7 +60,6 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/range_kth_smallest.test.cpp
   - data_structure/test/range_kth_smallest.test.cpp
 documentation_of: other/coordinate_compression.hpp
 layout: document

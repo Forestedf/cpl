@@ -12,12 +12,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/test/vertex_set_path_composite.test.cpp
     title: graph/test/vertex_set_path_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/point_set_range_composite.test.cpp
-    title: test/library_checker/point_set_range_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/vertex_set_path_composite.test.cpp
-    title: test/library_checker/vertex_set_path_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -118,8 +112,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - graph/test/vertex_set_path_composite.test.cpp
-  - test/library_checker/point_set_range_composite.test.cpp
-  - test/library_checker/vertex_set_path_composite.test.cpp
   - data_structure/test/point_set_range_composite.test.cpp
 documentation_of: data_structure/segment_tree.hpp
 layout: document

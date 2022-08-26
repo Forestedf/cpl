@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: data_structure/test/queue_operate_all_composite.test.cpp
     title: data_structure/test/queue_operate_all_composite.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/queue_operate_all_composite.test.cpp
-    title: test/library_checker/queue_operate_all_composite.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -48,7 +45,6 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/library_checker/queue_operate_all_composite.test.cpp
   - data_structure/test/queue_operate_all_composite.test.cpp
 documentation_of: data_structure/sliding_window_aggregation.hpp
 layout: document

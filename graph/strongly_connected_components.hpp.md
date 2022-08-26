@@ -12,12 +12,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph/test/two_sat.test.cpp
     title: graph/test/two_sat.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/scc.test.cpp
-    title: test/library_checker/scc.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/two_sat.test.cpp
-    title: test/library_checker/two_sat.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -82,8 +76,6 @@ data:
   verifiedWith:
   - graph/test/two_sat.test.cpp
   - graph/test/scc.test.cpp
-  - test/library_checker/two_sat.test.cpp
-  - test/library_checker/scc.test.cpp
 documentation_of: graph/strongly_connected_components.hpp
 layout: document
 redirect_from:

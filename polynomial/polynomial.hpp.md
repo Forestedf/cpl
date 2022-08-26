@@ -45,33 +45,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/test/pow_of_formal_power_series_acl.test.cpp
     title: polynomial/test/pow_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/exp_of_formal_power_series.test.cpp
-    title: test/library_checker/exp_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/exp_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/exp_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/inv_of_formal_power_series.test.cpp
-    title: test/library_checker/inv_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/inv_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/inv_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-    title: test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/log_of_formal_power_series.test.cpp
-    title: test/library_checker/log_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/log_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/log_of_formal_power_series_acl.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/pow_of_formal_power_series.test.cpp
-    title: test/library_checker/pow_of_formal_power_series.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/pow_of_formal_power_series_acl.test.cpp
-    title: test/library_checker/pow_of_formal_power_series_acl.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -171,15 +144,6 @@ data:
   - polynomial/test/exp_of_formal_power_series_acl.test.cpp
   - polynomial/test/pow_of_formal_power_series.test.cpp
   - polynomial/test/inv_of_formal_power_series.test.cpp
-  - test/library_checker/inv_of_formal_power_series_acl.test.cpp
-  - test/library_checker/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - test/library_checker/log_of_formal_power_series.test.cpp
-  - test/library_checker/log_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series.test.cpp
-  - test/library_checker/pow_of_formal_power_series_acl.test.cpp
-  - test/library_checker/exp_of_formal_power_series_acl.test.cpp
-  - test/library_checker/pow_of_formal_power_series.test.cpp
-  - test/library_checker/inv_of_formal_power_series.test.cpp
 documentation_of: polynomial/polynomial.hpp
 layout: document
 redirect_from:

@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: polynomial/test/polynomial_taylor_shift.test.cpp
     title: polynomial/test/polynomial_taylor_shift.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/library_checker/polynomial_taylor_shift.test.cpp
-    title: test/library_checker/polynomial_taylor_shift.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -41,7 +38,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - polynomial/test/polynomial_taylor_shift.test.cpp
-  - test/library_checker/polynomial_taylor_shift.test.cpp
 documentation_of: polynomial/taylor_shift.hpp
 layout: document
 redirect_from:

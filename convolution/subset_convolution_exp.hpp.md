@@ -9,9 +9,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: convolution/test/subset_convolution_exp_log.test.cpp
     title: convolution/test/subset_convolution_exp_log.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/other/subset_convolution_exp_log.test.cpp
-    title: test/other/subset_convolution_exp_log.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -96,7 +93,6 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test/other/subset_convolution_exp_log.test.cpp
   - convolution/test/subset_convolution_exp_log.test.cpp
 documentation_of: convolution/subset_convolution_exp.hpp
 layout: document
