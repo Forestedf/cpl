@@ -36,7 +36,7 @@ data:
       title: data_structure/fenwick_tree.hpp
     - icon: ':heavy_check_mark:'
       path: data_structure/general_range_tree.hpp
-      title: data_structure/general_range_tree.hpp
+      title: "\u4E00\u822C\u306E\u9818\u57DF\u6728"
     - icon: ':warning:'
       path: data_structure/integer_convex_hull_trick.hpp
       title: data_structure/integer_convex_hull_trick.hpp
