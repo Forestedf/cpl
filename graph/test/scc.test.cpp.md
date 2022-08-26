@@ -66,35 +66,35 @@ data:
     \        assert(v >= 0 && v < (int) edges.size());\n        return edges[v];\n\
     \    }\n};\n\nstruct UnweightedEdge {\n    int to;\n\n    UnweightedEdge(int t)\
     \ : to(t) {}\n    \n    explicit operator int() const {\n        return to;\n\
-    \    }\n\n    using Weight = std::size_t;\n    Weight weight() const {\n     \
-    \   return 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n   \
-    \ int to;\n    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\
-    \n    explicit operator int() const {\n        return to;\n    }\n\n    using\
-    \ Weight = T;\n    Weight weight() const {\n        return wt;\n    }\n};\n\n\
-    #line 2 \"graph/strongly_connected_components.hpp\"\n\n#line 4 \"graph/strongly_connected_components.hpp\"\
-    \n\ntemplate <typename G>\nclass StronglyConnectedComponents {    \n    std::vector<int>\
-    \ comp_id;\n    int comp_num;\n    \npublic:\n    StronglyConnectedComponents(const\
-    \ G &g) : comp_id(g.size(), -1), comp_num(0) {\n        int now = 0;\n       \
-    \ std::vector<int> vs;\n        std::vector<int> ord(g.size(), -1);\n        std::vector<int>\
-    \ low(g.size(), -1);\n        \n        const auto dfs = [&](const auto &dfs,\
-    \ int v) -> void {\n            vs.push_back(v);\n            ord[v] = now++;\n\
-    \            low[v] = ord[v];\n            for (int u : g[v]) {\n            \
-    \    if (comp_id[u] != -1) {\n                    continue;\n                }\n\
-    \                if (ord[u] == -1) {\n                    dfs(dfs, u);\n     \
-    \           }\n                low[v] = std::min(low[v], low[u]);\n          \
-    \  }\n            if (low[v] == ord[v]) {\n                while (true) {\n  \
-    \                  int u = vs.back();\n                    vs.pop_back();\n  \
-    \                  comp_id[u] = comp_num;\n                    if (u == v) {\n\
-    \                        break;\n                    }\n                }\n  \
-    \              ++comp_num;\n            }\n        };\n        \n        for (int\
-    \ v = 0; v < (int) g.size(); ++v) {\n            if (ord[v] == -1) {\n       \
-    \         dfs(dfs, v);\n            }\n        }\n        \n        for (int v\
-    \ = 0; v < (int) g.size(); ++v) {\n            comp_id[v] = comp_num - 1 - comp_id[v];\n\
-    \        }\n    }\n    \n    int comps() const {\n        return comp_num;\n \
-    \   }\n\n    int operator[](int v) const {\n        assert(v >= 0 && v < (int)\
-    \ comp_id.size());\n        return comp_id[v];\n    }\n\n    std::vector<std::vector<int>>\
-    \ groups() const {\n        std::vector<std::vector<int>> ret(comp_num);\n   \
-    \     for (int v = 0; v < (int) comp_id.size(); ++v) {\n            ret[comp_id[v]].push_back(v);\n\
+    \    }\n\n    using Weight = int;\n    Weight weight() const {\n        return\
+    \ 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n    int to;\n\
+    \    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\n    explicit\
+    \ operator int() const {\n        return to;\n    }\n\n    using Weight = T;\n\
+    \    Weight weight() const {\n        return wt;\n    }\n};\n\n#line 2 \"graph/strongly_connected_components.hpp\"\
+    \n\n#line 4 \"graph/strongly_connected_components.hpp\"\n\ntemplate <typename\
+    \ G>\nclass StronglyConnectedComponents {    \n    std::vector<int> comp_id;\n\
+    \    int comp_num;\n    \npublic:\n    StronglyConnectedComponents(const G &g)\
+    \ : comp_id(g.size(), -1), comp_num(0) {\n        int now = 0;\n        std::vector<int>\
+    \ vs;\n        std::vector<int> ord(g.size(), -1);\n        std::vector<int> low(g.size(),\
+    \ -1);\n        \n        const auto dfs = [&](const auto &dfs, int v) -> void\
+    \ {\n            vs.push_back(v);\n            ord[v] = now++;\n            low[v]\
+    \ = ord[v];\n            for (int u : g[v]) {\n                if (comp_id[u]\
+    \ != -1) {\n                    continue;\n                }\n               \
+    \ if (ord[u] == -1) {\n                    dfs(dfs, u);\n                }\n \
+    \               low[v] = std::min(low[v], low[u]);\n            }\n          \
+    \  if (low[v] == ord[v]) {\n                while (true) {\n                 \
+    \   int u = vs.back();\n                    vs.pop_back();\n                 \
+    \   comp_id[u] = comp_num;\n                    if (u == v) {\n              \
+    \          break;\n                    }\n                }\n                ++comp_num;\n\
+    \            }\n        };\n        \n        for (int v = 0; v < (int) g.size();\
+    \ ++v) {\n            if (ord[v] == -1) {\n                dfs(dfs, v);\n    \
+    \        }\n        }\n        \n        for (int v = 0; v < (int) g.size(); ++v)\
+    \ {\n            comp_id[v] = comp_num - 1 - comp_id[v];\n        }\n    }\n \
+    \   \n    int comps() const {\n        return comp_num;\n    }\n\n    int operator[](int\
+    \ v) const {\n        assert(v >= 0 && v < (int) comp_id.size());\n        return\
+    \ comp_id[v];\n    }\n\n    std::vector<std::vector<int>> groups() const {\n \
+    \       std::vector<std::vector<int>> ret(comp_num);\n        for (int v = 0;\
+    \ v < (int) comp_id.size(); ++v) {\n            ret[comp_id[v]].push_back(v);\n\
     \        }\n        return ret;\n    }\n};\n\n#line 8 \"graph/test/scc.test.cpp\"\
     \n\nint main() {\n    i32 n, m;\n    cin >> n >> m;\n    Graph<i32> g(n);\n  \
     \  REP(e, m) {\n        i32 u, v;\n        cin >> u >> v;\n        g.add_directed_edge(u,\
@@ -120,7 +120,7 @@ data:
   isVerificationFile: true
   path: graph/test/scc.test.cpp
   requiredBy: []
-  timestamp: '2022-08-25 19:58:27+09:00'
+  timestamp: '2022-08-26 11:10:48+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: graph/test/scc.test.cpp

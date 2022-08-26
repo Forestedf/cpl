@@ -32,21 +32,20 @@ data:
     \        assert(v >= 0 && v < (int) edges.size());\n        return edges[v];\n\
     \    }\n};\n\nstruct UnweightedEdge {\n    int to;\n\n    UnweightedEdge(int t)\
     \ : to(t) {}\n    \n    explicit operator int() const {\n        return to;\n\
-    \    }\n\n    using Weight = std::size_t;\n    Weight weight() const {\n     \
-    \   return 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n   \
-    \ int to;\n    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\
-    \n    explicit operator int() const {\n        return to;\n    }\n\n    using\
-    \ Weight = T;\n    Weight weight() const {\n        return wt;\n    }\n};\n\n\
-    #line 4 \"graph/dijkstra.hpp\"\n\n#include <queue>\n#include <limits>\n#include\
-    \ <functional>\n\ntemplate <typename T>\nstd::vector<T> dijkstra(const Graph<WeightedEdge<T>>\
-    \ &g, int s) {\n    std::vector<T> dist(g.size(), std::numeric_limits<T>::max());\n\
-    \    std::priority_queue<std::pair<T, int>, std::vector<std::pair<T, int>>, std::greater<>>\
-    \ pq;\n    dist[s] = T(0);\n    pq.emplace(0, s);\n    while (!pq.empty()) {\n\
-    \        auto [d, v] = pq.top();\n        pq.pop();\n        if (d > dist[v])\
-    \ {\n            continue;\n        }\n        for (const WeightedEdge<T> &e :\
-    \ g[v]) {\n            if (d + e.wt < dist[e.to]) {\n                dist[e.to]\
-    \ = d + e.wt;\n                pq.emplace(dist[e.to], e.to);\n            }\n\
-    \        }\n    }\n    return dist;\n}\n"
+    \    }\n\n    using Weight = int;\n    Weight weight() const {\n        return\
+    \ 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n    int to;\n\
+    \    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\n    explicit\
+    \ operator int() const {\n        return to;\n    }\n\n    using Weight = T;\n\
+    \    Weight weight() const {\n        return wt;\n    }\n};\n\n#line 4 \"graph/dijkstra.hpp\"\
+    \n\n#include <queue>\n#include <limits>\n#include <functional>\n\ntemplate <typename\
+    \ T>\nstd::vector<T> dijkstra(const Graph<WeightedEdge<T>> &g, int s) {\n    std::vector<T>\
+    \ dist(g.size(), std::numeric_limits<T>::max());\n    std::priority_queue<std::pair<T,\
+    \ int>, std::vector<std::pair<T, int>>, std::greater<>> pq;\n    dist[s] = T(0);\n\
+    \    pq.emplace(0, s);\n    while (!pq.empty()) {\n        auto [d, v] = pq.top();\n\
+    \        pq.pop();\n        if (d > dist[v]) {\n            continue;\n      \
+    \  }\n        for (const WeightedEdge<T> &e : g[v]) {\n            if (d + e.wt\
+    \ < dist[e.to]) {\n                dist[e.to] = d + e.wt;\n                pq.emplace(dist[e.to],\
+    \ e.to);\n            }\n        }\n    }\n    return dist;\n}\n"
   code: "#pragma once\n\n#include \"graph.hpp\"\n\n#include <queue>\n#include <limits>\n\
     #include <functional>\n\ntemplate <typename T>\nstd::vector<T> dijkstra(const\
     \ Graph<WeightedEdge<T>> &g, int s) {\n    std::vector<T> dist(g.size(), std::numeric_limits<T>::max());\n\
@@ -62,7 +61,7 @@ data:
   isVerificationFile: false
   path: graph/dijkstra.hpp
   requiredBy: []
-  timestamp: '2022-07-17 14:27:07+09:00'
+  timestamp: '2022-08-26 11:10:48+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/dijkstra.hpp

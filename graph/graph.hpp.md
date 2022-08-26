@@ -52,11 +52,11 @@ data:
     \        assert(v >= 0 && v < (int) edges.size());\n        return edges[v];\n\
     \    }\n};\n\nstruct UnweightedEdge {\n    int to;\n\n    UnweightedEdge(int t)\
     \ : to(t) {}\n    \n    explicit operator int() const {\n        return to;\n\
-    \    }\n\n    using Weight = std::size_t;\n    Weight weight() const {\n     \
-    \   return 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n   \
-    \ int to;\n    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\
-    \n    explicit operator int() const {\n        return to;\n    }\n\n    using\
-    \ Weight = T;\n    Weight weight() const {\n        return wt;\n    }\n};\n\n"
+    \    }\n\n    using Weight = int;\n    Weight weight() const {\n        return\
+    \ 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n    int to;\n\
+    \    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\n    explicit\
+    \ operator int() const {\n        return to;\n    }\n\n    using Weight = T;\n\
+    \    Weight weight() const {\n        return wt;\n    }\n};\n\n"
   code: "#pragma once\n\n#include <utility>\n#include <vector>\n#include <numeric>\n\
     #include <cassert>\n\ntemplate <typename Edge>\nclass Graph {\n    std::vector<std::vector<Edge>>\
     \ edges;\n\npublic:\n    Graph() : edges() {}\n    Graph(int v) : edges(v) {\n\
@@ -77,17 +77,17 @@ data:
     \        assert(v >= 0 && v < (int) edges.size());\n        return edges[v];\n\
     \    }\n};\n\nstruct UnweightedEdge {\n    int to;\n\n    UnweightedEdge(int t)\
     \ : to(t) {}\n    \n    explicit operator int() const {\n        return to;\n\
-    \    }\n\n    using Weight = std::size_t;\n    Weight weight() const {\n     \
-    \   return 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n   \
-    \ int to;\n    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\
-    \n    explicit operator int() const {\n        return to;\n    }\n\n    using\
-    \ Weight = T;\n    Weight weight() const {\n        return wt;\n    }\n};\n\n"
+    \    }\n\n    using Weight = int;\n    Weight weight() const {\n        return\
+    \ 1;\n    }\n};\n\ntemplate <typename T>\nstruct WeightedEdge {\n    int to;\n\
+    \    T wt;\n\n    WeightedEdge(int t, const T &w) : to(t), wt(w) {}\n\n    explicit\
+    \ operator int() const {\n        return to;\n    }\n\n    using Weight = T;\n\
+    \    Weight weight() const {\n        return wt;\n    }\n};\n\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/graph.hpp
   requiredBy:
   - graph/dijkstra.hpp
-  timestamp: '2022-07-17 14:27:07+09:00'
+  timestamp: '2022-08-26 11:10:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - graph/test/two_edge_connected_components.test.cpp
