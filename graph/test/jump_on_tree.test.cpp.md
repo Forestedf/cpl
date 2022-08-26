@@ -137,13 +137,14 @@ data:
     \        assert(k >= 0);\n        int l = lca(u, v);\n        int dis = dep[u]\
     \ + dep[v] - 2 * dep[l];\n        if (k > dis) {\n            return -1;\n   \
     \     }\n        if (k <= dep[u] - dep[l]) {\n            return la(u, k);\n \
-    \       } else {\n            return la(v, dis - k);\n        }\n    }\n};\n\n\
-    #line 8 \"graph/test/jump_on_tree.test.cpp\"\n\nint main() {\n    i32 n, q;\n\
-    \    cin >> n >> q;\n    Graph<i32> g(n);\n    REP(ei, n - 1) {\n        i32 a,\
-    \ b;\n        cin >> a >> b;\n        g.add_undirected_edge(a, b);\n    }\n  \
-    \  HeavyLightDecomposition hld(g);\n    REP(qi, q) {\n        i32 s, t, i;\n \
-    \       cin >> s >> t >> i;\n        cout << hld.jump(s, t, i) << '\\n';\n   \
-    \ }\n}\n"
+    \       } else {\n            return la(v, dis - k);\n        }\n    }\n    \n\
+    \    int meet(int u, int v, int w) const {\n        return lca(u, v) ^ lca(v,\
+    \ w) ^ lca(w, u);\n    }\n};\n\n#line 8 \"graph/test/jump_on_tree.test.cpp\"\n\
+    \nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    Graph<i32> g(n);\n    REP(ei,\
+    \ n - 1) {\n        i32 a, b;\n        cin >> a >> b;\n        g.add_undirected_edge(a,\
+    \ b);\n    }\n    HeavyLightDecomposition hld(g);\n    REP(qi, q) {\n        i32\
+    \ s, t, i;\n        cin >> s >> t >> i;\n        cout << hld.jump(s, t, i) <<\
+    \ '\\n';\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/jump_on_tree\"\n\n#define\
     \ FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../graph/graph.hpp\"\
     \n#include \"../../graph/heavy_light_decomposition.hpp\"\n\nint main() {\n   \
@@ -159,7 +160,7 @@ data:
   isVerificationFile: true
   path: graph/test/jump_on_tree.test.cpp
   requiredBy: []
-  timestamp: '2022-08-26 11:10:48+09:00'
+  timestamp: '2022-08-26 11:20:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: graph/test/jump_on_tree.test.cpp

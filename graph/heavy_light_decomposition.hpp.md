@@ -90,7 +90,9 @@ data:
     \        assert(k >= 0);\n        int l = lca(u, v);\n        int dis = dep[u]\
     \ + dep[v] - 2 * dep[l];\n        if (k > dis) {\n            return -1;\n   \
     \     }\n        if (k <= dep[u] - dep[l]) {\n            return la(u, k);\n \
-    \       } else {\n            return la(v, dis - k);\n        }\n    }\n};\n\n"
+    \       } else {\n            return la(v, dis - k);\n        }\n    }\n    \n\
+    \    int meet(int u, int v, int w) const {\n        return lca(u, v) ^ lca(v,\
+    \ w) ^ lca(w, u);\n    }\n};\n\n"
   code: "#pragma once\n\n#include <algorithm>\n#include <cassert>\n#include <utility>\n\
     #include <vector>\n\nclass HeavyLightDecomposition {\n    std::vector<int> siz;\n\
     \    std::vector<int> par;\n    std::vector<int> hea;\n    std::vector<int> in;\n\
@@ -158,12 +160,14 @@ data:
     \        assert(k >= 0);\n        int l = lca(u, v);\n        int dis = dep[u]\
     \ + dep[v] - 2 * dep[l];\n        if (k > dis) {\n            return -1;\n   \
     \     }\n        if (k <= dep[u] - dep[l]) {\n            return la(u, k);\n \
-    \       } else {\n            return la(v, dis - k);\n        }\n    }\n};\n\n"
+    \       } else {\n            return la(v, dis - k);\n        }\n    }\n    \n\
+    \    int meet(int u, int v, int w) const {\n        return lca(u, v) ^ lca(v,\
+    \ w) ^ lca(w, u);\n    }\n};\n\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/heavy_light_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-07-30 13:32:16+09:00'
+  timestamp: '2022-08-26 11:20:50+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - graph/test/vertex_set_path_composite.test.cpp

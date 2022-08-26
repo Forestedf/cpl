@@ -218,39 +218,41 @@ data:
     \        assert(k >= 0);\n        int l = lca(u, v);\n        int dis = dep[u]\
     \ + dep[v] - 2 * dep[l];\n        if (k > dis) {\n            return -1;\n   \
     \     }\n        if (k <= dep[u] - dep[l]) {\n            return la(u, k);\n \
-    \       } else {\n            return la(v, dis - k);\n        }\n    }\n};\n\n\
-    #line 2 \"data_structure/segment_tree.hpp\"\n\n#line 6 \"data_structure/segment_tree.hpp\"\
-    \n\n#line 2 \"data_structure/operations.hpp\"\n\n#include <limits>\n#line 5 \"\
-    data_structure/operations.hpp\"\n\ntemplate <typename T>\nstruct Add {\n    using\
-    \ Value = T;\n    static Value id() {\n        return T(0);\n    }\n    static\
-    \ Value op(const Value &lhs, const Value &rhs) {\n        return lhs + rhs;\n\
-    \    }\n    static Value inv(const Value &x) {\n        return -x;\n    }\n};\n\
-    \ntemplate <typename T>\nstruct Mul {\n    using Value = T;\n    static Value\
-    \ id() {\n        return Value(1);\n    }\n    static Value op(const Value &lhs,\
-    \ const Value &rhs) {\n        return lhs * rhs;\n    }\n    static Value inv(const\
-    \ Value &x) {\n        return Value(1) / x;\n    }\n};\n\ntemplate <typename T>\n\
-    struct Min {\n    using Value = T;\n    static Value id() {\n        return std::numeric_limits<T>::max();\n\
-    \    }\n    static Value op(const Value &lhs, const Value &rhs) {\n        return\
-    \ std::min(lhs, rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Max {\n    using\
-    \ Value = T;\n    static Value id() {\n        return std::numeric_limits<Value>::min();\n\
-    \    }\n    static Value op(const Value &lhs, const Value &rhs) {\n        return\
-    \ std::max(lhs, rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Xor {\n    using\
-    \ Value = T;\n    static Value id() {\n        return T(0);\n    }\n    static\
-    \ Value op(const Value &lhs, const Value &rhs) {\n        return lhs ^ rhs;\n\
-    \    }\n    static Value inv(const Value &x) {\n        return x;\n    }\n};\n\
-    \ntemplate <typename Monoid>\nstruct Reversible {\n    using Value = std::pair<typename\
-    \ Monoid::Value, typename Monoid::Value>;\n    static Value id() {\n        return\
-    \ Value(Monoid::id(), Monoid::id());\n    }\n    static Value op(const Value &v1,\
-    \ const Value &v2) {\n        return Value(\n            Monoid::op(v1.first,\
-    \ v2.first),\n            Monoid::op(v2.second, v1.second));\n    }\n};\n\n#line\
-    \ 8 \"data_structure/segment_tree.hpp\"\n\ntemplate <typename Monoid>\nclass SegmentTree\
-    \ {\npublic:\n    using Value = typename Monoid::Value;\n\nprivate:\n    int old_length;\n\
-    \    int length;\n    std::vector<Value> node;\n\n    static int ceil2(int n)\
-    \ {\n        int l = 1;\n        while (l < n) {\n            l <<= 1;\n     \
-    \   }\n        return l;\n    }\n\npublic:\n    SegmentTree(int n) :\n       \
-    \ old_length(n),\n        length(ceil2(old_length)),\n        node(length << 1,\
-    \ Monoid::id()) {\n        assert(n >= 0);\n    }\n\n    SegmentTree(const std::vector<Value>\
-    \ &v) :\n        old_length((int) v.size()),\n        length(ceil2(old_length)),\n\
+    \       } else {\n            return la(v, dis - k);\n        }\n    }\n    \n\
+    \    int meet(int u, int v, int w) const {\n        return lca(u, v) ^ lca(v,\
+    \ w) ^ lca(w, u);\n    }\n};\n\n#line 2 \"data_structure/segment_tree.hpp\"\n\n\
+    #line 6 \"data_structure/segment_tree.hpp\"\n\n#line 2 \"data_structure/operations.hpp\"\
+    \n\n#include <limits>\n#line 5 \"data_structure/operations.hpp\"\n\ntemplate <typename\
+    \ T>\nstruct Add {\n    using Value = T;\n    static Value id() {\n        return\
+    \ T(0);\n    }\n    static Value op(const Value &lhs, const Value &rhs) {\n  \
+    \      return lhs + rhs;\n    }\n    static Value inv(const Value &x) {\n    \
+    \    return -x;\n    }\n};\n\ntemplate <typename T>\nstruct Mul {\n    using Value\
+    \ = T;\n    static Value id() {\n        return Value(1);\n    }\n    static Value\
+    \ op(const Value &lhs, const Value &rhs) {\n        return lhs * rhs;\n    }\n\
+    \    static Value inv(const Value &x) {\n        return Value(1) / x;\n    }\n\
+    };\n\ntemplate <typename T>\nstruct Min {\n    using Value = T;\n    static Value\
+    \ id() {\n        return std::numeric_limits<T>::max();\n    }\n    static Value\
+    \ op(const Value &lhs, const Value &rhs) {\n        return std::min(lhs, rhs);\n\
+    \    }\n};\n\ntemplate <typename T>\nstruct Max {\n    using Value = T;\n    static\
+    \ Value id() {\n        return std::numeric_limits<Value>::min();\n    }\n   \
+    \ static Value op(const Value &lhs, const Value &rhs) {\n        return std::max(lhs,\
+    \ rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Xor {\n    using Value = T;\n\
+    \    static Value id() {\n        return T(0);\n    }\n    static Value op(const\
+    \ Value &lhs, const Value &rhs) {\n        return lhs ^ rhs;\n    }\n    static\
+    \ Value inv(const Value &x) {\n        return x;\n    }\n};\n\ntemplate <typename\
+    \ Monoid>\nstruct Reversible {\n    using Value = std::pair<typename Monoid::Value,\
+    \ typename Monoid::Value>;\n    static Value id() {\n        return Value(Monoid::id(),\
+    \ Monoid::id());\n    }\n    static Value op(const Value &v1, const Value &v2)\
+    \ {\n        return Value(\n            Monoid::op(v1.first, v2.first),\n    \
+    \        Monoid::op(v2.second, v1.second));\n    }\n};\n\n#line 8 \"data_structure/segment_tree.hpp\"\
+    \n\ntemplate <typename Monoid>\nclass SegmentTree {\npublic:\n    using Value\
+    \ = typename Monoid::Value;\n\nprivate:\n    int old_length;\n    int length;\n\
+    \    std::vector<Value> node;\n\n    static int ceil2(int n) {\n        int l\
+    \ = 1;\n        while (l < n) {\n            l <<= 1;\n        }\n        return\
+    \ l;\n    }\n\npublic:\n    SegmentTree(int n) :\n        old_length(n),\n   \
+    \     length(ceil2(old_length)),\n        node(length << 1, Monoid::id()) {\n\
+    \        assert(n >= 0);\n    }\n\n    SegmentTree(const std::vector<Value> &v)\
+    \ :\n        old_length((int) v.size()),\n        length(ceil2(old_length)),\n\
     \        node(length << 1, Monoid::id()) {\n        for (int i = 0; i < old_length;\
     \ ++i) {\n            node[i + length] = v[i];\n        }\n        for (int i\
     \ = length - 1; i > 0; --i) {\n            node[i] = Monoid::op(node[i << 1],\
@@ -332,7 +334,7 @@ data:
   isVerificationFile: true
   path: graph/test/vertex_set_path_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-08-26 11:10:48+09:00'
+  timestamp: '2022-08-26 11:20:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: graph/test/vertex_set_path_composite.test.cpp

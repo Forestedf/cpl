@@ -144,54 +144,56 @@ data:
     \        assert(k >= 0);\n        int l = lca(u, v);\n        int dis = dep[u]\
     \ + dep[v] - 2 * dep[l];\n        if (k > dis) {\n            return -1;\n   \
     \     }\n        if (k <= dep[u] - dep[l]) {\n            return la(u, k);\n \
-    \       } else {\n            return la(v, dis - k);\n        }\n    }\n};\n\n\
-    #line 2 \"data_structure/fenwick_tree.hpp\"\n\n#line 5 \"data_structure/fenwick_tree.hpp\"\
-    \n\n#line 2 \"data_structure/operations.hpp\"\n\n#include <limits>\n#line 5 \"\
-    data_structure/operations.hpp\"\n\ntemplate <typename T>\nstruct Add {\n    using\
-    \ Value = T;\n    static Value id() {\n        return T(0);\n    }\n    static\
-    \ Value op(const Value &lhs, const Value &rhs) {\n        return lhs + rhs;\n\
-    \    }\n    static Value inv(const Value &x) {\n        return -x;\n    }\n};\n\
-    \ntemplate <typename T>\nstruct Mul {\n    using Value = T;\n    static Value\
-    \ id() {\n        return Value(1);\n    }\n    static Value op(const Value &lhs,\
-    \ const Value &rhs) {\n        return lhs * rhs;\n    }\n    static Value inv(const\
-    \ Value &x) {\n        return Value(1) / x;\n    }\n};\n\ntemplate <typename T>\n\
-    struct Min {\n    using Value = T;\n    static Value id() {\n        return std::numeric_limits<T>::max();\n\
-    \    }\n    static Value op(const Value &lhs, const Value &rhs) {\n        return\
-    \ std::min(lhs, rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Max {\n    using\
-    \ Value = T;\n    static Value id() {\n        return std::numeric_limits<Value>::min();\n\
-    \    }\n    static Value op(const Value &lhs, const Value &rhs) {\n        return\
-    \ std::max(lhs, rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Xor {\n    using\
-    \ Value = T;\n    static Value id() {\n        return T(0);\n    }\n    static\
-    \ Value op(const Value &lhs, const Value &rhs) {\n        return lhs ^ rhs;\n\
-    \    }\n    static Value inv(const Value &x) {\n        return x;\n    }\n};\n\
-    \ntemplate <typename Monoid>\nstruct Reversible {\n    using Value = std::pair<typename\
-    \ Monoid::Value, typename Monoid::Value>;\n    static Value id() {\n        return\
-    \ Value(Monoid::id(), Monoid::id());\n    }\n    static Value op(const Value &v1,\
-    \ const Value &v2) {\n        return Value(\n            Monoid::op(v1.first,\
-    \ v2.first),\n            Monoid::op(v2.second, v1.second));\n    }\n};\n\n#line\
-    \ 7 \"data_structure/fenwick_tree.hpp\"\n\ntemplate <typename CommutativeGroup>\n\
-    class FenwickTree {\npublic:\n    using Value = typename CommutativeGroup::Value;\n\
-    \nprivate:\n    std::vector<Value> data;\n\npublic:\n    FenwickTree(int n) :\
-    \ data(n, CommutativeGroup::id()) {}\n\n    void add(int idx, const Value &x)\
-    \ {\n        assert(idx >= 0 && idx < (int) data.size());\n        for (; idx\
-    \ < (int) data.size(); idx |= idx + 1) {\n            data[idx] = CommutativeGroup::op(data[idx],\
-    \ x);\n        }\n    }\n\n    Value sum(int r) const {\n        assert(r >= 0\
-    \ && r <= (int) data.size());\n        Value ret = CommutativeGroup::id();\n \
-    \       for (; r > 0; r &= r - 1) {\n            ret = CommutativeGroup::op(ret,\
-    \ data[r - 1]);\n        }\n        return ret;\n    }\n\n    Value sum(int l,\
-    \ int r) const {\n        assert(l >= 0 && l <= r && r <= (int) data.size());\n\
-    \        return CommutativeGroup::op(sum(r), CommutativeGroup::inv(sum(l)));\n\
-    \    }\n};\n\ntemplate <typename T>\nusing FenwickTreeAdd = FenwickTree<Add<T>>;\n\
-    #line 9 \"graph/test/vertex_add_subtree_sum.test.cpp\"\n\nint main() {\n    i32\
-    \ n, q;\n    cin >> n >> q;\n    Vec<i64> a(n);\n    REP(i, n) {\n        cin\
-    \ >> a[i];\n    }\n    Graph<i32> g(n);\n    REP(i, 1, n) {\n        i32 p;\n\
-    \        cin >> p;\n        g.add_undirected_edge(p, i);\n    }\n    HeavyLightDecomposition\
-    \ hld(g);\n    FenwickTree<Add<i64>> fw(n);\n    REP(i, n) {\n        fw.add(hld.in_time(i),\
-    \ a[i]);\n    }\n    REP(qi, q) {\n        i32 type;\n        cin >> type;\n \
-    \       if (type == 0) {\n            i32 u;\n            i64 x;\n           \
-    \ cin >> u >> x;\n            fw.add(hld.in_time(u), x);\n        } else{\n  \
-    \          i32 u;\n            cin >> u;\n            cout << fw.sum(hld.in_time(u),\
-    \ hld.out_time(u)) << '\\n';\n        }\n    }\n}\n"
+    \       } else {\n            return la(v, dis - k);\n        }\n    }\n    \n\
+    \    int meet(int u, int v, int w) const {\n        return lca(u, v) ^ lca(v,\
+    \ w) ^ lca(w, u);\n    }\n};\n\n#line 2 \"data_structure/fenwick_tree.hpp\"\n\n\
+    #line 5 \"data_structure/fenwick_tree.hpp\"\n\n#line 2 \"data_structure/operations.hpp\"\
+    \n\n#include <limits>\n#line 5 \"data_structure/operations.hpp\"\n\ntemplate <typename\
+    \ T>\nstruct Add {\n    using Value = T;\n    static Value id() {\n        return\
+    \ T(0);\n    }\n    static Value op(const Value &lhs, const Value &rhs) {\n  \
+    \      return lhs + rhs;\n    }\n    static Value inv(const Value &x) {\n    \
+    \    return -x;\n    }\n};\n\ntemplate <typename T>\nstruct Mul {\n    using Value\
+    \ = T;\n    static Value id() {\n        return Value(1);\n    }\n    static Value\
+    \ op(const Value &lhs, const Value &rhs) {\n        return lhs * rhs;\n    }\n\
+    \    static Value inv(const Value &x) {\n        return Value(1) / x;\n    }\n\
+    };\n\ntemplate <typename T>\nstruct Min {\n    using Value = T;\n    static Value\
+    \ id() {\n        return std::numeric_limits<T>::max();\n    }\n    static Value\
+    \ op(const Value &lhs, const Value &rhs) {\n        return std::min(lhs, rhs);\n\
+    \    }\n};\n\ntemplate <typename T>\nstruct Max {\n    using Value = T;\n    static\
+    \ Value id() {\n        return std::numeric_limits<Value>::min();\n    }\n   \
+    \ static Value op(const Value &lhs, const Value &rhs) {\n        return std::max(lhs,\
+    \ rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Xor {\n    using Value = T;\n\
+    \    static Value id() {\n        return T(0);\n    }\n    static Value op(const\
+    \ Value &lhs, const Value &rhs) {\n        return lhs ^ rhs;\n    }\n    static\
+    \ Value inv(const Value &x) {\n        return x;\n    }\n};\n\ntemplate <typename\
+    \ Monoid>\nstruct Reversible {\n    using Value = std::pair<typename Monoid::Value,\
+    \ typename Monoid::Value>;\n    static Value id() {\n        return Value(Monoid::id(),\
+    \ Monoid::id());\n    }\n    static Value op(const Value &v1, const Value &v2)\
+    \ {\n        return Value(\n            Monoid::op(v1.first, v2.first),\n    \
+    \        Monoid::op(v2.second, v1.second));\n    }\n};\n\n#line 7 \"data_structure/fenwick_tree.hpp\"\
+    \n\ntemplate <typename CommutativeGroup>\nclass FenwickTree {\npublic:\n    using\
+    \ Value = typename CommutativeGroup::Value;\n\nprivate:\n    std::vector<Value>\
+    \ data;\n\npublic:\n    FenwickTree(int n) : data(n, CommutativeGroup::id()) {}\n\
+    \n    void add(int idx, const Value &x) {\n        assert(idx >= 0 && idx < (int)\
+    \ data.size());\n        for (; idx < (int) data.size(); idx |= idx + 1) {\n \
+    \           data[idx] = CommutativeGroup::op(data[idx], x);\n        }\n    }\n\
+    \n    Value sum(int r) const {\n        assert(r >= 0 && r <= (int) data.size());\n\
+    \        Value ret = CommutativeGroup::id();\n        for (; r > 0; r &= r - 1)\
+    \ {\n            ret = CommutativeGroup::op(ret, data[r - 1]);\n        }\n  \
+    \      return ret;\n    }\n\n    Value sum(int l, int r) const {\n        assert(l\
+    \ >= 0 && l <= r && r <= (int) data.size());\n        return CommutativeGroup::op(sum(r),\
+    \ CommutativeGroup::inv(sum(l)));\n    }\n};\n\ntemplate <typename T>\nusing FenwickTreeAdd\
+    \ = FenwickTree<Add<T>>;\n#line 9 \"graph/test/vertex_add_subtree_sum.test.cpp\"\
+    \n\nint main() {\n    i32 n, q;\n    cin >> n >> q;\n    Vec<i64> a(n);\n    REP(i,\
+    \ n) {\n        cin >> a[i];\n    }\n    Graph<i32> g(n);\n    REP(i, 1, n) {\n\
+    \        i32 p;\n        cin >> p;\n        g.add_undirected_edge(p, i);\n   \
+    \ }\n    HeavyLightDecomposition hld(g);\n    FenwickTree<Add<i64>> fw(n);\n \
+    \   REP(i, n) {\n        fw.add(hld.in_time(i), a[i]);\n    }\n    REP(qi, q)\
+    \ {\n        i32 type;\n        cin >> type;\n        if (type == 0) {\n     \
+    \       i32 u;\n            i64 x;\n            cin >> u >> x;\n            fw.add(hld.in_time(u),\
+    \ x);\n        } else{\n            i32 u;\n            cin >> u;\n          \
+    \  cout << fw.sum(hld.in_time(u), hld.out_time(u)) << '\\n';\n        }\n    }\n\
+    }\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_subtree_sum\"\
     \n\n#define FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../graph/graph.hpp\"\
     \n#include \"../../graph/heavy_light_decomposition.hpp\"\n#include \"../../data_structure/fenwick_tree.hpp\"\
@@ -214,7 +216,7 @@ data:
   isVerificationFile: true
   path: graph/test/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-08-26 11:10:48+09:00'
+  timestamp: '2022-08-26 11:20:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: graph/test/vertex_add_subtree_sum.test.cpp
