@@ -11,7 +11,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/and_convolution.hpp
       title: convolution/and_convolution.hpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: convolution/or_convolution.hpp
       title: convolution/or_convolution.hpp
     - icon: ':heavy_check_mark:'
@@ -219,6 +219,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: convolution/test/bitwise_and_convolution.test.cpp
       title: convolution/test/bitwise_and_convolution.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: convolution/test/bitwise_or_convolution.test.cpp
+      title: convolution/test/bitwise_or_convolution.test.cpp
     - icon: ':heavy_check_mark:'
       path: convolution/test/subset_convolution.test.cpp
       title: convolution/test/subset_convolution.test.cpp

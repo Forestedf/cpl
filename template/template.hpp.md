@@ -13,6 +13,9 @@ data:
     path: convolution/test/bitwise_and_convolution.test.cpp
     title: convolution/test/bitwise_and_convolution.test.cpp
   - icon: ':heavy_check_mark:'
+    path: convolution/test/bitwise_or_convolution.test.cpp
+    title: convolution/test/bitwise_or_convolution.test.cpp
+  - icon: ':heavy_check_mark:'
     path: convolution/test/subset_convolution.test.cpp
     title: convolution/test/subset_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -219,6 +222,7 @@ data:
   - data_structure/test/staticrmq.test.cpp
   - data_structure/test/sparse_segment_tree.test.cpp
   - convolution/test/bitwise_and_convolution.test.cpp
+  - convolution/test/bitwise_or_convolution.test.cpp
   - convolution/test/subset_convolution.test.cpp
   - convolution/test/subset_convolution_exp_log.test.cpp
   - string/test/zalgorithm.test.cpp
