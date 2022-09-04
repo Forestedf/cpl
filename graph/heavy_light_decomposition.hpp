@@ -25,7 +25,7 @@ class HeavyLightDecomposition {
                 par[u] = v;
                 dfs1(g, u);
                 siz[v] += siz[u];
-                if (siz[u] > siz[g[v][0]]) {
+                if (siz[u] > siz[(int) g[v][0]]) {
                     std::swap(g[v][0], e);
                 }
             }
