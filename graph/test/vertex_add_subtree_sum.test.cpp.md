@@ -86,7 +86,7 @@ data:
     \        std::swap(g[v][0], g[v].back());\n        }\n        for (auto &e : g[v])\
     \ {\n            int u = (int)e;\n            if (u != par[v]) {\n           \
     \     par[u] = v;\n                dfs1(g, u);\n                siz[v] += siz[u];\n\
-    \                if (siz[u] > siz[g[v][0]]) {\n                    std::swap(g[v][0],\
+    \                if (siz[u] > siz[(int) g[v][0]]) {\n                    std::swap(g[v][0],\
     \ e);\n                }\n            }\n        }\n    }\n\n    template <typename\
     \ G>\n    void dfs2(const G &g, int v, int &time) {\n        in[v] = time;\n \
     \       rev[time++] = v;\n        for (auto &e : g[v]) {\n            int u =\
@@ -216,7 +216,7 @@ data:
   isVerificationFile: true
   path: graph/test/vertex_add_subtree_sum.test.cpp
   requiredBy: []
-  timestamp: '2022-08-26 11:20:50+09:00'
+  timestamp: '2022-09-04 20:40:05+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: graph/test/vertex_add_subtree_sum.test.cpp

@@ -32,7 +32,7 @@ data:
     \        std::swap(g[v][0], g[v].back());\n        }\n        for (auto &e : g[v])\
     \ {\n            int u = (int)e;\n            if (u != par[v]) {\n           \
     \     par[u] = v;\n                dfs1(g, u);\n                siz[v] += siz[u];\n\
-    \                if (siz[u] > siz[g[v][0]]) {\n                    std::swap(g[v][0],\
+    \                if (siz[u] > siz[(int) g[v][0]]) {\n                    std::swap(g[v][0],\
     \ e);\n                }\n            }\n        }\n    }\n\n    template <typename\
     \ G>\n    void dfs2(const G &g, int v, int &time) {\n        in[v] = time;\n \
     \       rev[time++] = v;\n        for (auto &e : g[v]) {\n            int u =\
@@ -101,15 +101,15 @@ data:
     \ && (int) g[v][0] == par[v]) {\n            std::swap(g[v][0], g[v].back());\n\
     \        }\n        for (auto &e : g[v]) {\n            int u = (int)e;\n    \
     \        if (u != par[v]) {\n                par[u] = v;\n                dfs1(g,\
-    \ u);\n                siz[v] += siz[u];\n                if (siz[u] > siz[g[v][0]])\
-    \ {\n                    std::swap(g[v][0], e);\n                }\n         \
-    \   }\n        }\n    }\n\n    template <typename G>\n    void dfs2(const G &g,\
-    \ int v, int &time) {\n        in[v] = time;\n        rev[time++] = v;\n     \
-    \   for (auto &e : g[v]) {\n            int u = (int)e;\n            if (u ==\
-    \ par[v]) {\n                continue;\n            }\n            if (u == (int)\
-    \ g[v][0]) {\n                hea[u] = hea[v];\n            } else {\n       \
-    \         hea[u] = u;\n            }\n            dep[u] = dep[v] + 1;\n     \
-    \       dfs2(g, u, time);\n        }\n        out[v] = time;\n    }\n\npublic:\n\
+    \ u);\n                siz[v] += siz[u];\n                if (siz[u] > siz[(int)\
+    \ g[v][0]]) {\n                    std::swap(g[v][0], e);\n                }\n\
+    \            }\n        }\n    }\n\n    template <typename G>\n    void dfs2(const\
+    \ G &g, int v, int &time) {\n        in[v] = time;\n        rev[time++] = v;\n\
+    \        for (auto &e : g[v]) {\n            int u = (int)e;\n            if (u\
+    \ == par[v]) {\n                continue;\n            }\n            if (u ==\
+    \ (int) g[v][0]) {\n                hea[u] = hea[v];\n            } else {\n \
+    \               hea[u] = u;\n            }\n            dep[u] = dep[v] + 1;\n\
+    \            dfs2(g, u, time);\n        }\n        out[v] = time;\n    }\n\npublic:\n\
     \    template <typename G>\n    HeavyLightDecomposition(G &g, int root = 0) :\n\
     \        siz(g.size(), 1),\n        par(g.size(), root),\n        hea(g.size(),\
     \ root),\n        in(g.size(), 0),\n        out(g.size(), 0),\n        dep(g.size(),\
@@ -167,7 +167,7 @@ data:
   isVerificationFile: false
   path: graph/heavy_light_decomposition.hpp
   requiredBy: []
-  timestamp: '2022-08-26 11:20:50+09:00'
+  timestamp: '2022-09-04 20:40:05+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - graph/test/vertex_set_path_composite.test.cpp
