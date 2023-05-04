@@ -25,6 +25,9 @@ data:
     path: convolution/test/bitwise_or_convolution.test.cpp
     title: convolution/test/bitwise_or_convolution.test.cpp
   - icon: ':heavy_check_mark:'
+    path: convolution/test/exp_of_set_power_series.test.cpp
+    title: convolution/test/exp_of_set_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: convolution/test/subset_convolution.test.cpp
     title: convolution/test/subset_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -139,25 +142,26 @@ data:
   timestamp: '2022-07-30 11:55:56+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - number_theory/test/convolution_mod.test.cpp
-  - algebra/test/matrix_product.test.cpp
   - algebra/test/matrix_det.test.cpp
+  - algebra/test/matrix_product.test.cpp
+  - number_theory/test/convolution_mod.test.cpp
+  - graph/test/vertex_set_path_composite.test.cpp
   - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
   - polynomial/test/polynomial_taylor_shift.test.cpp
-  - polynomial/test/log_of_formal_power_series.test.cpp
+  - polynomial/test/inv_of_formal_power_series.test.cpp
   - polynomial/test/exp_of_formal_power_series.test.cpp
   - polynomial/test/pow_of_formal_power_series.test.cpp
-  - polynomial/test/inv_of_formal_power_series.test.cpp
-  - graph/test/vertex_set_path_composite.test.cpp
-  - data_structure/test/range_affine_range_sum.test.cpp
-  - data_structure/test/queue_operate_all_composite.test.cpp
-  - data_structure/test/1891.test.cpp
+  - polynomial/test/log_of_formal_power_series.test.cpp
   - data_structure/test/point_set_range_composite.test.cpp
   - data_structure/test/sparse_segment_tree.test.cpp
+  - data_structure/test/1891.test.cpp
+  - data_structure/test/range_affine_range_sum.test.cpp
+  - data_structure/test/queue_operate_all_composite.test.cpp
+  - convolution/test/subset_convolution_exp_log.test.cpp
+  - convolution/test/subset_convolution.test.cpp
   - convolution/test/bitwise_and_convolution.test.cpp
   - convolution/test/bitwise_or_convolution.test.cpp
-  - convolution/test/subset_convolution.test.cpp
-  - convolution/test/subset_convolution_exp_log.test.cpp
+  - convolution/test/exp_of_set_power_series.test.cpp
 documentation_of: number_theory/utils.hpp
 layout: document
 redirect_from:

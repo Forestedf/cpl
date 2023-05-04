@@ -223,6 +223,9 @@ data:
       path: convolution/test/bitwise_or_convolution.test.cpp
       title: convolution/test/bitwise_or_convolution.test.cpp
     - icon: ':heavy_check_mark:'
+      path: convolution/test/exp_of_set_power_series.test.cpp
+      title: convolution/test/exp_of_set_power_series.test.cpp
+    - icon: ':heavy_check_mark:'
       path: convolution/test/subset_convolution.test.cpp
       title: convolution/test/subset_convolution.test.cpp
     - icon: ':heavy_check_mark:'

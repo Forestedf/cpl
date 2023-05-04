@@ -115,12 +115,12 @@ data:
   timestamp: '2022-07-21 11:01:31+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - polynomial/test/inv_of_formal_power_series_acl.test.cpp
-  - polynomial/test/log_of_formal_power_series.test.cpp
-  - polynomial/test/log_of_formal_power_series_acl.test.cpp
-  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
-  - polynomial/test/pow_of_formal_power_series.test.cpp
   - polynomial/test/inv_of_formal_power_series.test.cpp
+  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
+  - polynomial/test/log_of_formal_power_series_acl.test.cpp
+  - polynomial/test/inv_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series.test.cpp
+  - polynomial/test/log_of_formal_power_series.test.cpp
 documentation_of: polynomial/fps_inv.hpp
 layout: document
 redirect_from:

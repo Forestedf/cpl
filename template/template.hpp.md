@@ -16,6 +16,9 @@ data:
     path: convolution/test/bitwise_or_convolution.test.cpp
     title: convolution/test/bitwise_or_convolution.test.cpp
   - icon: ':heavy_check_mark:'
+    path: convolution/test/exp_of_set_power_series.test.cpp
+    title: convolution/test/exp_of_set_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: convolution/test/subset_convolution.test.cpp
     title: convolution/test/subset_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -186,46 +189,47 @@ data:
   timestamp: '2022-07-17 16:00:30+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - number_theory/test/convolution_mod.test.cpp
-  - algebra/test/matrix_product.test.cpp
   - algebra/test/matrix_det.test.cpp
-  - polynomial/test/inv_of_formal_power_series_acl.test.cpp
-  - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
-  - polynomial/test/polynomial_taylor_shift.test.cpp
-  - polynomial/test/log_of_formal_power_series.test.cpp
-  - polynomial/test/log_of_formal_power_series_acl.test.cpp
-  - polynomial/test/exp_of_formal_power_series.test.cpp
-  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
-  - polynomial/test/exp_of_formal_power_series_acl.test.cpp
-  - polynomial/test/pow_of_formal_power_series.test.cpp
-  - polynomial/test/inv_of_formal_power_series.test.cpp
-  - graph/test/two_edge_connected_components.test.cpp
+  - algebra/test/matrix_product.test.cpp
+  - number_theory/test/convolution_mod.test.cpp
   - graph/test/two_sat.test.cpp
-  - graph/test/vertex_set_path_composite.test.cpp
   - graph/test/vertex_add_subtree_sum.test.cpp
-  - graph/test/jump_on_tree.test.cpp
   - graph/test/scc.test.cpp
   - graph/test/vertex_add_path_sum.test.cpp
   - graph/test/lca.test.cpp
-  - data_structure/test/range_kth_smallest.test.cpp
-  - data_structure/test/rectangle_sum.test.cpp
-  - data_structure/test/wavelet_matrix.test.cpp
-  - data_structure/test/range_affine_range_sum.test.cpp
-  - data_structure/test/unionfind.test.cpp
+  - graph/test/two_edge_connected_components.test.cpp
+  - graph/test/vertex_set_path_composite.test.cpp
+  - graph/test/jump_on_tree.test.cpp
+  - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
+  - polynomial/test/polynomial_taylor_shift.test.cpp
+  - polynomial/test/inv_of_formal_power_series.test.cpp
+  - polynomial/test/exp_of_formal_power_series.test.cpp
+  - polynomial/test/exp_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
+  - polynomial/test/log_of_formal_power_series_acl.test.cpp
+  - polynomial/test/inv_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series.test.cpp
+  - polynomial/test/log_of_formal_power_series.test.cpp
+  - string/test/zalgorithm.test.cpp
+  - data_structure/test/point_set_range_composite.test.cpp
   - data_structure/test/point_add_rectangle_sum.test.cpp
+  - data_structure/test/unionfind.test.cpp
+  - data_structure/test/range_kth_smallest.test.cpp
+  - data_structure/test/sparse_segment_tree.test.cpp
+  - data_structure/test/1891.test.cpp
+  - data_structure/test/point_add_range_sum.test.cpp
+  - data_structure/test/range_affine_range_sum.test.cpp
+  - data_structure/test/rectangle_sum.test.cpp
+  - data_structure/test/staticrmq.test.cpp
+  - data_structure/test/dsl_2_g.test.cpp
   - data_structure/test/queue_operate_all_composite.test.cpp
   - data_structure/test/static_range_frequency.test.cpp
-  - data_structure/test/point_add_range_sum.test.cpp
-  - data_structure/test/1891.test.cpp
-  - data_structure/test/dsl_2_g.test.cpp
-  - data_structure/test/point_set_range_composite.test.cpp
-  - data_structure/test/staticrmq.test.cpp
-  - data_structure/test/sparse_segment_tree.test.cpp
+  - data_structure/test/wavelet_matrix.test.cpp
+  - convolution/test/subset_convolution_exp_log.test.cpp
+  - convolution/test/subset_convolution.test.cpp
   - convolution/test/bitwise_and_convolution.test.cpp
   - convolution/test/bitwise_or_convolution.test.cpp
-  - convolution/test/subset_convolution.test.cpp
-  - convolution/test/subset_convolution_exp_log.test.cpp
-  - string/test/zalgorithm.test.cpp
+  - convolution/test/exp_of_set_power_series.test.cpp
 documentation_of: template/template.hpp
 layout: document
 redirect_from:

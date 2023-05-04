@@ -13,6 +13,9 @@ data:
     title: convolution/subset_convolution_log.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
+    path: convolution/test/exp_of_set_power_series.test.cpp
+    title: convolution/test/exp_of_set_power_series.test.cpp
+  - icon: ':heavy_check_mark:'
     path: convolution/test/subset_convolution.test.cpp
     title: convolution/test/subset_convolution.test.cpp
   - icon: ':heavy_check_mark:'
@@ -59,8 +62,9 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - convolution/test/subset_convolution.test.cpp
   - convolution/test/subset_convolution_exp_log.test.cpp
+  - convolution/test/subset_convolution.test.cpp
+  - convolution/test/exp_of_set_power_series.test.cpp
 documentation_of: convolution/subset_convolution_internal.hpp
 layout: document
 redirect_from:

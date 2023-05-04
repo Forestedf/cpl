@@ -95,13 +95,13 @@ data:
   - number_theory/test/convolution_mod.test.cpp
   - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
   - polynomial/test/polynomial_taylor_shift.test.cpp
-  - polynomial/test/log_of_formal_power_series.test.cpp
+  - polynomial/test/inv_of_formal_power_series.test.cpp
   - polynomial/test/exp_of_formal_power_series.test.cpp
   - polynomial/test/pow_of_formal_power_series.test.cpp
-  - polynomial/test/inv_of_formal_power_series.test.cpp
+  - polynomial/test/log_of_formal_power_series.test.cpp
   - data_structure/test/range_kth_smallest.test.cpp
-  - data_structure/test/wavelet_matrix.test.cpp
   - data_structure/test/static_range_frequency.test.cpp
+  - data_structure/test/wavelet_matrix.test.cpp
 documentation_of: template/bitop.hpp
 layout: document
 redirect_from:

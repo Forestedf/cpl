@@ -90,13 +90,13 @@ data:
   timestamp: '2022-08-26 11:10:48+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - graph/test/two_edge_connected_components.test.cpp
-  - graph/test/vertex_set_path_composite.test.cpp
   - graph/test/vertex_add_subtree_sum.test.cpp
-  - graph/test/jump_on_tree.test.cpp
   - graph/test/scc.test.cpp
   - graph/test/vertex_add_path_sum.test.cpp
   - graph/test/lca.test.cpp
+  - graph/test/two_edge_connected_components.test.cpp
+  - graph/test/vertex_set_path_composite.test.cpp
+  - graph/test/jump_on_tree.test.cpp
 documentation_of: graph/graph.hpp
 layout: document
 redirect_from:

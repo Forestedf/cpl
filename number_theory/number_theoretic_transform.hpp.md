@@ -240,10 +240,10 @@ data:
   - number_theory/test/convolution_mod.test.cpp
   - polynomial/test/kth_term_of_linearly_recurrent_sequence.test.cpp
   - polynomial/test/polynomial_taylor_shift.test.cpp
-  - polynomial/test/log_of_formal_power_series.test.cpp
+  - polynomial/test/inv_of_formal_power_series.test.cpp
   - polynomial/test/exp_of_formal_power_series.test.cpp
   - polynomial/test/pow_of_formal_power_series.test.cpp
-  - polynomial/test/inv_of_formal_power_series.test.cpp
+  - polynomial/test/log_of_formal_power_series.test.cpp
 documentation_of: number_theory/number_theoretic_transform.hpp
 layout: document
 redirect_from:

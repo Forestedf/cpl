@@ -139,8 +139,8 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - algebra/test/matrix_product.test.cpp
   - algebra/test/matrix_det.test.cpp
+  - algebra/test/matrix_product.test.cpp
 documentation_of: algebra/matrix.hpp
 layout: document
 redirect_from:

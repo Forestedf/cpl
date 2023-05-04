@@ -166,8 +166,8 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - polynomial/test/exp_of_formal_power_series.test.cpp
-  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
   - polynomial/test/exp_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
   - polynomial/test/pow_of_formal_power_series.test.cpp
 documentation_of: polynomial/fps_exp.hpp
 layout: document

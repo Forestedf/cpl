@@ -43,10 +43,10 @@ data:
   timestamp: '2022-07-17 14:27:07+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - polynomial/test/inv_of_formal_power_series_acl.test.cpp
-  - polynomial/test/log_of_formal_power_series_acl.test.cpp
-  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
   - polynomial/test/exp_of_formal_power_series_acl.test.cpp
+  - polynomial/test/pow_of_formal_power_series_acl.test.cpp
+  - polynomial/test/log_of_formal_power_series_acl.test.cpp
+  - polynomial/test/inv_of_formal_power_series_acl.test.cpp
 documentation_of: polynomial/with_acl.hpp
 layout: document
 redirect_from:
