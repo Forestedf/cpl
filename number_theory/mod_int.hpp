@@ -16,6 +16,10 @@ class ModInt {
     unsigned val;
 
 public:
+    static constexpr unsigned get_mod() {
+        return mod;
+    }
+    
     constexpr ModInt() : val(0) {}
     template <typename T, std::enable_if_t<std::is_signed_v<T>> * = nullptr>
     constexpr ModInt(T x) : val((unsigned) ((long long) x % (long long) mod + (x < 0 ? mod : 0))) {}
@@ -91,8 +95,9 @@ public:
     }
 
     friend std::istream &operator>>(std::istream &is, ModInt<mod> &x) {
-        is >> x.val;
-        x.val %= mod;
+        long long val;
+        is >> val;
+        x.val = val % mod + (val < 0 ? mod : 0);
         return is;
     }
 
