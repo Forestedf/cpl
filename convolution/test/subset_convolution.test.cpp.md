@@ -119,7 +119,8 @@ data:
     \ <unsigned mod>\nclass ModInt {\n    static_assert(mod != 0, \"`mod` must not\
     \ be equal to 0.\");\n    static_assert(\n        mod < (1u << 31),\n        \"\
     `mod` must be less than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\n\
-    public:\n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    public:\n    static constexpr unsigned get_mod() {\n        return mod;\n    }\n\
+    \    \n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
     \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
@@ -148,19 +149,20 @@ data:
     \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
     \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
-    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
-    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
-    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
-    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
-    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
-    \ mod1000000007 = 1000000007;\n\n#line 8 \"convolution/test/subset_convolution.test.cpp\"\
-    \n\nint main() {\n    using Mint = ModInt<mod998244353>;\n    \n    i32 n;\n \
-    \   cin >> n;\n    Vec<Mint> a(1 << n), b(1 << n);\n    REP(i, 1 << n) {\n   \
-    \     cin >> a[i];\n    }\n    REP(i, 1 << n) {\n        cin >> b[i];\n    }\n\
-    \    Vec<Mint> c = subset_convolution(a, b);\n    REP(i, 1 << n) {\n        cout\
-    \ << c[i] << \" \\n\"[i + 1 == (1 << n)];\n    }\n}\n"
+    \ &is, ModInt<mod> &x) {\n        long long val;\n        is >> val;\n       \
+    \ x.val = val % mod + (val < 0 ? mod : 0);\n        return is;\n    }\n\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt<mod> &x) {\n       \
+    \ os << x.val;\n        return os;\n    }\n\n    friend bool operator==(const\
+    \ ModInt &lhs, const ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n\
+    \    \n    friend bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n  \
+    \      return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned\
+    \ mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007\
+    \ = 1000000007;\n\n#line 8 \"convolution/test/subset_convolution.test.cpp\"\n\n\
+    int main() {\n    using Mint = ModInt<mod998244353>;\n    \n    i32 n;\n    cin\
+    \ >> n;\n    Vec<Mint> a(1 << n), b(1 << n);\n    REP(i, 1 << n) {\n        cin\
+    \ >> a[i];\n    }\n    REP(i, 1 << n) {\n        cin >> b[i];\n    }\n    Vec<Mint>\
+    \ c = subset_convolution(a, b);\n    REP(i, 1 << n) {\n        cout << c[i] <<\
+    \ \" \\n\"[i + 1 == (1 << n)];\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/subset_convolution\"\n\n\
     #define FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../convolution/subset_convolution.hpp\"\
     \n#include \"../../number_theory/mod_int.hpp\"\n\nint main() {\n    using Mint\
@@ -178,7 +180,7 @@ data:
   isVerificationFile: true
   path: convolution/test/subset_convolution.test.cpp
   requiredBy: []
-  timestamp: '2022-08-25 19:46:41+09:00'
+  timestamp: '2023-05-04 19:50:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: convolution/test/subset_convolution.test.cpp

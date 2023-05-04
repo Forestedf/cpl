@@ -71,28 +71,28 @@ data:
     \n\ntemplate <unsigned mod>\nclass ModInt {\n    static_assert(mod != 0, \"`mod`\
     \ must not be equal to 0.\");\n    static_assert(\n        mod < (1u << 31),\n\
     \        \"`mod` must be less than (1u << 31) = 2147483648.\");\n\n    unsigned\
-    \ val;\n\npublic:\n    constexpr ModInt() : val(0) {}\n    template <typename\
-    \ T, std::enable_if_t<std::is_signed_v<T>> * = nullptr>\n    constexpr ModInt(T\
-    \ x) : val((unsigned) ((long long) x % (long long) mod + (x < 0 ? mod : 0))) {}\n\
-    \    template <typename T, std::enable_if_t<std::is_unsigned_v<T>> * = nullptr>\n\
-    \    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n    static constexpr\
-    \ ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n        ret.val = x;\n \
-    \       return ret;\n    }\n\n    constexpr unsigned get_val() const {\n     \
-    \   return val;\n    }\n\n    constexpr ModInt operator+() const {\n        return\
-    \ *this;\n    }\n    constexpr ModInt operator-() const {\n        return ModInt<mod>(0u)\
-    \ - *this;\n    }\n\n    constexpr ModInt &operator+=(const ModInt &rhs) {\n \
-    \       val += rhs.val;\n        if (val >= mod)\n            val -= mod;\n  \
-    \      return *this;\n    }\n    constexpr ModInt &operator-=(const ModInt &rhs)\
-    \ {\n        if (val < rhs.val)\n            val += mod;\n        val -= rhs.val;\n\
-    \        return *this;\n    }\n    constexpr ModInt &operator*=(const ModInt &rhs)\
-    \ {\n        val = (unsigned long long)val * rhs.val % mod;\n        return *this;\n\
-    \    }\n    constexpr ModInt &operator/=(const ModInt &rhs) {\n        val = (unsigned\
-    \ long long)val * rhs.inv().val % mod;\n        return *this;\n    }\n\n    friend\
-    \ constexpr ModInt operator+(const ModInt &lhs, const ModInt &rhs) {\n       \
-    \ return ModInt<mod>(lhs) += rhs;\n    }\n    friend constexpr ModInt operator-(const\
-    \ ModInt &lhs, const ModInt &rhs) {\n        return ModInt<mod>(lhs) -= rhs;\n\
-    \    }\n    friend constexpr ModInt operator*(const ModInt &lhs, const ModInt\
-    \ &rhs) {\n        return ModInt<mod>(lhs) *= rhs;\n    }\n    friend constexpr\
+    \ val;\n\npublic:\n    static constexpr unsigned get_mod() {\n        return mod;\n\
+    \    }\n    \n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
+    \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
+    \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
+    \   static constexpr ModInt raw(unsigned x) {\n        ModInt<mod> ret;\n    \
+    \    ret.val = x;\n        return ret;\n    }\n\n    constexpr unsigned get_val()\
+    \ const {\n        return val;\n    }\n\n    constexpr ModInt operator+() const\
+    \ {\n        return *this;\n    }\n    constexpr ModInt operator-() const {\n\
+    \        return ModInt<mod>(0u) - *this;\n    }\n\n    constexpr ModInt &operator+=(const\
+    \ ModInt &rhs) {\n        val += rhs.val;\n        if (val >= mod)\n         \
+    \   val -= mod;\n        return *this;\n    }\n    constexpr ModInt &operator-=(const\
+    \ ModInt &rhs) {\n        if (val < rhs.val)\n            val += mod;\n      \
+    \  val -= rhs.val;\n        return *this;\n    }\n    constexpr ModInt &operator*=(const\
+    \ ModInt &rhs) {\n        val = (unsigned long long)val * rhs.val % mod;\n   \
+    \     return *this;\n    }\n    constexpr ModInt &operator/=(const ModInt &rhs)\
+    \ {\n        val = (unsigned long long)val * rhs.inv().val % mod;\n        return\
+    \ *this;\n    }\n\n    friend constexpr ModInt operator+(const ModInt &lhs, const\
+    \ ModInt &rhs) {\n        return ModInt<mod>(lhs) += rhs;\n    }\n    friend constexpr\
+    \ ModInt operator-(const ModInt &lhs, const ModInt &rhs) {\n        return ModInt<mod>(lhs)\
+    \ -= rhs;\n    }\n    friend constexpr ModInt operator*(const ModInt &lhs, const\
+    \ ModInt &rhs) {\n        return ModInt<mod>(lhs) *= rhs;\n    }\n    friend constexpr\
     \ ModInt operator/(const ModInt &lhs, const ModInt &rhs) {\n        return ModInt<mod>(lhs)\
     \ /= rhs;\n    }\n\n    constexpr ModInt pow(unsigned long long x) const {\n \
     \       ModInt<mod> ret = ModInt<mod>::raw(1);\n        ModInt<mod> self = *this;\n\
@@ -101,16 +101,17 @@ data:
     \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
     \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
-    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
-    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
-    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
-    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
-    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
-    \ mod1000000007 = 1000000007;\n\n#line 2 \"template/bitop.hpp\"\n\ntemplate <typename\
-    \ T, typename U>\nbool ith_bit(T n, U i) {\n    return (n & ((T) 1 << i)) != 0;\n\
-    }\n\nint popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
+    \ &is, ModInt<mod> &x) {\n        long long val;\n        is >> val;\n       \
+    \ x.val = val % mod + (val < 0 ? mod : 0);\n        return is;\n    }\n\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt<mod> &x) {\n       \
+    \ os << x.val;\n        return os;\n    }\n\n    friend bool operator==(const\
+    \ ModInt &lhs, const ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n\
+    \    \n    friend bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n  \
+    \      return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned\
+    \ mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007\
+    \ = 1000000007;\n\n#line 2 \"template/bitop.hpp\"\n\ntemplate <typename T, typename\
+    \ U>\nbool ith_bit(T n, U i) {\n    return (n & ((T) 1 << i)) != 0;\n}\n\nint\
+    \ popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
     \ x) {\n    return __builtin_popcount(x);\n}\nlong long popcount(long long x)\
     \ {\n    return __builtin_popcountll(x);\n}\nunsigned long long popcount(unsigned\
     \ long long x) {\n    return __builtin_popcountll(x);\n}\n\n// x must not be 0\n\
@@ -234,7 +235,7 @@ data:
   isVerificationFile: false
   path: number_theory/number_theoretic_transform.hpp
   requiredBy: []
-  timestamp: '2022-07-30 11:55:56+09:00'
+  timestamp: '2023-05-04 19:50:45+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - number_theory/test/convolution_mod.test.cpp

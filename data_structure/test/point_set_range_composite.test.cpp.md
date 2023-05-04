@@ -85,7 +85,8 @@ data:
     \ <unsigned mod>\nclass ModInt {\n    static_assert(mod != 0, \"`mod` must not\
     \ be equal to 0.\");\n    static_assert(\n        mod < (1u << 31),\n        \"\
     `mod` must be less than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\n\
-    public:\n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    public:\n    static constexpr unsigned get_mod() {\n        return mod;\n    }\n\
+    \    \n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
     \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
@@ -114,46 +115,46 @@ data:
     \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
     \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
-    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
-    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
-    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
-    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
-    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
-    \ mod1000000007 = 1000000007;\n\n#line 2 \"data_structure/segment_tree.hpp\"\n\
-    \n#line 6 \"data_structure/segment_tree.hpp\"\n\n#line 2 \"data_structure/operations.hpp\"\
-    \n\n#include <limits>\n#line 5 \"data_structure/operations.hpp\"\n\ntemplate <typename\
-    \ T>\nstruct Add {\n    using Value = T;\n    static Value id() {\n        return\
-    \ T(0);\n    }\n    static Value op(const Value &lhs, const Value &rhs) {\n  \
-    \      return lhs + rhs;\n    }\n    static Value inv(const Value &x) {\n    \
-    \    return -x;\n    }\n};\n\ntemplate <typename T>\nstruct Mul {\n    using Value\
-    \ = T;\n    static Value id() {\n        return Value(1);\n    }\n    static Value\
-    \ op(const Value &lhs, const Value &rhs) {\n        return lhs * rhs;\n    }\n\
-    \    static Value inv(const Value &x) {\n        return Value(1) / x;\n    }\n\
-    };\n\ntemplate <typename T>\nstruct Min {\n    using Value = T;\n    static Value\
-    \ id() {\n        return std::numeric_limits<T>::max();\n    }\n    static Value\
-    \ op(const Value &lhs, const Value &rhs) {\n        return std::min(lhs, rhs);\n\
-    \    }\n};\n\ntemplate <typename T>\nstruct Max {\n    using Value = T;\n    static\
-    \ Value id() {\n        return std::numeric_limits<Value>::min();\n    }\n   \
-    \ static Value op(const Value &lhs, const Value &rhs) {\n        return std::max(lhs,\
-    \ rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Xor {\n    using Value = T;\n\
-    \    static Value id() {\n        return T(0);\n    }\n    static Value op(const\
-    \ Value &lhs, const Value &rhs) {\n        return lhs ^ rhs;\n    }\n    static\
-    \ Value inv(const Value &x) {\n        return x;\n    }\n};\n\ntemplate <typename\
-    \ Monoid>\nstruct Reversible {\n    using Value = std::pair<typename Monoid::Value,\
-    \ typename Monoid::Value>;\n    static Value id() {\n        return Value(Monoid::id(),\
-    \ Monoid::id());\n    }\n    static Value op(const Value &v1, const Value &v2)\
-    \ {\n        return Value(\n            Monoid::op(v1.first, v2.first),\n    \
-    \        Monoid::op(v2.second, v1.second));\n    }\n};\n\n#line 8 \"data_structure/segment_tree.hpp\"\
-    \n\ntemplate <typename Monoid>\nclass SegmentTree {\npublic:\n    using Value\
-    \ = typename Monoid::Value;\n\nprivate:\n    int old_length;\n    int length;\n\
-    \    std::vector<Value> node;\n\n    static int ceil2(int n) {\n        int l\
-    \ = 1;\n        while (l < n) {\n            l <<= 1;\n        }\n        return\
-    \ l;\n    }\n\npublic:\n    SegmentTree(int n) :\n        old_length(n),\n   \
-    \     length(ceil2(old_length)),\n        node(length << 1, Monoid::id()) {\n\
-    \        assert(n >= 0);\n    }\n\n    SegmentTree(const std::vector<Value> &v)\
-    \ :\n        old_length((int) v.size()),\n        length(ceil2(old_length)),\n\
+    \ &is, ModInt<mod> &x) {\n        long long val;\n        is >> val;\n       \
+    \ x.val = val % mod + (val < 0 ? mod : 0);\n        return is;\n    }\n\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt<mod> &x) {\n       \
+    \ os << x.val;\n        return os;\n    }\n\n    friend bool operator==(const\
+    \ ModInt &lhs, const ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n\
+    \    \n    friend bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n  \
+    \      return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned\
+    \ mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007\
+    \ = 1000000007;\n\n#line 2 \"data_structure/segment_tree.hpp\"\n\n#line 6 \"data_structure/segment_tree.hpp\"\
+    \n\n#line 2 \"data_structure/operations.hpp\"\n\n#include <limits>\n#line 5 \"\
+    data_structure/operations.hpp\"\n\ntemplate <typename T>\nstruct Add {\n    using\
+    \ Value = T;\n    static Value id() {\n        return T(0);\n    }\n    static\
+    \ Value op(const Value &lhs, const Value &rhs) {\n        return lhs + rhs;\n\
+    \    }\n    static Value inv(const Value &x) {\n        return -x;\n    }\n};\n\
+    \ntemplate <typename T>\nstruct Mul {\n    using Value = T;\n    static Value\
+    \ id() {\n        return Value(1);\n    }\n    static Value op(const Value &lhs,\
+    \ const Value &rhs) {\n        return lhs * rhs;\n    }\n    static Value inv(const\
+    \ Value &x) {\n        return Value(1) / x;\n    }\n};\n\ntemplate <typename T>\n\
+    struct Min {\n    using Value = T;\n    static Value id() {\n        return std::numeric_limits<T>::max();\n\
+    \    }\n    static Value op(const Value &lhs, const Value &rhs) {\n        return\
+    \ std::min(lhs, rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Max {\n    using\
+    \ Value = T;\n    static Value id() {\n        return std::numeric_limits<Value>::min();\n\
+    \    }\n    static Value op(const Value &lhs, const Value &rhs) {\n        return\
+    \ std::max(lhs, rhs);\n    }\n};\n\ntemplate <typename T>\nstruct Xor {\n    using\
+    \ Value = T;\n    static Value id() {\n        return T(0);\n    }\n    static\
+    \ Value op(const Value &lhs, const Value &rhs) {\n        return lhs ^ rhs;\n\
+    \    }\n    static Value inv(const Value &x) {\n        return x;\n    }\n};\n\
+    \ntemplate <typename Monoid>\nstruct Reversible {\n    using Value = std::pair<typename\
+    \ Monoid::Value, typename Monoid::Value>;\n    static Value id() {\n        return\
+    \ Value(Monoid::id(), Monoid::id());\n    }\n    static Value op(const Value &v1,\
+    \ const Value &v2) {\n        return Value(\n            Monoid::op(v1.first,\
+    \ v2.first),\n            Monoid::op(v2.second, v1.second));\n    }\n};\n\n#line\
+    \ 8 \"data_structure/segment_tree.hpp\"\n\ntemplate <typename Monoid>\nclass SegmentTree\
+    \ {\npublic:\n    using Value = typename Monoid::Value;\n\nprivate:\n    int old_length;\n\
+    \    int length;\n    std::vector<Value> node;\n\n    static int ceil2(int n)\
+    \ {\n        int l = 1;\n        while (l < n) {\n            l <<= 1;\n     \
+    \   }\n        return l;\n    }\n\npublic:\n    SegmentTree(int n) :\n       \
+    \ old_length(n),\n        length(ceil2(old_length)),\n        node(length << 1,\
+    \ Monoid::id()) {\n        assert(n >= 0);\n    }\n\n    SegmentTree(const std::vector<Value>\
+    \ &v) :\n        old_length((int) v.size()),\n        length(ceil2(old_length)),\n\
     \        node(length << 1, Monoid::id()) {\n        for (int i = 0; i < old_length;\
     \ ++i) {\n            node[i + length] = v[i];\n        }\n        for (int i\
     \ = length - 1; i > 0; --i) {\n            node[i] = Monoid::op(node[i << 1],\
@@ -217,7 +218,7 @@ data:
   isVerificationFile: true
   path: data_structure/test/point_set_range_composite.test.cpp
   requiredBy: []
-  timestamp: '2022-08-25 19:52:54+09:00'
+  timestamp: '2023-05-04 19:50:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: data_structure/test/point_set_range_composite.test.cpp

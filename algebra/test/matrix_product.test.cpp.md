@@ -81,7 +81,8 @@ data:
     \    }\n}\n#line 8 \"number_theory/mod_int.hpp\"\n\ntemplate <unsigned mod>\n\
     class ModInt {\n    static_assert(mod != 0, \"`mod` must not be equal to 0.\"\
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
-    \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
+    \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    static\
+    \ constexpr unsigned get_mod() {\n        return mod;\n    }\n    \n    constexpr\
     \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
     \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
@@ -111,78 +112,78 @@ data:
     \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
     \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
-    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
-    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
-    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
-    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
-    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
-    \ mod1000000007 = 1000000007;\n\n#line 2 \"algebra/matrix.hpp\"\n\n#line 6 \"\
-    algebra/matrix.hpp\"\n\ntemplate <typename T>\nclass Matrix {\n    std::vector<std::vector<T>>\
-    \ data;\n    \npublic:\n    Matrix(int n) : data(n, std::vector<T>(n, T(0))) {}\n\
-    \    Matrix(int h, int w) : data(h, std::vector<T>(w, T(0))) {}\n    // must be\
-    \ rectangular\n    Matrix(std::vector<std::vector<T>> a) : data(std::move(a))\
-    \ {}\n    \n    int height() const {\n        return data.size();\n    }\n   \
-    \ int width() const {\n        return data.empty() ? 0 : data[0].size();\n   \
-    \ }\n    bool is_square() const {\n        return height() == width();\n    }\n\
-    \    \n    const T &operator()(int i, int j) const {\n        return data[i][j];\n\
-    \    }\n    T &operator()(int i, int j) {\n        return data[i][j];\n    }\n\
-    \    \n    Matrix<T> trans() const {\n        const int h = height(), w = width();\n\
-    \        Matrix<T> ret(w, h);\n        for (int i = 0; i < h; ++i) {\n       \
-    \     for (int j = 0; j < w; ++j) {\n                ret.data[j][i] = data[i][j];\n\
-    \            }\n        }\n        return ret;\n    }\n    \n    Matrix<T> operator+()\
-    \ const {\n        return *this;\n    }\n    Matrix<T> operator-() const {\n \
-    \       const int h = height(), w = width();\n        Matrix<T> ret = *this;\n\
+    \ &is, ModInt<mod> &x) {\n        long long val;\n        is >> val;\n       \
+    \ x.val = val % mod + (val < 0 ? mod : 0);\n        return is;\n    }\n\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt<mod> &x) {\n       \
+    \ os << x.val;\n        return os;\n    }\n\n    friend bool operator==(const\
+    \ ModInt &lhs, const ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n\
+    \    \n    friend bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n  \
+    \      return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned\
+    \ mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007\
+    \ = 1000000007;\n\n#line 2 \"algebra/matrix.hpp\"\n\n#line 6 \"algebra/matrix.hpp\"\
+    \n\ntemplate <typename T>\nclass Matrix {\n    std::vector<std::vector<T>> data;\n\
+    \    \npublic:\n    Matrix(int n) : data(n, std::vector<T>(n, T(0))) {}\n    Matrix(int\
+    \ h, int w) : data(h, std::vector<T>(w, T(0))) {}\n    // must be rectangular\n\
+    \    Matrix(std::vector<std::vector<T>> a) : data(std::move(a)) {}\n    \n   \
+    \ int height() const {\n        return data.size();\n    }\n    int width() const\
+    \ {\n        return data.empty() ? 0 : data[0].size();\n    }\n    bool is_square()\
+    \ const {\n        return height() == width();\n    }\n    \n    const T &operator()(int\
+    \ i, int j) const {\n        return data[i][j];\n    }\n    T &operator()(int\
+    \ i, int j) {\n        return data[i][j];\n    }\n    \n    Matrix<T> trans()\
+    \ const {\n        const int h = height(), w = width();\n        Matrix<T> ret(w,\
+    \ h);\n        for (int i = 0; i < h; ++i) {\n            for (int j = 0; j <\
+    \ w; ++j) {\n                ret.data[j][i] = data[i][j];\n            }\n   \
+    \     }\n        return ret;\n    }\n    \n    Matrix<T> operator+() const {\n\
+    \        return *this;\n    }\n    Matrix<T> operator-() const {\n        const\
+    \ int h = height(), w = width();\n        Matrix<T> ret = *this;\n        for\
+    \ (int i = 0; i < h; ++i) {\n            for (int j = 0; j < w; ++j) {\n     \
+    \           ret.data[i][j] = -ret.data[i][j];\n            }\n        }\n    \
+    \    return ret;\n    }\n    \n    Matrix<T> &operator+=(const Matrix<T> &rhs)\
+    \ {\n        assert(height() == rhs.height() && width() == rhs.width());\n   \
+    \     const int h = height(), w = width();\n        for (int i = 0; i < h; ++i)\
+    \ {\n            for (int j = 0; j < w; ++j) {\n                data[i][j] +=\
+    \ rhs.data[i][j];\n            }\n        }\n        return *this;\n    }\n  \
+    \  Matrix<T> &operator-=(const Matrix<T> &rhs) {\n        assert(height() == rhs.height()\
+    \ && width() == rhs.width());\n        const int h = height(), w = width();\n\
     \        for (int i = 0; i < h; ++i) {\n            for (int j = 0; j < w; ++j)\
-    \ {\n                ret.data[i][j] = -ret.data[i][j];\n            }\n      \
-    \  }\n        return ret;\n    }\n    \n    Matrix<T> &operator+=(const Matrix<T>\
-    \ &rhs) {\n        assert(height() == rhs.height() && width() == rhs.width());\n\
-    \        const int h = height(), w = width();\n        for (int i = 0; i < h;\
-    \ ++i) {\n            for (int j = 0; j < w; ++j) {\n                data[i][j]\
-    \ += rhs.data[i][j];\n            }\n        }\n        return *this;\n    }\n\
-    \    Matrix<T> &operator-=(const Matrix<T> &rhs) {\n        assert(height() ==\
-    \ rhs.height() && width() == rhs.width());\n        const int h = height(), w\
-    \ = width();\n        for (int i = 0; i < h; ++i) {\n            for (int j =\
-    \ 0; j < w; ++j) {\n                data[i][j] -= rhs.data[i][j];\n          \
-    \  }\n        }\n        return *this;\n    }\n    friend Matrix<T> operator+(const\
-    \ Matrix<T> &lhs, const Matrix<T> &rhs) {\n        return lhs += rhs;\n    }\n\
-    \    friend Matrix<T> operator-(const Matrix<T> &lhs, const Matrix<T> &rhs) {\n\
-    \        return lhs -= rhs;\n    }\n    \n    friend Matrix<T> operator*(const\
-    \ Matrix<T> &lhs, const Matrix<T> &rhs) {\n        assert(lhs.width() == rhs.height());\n\
-    \        const int n = lhs.height(), m = rhs.height(), k = rhs.width();\n    \
-    \    Matrix<T> ret(n, k);\n        for (int i = 0; i < n; ++i) {\n           \
-    \ for (int j = 0; j < k; ++j) {\n                for (int l = 0; l < m; ++l) {\n\
-    \                    ret.data[i][j] += lhs.data[i][l] * rhs.data[l][j];\n    \
-    \            }\n            }\n        }\n        return ret;\n    }\n    Matrix<T>\
-    \ &operator*=(const Matrix<T> &rhs) {\n        return *this = *this * rhs;\n \
-    \   }\n    \n    static Matrix<T> e(int n) {\n        Matrix<T> mat(n);\n    \
-    \    for (int i = 0; i < n; ++i) {\n            mat.data[i][i] = T(1);\n     \
-    \   }\n        return mat;\n    }\n    \n    Matrix<T> pow(unsigned long long\
-    \ t) {\n        assert(height() == width());\n        Matrix<T> ret = Matrix::e(height());\n\
-    \        Matrix<T> self = *this;\n        while (t > 0) {\n            if (t %\
-    \ 2 == 1) {\n                ret = ret * self;\n            }\n            self\
-    \ = self * self;\n            t /= 2;\n        }\n        return ret;\n    }\n\
-    \    \n    T det() const {\n        assert(is_square());\n        const int n\
-    \ = height();\n        std::vector<std::vector<T>> a = data;\n        T ans(1);\n\
-    \        for (int i = 0; i < n; ++i) {\n            int nonzero = -1;\n      \
-    \      for (int j = i; j < n; ++j) {\n                if (a[j][i] != T(0)) {\n\
-    \                    nonzero = j;\n                    break;\n              \
-    \  }\n            }\n            if (nonzero == -1) {\n                return\
-    \ T(0);\n            }\n            if (nonzero != i) {\n                std::swap(a[i],\
-    \ a[nonzero]);\n                ans = -ans;\n            }\n            ans *=\
-    \ a[i][i];\n            {\n                const T inv = T(1) / T(a[i][i]);\n\
-    \                for (int j = i; j < n; ++j) {\n                    a[i][j] *=\
-    \ inv;\n                }\n            }\n            for (int j = i + 1; j <\
-    \ n; ++j) {\n                const T tmp = a[j][i];\n                for (int\
-    \ k = i; k < n; ++k) {\n                    a[j][k] -= tmp * a[i][k];\n      \
-    \          }\n            }\n        }\n        return ans;\n    }\n};\n#line\
-    \ 8 \"algebra/test/matrix_product.test.cpp\"\n\nusing Mint = ModInt<mod998244353>;\n\
-    \nint main() {\n    i32 n, m, k;\n    cin >> n >> m >> k;\n    Matrix<Mint> a(n,\
-    \ m), b(m, k);\n    REP(i, n) REP(j, m) {\n        cin >> a(i, j);\n    }\n  \
-    \  REP(i, m) REP(j, k) {\n        cin >> b(i, j);\n    }\n    Matrix<Mint> c =\
-    \ a * b;\n    REP(i, n) REP(j, k) {\n        cout << c(i, j) << \" \\n\"[j + 1\
-    \ == k];\n    }\n}\n"
+    \ {\n                data[i][j] -= rhs.data[i][j];\n            }\n        }\n\
+    \        return *this;\n    }\n    friend Matrix<T> operator+(const Matrix<T>\
+    \ &lhs, const Matrix<T> &rhs) {\n        return lhs += rhs;\n    }\n    friend\
+    \ Matrix<T> operator-(const Matrix<T> &lhs, const Matrix<T> &rhs) {\n        return\
+    \ lhs -= rhs;\n    }\n    \n    friend Matrix<T> operator*(const Matrix<T> &lhs,\
+    \ const Matrix<T> &rhs) {\n        assert(lhs.width() == rhs.height());\n    \
+    \    const int n = lhs.height(), m = rhs.height(), k = rhs.width();\n        Matrix<T>\
+    \ ret(n, k);\n        for (int i = 0; i < n; ++i) {\n            for (int j =\
+    \ 0; j < k; ++j) {\n                for (int l = 0; l < m; ++l) {\n          \
+    \          ret.data[i][j] += lhs.data[i][l] * rhs.data[l][j];\n              \
+    \  }\n            }\n        }\n        return ret;\n    }\n    Matrix<T> &operator*=(const\
+    \ Matrix<T> &rhs) {\n        return *this = *this * rhs;\n    }\n    \n    static\
+    \ Matrix<T> e(int n) {\n        Matrix<T> mat(n);\n        for (int i = 0; i <\
+    \ n; ++i) {\n            mat.data[i][i] = T(1);\n        }\n        return mat;\n\
+    \    }\n    \n    Matrix<T> pow(unsigned long long t) {\n        assert(height()\
+    \ == width());\n        Matrix<T> ret = Matrix::e(height());\n        Matrix<T>\
+    \ self = *this;\n        while (t > 0) {\n            if (t % 2 == 1) {\n    \
+    \            ret = ret * self;\n            }\n            self = self * self;\n\
+    \            t /= 2;\n        }\n        return ret;\n    }\n    \n    T det()\
+    \ const {\n        assert(is_square());\n        const int n = height();\n   \
+    \     std::vector<std::vector<T>> a = data;\n        T ans(1);\n        for (int\
+    \ i = 0; i < n; ++i) {\n            int nonzero = -1;\n            for (int j\
+    \ = i; j < n; ++j) {\n                if (a[j][i] != T(0)) {\n               \
+    \     nonzero = j;\n                    break;\n                }\n          \
+    \  }\n            if (nonzero == -1) {\n                return T(0);\n       \
+    \     }\n            if (nonzero != i) {\n                std::swap(a[i], a[nonzero]);\n\
+    \                ans = -ans;\n            }\n            ans *= a[i][i];\n   \
+    \         {\n                const T inv = T(1) / T(a[i][i]);\n              \
+    \  for (int j = i; j < n; ++j) {\n                    a[i][j] *= inv;\n      \
+    \          }\n            }\n            for (int j = i + 1; j < n; ++j) {\n \
+    \               const T tmp = a[j][i];\n                for (int k = i; k < n;\
+    \ ++k) {\n                    a[j][k] -= tmp * a[i][k];\n                }\n \
+    \           }\n        }\n        return ans;\n    }\n};\n#line 8 \"algebra/test/matrix_product.test.cpp\"\
+    \n\nusing Mint = ModInt<mod998244353>;\n\nint main() {\n    i32 n, m, k;\n   \
+    \ cin >> n >> m >> k;\n    Matrix<Mint> a(n, m), b(m, k);\n    REP(i, n) REP(j,\
+    \ m) {\n        cin >> a(i, j);\n    }\n    REP(i, m) REP(j, k) {\n        cin\
+    \ >> b(i, j);\n    }\n    Matrix<Mint> c = a * b;\n    REP(i, n) REP(j, k) {\n\
+    \        cout << c(i, j) << \" \\n\"[j + 1 == k];\n    }\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/matrix_product\"\n\n#define\
     \ FAST_IO\n\n#include \"../../template/template.hpp\"\n#include \"../../number_theory/mod_int.hpp\"\
     \n#include \"../matrix.hpp\"\n\nusing Mint = ModInt<mod998244353>;\n\nint main()\
@@ -199,7 +200,7 @@ data:
   isVerificationFile: true
   path: algebra/test/matrix_product.test.cpp
   requiredBy: []
-  timestamp: '2022-08-25 19:43:08+09:00'
+  timestamp: '2023-05-04 19:50:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: algebra/test/matrix_product.test.cpp

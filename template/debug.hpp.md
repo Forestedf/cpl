@@ -49,7 +49,8 @@ data:
     \ <unsigned mod>\nclass ModInt {\n    static_assert(mod != 0, \"`mod` must not\
     \ be equal to 0.\");\n    static_assert(\n        mod < (1u << 31),\n        \"\
     `mod` must be less than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\n\
-    public:\n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    public:\n    static constexpr unsigned get_mod() {\n        return mod;\n    }\n\
+    \    \n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
     \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
@@ -78,60 +79,60 @@ data:
     \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
     \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
-    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
-    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
-    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
-    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
-    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
-    \ mod1000000007 = 1000000007;\n\n#line 16 \"template/debug.hpp\"\n\ntemplate <typename\
-    \ T, std::enable_if_t<std::is_integral_v<T>> * = nullptr>\nvoid debug(T x) {\n\
-    \    std::cerr << x;\n}\n\ntemplate <typename T, std::enable_if_t<std::is_floating_point_v<T>>\
-    \ * = nullptr>\nvoid debug(T x) {\n    std::cerr << x;\n}\n\nvoid debug(bool b)\
-    \ {\n    if (b) {\n        std::cerr << \"true\";\n    } else {\n        std::cerr\
-    \ << \"false\";\n    }\n}\n\ntemplate <typename T>\nvoid debug(const std::vector<T>\
-    \ &x);\n\ntemplate <unsigned mod>\nvoid debug(const ModInt<mod> &x) {\n    std::cerr\
-    \ << x;\n}\n\nvoid debug(const std::string &s) {\n    std::cerr << '\"' << s <<\
-    \ '\"';\n}\n\ntemplate <typename T, typename U>\nvoid debug(const std::pair<T,\
-    \ U> &p) {\n    std::cerr << '(';\n    debug(p.first);\n    std::cerr << \", \"\
-    ;\n    debug(p.second);\n    std::cerr << ')';\n}\n\ntemplate <std::size_t cur,\
-    \ typename... Args>\nvoid tuple_debug_inner(const std::tuple<Args...> &t) {\n\
-    \    std::cerr << std::get<cur>(t);\n    if constexpr (cur + 1 != sizeof...(Args))\
-    \ {\n        std::cerr << \", \";\n        tuple_debug_inner<cur + 1, Args...>(t);\n\
-    \    }\n}\n\ntemplate <typename... Args>\nvoid debug(const std::tuple<Args...>\
-    \ &t) {\n    std::cerr << '(';\n    tuple_debug_inner<0, Args...>(t);\n    std::cerr\
-    \ << ')';\n}\n\ntemplate <typename T, std::size_t s>\nvoid debug(const std::array<T,\
-    \ s> &arr) {\n    std::cerr << '[';\n    for (std::size_t i = 0; i < s; ++i) {\n\
-    \        debug(arr[i]);\n        if (i + 1 != s) {\n            std::cerr << \"\
-    , \";\n        }\n    }\n    std::cerr << ']';\n}\n\ntemplate <typename K, typename\
-    \ V>\nvoid debug(const std::map<K, V> &mp) {\n    std::cerr << '{';\n    for (const\
-    \ auto [k, v] : mp) {\n        std::cerr << ' ';\n        debug(k);\n        std::cerr\
-    \ << ':';\n        debug(v);\n    }\n    std::cerr << \" }\";\n}\n\ntemplate <typename\
-    \ T>\nvoid debug(const std::set<T> &st) {\n    std::cerr << '{';\n    for (const\
-    \ T &ele : st) {\n        std::cerr << ' ';\n        debug(ele);\n    }\n    std::cerr\
-    \ << \" }\";\n}\n\ntemplate <typename T>\nvoid debug(std::queue<T> que) {\n  \
-    \  std::cerr << '[';\n    while (!que.empty()) {\n        T ele = que.front();\n\
-    \        que.pop();\n        debug(ele);\n        if (!que.empty()) {\n      \
-    \      std::cerr << ' ';\n        }\n    }\n    std::cerr << ']';\n}\n\ntemplate\
-    \ <typename T>\nvoid debug(const std::vector<T> &v) {\n    std::cerr << '[';\n\
-    \    for (std::size_t i = 0; i < v.size(); ++i) {\n        debug(v[i]);\n    \
-    \    if (i + 1 != v.size()) {\n            std::cerr << \", \";\n        }\n \
-    \   }\n    std::cerr << ']';\n}\n\ntemplate <typename T, typename Container, typename\
-    \ Comp>\nvoid debug(std::priority_queue<T, Container, Comp> que) {\n    std::cerr\
-    \ << '[';\n    while (!que.empty()) {\n        T ele = que.top();\n        que.pop();\n\
-    \        debug(ele);\n        if (!que.empty()) {\n            std::cerr << '\
+    \ &is, ModInt<mod> &x) {\n        long long val;\n        is >> val;\n       \
+    \ x.val = val % mod + (val < 0 ? mod : 0);\n        return is;\n    }\n\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt<mod> &x) {\n       \
+    \ os << x.val;\n        return os;\n    }\n\n    friend bool operator==(const\
+    \ ModInt &lhs, const ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n\
+    \    \n    friend bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n  \
+    \      return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned\
+    \ mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007\
+    \ = 1000000007;\n\n#line 16 \"template/debug.hpp\"\n\ntemplate <typename T, std::enable_if_t<std::is_integral_v<T>>\
+    \ * = nullptr>\nvoid debug(T x) {\n    std::cerr << x;\n}\n\ntemplate <typename\
+    \ T, std::enable_if_t<std::is_floating_point_v<T>> * = nullptr>\nvoid debug(T\
+    \ x) {\n    std::cerr << x;\n}\n\nvoid debug(bool b) {\n    if (b) {\n       \
+    \ std::cerr << \"true\";\n    } else {\n        std::cerr << \"false\";\n    }\n\
+    }\n\ntemplate <typename T>\nvoid debug(const std::vector<T> &x);\n\ntemplate <unsigned\
+    \ mod>\nvoid debug(const ModInt<mod> &x) {\n    std::cerr << x;\n}\n\nvoid debug(const\
+    \ std::string &s) {\n    std::cerr << '\"' << s << '\"';\n}\n\ntemplate <typename\
+    \ T, typename U>\nvoid debug(const std::pair<T, U> &p) {\n    std::cerr << '(';\n\
+    \    debug(p.first);\n    std::cerr << \", \";\n    debug(p.second);\n    std::cerr\
+    \ << ')';\n}\n\ntemplate <std::size_t cur, typename... Args>\nvoid tuple_debug_inner(const\
+    \ std::tuple<Args...> &t) {\n    std::cerr << std::get<cur>(t);\n    if constexpr\
+    \ (cur + 1 != sizeof...(Args)) {\n        std::cerr << \", \";\n        tuple_debug_inner<cur\
+    \ + 1, Args...>(t);\n    }\n}\n\ntemplate <typename... Args>\nvoid debug(const\
+    \ std::tuple<Args...> &t) {\n    std::cerr << '(';\n    tuple_debug_inner<0, Args...>(t);\n\
+    \    std::cerr << ')';\n}\n\ntemplate <typename T, std::size_t s>\nvoid debug(const\
+    \ std::array<T, s> &arr) {\n    std::cerr << '[';\n    for (std::size_t i = 0;\
+    \ i < s; ++i) {\n        debug(arr[i]);\n        if (i + 1 != s) {\n         \
+    \   std::cerr << \", \";\n        }\n    }\n    std::cerr << ']';\n}\n\ntemplate\
+    \ <typename K, typename V>\nvoid debug(const std::map<K, V> &mp) {\n    std::cerr\
+    \ << '{';\n    for (const auto [k, v] : mp) {\n        std::cerr << ' ';\n   \
+    \     debug(k);\n        std::cerr << ':';\n        debug(v);\n    }\n    std::cerr\
+    \ << \" }\";\n}\n\ntemplate <typename T>\nvoid debug(const std::set<T> &st) {\n\
+    \    std::cerr << '{';\n    for (const T &ele : st) {\n        std::cerr << '\
+    \ ';\n        debug(ele);\n    }\n    std::cerr << \" }\";\n}\n\ntemplate <typename\
+    \ T>\nvoid debug(std::queue<T> que) {\n    std::cerr << '[';\n    while (!que.empty())\
+    \ {\n        T ele = que.front();\n        que.pop();\n        debug(ele);\n \
+    \       if (!que.empty()) {\n            std::cerr << ' ';\n        }\n    }\n\
+    \    std::cerr << ']';\n}\n\ntemplate <typename T>\nvoid debug(const std::vector<T>\
+    \ &v) {\n    std::cerr << '[';\n    for (std::size_t i = 0; i < v.size(); ++i)\
+    \ {\n        debug(v[i]);\n        if (i + 1 != v.size()) {\n            std::cerr\
+    \ << \", \";\n        }\n    }\n    std::cerr << ']';\n}\n\ntemplate <typename\
+    \ T, typename Container, typename Comp>\nvoid debug(std::priority_queue<T, Container,\
+    \ Comp> que) {\n    std::cerr << '[';\n    while (!que.empty()) {\n        T ele\
+    \ = que.top();\n        que.pop();\n        debug(ele);\n        if (!que.empty())\
+    \ {\n            std::cerr << ' ';\n        }\n    }\n    std::cerr << ']';\n\
+    }\n\ntemplate <typename T>\nvoid debug(std::stack<T> sta) {\n    std::cerr <<\
+    \ '[';\n    while (!sta.empty()) {\n        T ele = sta.top();\n        sta.pop();\n\
+    \        debug(ele);\n        if (!sta.empty()) {\n            std::cerr << '\
     \ ';\n        }\n    }\n    std::cerr << ']';\n}\n\ntemplate <typename T>\nvoid\
-    \ debug(std::stack<T> sta) {\n    std::cerr << '[';\n    while (!sta.empty())\
-    \ {\n        T ele = sta.top();\n        sta.pop();\n        debug(ele);\n   \
-    \     if (!sta.empty()) {\n            std::cerr << ' ';\n        }\n    }\n \
-    \   std::cerr << ']';\n}\n\ntemplate <typename T>\nvoid debug(std::deque<T> dq)\
-    \ {\n    std::cerr << '[';\n    while (!dq.empty()) {\n        T ele = dq.front();\n\
-    \        dq.pop_front();\n        debug(ele);\n        if (!dq.empty()) {\n  \
-    \          std::cerr << ' ';\n        }\n    }\n    std::cerr << ']';\n}\n\n#define\
-    \ DBG(x)                   \\\n    do {                         \\\n        std::cerr\
-    \ << #x << \": \"; \\\n        debug(x);                \\\n        std::cerr\
-    \ << std::endl;  \\\n    } while (false)\n"
+    \ debug(std::deque<T> dq) {\n    std::cerr << '[';\n    while (!dq.empty()) {\n\
+    \        T ele = dq.front();\n        dq.pop_front();\n        debug(ele);\n \
+    \       if (!dq.empty()) {\n            std::cerr << ' ';\n        }\n    }\n\
+    \    std::cerr << ']';\n}\n\n#define DBG(x)                   \\\n    do {   \
+    \                      \\\n        std::cerr << #x << \": \"; \\\n        debug(x);\
+    \                \\\n        std::cerr << std::endl;  \\\n    } while (false)\n"
   code: "#pragma once\n\n#include <array>\n#include <deque>\n#include <iostream>\n\
     #include <map>\n#include <queue>\n#include <set>\n#include <stack>\n#include <type_traits>\n\
     #include <utility>\n#include <vector>\n#include <tuple>\n\n#include \"../number_theory/mod_int.hpp\"\
@@ -187,7 +188,7 @@ data:
   isVerificationFile: false
   path: template/debug.hpp
   requiredBy: []
-  timestamp: '2022-07-30 11:55:56+09:00'
+  timestamp: '2023-05-04 19:50:45+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: template/debug.hpp

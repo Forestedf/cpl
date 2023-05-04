@@ -95,7 +95,8 @@ data:
     \    }\n}\n#line 8 \"number_theory/mod_int.hpp\"\n\ntemplate <unsigned mod>\n\
     class ModInt {\n    static_assert(mod != 0, \"`mod` must not be equal to 0.\"\
     );\n    static_assert(\n        mod < (1u << 31),\n        \"`mod` must be less\
-    \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    constexpr\
+    \ than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\npublic:\n    static\
+    \ constexpr unsigned get_mod() {\n        return mod;\n    }\n    \n    constexpr\
     \ ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
     \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
@@ -125,16 +126,17 @@ data:
     \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
     \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
-    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
-    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
-    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
-    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
-    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
-    \ mod1000000007 = 1000000007;\n\n#line 2 \"template/bitop.hpp\"\n\ntemplate <typename\
-    \ T, typename U>\nbool ith_bit(T n, U i) {\n    return (n & ((T) 1 << i)) != 0;\n\
-    }\n\nint popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
+    \ &is, ModInt<mod> &x) {\n        long long val;\n        is >> val;\n       \
+    \ x.val = val % mod + (val < 0 ? mod : 0);\n        return is;\n    }\n\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt<mod> &x) {\n       \
+    \ os << x.val;\n        return os;\n    }\n\n    friend bool operator==(const\
+    \ ModInt &lhs, const ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n\
+    \    \n    friend bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n  \
+    \      return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned\
+    \ mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007\
+    \ = 1000000007;\n\n#line 2 \"template/bitop.hpp\"\n\ntemplate <typename T, typename\
+    \ U>\nbool ith_bit(T n, U i) {\n    return (n & ((T) 1 << i)) != 0;\n}\n\nint\
+    \ popcount(int x) {\n    return __builtin_popcount(x);\n}\nunsigned popcount(unsigned\
     \ x) {\n    return __builtin_popcount(x);\n}\nlong long popcount(long long x)\
     \ {\n    return __builtin_popcountll(x);\n}\nunsigned long long popcount(unsigned\
     \ long long x) {\n    return __builtin_popcountll(x);\n}\n\n// x must not be 0\n\
@@ -281,7 +283,7 @@ data:
   isVerificationFile: true
   path: polynomial/test/log_of_formal_power_series.test.cpp
   requiredBy: []
-  timestamp: '2022-08-25 20:03:29+09:00'
+  timestamp: '2023-05-04 19:50:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: polynomial/test/log_of_formal_power_series.test.cpp

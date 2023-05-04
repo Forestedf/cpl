@@ -156,7 +156,8 @@ data:
     \ <unsigned mod>\nclass ModInt {\n    static_assert(mod != 0, \"`mod` must not\
     \ be equal to 0.\");\n    static_assert(\n        mod < (1u << 31),\n        \"\
     `mod` must be less than (1u << 31) = 2147483648.\");\n\n    unsigned val;\n\n\
-    public:\n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
+    public:\n    static constexpr unsigned get_mod() {\n        return mod;\n    }\n\
+    \    \n    constexpr ModInt() : val(0) {}\n    template <typename T, std::enable_if_t<std::is_signed_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) ((long long) x % (long\
     \ long) mod + (x < 0 ? mod : 0))) {}\n    template <typename T, std::enable_if_t<std::is_unsigned_v<T>>\
     \ * = nullptr>\n    constexpr ModInt(T x) : val((unsigned) (x % mod)) {}\n\n \
@@ -185,31 +186,32 @@ data:
     \    }\n    constexpr ModInt inv() const {\n        static_assert(is_prime(mod),\
     \ \"`mod` must be a prime number.\");\n        assert(val != 0);\n        return\
     \ this->pow(mod - 2);\n    }\n\n    friend std::istream &operator>>(std::istream\
-    \ &is, ModInt<mod> &x) {\n        is >> x.val;\n        x.val %= mod;\n      \
-    \  return is;\n    }\n\n    friend std::ostream &operator<<(std::ostream &os,\
-    \ const ModInt<mod> &x) {\n        os << x.val;\n        return os;\n    }\n\n\
-    \    friend bool operator==(const ModInt &lhs, const ModInt &rhs) {\n        return\
-    \ lhs.val == rhs.val;\n    }\n    \n    friend bool operator!=(const ModInt &lhs,\
-    \ const ModInt &rhs) {\n        return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]]\
-    \ constexpr unsigned mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned\
-    \ mod1000000007 = 1000000007;\n\n#line 2 \"other/xorshift.hpp\"\n\nclass XorShift64\
-    \ {\n    unsigned long long x;\n    \npublic:\n    XorShift64(unsigned long long\
-    \ seed) : x((seed + 14213124131ull) ^ 103920984124ull) {}\n    \n    unsigned\
-    \ long long operator()() {\n        x = x ^ (x << 13);\n        x = x ^ (x >>\
-    \ 7);\n        x = x ^ (x << 17);\n        return x;\n    }\n    \n    template\
-    \ <typename T>\n    T uniform(T mn, T mx) {\n        return mn + (T) ((*this)()\
-    \ % (mx - mn + 1));\n    }\n    \n    double as_f64() {\n        return (double)\
-    \ (*this)() / ~0ull;\n    }\n};\n#line 10 \"convolution/test/subset_convolution_exp_log.test.cpp\"\
-    \n\nconstexpr u32 MOD = 998244353;\nusing Mint = ModInt<MOD>;\n\nvoid test1(const\
-    \ Vec<Mint> &a) {\n    Vec<Mint> exp_a = subset_convolution_exp(a);\n    Vec<Mint>\
-    \ log_exp_a = subset_convolution_log(exp_a);\n    assert(a == log_exp_a);\n}\n\
-    \nvoid test2(const Vec<Mint> &a) {\n    Vec<Mint> log_a = subset_convolution_log(a);\n\
-    \    Vec<Mint> exp_log_a = subset_convolution_exp(log_a);\n    assert(a == exp_log_a);\n\
-    }\n\nint main() {\n    constexpr u64 SEED = 1309420975327ull;\n    XorShift64\
-    \ rd(SEED);\n    \n    REP(iter, 5) {\n        i32 n = rd.uniform(1, 16);\n  \
-    \      Vec<Mint> a(1 << n);\n        REP(i, 1, 1 << n) {\n            a[i] = rd.uniform(0u,\
-    \ MOD - 1u);\n        }\n        test1(a);\n    }\n    REP(iter, 5) {\n      \
-    \  i32 n = rd.uniform(1, 16);\n        Vec<Mint> a(1 << n);\n        a[0] = Mint(1);\n\
+    \ &is, ModInt<mod> &x) {\n        long long val;\n        is >> val;\n       \
+    \ x.val = val % mod + (val < 0 ? mod : 0);\n        return is;\n    }\n\n    friend\
+    \ std::ostream &operator<<(std::ostream &os, const ModInt<mod> &x) {\n       \
+    \ os << x.val;\n        return os;\n    }\n\n    friend bool operator==(const\
+    \ ModInt &lhs, const ModInt &rhs) {\n        return lhs.val == rhs.val;\n    }\n\
+    \    \n    friend bool operator!=(const ModInt &lhs, const ModInt &rhs) {\n  \
+    \      return lhs.val != rhs.val;\n    }\n};\n\n[[maybe_unused]] constexpr unsigned\
+    \ mod998244353 = 998244353;\n[[maybe_unused]] constexpr unsigned mod1000000007\
+    \ = 1000000007;\n\n#line 2 \"other/xorshift.hpp\"\n\nclass XorShift64 {\n    unsigned\
+    \ long long x;\n    \npublic:\n    XorShift64(unsigned long long seed) : x((seed\
+    \ + 14213124131ull) ^ 103920984124ull) {}\n    \n    unsigned long long operator()()\
+    \ {\n        x = x ^ (x << 13);\n        x = x ^ (x >> 7);\n        x = x ^ (x\
+    \ << 17);\n        return x;\n    }\n    \n    template <typename T>\n    T uniform(T\
+    \ mn, T mx) {\n        return mn + (T) ((*this)() % (mx - mn + 1));\n    }\n \
+    \   \n    double as_f64() {\n        return (double) (*this)() / ~0ull;\n    }\n\
+    };\n#line 10 \"convolution/test/subset_convolution_exp_log.test.cpp\"\n\nconstexpr\
+    \ u32 MOD = 998244353;\nusing Mint = ModInt<MOD>;\n\nvoid test1(const Vec<Mint>\
+    \ &a) {\n    Vec<Mint> exp_a = subset_convolution_exp(a);\n    Vec<Mint> log_exp_a\
+    \ = subset_convolution_log(exp_a);\n    assert(a == log_exp_a);\n}\n\nvoid test2(const\
+    \ Vec<Mint> &a) {\n    Vec<Mint> log_a = subset_convolution_log(a);\n    Vec<Mint>\
+    \ exp_log_a = subset_convolution_exp(log_a);\n    assert(a == exp_log_a);\n}\n\
+    \nint main() {\n    constexpr u64 SEED = 1309420975327ull;\n    XorShift64 rd(SEED);\n\
+    \    \n    REP(iter, 5) {\n        i32 n = rd.uniform(1, 16);\n        Vec<Mint>\
+    \ a(1 << n);\n        REP(i, 1, 1 << n) {\n            a[i] = rd.uniform(0u, MOD\
+    \ - 1u);\n        }\n        test1(a);\n    }\n    REP(iter, 5) {\n        i32\
+    \ n = rd.uniform(1, 16);\n        Vec<Mint> a(1 << n);\n        a[0] = Mint(1);\n\
     \        REP(i, 1, 1 << n) {\n            a[i] = rd.uniform(0u, MOD - 1u);\n \
     \       }\n        test2(a);\n    }\n    \n    cout << \"Hello World\\n\";\n}\n"
   code: "#define PROBLEM \"https://onlinejudge.u-aizu.ac.jp/courses/lesson/2/ITP1/1/ITP1_1_A\"\
@@ -240,7 +242,7 @@ data:
   isVerificationFile: true
   path: convolution/test/subset_convolution_exp_log.test.cpp
   requiredBy: []
-  timestamp: '2023-05-04 19:49:25+09:00'
+  timestamp: '2023-05-04 19:50:45+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: convolution/test/subset_convolution_exp_log.test.cpp
